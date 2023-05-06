@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Optional;
+import java.util.Set;
 
 public class User {
 
@@ -20,6 +21,16 @@ public class User {
     }
     public String getPassword() {
         return null;
+    }
+    public void setRoles(Set<Role> singleton) {
+    }
+    public void setName(String name2) {
+    }
+    public void setEmail(String email2) {
+    }
+    public void setPassword(String encode) {
+    }
+    public void setUsername(String username2) {
     }
 
 }
