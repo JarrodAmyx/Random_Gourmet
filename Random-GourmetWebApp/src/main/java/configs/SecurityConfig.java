@@ -1,12 +1,15 @@
-package Configs;
+package configs;
+
+import org.springframework.context.annotation.Configuration;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    
+    /* 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
+        ((Object) http
+            .authorizeRequests())
                 .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -25,5 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .password("{noop}password")
             .roles("USER");
     }
+    */
 }
 
