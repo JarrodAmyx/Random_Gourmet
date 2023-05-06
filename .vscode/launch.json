@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RandomGourmetWebAppApplication<Random-GourmetWebApp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.Random.GourmetWebApp.RandomGourmetWebAppApplication",
+            "projectName": "Random-GourmetWebApp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
