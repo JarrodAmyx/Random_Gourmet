@@ -1,19 +1,31 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import org.mindrot.jbcrypt.BCrypt;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import java.util.List;
-import java.util.ArrayList;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpSession;
+
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import com.example.demo.models.User;
+
+
+
+
 
 public class User {
     private String id;
@@ -22,6 +34,14 @@ public class User {
     private String password;
     private ArrayList<String> ingredients;
     private ArrayList<String> favorites;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    private HttpSession session;
 
     public User(String id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
         this.id = id;
@@ -32,72 +52,123 @@ public class User {
         this.favorites = favorites;
     }
 
-  public Optional<User> getRoles() {
-    return null;
-  }
+    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
+        this.email = email;
+        this.username = username;
+        this.password = hashedPassword;
+        this.ingredients = ingredients;
+        this.favorites = favorites;
+    }
 
-  // getters and setters for username, password, ingredients, and favorites
-  @Autowired
-  private MongoTemplate mongoTemplate;
+    // getters and setters for id, email, username, password, ingredients, and favorites
 
-  public User createUser(String email, String username, String password) {
-    // Generate a unique ID for the user
-    ObjectId id = new ObjectId();
+    public User createUser(String email, String username, String password) {
+        // Check if the email and username are already taken
+        if (userRepository.findByEmail(email) != null || userRepository.findByUsername(username) != null) {
+            throw new IllegalArgumentException("User with that email or username already exists");
+        }
 
-    // Create a new user object with the specified fields
-    User user = new User(id.toHexString(), email, username, hashPassword(password), new ArrayList<String>(), new ArrayList<String>());
+        // Generate a unique ID for the user
+        ObjectId id = new ObjectId();
 
-    // Save the user object to the database
-    mongoTemplate.save(user);
+        // Create a new user object with the specified fields
+        User user = new User(id.toHexString(), email, username, hashPassword(password), new ArrayList<String>(), new ArrayList<String>());
 
-    return user;
-}
+        // Save the user object to the database
+        mongoTemplate.save(user);
 
-  public void setPassword(String password) {
-    String hashedPassword = hashPassword(password);
-    this.password = hashedPassword;
-  }
+        return user;
+    }
 
-  public String getPassword() {
-    return password;
-}
+    public void setPassword(String password) {
+        String hashedPassword = hashPassword(password);
+        this.password = hashedPassword;
+    }
 
-public String getEmail() {
-    return email;
-}
+    public String getPassword() {
+        return password;
+    }
 
-public void setRoles(Set<Role> singleton) {
-}
+    public String getEmail() {
+        return email;
+    }
 
-  private String hashPassword(String password) {
-      String salt = BCrypt.gensalt(12);
-      String hashedPassword = BCrypt.hashpw(password, salt);
-      return hashedPassword;
-  }
+    public void setSession(HttpSession session) {
+        this.session = session;
+    }
 
-  public void addIngredient(String ingredient) {
-    this.ingredients.add(ingredient);
-  }
+    private String hashPassword(String password) {
+        String salt = BCrypt.gensalt(12);
+        String hashedPassword = BCrypt.hashpw(password, salt);
+        return hashedPassword;
+    }
 
-  public void removeIngredient(String ingredient) {
-      this.ingredients.remove(ingredient);
-  }
+    public void addIngredient(String ingredient) {
+        this.ingredients.add(ingredient);
+    }
 
-  public List<String> getIngredients() {
-      return this.ingredients;
-  }
+    public void removeIngredient(String ingredient) {
+        this.ingredients.remove(ingredient);
+    }
 
-  public void addFavorite(String itemId) {
-      this.favorites.add(itemId);
-  }
+    public List<String> getIngredients() {
+        return this.ingredients;
+    }
 
-  public void removeFavorite(String itemId) {
-      this.favorites.remove(itemId);
-  }
+    public void addFavorite(String itemId) {
+        this.favorites.add(itemId);
+    }
+
+    public void removeFavorite(String itemId) {
+        this.favorites.remove(itemId);
+    }
 
   public List<String> getFavorites() {
       return this.favorites;
   }
+
+  public void updateEmail(String newEmail) {
+    // Check if a user with the new email already exists
+    User existingUser = userRepository.findByEmail(newEmail);
+    if (existingUser != null) {
+        throw new IllegalArgumentException("A user with that email already exists.");
+    }
+
+    // Update the email field and save the changes to the database
+    this.email = newEmail;
+    mongoTemplate.save(this);
+}
+
+public void updateUsername(String newUsername) {
+    // Check if a user with the new username already exists
+    User existingUser = userRepository.findByUsername(newUsername);
+    if (existingUser != null) {
+        throw new IllegalArgumentException("A user with that username already exists.");
+    }
+
+    // Update the username field and save the changes to the database
+    this.username = newUsername;
+    mongoTemplate.save(this);
+}
+
+public void updatePassword(String newPassword) {
+    // Hash the new password and save the changes to the database
+    this.password = hashPassword(newPassword);
+    mongoTemplate.save(this);
+}
+
+public List<Document> getFavoriteItems() {
+    List<Document> favoriteItems = new ArrayList<>();
+    for (String itemId : favorites) {
+        // Query the database for the item with the given ID
+        Query query = new Query(Criteria.where("id").is(itemId));
+        Document item = mongoTemplate.findOne(query, Document.class, "items");
+        if (item != null) {
+            favoriteItems.add(item);
+        }
+    }
+    return favoriteItems;
+}
 
   public interface UserRepository extends MongoRepository<User, String> {
     User findByEmail(String email);
