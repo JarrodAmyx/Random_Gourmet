@@ -27,12 +27,12 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 public class User {
-    private String id;
+    private long id;
     private String email;
     private String username;
     private String password;
-    private ArrayList<String> ingredients;
-    private ArrayList<String> favorites;
+    private ArrayList<String> ingredients; // Could be changed to contain ingredent ids instead of the ingredient strings
+    private ArrayList<long> favorites; // store id of favorite items
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -42,7 +42,7 @@ public class User {
 
     private HttpSession session;
 
-    public User(String id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
+    public User(String id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<long> favorites) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -51,7 +51,7 @@ public class User {
         this.favorites = favorites;
     }
 
-    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
+    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<long> favorites) {
         this.email = email;
         this.username = username;
         this.password = hashedPassword;
@@ -77,6 +77,14 @@ public class User {
         mongoTemplate.save(user);
 
         return user;
+    }
+
+    public void setUsername(String username2) {
+        this.username = username2;
+    }
+
+    public void setEmail(String email2) {
+        this.email = email2;
     }
 
     public void setPassword(String password) {
@@ -114,7 +122,7 @@ public class User {
         return this.ingredients;
     }
 
-    public void addFavorite(String itemId) {
+    public void addFavorite(long itemId) {
         this.favorites.add(itemId);
     }
 
@@ -122,7 +130,7 @@ public class User {
         this.favorites.remove(itemId);
     }
 
-  public List<String> getFavorites() {
+  public List<long> getFavorites() {
       return this.favorites;
   }
 
@@ -158,7 +166,7 @@ public void updatePassword(String newPassword) {
 
 public List<Document> getFavoriteItems() {
     List<Document> favoriteItems = new ArrayList<>();
-    for (String itemId : favorites) {
+    for (long itemId : favorites) {
         // Query the database for the item with the given ID
         Query query = new Query(Criteria.where("id").is(itemId));
         Document item = mongoTemplate.findOne(query, Document.class, "items");
@@ -204,16 +212,14 @@ public List<Document> getFavoriteItems() {
     return true;
   }
 
+
 public Optional<User> getRoles() {
     return null;
 }
+
 
 public void setUsername(String username2) {
 }
 
 public void setEmail(String email2) {
-}
-
-public void setRoles(Set<Role> singleton) {
-}
 }
