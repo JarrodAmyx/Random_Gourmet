@@ -80,6 +80,14 @@ public class User {
         return user;
     }
 
+    public void setUsername(String username2) {
+        this.username = username2;
+    }
+
+    public void setEmail(String email2) {
+        this.email = email2;
+    }
+
     public void setPassword(String password) {
         String hashedPassword = hashPassword(password);
         this.password = hashedPassword;
@@ -204,4 +212,16 @@ public List<Document> getFavoriteItems() {
     }
     return true;
   }
+<<<<<<< Updated upstream
+=======
+
+public Optional<User> getRoles() {
+    return null;
+}
+
+
+
+public void setRoles(Set<Role> singleton) {
+}
+>>>>>>> Stashed changes
 }
