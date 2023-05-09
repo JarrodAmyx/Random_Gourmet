@@ -27,12 +27,12 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 public class User {
-    private Long id;
+    private String id;
     private String email;
     private String username;
     private String password;
     private ArrayList<String> ingredients; // Could be changed to contain ingredent ids instead of the ingredient strings
-    private ArrayList<Long> favorites; // store id of favorite items
+    private ArrayList<String> favorites; // store id of favorite items
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -42,7 +42,7 @@ public class User {
 
     private HttpSession session;
 
-    public User(Long id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<Long> favorites) {
+    public User(String id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -51,7 +51,7 @@ public class User {
         this.favorites = favorites;
     }
 
-    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<Long> favorites) {
+    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
         this.email = email;
         this.username = username;
         this.password = hashedPassword;
@@ -71,7 +71,7 @@ public class User {
         ObjectId id = new ObjectId();
 
         // Create a new user object with the specified fields
-        User user = new User(id, email, username, hashPassword(password), new ArrayList<String>(), new ArrayList<Long>());
+        User user = new User(id.toHexString(), email, username, hashPassword(password), new ArrayList<String>(), new ArrayList<String>());
 
         // Save the user object to the database
         mongoTemplate.save(user);
@@ -122,15 +122,15 @@ public class User {
         return this.ingredients;
     }
 
-    public void addFavorite(long itemId) {
+    public void addFavorite(String itemId) {
         this.favorites.add(itemId);
     }
 
-    public void removeFavorite(Long itemId) {
+    public void removeFavorite(String itemId) {
         this.favorites.remove(itemId);
     }
 
-  public List<Long> getFavorites() {
+  public List<String> getFavorites() {
       return this.favorites;
   }
 
@@ -166,7 +166,7 @@ public void updatePassword(String newPassword) {
 
 public List<Document> getFavoriteItems() {
     List<Document> favoriteItems = new ArrayList<>();
-    for (long itemId : favorites) {
+    for (String itemId : favorites) {
         // Query the database for the item with the given ID
         Query query = new Query(Criteria.where("id").is(itemId));
         Document item = mongoTemplate.findOne(query, Document.class, "items");
