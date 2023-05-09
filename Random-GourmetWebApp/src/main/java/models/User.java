@@ -31,7 +31,7 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private ArrayList<String> ingredients; // Could be changed to contain ingredent ids instead of the ingredient strings
+    private ArrayList<String> pantry; // Could be changed to contain ingredent ids instead of the ingredient strings
     private ArrayList<String> favorites; // store id of favorite items
 
     @Autowired
@@ -42,24 +42,24 @@ public class User {
 
     private HttpSession session;
 
-    public User(String id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
+    public User(String id, String email, String username, String hashedPassword, ArrayList<String> pantry, ArrayList<String> favorites) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = hashedPassword;
-        this.ingredients = ingredients;
+        this.pantry = pantry;
         this.favorites = favorites;
     }
 
-    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<String> favorites) {
+    public User(String email, String username, String hashedPassword, ArrayList<String> pantry, ArrayList<String> favorites) {
         this.email = email;
         this.username = username;
         this.password = hashedPassword;
-        this.ingredients = ingredients;
+        this.pantry = pantry;
         this.favorites = favorites;
     }
 
-    // getters and setters for id, email, username, password, ingredients, and favorites
+    // getters and setters for id, email, username, password, pantry, and favorites
 
     public User createUser(String email, String username, String password) {
         // Check if the email and username are already taken
@@ -111,15 +111,15 @@ public class User {
     }
 
     public void addIngredient(String ingredient) {
-        this.ingredients.add(ingredient);
+        this.pantry.add(ingredient);
     }
 
     public void removeIngredient(String ingredient) {
-        this.ingredients.remove(ingredient);
+        this.pantry.remove(ingredient);
     }
 
-    public List<String> getIngredients() {
-        return this.ingredients;
+    public List<String> getpantry() {
+        return this.pantry;
     }
 
     public void addFavorite(String itemId) {
