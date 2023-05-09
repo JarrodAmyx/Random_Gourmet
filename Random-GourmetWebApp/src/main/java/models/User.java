@@ -27,12 +27,12 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 public class User {
-    private long id;
+    private Long id;
     private String email;
     private String username;
     private String password;
     private ArrayList<String> ingredients; // Could be changed to contain ingredent ids instead of the ingredient strings
-    private ArrayList<long> favorites; // store id of favorite items
+    private ArrayList<Long> favorites; // store id of favorite items
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -42,7 +42,7 @@ public class User {
 
     private HttpSession session;
 
-    public User(String id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<long> favorites) {
+    public User(Long id, String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<Long> favorites) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -51,7 +51,7 @@ public class User {
         this.favorites = favorites;
     }
 
-    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<long> favorites) {
+    public User(String email, String username, String hashedPassword, ArrayList<String> ingredients, ArrayList<Long> favorites) {
         this.email = email;
         this.username = username;
         this.password = hashedPassword;
@@ -71,7 +71,7 @@ public class User {
         ObjectId id = new ObjectId();
 
         // Create a new user object with the specified fields
-        User user = new User(id.toHexString(), email, username, hashPassword(password), new ArrayList<String>(), new ArrayList<String>());
+        User user = new User(id, email, username, hashPassword(password), new ArrayList<String>(), new ArrayList<Long>());
 
         // Save the user object to the database
         mongoTemplate.save(user);
@@ -126,11 +126,11 @@ public class User {
         this.favorites.add(itemId);
     }
 
-    public void removeFavorite(String itemId) {
+    public void removeFavorite(Long itemId) {
         this.favorites.remove(itemId);
     }
 
-  public List<long> getFavorites() {
+  public List<Long> getFavorites() {
       return this.favorites;
   }
 
@@ -211,15 +211,4 @@ public List<Document> getFavoriteItems() {
     }
     return true;
   }
-
-
-public Optional<User> getRoles() {
-    return null;
-}
-
-
-public void setUsername(String username2) {
-}
-
-public void setEmail(String email2) {
 }
