@@ -208,13 +208,6 @@ public Optional<User> getRoles() {
     return null;
 }
 
-public String getName() {
-    return null;
-}
-
-public void setName(String name) {
-}
-
 public void setUsername(String username2) {
 }
 
