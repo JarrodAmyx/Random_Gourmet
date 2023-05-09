@@ -51,14 +51,6 @@ public class User {
         this.favorites = favorites;
     }
 
-    public User(String email, String username, String hashedPassword, ArrayList<String> pantry, ArrayList<String> favorites) {
-        this.email = email;
-        this.username = username;
-        this.password = hashedPassword;
-        this.pantry = pantry;
-        this.favorites = favorites;
-    }
-
     // getters and setters for id, email, username, password, pantry, and favorites
 
     public User createUser(String email, String username, String password) {
