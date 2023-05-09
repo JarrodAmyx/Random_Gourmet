@@ -69,4 +69,6 @@ public class WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider(userDetailsService(), passwordEncoder())); // Set the authentication provider
         return auth.build();
     }
+
+    
 }

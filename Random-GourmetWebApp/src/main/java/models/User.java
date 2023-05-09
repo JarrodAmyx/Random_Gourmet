@@ -21,7 +21,6 @@ import com.mongodb.client.MongoDatabase;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.example.demo.models.User;
 
 
 
@@ -212,16 +211,15 @@ public List<Document> getFavoriteItems() {
     }
     return true;
   }
-<<<<<<< Updated upstream
-=======
+
 
 public Optional<User> getRoles() {
     return null;
 }
 
 
-
-public void setRoles(Set<Role> singleton) {
+public void setUsername(String username2) {
 }
->>>>>>> Stashed changes
+
+public void setEmail(String email2) {
 }
