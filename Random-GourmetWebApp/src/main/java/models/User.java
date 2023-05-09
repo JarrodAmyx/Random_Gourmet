@@ -126,7 +126,7 @@ public class User {
       return this.favorites;
   }
 
-  public void updateEmail(String newEmail) {
+  public void setEmail(String newEmail) {
     // Check if a user with the new email already exists
     User existingUser = userRepository.findByEmail(newEmail);
     if (existingUser != null) {
@@ -138,7 +138,7 @@ public class User {
     mongoTemplate.save(this);
 }
 
-public void updateUsername(String newUsername) {
+public void setUsername(String newUsername) {
     // Check if a user with the new username already exists
     User existingUser = userRepository.findByUsername(newUsername);
     if (existingUser != null) {
@@ -203,17 +203,4 @@ public List<Document> getFavoriteItems() {
     }
     return true;
   }
-
-public Optional<User> getRoles() {
-    return null;
-}
-
-public void setUsername(String username2) {
-}
-
-public void setEmail(String email2) {
-}
-
-public void setRoles(Set<Role> singleton) {
-}
 }
