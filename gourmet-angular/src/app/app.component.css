@@ -41,19 +41,6 @@ p {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Style the sidebar */
-.sidebar {
-  flex: 0 0 250px; /* Set the width of the sidebar */
-  background-color: #EBA937; /* Sidebar background color */
-  color: #fff; /* Text color */
-  padding: 200px; /* Padding inside the sidebar */
-  position: fixed;
-  top: 60px;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-}
-
 /* Style the main content */
 .content {
   flex: 1; /* Expand to fill available space */
@@ -71,7 +58,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: red;
+  background-color: #ffffff;
   margin-top: 16px;
 }
 

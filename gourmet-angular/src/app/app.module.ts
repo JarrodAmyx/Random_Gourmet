@@ -10,13 +10,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginDialogComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component
     MatCardModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
