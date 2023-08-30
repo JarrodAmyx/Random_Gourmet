@@ -1,0 +1,39 @@
+/* Style the sidebar */
+.sidebar {
+  width: 300px; /* Set the width of the sidebar */
+  background-color: #EBA937; /* Sidebar background color */
+  color: #000000; /* Text color */
+  padding-top: 100px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.sidebar-card {
+  width: 95%; /* Adjust card's width to be 100% of the sidebar's width */
+  margin: auto; /* Center horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: auto; /* Allow the height to be determined by the content */
+  background-color: #fafafa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  color: black;
+  background-color: var(--button-color, offwhite); /* Use the color property */
+  cursor: pointer;
+  border-radius: 5px; /* Round the edges */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Give a slightly raised appearance */
+}
+
+.sidebar-button.selected {
+  background-color: lightgreen; /* Change color when selected */
+}
