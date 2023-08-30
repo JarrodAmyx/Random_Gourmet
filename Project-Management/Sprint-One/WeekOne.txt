@@ -1,0 +1,9 @@
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+Joakim:
+1. Upload Front-End files I've worked on separately over the summer.
+   Discuss next steps with everyone to coordinate what we're all working on.
+2. Start working on Login Logic and Authentication.
+3. I need a user database to fully develop the authentication.
