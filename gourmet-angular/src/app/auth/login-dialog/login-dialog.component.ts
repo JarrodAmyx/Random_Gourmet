@@ -1,9 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-<<<<<<< Updated upstream:gourmet-angular/src/app/login-dialog/login-dialog.component.ts
-=======
 import { AuthService } from '@app/auth/auth.service';
->>>>>>> Stashed changes:gourmet-angular/src/app/auth/login-dialog/login-dialog.component.ts
 
 @Component({
   selector: 'app-login-dialog',
@@ -13,15 +10,24 @@ import { AuthService } from '@app/auth/auth.service';
 export class LoginDialogComponent {
   username: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   constructor(
+    private authService: AuthService,
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onSubmit(): void {
-    // You can implement your login logic here
-    // For now, let's just close the dialog
-    this.dialogRef.close();
+    const isAuthenticated = this.authService.authenticate(this.username, this.password);
+
+    if (isAuthenticated) {
+      // Successful login, navigate to another page
+      // You can use Angular's Router for navigation
+      this.errorMessage = '';
+      console.log('Login successful');
+    } else {
+      this.errorMessage = 'Invalid credentials';
+    }
   }
 }

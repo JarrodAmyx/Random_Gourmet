@@ -12,12 +12,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
