@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AuthService } from '@app/auth/auth.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -13,15 +12,13 @@ export class LoginDialogComponent {
   errorMessage: string = '';
 
   constructor(
-    private authService: AuthService,
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onSubmit(): void {
-    const isAuthenticated = this.authService.authenticate(this.username, this.password);
-
-    if (isAuthenticated) {
+    // Simulate authentication logic (replace with actual logic)
+    if (this.username === 'exampleUser' && this.password === 'examplePassword') {
       // Successful login, navigate to another page
       // You can use Angular's Router for navigation
       this.errorMessage = '';

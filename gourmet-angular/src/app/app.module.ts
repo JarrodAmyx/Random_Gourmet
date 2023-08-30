@@ -13,8 +13,8 @@ import {MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginDialogComponent } from '@app/auth/login-dialog/login-dialog.component';
-import { SidebarComponent } from '@app/sidebar/sidebar.component';
+import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
