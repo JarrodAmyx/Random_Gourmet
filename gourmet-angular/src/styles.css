@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+  font-family: "Hercules";
+  src: url("./assets/Hercules.ttf");
+}
+
+.logo {
+  background: none;
+  border: none;
+  padding-left: 40px;
+  font-family: Hercules;
+  font-size: 26px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Styles to make the button look like plain text */
+.text-button {
+  background: none;
+  border: none;
+  padding-right: 15px;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline; /* Optional: Add underline to make it visually distinct */
+}
+
+.bottom-text-button {
+  position: absolute;
+  bottom: 5px;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline; /* Optional: Add underline to make it visually distinct */
+  /* Add other styling properties for the button */
+}
+
+body {
+  background-color: #FEFFEC;
+}

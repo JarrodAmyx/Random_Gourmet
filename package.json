@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@angular/core": "^16.2.2",
+    "@angular/forms": "^16.2.2",
+    "@angular/material": "^16.2.1",
+    "@angular/router": "^16.2.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.4"
+  }
+}

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component'; // Path to your LoginDialogComponent
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'gourmet-angular';
+  title = 'FoodOvers';
+  constructor(public dialog: MatDialog) {}
+
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '30vw', // Adjust the width as needed
+      //height: '40vw',
+      panelClass: 'custom-dialog-container', // Apply a custom CSS class
+      data: {} // You can pass data to the dialog if needed
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed');
+    });
+  }
 }
