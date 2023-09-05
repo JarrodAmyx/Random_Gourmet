@@ -15,12 +15,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginDialogComponent,
-    SidebarComponent
+    SidebarComponent,
+    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
