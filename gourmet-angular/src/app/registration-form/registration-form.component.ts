@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class RegistrationFormComponent {
 
+  /*
+  user: User = {
+    username: '',
+    email: '',
+    password: ''
+  };
+
+
+  onSubmit() {
+    // Handle user registration here w mongoDb
+    console.log('User submitted:', this.user);
+
+  
+}*/
 }

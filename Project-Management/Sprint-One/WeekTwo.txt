@@ -1,0 +1,20 @@
+Week 2
+
+---
+
+Date
+
+Name:
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+Monday 9/4/2023
+
+Chelsea:
+1. I resolved git tracking issues and worked with the Angular CLI. 
+2. Today I initialized an angular component for the registration form and I'll be getting a page going for that. Working on RGV-23.
+3. I tested Angular CLI commands to get the localhost running + displaying properly to get started. No blockers currently. 
+
+---
