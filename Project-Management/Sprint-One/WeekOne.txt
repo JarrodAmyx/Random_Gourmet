@@ -11,7 +11,7 @@ Tuesday  8/29/23
 
 Joakim:
 1. Upload Front-End files I've worked on separately over the summer.
-   Discuss next steps with everyone to coordinate what we're all working on.
+   Discuss the next steps with everyone to coordinate what we're all working on.
 2. Start working on Login Logic and Authentication.
 3. I need a user database to fully develop the authentication.
 
@@ -33,4 +33,9 @@ application.java.
 or end up researching MongoDb db server implementations for testing.
 3. Blocker is Git acting up/not tracking local changes in my vscode ide.
 Note: Issue for commits in .txt file was that it was set to read-only permission
-ttest commits
+test commits
+
+Joakim:
+1. Started work on Login Logic and authentication.
+2. Continued work on Login Logic and authentication as well as some work on the front end (sidebar and registration pop-up).
+3. I need a user database to fully develop the authentication.
