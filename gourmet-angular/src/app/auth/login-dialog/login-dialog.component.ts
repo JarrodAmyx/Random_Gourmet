@@ -20,6 +20,7 @@ export class LoginDialogComponent {
   ) {}
 
   openRegistration(): void {
+    this.dialogRef.close();
     this.sharedService.openRegistration();
   }
 

@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Inject, Output, EventEmitter } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { SharedService } from '../../shared/shared.service';
 
@@ -13,11 +14,16 @@ export class RegistrationComponent {
   confirmPassword: string = '';
   email: string = '';
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    public dialogRef: MatDialogRef<RegistrationComponent>, // Correctly inject MatDialogRef here
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) {}
 
   @Output() registrationSubmit: EventEmitter<any> = new EventEmitter();
 
   openLoginDialog(): void {
+    this.dialogRef.close();
     this.sharedService.openLoginDialog();
   }
 
