@@ -25,6 +25,18 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.bottom-text-button {
+  position: absolute;
+  bottom: 5px;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline; /* Optional: Add underline to make it visually distinct */
+  /* Add other styling properties for the button */
+}
+
 /* Style the input field with a black underline */
 .mat-form-field-underline .mat-input-element {
   border: none; /* Remove default border */

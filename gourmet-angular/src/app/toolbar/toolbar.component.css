@@ -1,0 +1,29 @@
+.toolbar {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #EBA937;
+  color: black;
+  font-weight: 600;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Styles to make the button look like plain text */
+.text-button {
+  background: none;
+  border: none;
+  padding-right: 15px;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline; /* Optional: Add underline to make it visually distinct */
+}

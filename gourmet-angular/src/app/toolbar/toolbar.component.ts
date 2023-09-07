@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { SharedService } from './shared/shared.service';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-toolbar',
+  templateUrl: './toolbar.component.html',
+  styleUrls: ['./toolbar.component.css']
 })
-export class AppComponent {
-  title = 'FoodOvers';
+export class ToolbarComponent {
 
   constructor(private sharedService: SharedService) {}
 
