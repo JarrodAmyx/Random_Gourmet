@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+import { SharedService } from '../../shared/shared.service';
+
 @Component({
   selector: 'app-login-dialog',
   templateUrl: './login-dialog.component.html',
@@ -12,9 +14,15 @@ export class LoginDialogComponent {
   errorMessage: string = '';
 
   constructor(
+    private sharedService: SharedService,
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+
+  openRegistration(): void {
+    this.dialogRef.close();
+    this.sharedService.openRegistration();
+  }
 
   onSubmit(): void {
     // Simulate authentication logic (replace with actual logic)
