@@ -1,9 +1,41 @@
+Week 1
+
+---
+
 1. What did you do yesterday?
 2. What will you do today?
 3. What is blocking your progress?
 
+---
+Tuesday  8/29/23
+
 Joakim:
 1. Upload Front-End files I've worked on separately over the summer.
-   Discuss next steps with everyone to coordinate what we're all working on.
+   Discuss the next steps with everyone to coordinate what we're all working on.
 2. Start working on Login Logic and Authentication.
+3. I need a user database to fully develop the authentication.
+
+Chelsea:
+1. Yesterday I reviewed our Jira Backlog for tasks and past commits to refresh myself on what we last accomplished.
+2. Today I recloned my repo for a clean install from errors in our application.java but I still got red. 
+I started testing a new Spring directory with folders for each class which cleared up some errors from application.java. Today
+I'm mainly working on getting my development environment up to date so I can begin my Jira task on up to date + working branches. 
+3. No big blockers so far unless I get merge conflicts when committing the new Spring directory. I had issues with local changes appearing
+on all my new branches so had to run some git reset/clean cmds to fix issues. 
+
+---
+Wednesday  8/30/23
+
+Chelsea:
+1. Local changes weren't being tracked by Git and I ended up disabling a bunch of extensions which also removed the red from the 
+application.java.
+2. Today I'm going to restructure the directory and see if Git will track those changes. I might test a registration page for the frontend
+or end up researching MongoDb db server implementations for testing.
+3. Blocker is Git acting up/not tracking local changes in my vscode ide.
+Note: Issue for commits in .txt file was that it was set to read-only permission
+test commits
+
+Joakim:
+1. Started work on Login Logic and authentication.
+2. Continued work on Login Logic and authentication as well as some work on the front end (sidebar and registration pop-up).
 3. I need a user database to fully develop the authentication.
