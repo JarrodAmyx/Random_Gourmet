@@ -1,0 +1,27 @@
+Week 1
+
+---
+
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+Tuesday  9/5/23
+
+Chelsea:
+
+1. Tested running angular project + figuring out why certain component wouldnt appearing
+2. Initialized front end registration-form angular component + deciding how the user will
+ interact w it ex. as a popup after clicking a buttton
+3. Waiting for desktop code to be pushed so I can test the layout of a button + UI
+
+---
+Thursday  9/7/23
+
+Chelsea:
+
+1. Pushed code for registration form component 
+2. Today I read up on MongoDB and AWS network connectivity documentation to get the db going. I created a resource folder for mongodb scripts
+for resue and am working on getting that linked on the serverside so we can start testing recipes + user data. 
+3. Blocker is learning AWS + db functionality. 

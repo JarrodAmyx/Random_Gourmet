@@ -39,3 +39,9 @@ Joakim:
 1. Started work on Login Logic and authentication.
 2. Continued work on Login Logic and authentication as well as some work on the front end (sidebar and registration pop-up).
 3. I need a user database to fully develop the authentication.
+
+---
+Thursday  8/31/23
+1.Resolved git tracking issues
+2. Restructure Spring directory for models, services, dao etc
+3. Learning how to use AWS + connecting Java backend w server side
