@@ -16,6 +16,11 @@ Chelsea:
  interact w it ex. as a popup after clicking a buttton
 3. Waiting for desktop code to be pushed so I can test the layout of a button + UI
 
+Jarrod:
+1. Add mongodb to EC2 instance and test.
+2. Configure nginx server to point to newly created angular build. As well as fixing a bug in angular preventing the use of html templates.
+3. The blocker for this was the bug preventing html templates to display. After fixing this, the server was up and running well.
+
 ---
 Thursday  9/7/23
 
@@ -25,3 +30,8 @@ Chelsea:
 2. Today I read up on MongoDB and AWS network connectivity documentation to get the db going. I created a resource folder for mongodb scripts
 for resue and am working on getting that linked on the serverside so we can start testing recipes + user data. 
 3. Blocker is learning AWS + db functionality. 
+
+Jarrod:
+1. Configure nginx server to point to angular buld. Fix html templates not displaying in angular
+2. Look into recipe APIs for one that is java compatiable and works with our team's strategy
+3. The main blocker for this is finding APIs that have a resonable free option to choose from.
