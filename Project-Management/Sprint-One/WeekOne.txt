@@ -23,6 +23,11 @@ I'm mainly working on getting my development environment up to date so I can beg
 3. No big blockers so far unless I get merge conflicts when committing the new Spring directory. I had issues with local changes appearing
 on all my new branches so had to run some git reset/clean cmds to fix issues. 
 
+Jarrod:
+1. Setup AWS EC2 instance to have all the packages we need to run spring boot.
+2. Setup GitHub repository on EC2 instance and get nginx server running.
+3. Only blocker is needing to clear some server memory as some packages were taking to much up.
+
 ---
 Wednesday  8/30/23
 
@@ -40,8 +45,17 @@ Joakim:
 2. Continued work on Login Logic and authentication as well as some work on the front end (sidebar and registration pop-up).
 3. I need a user database to fully develop the authentication.
 
+Jarrod:
+1. Added Github to EC2 instance and started the nginx server.
+2. Add Angular to Springboot project and configure files
+3. The main blocker is a difference between how our team sets up angular compared to what is needed to work with Springboot.
+
 ---
 Thursday  8/31/23
 1.Resolved git tracking issues
 2. Restructure Spring directory for models, services, dao etc
 3. Learning how to use AWS + connecting Java backend w server side
+
+Jarrod:
+1. Added Angular to Springboot project.
+2. Setup mongoDb server on instance and test.
