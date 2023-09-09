@@ -35,3 +35,10 @@ Jarrod:
 1. Configure nginx server to point to angular buld. Fix html templates not displaying in angular
 2. Look into recipe APIs for one that is java compatiable and works with our team's strategy
 3. The main blocker for this is finding APIs that have a resonable free option to choose from.
+
+---
+Saturday  9/9/23
+
+Chelsea:
+
+1. 

@@ -1,0 +1,59 @@
+{
+    "_id": {
+      "type": "ObjectId"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "ingredients": [
+      {
+        "name": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        }
+      }
+    ],
+    "instructions": [
+      {
+        "type": "string"
+      }
+    ],
+    "prep_time": {
+      "type": "number"
+    },
+    "cook_time": {
+      "type": "number"
+    },
+    "total_time": {
+      "type": "number"
+    },
+    "servings": {
+      "type": "number"
+    },
+    "cuisine": {
+      "type": "string"
+    },
+    "dietary_restrictions": [
+      {
+        "type": "string"
+      }
+    ],
+    "tags": [
+      {
+        "type": "string"
+      }
+    ],
+    "created_at": {
+      "type": "Date"
+    },
+    "updated_at": {
+      "type": "Date"
+    }
+  }
+  
+  
