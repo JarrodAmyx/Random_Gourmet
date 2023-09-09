@@ -41,4 +41,9 @@ Saturday  9/9/23
 
 Chelsea:
 
-1. 
+1. Yesterday I worked on getting MongoDB connected to the AWs instance. 
+2. Today I'm creating schemas for our db tables (ingredients, recipes, users). I want to get the frontend to pop up so I can test
+a new registration form. 
+3. Blockers is learning mongodb + AWS connectivity. I'm still figuring out serverside communication. Running angular for the
+ frontend has been failing so need to research why certain components not appearing. Something with the compiler and going to test that by swithcing
+ out properties in tsconfig.app.json
