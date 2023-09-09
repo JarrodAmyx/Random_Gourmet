@@ -1,0 +1,33 @@
+{
+    "_id": {
+      "type": "ObjectId"
+    },
+    "username": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "skill_level": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "profile_picture": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "Date"
+    },
+    "updated_at": {
+      "type": "Date"
+    }
+  }
+  
