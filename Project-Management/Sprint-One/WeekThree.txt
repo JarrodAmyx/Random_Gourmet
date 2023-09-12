@@ -21,3 +21,8 @@ Joakim:
 1. Didn't work on this yesterday.
 2. Keep working on the Login and Registration Logic.
 3. Same as previous weeks, user database.
+
+Jarrod:
+1. Yesterday I researched different APIs and create a list of code we need to get from the API.
+2. Today I am implementing API into our java code by creating a model to get information.
+3. What's blocking me is asynchttp not working with our framework.
