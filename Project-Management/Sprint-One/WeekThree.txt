@@ -16,3 +16,7 @@ Today I will work on the registration frontend page w CSS.
 3. Blocker is mongdb CLI cmds in AWS and finding a way to see the db w a UI. I'll be seeing is I can use MongoDB compass.
 
 ---
+
+1. Didn't work on this yesterday.
+2. Keep working on the Login and Registration Logic.
+3. Same as previous weeks, user database.
