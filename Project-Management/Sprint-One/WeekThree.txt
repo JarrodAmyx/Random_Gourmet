@@ -17,6 +17,7 @@ Today I will work on the registration frontend page w CSS.
 
 ---
 
+Joakim:
 1. Didn't work on this yesterday.
 2. Keep working on the Login and Registration Logic.
 3. Same as previous weeks, user database.
