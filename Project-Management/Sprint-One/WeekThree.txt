@@ -1,0 +1,18 @@
+Week 3
+
+---
+
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+Monday 9/11/23
+
+Chelsea: 
+1. Yesterday I worked on the mongodb instance and getting it working with the AWS instance. 
+2. I went over the mongodb instance and went over using the CLI w mongo and AWS for inserting the user tables.
+Today I will work on the registration frontend page w CSS. 
+3. Blocker is mongdb CLI cmds in AWS and finding a way to see the db w a UI. I'll be seeing is I can use MongoDB compass.
+
+---
