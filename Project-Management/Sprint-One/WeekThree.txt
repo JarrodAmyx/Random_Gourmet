@@ -34,3 +34,8 @@ Jarrod:
 1. Yesterday I started implementing the API for the Java code by creating a model for it.
 2. Today I am going to fix issues with getting the asynchttp packages working in the controller. Once this is done, I can test the code properly.
 3. I'm being blocked by inconsitent information on how to solve this issue.
+
+
+Ryan:
+1. Yesterday I worked on css and tried to clean the stylesheets to make it more consistent for the future
+2. I'm researching on implementing login authentication and tokens
