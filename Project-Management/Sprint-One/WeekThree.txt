@@ -26,3 +26,11 @@ Jarrod:
 1. Yesterday I researched different APIs and create a list of code we need to get from the API.
 2. Today I am implementing API into our java code by creating a model to get information.
 3. What's blocking me is asynchttp not working with our framework.
+
+---
+Wednesday 9/13/2023
+
+Jarrod:
+1. Yesterday I started implementing the API for the Java code by creating a model for it.
+2. Today I am going to fix issues with getting the asynchttp packages working in the controller. Once this is done, I can test the code properly.
+3. I'm being blocked by inconsitent information on how to solve this issue.
