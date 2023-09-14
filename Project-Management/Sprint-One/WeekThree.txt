@@ -44,3 +44,8 @@ Brian:
 1. Yesterday I was attempting to fix the odd syntax issues with Java and Spring Boot.
 2. Today I worked with others in the group in order to finially fix all the odd issues for everyone.
 3. I'm being blocked by  some family issues which are occurring within my life.
+
+Joakim:
+1. Didn't work on this yesterday.
+2. Debugging Java files, and developing user related classes/methods
+3. Same as previous weeks, user database.
