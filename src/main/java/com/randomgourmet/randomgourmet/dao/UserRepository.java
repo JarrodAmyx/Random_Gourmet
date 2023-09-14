@@ -1,7 +1,7 @@
 // UserRepository.java - MongoDB Repository
-package randomgourmet.randomgourmet.repository;
+package com.randomgourmet.randomgourmet.dao;
 
-import randomgourmet.randomgourmet.model.User;
+import com.randomgourmet.randomgourmet.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {

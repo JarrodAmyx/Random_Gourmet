@@ -1,7 +1,7 @@
-package randomgourmet.randomgourmet.service;
+package com.randomgourmet.randomgourmet.services;
 
-import randomgourmet.randomgourmet.model.User;
-import randomgourmet.randomgourmet.repository.UserRepository;
+import com.randomgourmet.randomgourmet.models.User;
+import com.randomgourmet.randomgourmet.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

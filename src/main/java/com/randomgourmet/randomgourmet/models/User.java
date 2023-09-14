@@ -1,5 +1,5 @@
 // User.java - MongoDB Entity
-package randomgourmet.randomgourmet.model;
+package com.randomgourmet.randomgourmet.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
