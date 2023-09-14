@@ -39,3 +39,8 @@ Jarrod:
 Ryan:
 1. Yesterday I worked on css and tried to clean the stylesheets to make it more consistent for the future
 2. I'm researching on implementing login authentication and tokens
+
+Brian:
+1. Yesterday I was attempting to fix the odd syntax issues with Java and Spring Boot.
+2. Today I worked with others in the group in order to finially fix all the odd issues for everyone.
+3. I'm being blocked by  some family issues which are occurring within my life.
