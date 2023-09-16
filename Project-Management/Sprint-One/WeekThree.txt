@@ -47,7 +47,7 @@ Brian:
 
 Joakim:
 1. Didn't work on this yesterday.
-2. Debugging Java files, and developing user related classes/methods
+2. Debugging Java files, and developing user-related classes/methods
 3. Same as previous weeks, user database.
 
 Chelsea:
@@ -73,5 +73,10 @@ Jarrod:
 1. Yesterday I fixed a lot of the issues with Asynhttp but there is still an issue.
 2. Today I'm going to fix the async issues. The problem the other day was it was showing errors because packages didn't exist. Now that the packages exist they still show an error.
 3. What's blocking my progress is the lack of feedback the system is giving to me.
+
+Joakim:
+1. working more on user-related classes/methods
+2. Worked on Security Configuration issues related to a Spring Boot application's configuration and code adjustments.
+3. Haven't figured out why SecurityFilterChain is causing errors.
 
 ---
