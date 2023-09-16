@@ -69,4 +69,9 @@ Chelsea:
 which will be contingent on how the recipe api works. I'll have to see the format of the recipes being pulled in.
 3. Blockers is going to be inserting json data into mongodb AWS CLI and not being able to visually validate it. 
 
+Jarrod:
+1. Yesterday I fixed a lot of the issues with Asynhttp but there is still an issue.
+2. Today I'm going to fix the async issues. The problem the other day was it was showing errors because packages didn't exist. Now that the packages exist they still show an error.
+3. What's blocking my progress is the lack of feedback the system is giving to me.
+
 ---
