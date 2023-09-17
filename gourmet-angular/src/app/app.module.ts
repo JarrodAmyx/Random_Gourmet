@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule, Routes } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
@@ -37,7 +38,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatFormFieldModule,
     MatSidenavModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
