@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
@@ -38,7 +39,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

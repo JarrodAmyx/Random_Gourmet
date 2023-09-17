@@ -1,11 +1,11 @@
 // UserRepository.java - MongoDB Repository
-package com.randomgourmet.randomgourmet.dao;
+package com.randomgourmet.repository;
 
-import com.randomgourmet.randomgourmet.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.randomgourmet.model.User;
 import java.util.List;
 import java.util.Optional;
 

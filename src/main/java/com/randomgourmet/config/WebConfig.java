@@ -61,7 +61,7 @@
 //                 .addFilter(new AuthorizationFilter(authenticationManager, userRepository))
 //                 .authenticationManager(authenticationManager)
 //                 .sessionManagement((session) -> session
-//                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)));
+//                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
   
 //         return http.build();
 //     }
