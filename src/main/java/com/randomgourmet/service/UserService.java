@@ -1,7 +1,8 @@
-package com.randomgourmet.randomgourmet.services;
+package com.randomgourmet.service;
 
-import com.randomgourmet.randomgourmet.models.User;
-import com.randomgourmet.randomgourmet.dao.UserRepository;
+import com.randomgourmet.model.User;
+import com.randomgourmet.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,8 @@
-package com.randomgourmet.randomgourmet.controller;
+package com.randomgourmet.controller;
 
-import com.randomgourmet.randomgourmet.models.User;
-import com.randomgourmet.randomgourmet.services.UserService;
+import com.randomgourmet.model.User;
+import com.randomgourmet.service.UserService;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
