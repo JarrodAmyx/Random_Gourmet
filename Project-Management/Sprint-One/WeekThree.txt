@@ -80,3 +80,10 @@ Joakim:
 3. Haven't figured out why SecurityFilterChain is causing errors.
 
 ---
+Saturday 9/16/2023
+
+Joakim:
+1. Worked on Security Configuration issues related to a Spring Boot application's configuration and code adjustments.
+2. made significant progress in building a user authentication system for your Angular application. 
+   Created components for user registration and login, integrated them with a backend API, and set up routes for navigation.
+3. Encountering some errors I can't seem to figure out at the moment.
