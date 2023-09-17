@@ -87,3 +87,8 @@ Joakim:
 2. made significant progress in building a user authentication system for your Angular application. 
    Created components for user registration and login, integrated them with a backend API, and set up routes for navigation.
 3. Encountering some errors I can't seem to figure out at the moment.
+
+Brian:
+1. Personal issues were occuring so nothing was done for this project.
+2. Focused on doing more research and personal checks on the testing process of connecting Angular and Spring Boot.
+3. Currently some family is visiting, so much of my priorities have been focuesd on dealing with that for the past week.
