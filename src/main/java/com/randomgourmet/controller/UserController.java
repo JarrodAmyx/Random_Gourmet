@@ -1,5 +1,8 @@
 package com.randomgourmet.controller;
 
+import com.randomgourmet.model.User;
+import com.randomgourmet.service.UserService;
+// import org.springframework.beans.factory.annotation.Autowired;
 import com.randomgourmet.dto.UserRegistrationRequest;
 import com.randomgourmet.service.UserService;
 
@@ -17,6 +20,10 @@ public class UserController {
     }
 
     @PostMapping
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+      
     public ResponseEntity<String> registerUser(@RequestBody UserRegistrationRequest registrationRequest) {
         try {
             userService.registerUser(registrationRequest);
