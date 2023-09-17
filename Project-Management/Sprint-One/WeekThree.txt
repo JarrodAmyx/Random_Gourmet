@@ -47,5 +47,36 @@ Brian:
 
 Joakim:
 1. Didn't work on this yesterday.
-2. Debugging Java files, and developing user related classes/methods
+2. Debugging Java files, and developing user-related classes/methods
 3. Same as previous weeks, user database.
+
+Chelsea:
+
+1. Yesterday I consulted Ryan on what he was doing for the front end login page since it should match up w the registration page.
+we already had popups going for both of those so I looked into better UIUX practices to improve it. (ex Mobbin)
+2. Today I was waiting for Ryan to push the code so I could fix the registration form to match.
+3. Blocker is coordinating tasks that are directly correlated to similar tasks. Earlier in the week I went over how to access our 
+mongodb instance on aws and Jared showed me how to use the aws CLI. I have the json schemas for our db tables so I'll have to go
+back into the CLi and get those in but im not sure if there is a UI to see what is acutally being inserted/validated. I 
+need to see if I can use Mongodb Compass but not sure. 
+
+---
+Friday 9/15/2023
+
+Chelsea:
+1. Yesterday I didn't work on the sprint.
+2. Today I want to get RGV-23 and RGV 32 done so I can move on to RGV-37 & 38. I have RGV-22 which is testing the db with recipes
+which will be contingent on how the recipe api works. I'll have to see the format of the recipes being pulled in.
+3. Blockers is going to be inserting json data into mongodb AWS CLI and not being able to visually validate it. 
+
+Jarrod:
+1. Yesterday I fixed a lot of the issues with Asynhttp but there is still an issue.
+2. Today I'm going to fix the async issues. The problem the other day was it was showing errors because packages didn't exist. Now that the packages exist they still show an error.
+3. What's blocking my progress is the lack of feedback the system is giving to me.
+
+Joakim:
+1. working more on user-related classes/methods
+2. Worked on Security Configuration issues related to a Spring Boot application's configuration and code adjustments.
+3. Haven't figured out why SecurityFilterChain is causing errors.
+
+---
