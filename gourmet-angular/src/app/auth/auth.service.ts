@@ -1,18 +1,40 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // Simulated user data (replace with actual data from backend)
-  private users = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' }
-  ];
+  private baseUrl = 'http://your-backend-api-url'; // Replace with your backend API URL
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
-  // Simulate authentication against user data
-  authenticate(username: string, password: string): boolean {
-    const user = this.users.find(u => u.username === username && u.password === password);
-    return !!user; // Returns true if user is found, otherwise false
+  constructor(private http: HttpClient) {}
+
+  // Method to perform user login
+  login(username: string, password: string): Observable<any> {
+    const loginData = { username, password };
+
+    return this.http.post(`${this.baseUrl}/login`, loginData).pipe(
+      tap((response: any) => {
+        // If login is successful, store the JWT token in local storage
+        const token = response.token; // Adjust the property name as needed
+        localStorage.setItem('token', token);
+        this.loggedIn.next(true);
+      })
+    );
+  }
+
+  // Method to check if the user is logged in
+  isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
+  }
+
+  // Method to perform user logout
+  logout(): void {
+    // Clear the JWT token from local storage
+    localStorage.removeItem('token');
+    this.loggedIn.next(false);
   }
 }

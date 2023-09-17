@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { LoginDialogComponent } from '../auth/login-dialog/login-dialog.component';
+import { LoginComponent } from '../auth/login/login.component';
 import { RegistrationComponent } from '../auth/registration/registration.component';
 
 @Injectable({
@@ -10,8 +10,8 @@ import { RegistrationComponent } from '../auth/registration/registration.compone
 export class SharedService {
   constructor(public dialog: MatDialog) {}
 
-  openLoginDialog(): void {
-    const dialogRef = this.dialog.open(LoginDialogComponent, {
+  openLogin(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
       width: '30vw', // Adjust the width as needed
       //height: '40vw',
       panelClass: 'custom-dialog-container', // Apply a custom CSS class
@@ -35,5 +35,5 @@ export class SharedService {
       console.log('Registration dialog closed');
       // You can handle any post-dialog-closed logic here
     });
-}
+  }
 }

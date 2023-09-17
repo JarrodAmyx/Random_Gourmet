@@ -22,9 +22,9 @@ export class RegistrationComponent {
 
   @Output() registrationSubmit: EventEmitter<any> = new EventEmitter();
 
-  openLoginDialog(): void {
+  openLogin(): void {
     this.dialogRef.close();
-    this.sharedService.openLoginDialog();
+    this.sharedService.openLogin();
   }
 
   onSubmit(): void {
