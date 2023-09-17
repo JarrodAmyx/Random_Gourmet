@@ -1,21 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { AppModule } from '../../app.module';
+import { RegistrationService } from '../registration.service';
 
-import { RegistrationComponent } from './registration.component';
+@Component({
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
+})
+export class RegistrationComponent {
+  constructor(private registrationService: RegistrationService) {}
 
-describe('RegistrationComponent', () => {
-  let component: RegistrationComponent;
-  let fixture: ComponentFixture<RegistrationComponent>;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [RegistrationComponent]
-    });
-    fixture = TestBed.createComponent(RegistrationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  onSubmit(userData: any): void {
+    // Call the registerUser method to send the registration data to the backend
+    this.registrationService.registerUser(userData).subscribe(
+      (response) => {
+        // Handle success response (e.g., show a success message or redirect)
+      },
+      (error) => {
+        // Handle error response (e.g., display an error message)
+      }
+    );
+  }
+}
