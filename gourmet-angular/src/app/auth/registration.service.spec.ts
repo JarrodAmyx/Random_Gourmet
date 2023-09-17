@@ -1,16 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { RegistrationService } from './registration.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class RegistrationService {
+  private baseUrl = 'http://your-backend-api-url'; // Replace with your backend API URL
 
-describe('RegistrationService', () => {
-  let service: RegistrationService;
+  constructor(private http: HttpClient) {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(RegistrationService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  registerUser(userData: any): Observable<any> {
+    // Send a POST request to your Spring Boot backend for user registration
+    return this.http.post(`${this.baseUrl}/register`, userData);
+  }
+}
