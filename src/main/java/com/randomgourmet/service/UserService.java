@@ -1,7 +1,8 @@
-package com.randomgourmet.randomgourmet.services;
+package com.randomgourmet.service;
 
-import com.randomgourmet.randomgourmet.models.User;
-import com.randomgourmet.randomgourmet.dao.UserRepository;
+import com.randomgourmet.model.User;
+import com.randomgourmet.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -92,19 +93,19 @@ public class UserService {
         // Remove any locks or flags that were set during account locking.
     }
 
-    public boolean authenticateUser(String username, String password) {
-        // Implement logic to authenticate a user based on their username and password.
-        // Example: Use Spring Security's authentication manager.
-        try {
-            Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(username, password)
-            );
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            return true;
-        } catch (AuthenticationException e) {
-            return false;
-        }
-    }
+    // public boolean authenticateUser(String username, String password) {
+    //     // Implement logic to authenticate a user based on their username and password.
+    //     // Example: Use Spring Security's authentication manager.
+    //     try {
+    //         Authentication authentication = authenticationManager.authenticate(
+    //             new UsernamePasswordAuthenticationToken(username, password)
+    //         );
+    //         SecurityContextHolder.getContext().setAuthentication(authentication);
+    //         return true;
+    //     } catch (AuthenticationException e) {
+    //         return false;
+    //     }
+    // }
 
     public void registerUser(User user) {
         // Implement logic to register a new user, including validation and account creation.
@@ -126,21 +127,10 @@ public class UserService {
         userRepository.deleteById(userId);
     }
 
-    public void logUserActivity(String userId, String activity) {
-        // Implement logging of user activities for auditing purposes.
-        // Example: Log user activity to an audit log or database table.
-        UserActivityLog log = new UserActivityLog();
-        log.setUserId(userId);
-        log.setActivity(activity);
-        userActivityLogRepository.save(log);
-    }
-
     // Additional utility methods and error handling should be included.
 
     // ...
-}
     // Implement other methods as needed for user management, authentication, and authorization.
 
     // ...
-
 }
