@@ -13,18 +13,24 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   // Method to perform user login
-  login(username: string, password: string): Observable<any> {
-    const loginData = { username, password };
-    return this.http.post(`${this.baseUrl}/api/auth/login`, loginData).pipe(
-      tap((response: any) => {
-        // If login is successful, store the JWT token in local storage
-        const token = response.token; // Adjust the property name as needed
-        localStorage.setItem('token', token);
-        this.loggedIn.next(true);
-      }),
-      catchError(this.handleError)
-    );
-  }
+login(username: string, password: string): Observable<any> {
+  const loginData = { username, password };
+
+  return this.http.post(`${this.baseUrl}/api/auth/login`, loginData).pipe(
+    tap((response: any) => {
+      // If login is successful, store the JWT token in local storage or a cookie
+      const token = response.token; // Adjust the property name as needed
+      localStorage.setItem('token', token);
+      this.loggedIn.next(true);
+    }),
+    catchError((error) => {
+      // Handle login error here (e.g., display an error message)
+      console.error('Login failed:', error);
+      throw error; // Rethrow the error to propagate it to the component
+    })
+  );
+}
+
 
   // Method to check if the user is logged in
   isLoggedIn(): Observable<boolean> {
