@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,14 @@ export class AuthService {
   // Method to perform user login
   login(username: string, password: string): Observable<any> {
     const loginData = { username, password };
-
-    return this.http.post(`${this.baseUrl}/login`, loginData).pipe(
+    return this.http.post(`${this.baseUrl}/api/auth/login`, loginData).pipe(
       tap((response: any) => {
         // If login is successful, store the JWT token in local storage
         const token = response.token; // Adjust the property name as needed
         localStorage.setItem('token', token);
         this.loggedIn.next(true);
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -36,5 +36,11 @@ export class AuthService {
     // Clear the JWT token from local storage
     localStorage.removeItem('token');
     this.loggedIn.next(false);
+  }
+
+  // Handle HTTP errors
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error);
+    return throwError('Something went wrong. Please try again later.'); // Adjust the error message as needed
   }
 }

@@ -2,20 +2,22 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { SharedService } from '../../shared/shared.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginDialogComponent {
+export class LoginComponent {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
 
   constructor(
+    private authService: AuthService,
     private sharedService: SharedService,
-    public dialogRef: MatDialogRef<LoginDialogComponent>,
+    public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -25,14 +27,15 @@ export class LoginDialogComponent {
   }
 
   onSubmit(): void {
-    // Simulate authentication logic (replace with actual logic)
-    if (this.username === 'exampleUser' && this.password === 'examplePassword') {
-      // Successful login, navigate to another page
-      // You can use Angular's Router for navigation
-      this.errorMessage = '';
-      console.log('Login successful');
-    } else {
-      this.errorMessage = 'Invalid credentials';
-    }
+    this.authService.login(this.username, this.password).subscribe(
+      (response) => {
+        // Successful login
+        // Store the token, navigate to another page, or perform other actions
+      },
+      (error) => {
+        // Handle login error
+        this.errorMessage = 'Invalid credentials';
+      }
+    );
   }
 }

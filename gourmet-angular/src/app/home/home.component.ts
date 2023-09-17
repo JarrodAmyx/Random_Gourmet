@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { SharedService } from '../shared/shared.service';
+
+import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +10,8 @@ import { SharedService } from '../shared/shared.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  constructor(private sharedService: SharedService) {
+    
+  }
 
 }
