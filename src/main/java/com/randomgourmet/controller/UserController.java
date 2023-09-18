@@ -18,12 +18,13 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
+/* 
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
-      
+     */
+     
     public ResponseEntity<String> registerUser(@RequestBody UserRegistrationRequest registrationRequest) {
         try {
             userService.registerUser(registrationRequest);

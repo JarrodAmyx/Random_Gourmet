@@ -1,3 +1,6 @@
+
+
+/* Styles for the dialog content */
 .dialog-content {
   padding-top: 50px;
   height: 40vw;
@@ -6,8 +9,10 @@
   align-items: center;
   text-align: center; /* Center the content horizontally */
   background-color: #EBA937;
+  border-radius: 15px; /* Adjust border-radius to control roundness */
 }
 
+/* Styles for the input container */
 .input-container {
   margin: 10px 0;
   width: 100%;
@@ -18,6 +23,7 @@
 .register-button {
   background-color: #EBA937; /* Change button background color */
   color: #000000; /* Change button text color */
+  font-weight: bold;
   padding: 15px 50px; /* Adjust padding */
   border: none;
   border-radius: 30px;
