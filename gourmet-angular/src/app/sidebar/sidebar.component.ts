@@ -109,6 +109,7 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
     this.isOpen = !this.isOpen;
   }
 
+  /*
   //http request to add/delete ingredients to pantry 
   constructor(private http: HttpClient) {}
 
@@ -130,4 +131,7 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
       }, error => {
         // Handle error
       });
+}
+*/
+
 }
