@@ -2,6 +2,21 @@
   <mat-sidenav class="sidebar" [mode]="'side'" [opened]="isOpen">
     <mat-card class="sidebar-card">
       <mat-card-header>
+        <mat-card-title>Meats</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button *ngFor="let button of buttons" class="sidebar-button" [class.selected]="button.selected" (click)="toggleButton(button)">
+          {{ button.label }}
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+<mat-sidenav-container>
+  <mat-sidenav class="sidebar" [mode]="'side'" [opened]="isOpen">
+    <mat-card class="sidebar-card">
+      <mat-card-header>
         <mat-card-title>Ingredient Group</mat-card-title>
       </mat-card-header>
       <mat-card-content>
