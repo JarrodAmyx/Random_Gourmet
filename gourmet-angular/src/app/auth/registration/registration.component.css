@@ -1,11 +1,4 @@
-/* Global styles */
-body, .parent-container {
-  background-color: #EBA937;
-}
 
-.parent-container {
-  overflow: hidden; /* Hide any overflowing content */
-}
 
 /* Styles for the dialog content */
 .dialog-content {
