@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sidebar',
@@ -107,4 +108,26 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
+
+  //http request to add/delete ingredients to pantry 
+  constructor(private http: HttpClient) {}
+
+  addIngredientToPantry() {
+    // Implement the HTTP request to add an ingredient to the pantry
+    this.http.post('apiEndpoint/addToPantry', { ingredientId: 'ingredientId' })
+      .subscribe(response => {
+        // Handle success
+      }, error => {
+        // Handle error
+      });
+  }
+
+  deleteIngredientFromPantry() {
+    // Implement the HTTP request to delete an ingredient from the pantry
+    this.http.delete('apiEndpoint/deleteFromPantry/ingredientId')
+      .subscribe(response => {
+        // Handle success
+      }, error => {
+        // Handle error
+      });
 }
