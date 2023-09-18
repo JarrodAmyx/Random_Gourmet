@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatFormFieldModule,
     MatSidenavModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]

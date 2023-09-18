@@ -2,23 +2,36 @@ import { Component, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { SharedService } from '../../shared/shared.service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent {
   username: string = '';
   password: string = '';
   confirmPassword: string = '';
-  email: string = '';
+
+  registerForm : FormGroup;
+
 
   constructor(
     private sharedService: SharedService,
     public dialogRef: MatDialogRef<RegistrationComponent>, // Correctly inject MatDialogRef here
     @Inject(MAT_DIALOG_DATA) public data: any
-    ) {}
+    )
+    {
+      this.registerForm = new FormGroup({
+        username: new FormControl<string>(''),
+        email: new FormControl<string>('', [Validators.required, Validators.email]),
+        password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
+        password2: new FormControl<string>('', [Validators.required]),
+      });
+      
+    }
 
   @Output() registrationSubmit: EventEmitter<any> = new EventEmitter();
 
@@ -28,17 +41,35 @@ export class RegistrationComponent {
   }
 
   onSubmit(): void {
-    if (this.password !== this.confirmPassword) {
-      console.log('Passwords do not match');
-      return;
-    }
+    // if (this.password !== this.confirmPassword) {
+    //   console.log('Passwords do not match');
+    //   return;
+    // }
+
+
 
     const registrationData = {
-      username: this.username,
-      password: this.password,
-      email: this.email
+      username: this.registerForm.get('username')?.value,
+      email: this.registerForm.get('email')?.value,
+      password: this.registerForm.get('email')?.value,
+      
     };
+    
 
     this.registrationSubmit.emit(registrationData);
   }
+
+  get email(){
+    return this.registerForm.get('email');
+  }
+
+  get password1(){
+    return this.registerForm.get('password1');
+  }
+
+  get password2(){
+    return this.registerForm.get('password2');
+  }
+
+  
 }
