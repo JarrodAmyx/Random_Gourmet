@@ -1,15 +1,18 @@
 <mat-sidenav-container>
   <mat-sidenav class="sidebar" [mode]="'side'" [opened]="isOpen">
-    <mat-card class="sidebar-card">
-      <mat-card-header>
-        <mat-card-title>Meats</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <button *ngFor="let button of buttons" class="sidebar-button" [class.selected]="button.selected" (click)="toggleButton(button)">
-          {{ button.label }}
-        </button>
-      </mat-card-content>
-    </mat-card>
+    <!-- Loop through the categories -->
+    <ng-container *ngFor="let category of categories">
+      <mat-card class="sidebar-card">
+        <mat-card-header>
+          <mat-card-title>{{ category }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <!-- Loop through the subcategories of the current category -->
+          <button *ngFor="let subcategory of categorySubcategoryMap[category]" class="sidebar-button">
+            {{ subcategory }}
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
   </mat-sidenav>
 </mat-sidenav-container>
-
