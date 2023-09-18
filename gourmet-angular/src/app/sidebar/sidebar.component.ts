@@ -17,6 +17,7 @@ export class SidebarComponent {
     { label: 'more...', color: 'red', selected: false },
   ];
 
+  
 categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "Baking", "Grains and Cereals", "Juices", 
   "Condiments", "Herbs and Spices"];
 
@@ -61,11 +62,19 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   "Nutmeg", "Cinnamon", "Cloves", "Allspice", "Cardamom", "Bay Leaves", "Fennel", "Tarragon", "Marjoram", "Lavender", 
   "Vanilla", "Saffron", "Mustard Seeds", "Caraway Seeds", "Poppy Seeds", "Other Herbs and Spices"];
 
-
-
-
-
-
+  //establish relationship bw category and its subcategories so ingredient belong to the right card
+  categorySubcategoryMap: { [key: string]: string[] } = {
+    Meats: this.subcatMeats,
+    Seafood: this.subcatSeafood,
+    Vegetables: this.subcatVegetables,
+    Fruits: this.subcatFruits,
+    Berries: this.subcatBerries,
+    Baking: this.subcatBaking,
+    'Grains and Cereals': this.subcatGrainsCereals,
+    Juices: this.subcatJuices,
+    Condiments: this.subcatCondiments,
+    'Herbs and Spices': this.subcatHerbsSpices,
+  };
 
   ingredientsData = {
     "_id": "your_id",
