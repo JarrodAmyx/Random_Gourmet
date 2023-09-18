@@ -2,7 +2,7 @@ import { Component, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { SharedService } from '../../shared/shared.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -22,16 +22,16 @@ export class RegistrationComponent {
     private sharedService: SharedService,
     public dialogRef: MatDialogRef<RegistrationComponent>, // Correctly inject MatDialogRef here
     @Inject(MAT_DIALOG_DATA) public data: any
-    )
-    {
-      this.registerForm = new FormGroup({
-        username: new FormControl<string>(''),
-        email: new FormControl<string>('', [Validators.required, Validators.email]),
-        password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
-        password2: new FormControl<string>('', [Validators.required]),
-      });
-      
-    }
+            )
+  {
+    this.registerForm = new FormGroup({
+      username: new FormControl<string>(''),
+      email: new FormControl<string>('', [Validators.required, Validators.email]),
+      password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
+      password2: new FormControl<string>('', [Validators.required, this.passwordDuplicateValid()]),
+    });  
+  }
+
 
   @Output() registrationSubmit: EventEmitter<any> = new EventEmitter();
 
@@ -41,22 +41,34 @@ export class RegistrationComponent {
   }
 
   onSubmit(): void {
+    console.log(this.registerForm.get('password2'));
     // if (this.password !== this.confirmPassword) {
     //   console.log('Passwords do not match');
     //   return;
     // }
 
-
-
     const registrationData = {
       username: this.registerForm.get('username')?.value,
       email: this.registerForm.get('email')?.value,
-      password: this.registerForm.get('email')?.value,
-      
+      password: this.registerForm.get('password1')?.value,  
     };
     
 
     this.registrationSubmit.emit(registrationData);
+  }
+
+
+
+  passwordDuplicateValid() {
+    return (control: AbstractControl) => {
+      const value = control.value;
+
+        if (!value) {
+            return null;
+        }
+
+        return value != this.registerForm.get('password1')?.value ? {duplicate:true}: null;
+    };
   }
 
   get email(){
@@ -71,5 +83,5 @@ export class RegistrationComponent {
     return this.registerForm.get('password2');
   }
 
-  
+
 }

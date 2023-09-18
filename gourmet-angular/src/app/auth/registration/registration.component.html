@@ -22,7 +22,7 @@
 
       <mat-form-field class="mat-form-field-underline">
         <input matInput type="password" placeholder="Confirm Password" formControlName="password2" name="password2" required>
-        <mat-error *ngIf="password1?.value !== password2?.value">Must have one letter, and one number and must be at least 8 characters long.</mat-error>
+        <mat-error *ngIf="password2?.invalid">Passwords do not match.</mat-error>
       </mat-form-field>
 
     </form> 
