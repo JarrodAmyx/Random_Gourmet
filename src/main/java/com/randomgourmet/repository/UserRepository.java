@@ -1,6 +1,4 @@
 
-/* 
-// UserRepository.java - MongoDB Repository
 package com.randomgourmet.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -28,4 +26,3 @@ public interface UserRepository extends MongoRepository<User, String> {
     @Query("{ '_id' : ?0 }")
     void updateUserPassword(String userId, String newPassword);
 }
-*/
