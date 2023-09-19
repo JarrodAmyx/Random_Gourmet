@@ -1,6 +1,7 @@
 /* Style the sidebar */
 .sidebar {
   width: 300px; /* Set the width of the sidebar */
+  max-width: 300px;
   background-color: #EBA937; /* Sidebar background color */
   color: #000000; /* Text color */
   padding-top: 100px;
@@ -22,18 +23,51 @@
   background-color: #fafafa;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.subcategory-container {
+  /* Enable Flexbox layout with three items per row */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
 
 .sidebar-button {
+  flex: 1; /* Distribute available space evenly among buttons */
+  text-align: center;
   margin: 5px;
   padding: 10px;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   color: black;
   background-color: var(--button-color, offwhite); /* Use the color property */
   cursor: pointer;
   border-radius: 5px; /* Round the edges */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Give a slightly raised appearance */
 }
+.button-label {
+  /* Dynamic font size based on text length */
+  font-size: 14px; /* Set a default font size */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show ellipsis for long text */
+}
 
 .sidebar-button.selected {
   background-color: lightgreen; /* Change color when selected */
+}
+
+.small-image {
+  width: 25%; /* Reduce the width to 50% */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px;
+}
+
+.mat-card-title {
+  flex-grow: 1; /* Allow the category name to expand and fill available space */
+}
+
+/* Media query for larger screens, adjust the font size as needed */
+@media screen and (min-width: 768px) {
+  .button-label {
+    font-size: 16px;
+  }
 }

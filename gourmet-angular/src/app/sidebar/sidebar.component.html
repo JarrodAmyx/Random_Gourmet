@@ -1,14 +1,28 @@
 <mat-sidenav-container>
-  <mat-sidenav class="sidebar" [mode]="'side'" [opened]="isOpen">
-    <mat-card class="sidebar-card">
-      <mat-card-header>
-        <mat-card-title>Ingredient Group</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <button *ngFor="let button of buttons" class="sidebar-button" [class.selected]="button.selected" (click)="toggleButton(button)">
-          {{ button.label }}
-        </button>
-      </mat-card-content>
-    </mat-card>
+  <mat-sidenav class="sidebar" [mode]="'side'" opened>
+    <!-- Loop through the categories -->
+    <ng-container *ngFor="let category of categories">
+      <mat-card class="sidebar-card">
+        <mat-card-header>
+          <div class="image-and-title">
+            <!-- Display the category image using the categoryImages object -->
+            <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
+            <mat-card-title>{{ category }}</mat-card-title>
+          </div>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <!-- Flex container for the subcategory buttons -->
+          <div class="subcategory-container">
+            <!-- Loop through the subcategories of the current category -->
+            <button
+              *ngFor="let subcategory of categorySubcategoryMap[category]"
+              class="sidebar-button">
+              <span class="button-label">{{ subcategory }}</span>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
   </mat-sidenav>
 </mat-sidenav-container>

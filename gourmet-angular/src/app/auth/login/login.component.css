@@ -18,6 +18,7 @@
 .login-button {
   background-color: #EBA937; /* Change button background color */
   color: #000000; /* Change button text color */
+  font-weight: bold;
   padding: 15px 50px; /* Adjust padding */
   border: none;
   border-radius: 30px;

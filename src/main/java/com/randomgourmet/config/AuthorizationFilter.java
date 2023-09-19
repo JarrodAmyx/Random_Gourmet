@@ -1,3 +1,4 @@
+/* 
 package com.randomgourmet.config;
 
 import com.randomgourmet.model.User;
@@ -56,3 +57,5 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         return null;
     }
 }
+
+*/
