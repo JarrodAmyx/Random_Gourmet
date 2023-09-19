@@ -11,7 +11,7 @@ import { SharedService } from '../../shared/shared.service';
 export class LoginDialogComponent {
   username: string = '';
   password: string = '';
-  errorMessage: string = '';
+  errorMessage: boolean = false;
 
   constructor(
     private sharedService: SharedService,
@@ -29,10 +29,9 @@ export class LoginDialogComponent {
     if (this.username === 'exampleUser' && this.password === 'examplePassword') {
       // Successful login, navigate to another page
       // You can use Angular's Router for navigation
-      this.errorMessage = '';
       console.log('Login successful');
     } else {
-      this.errorMessage = 'Invalid credentials';
+      this.errorMessage = true;
     }
   }
 }
