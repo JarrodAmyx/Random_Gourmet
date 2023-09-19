@@ -45,7 +45,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatSidenavModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
