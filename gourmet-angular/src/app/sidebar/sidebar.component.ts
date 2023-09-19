@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  styleUrls: ['./sidebar.component.css']
 })
+
 export class SidebarComponent {
   isOpen = true; // Set to true to open the sidebar
 
@@ -121,7 +124,9 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
+//dropdown menu
 
+  
   /*
   //http request to add/delete ingredients to pantry 
   constructor(private http: HttpClient) {}
@@ -148,3 +153,4 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
 */
 
 }
+
