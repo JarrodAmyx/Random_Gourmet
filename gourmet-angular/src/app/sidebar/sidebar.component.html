@@ -7,10 +7,16 @@
           <mat-card-title>{{ category }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <!-- Loop through the subcategories of the current category -->
-          <button *ngFor="let subcategory of categorySubcategoryMap[category]" class="sidebar-button">
-            {{ subcategory }}
-          </button>
+          <!-- Flex container for the subcategory buttons -->
+          <div class="subcategory-container">
+            <!-- Loop through the subcategories of the current category -->
+            <button
+              *ngFor="let subcategory of categorySubcategoryMap[category]"
+              class="sidebar-button"
+            >
+              <span class="button-label">{{ subcategory }}</span>
+            </button>
+          </div>
         </mat-card-content>
       </mat-card>
     </ng-container>
