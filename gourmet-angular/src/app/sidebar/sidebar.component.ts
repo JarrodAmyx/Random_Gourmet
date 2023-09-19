@@ -63,6 +63,19 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   "Nutmeg", "Cinnamon", "Cloves", "Allspice", "Cardamom", "Bay Leaves", "Fennel", "Tarragon", "Marjoram", "Lavender", 
   "Vanilla", "Saffron", "Mustard Seeds", "Caraway Seeds", "Poppy Seeds", "Other Herbs and Spices"];
 
+  categoryImages: { [key: string]: string } = {
+    Meats: 'assets/category-images/meats.png',
+    Seafood: 'assets/category-images/seafood.png',
+    Vegetables: 'assets/category-images/vegetables.png',
+    Fruits: 'assets/category-images/fruits.png',
+    Berries: 'assets/category-images/berries.png',
+    Baking: 'assets/category-images/baking.png',
+    'Grains and Cereals': 'assets/category-images/grains.png',
+    Juices: 'assets/category-images/juices.png',
+    Condiments: 'assets/category-images/condiments.png',
+    'Herbs and Spices': 'assets/category-images/herbs.png',
+  };
+
   //establish relationship bw category and its subcategories so ingredient belong to the right card
   categorySubcategoryMap: { [key: string]: string[] } = {
     Meats: this.subcatMeats,
