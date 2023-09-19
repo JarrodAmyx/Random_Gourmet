@@ -25,6 +25,12 @@
     "lib": [
       "ES2022",
       "dom"
+    ],
+    "types": [
+      "@types/node",
+      "@types/body-parser",
+      "jest",
+      "mocha"
     ]
   },
   "angularCompilerOptions": {

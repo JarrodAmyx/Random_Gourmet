@@ -14,7 +14,7 @@ export class ToolbarComponent {
     this.sharedService.openRegistration();
   }
 
-  openLoginDialog(): void {
-    this.sharedService.openLoginDialog();
+  openLogin(): void {
+    this.sharedService.openLogin();
   }
 }
