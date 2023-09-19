@@ -4,9 +4,11 @@
     <ng-container *ngFor="let category of categories">
       <mat-card class="sidebar-card">
         <mat-card-header>
-          <!-- Display the category image using the categoryImages object -->
-          <img [src]="categoryImages[category]" alt="{{ category }} Image">
-          <mat-card-title>{{ category }}</mat-card-title>
+          <div class="image-and-title">
+            <!-- Display the category image using the categoryImages object -->
+            <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
+            <mat-card-title>{{ category }}</mat-card-title>
+          </div>
         </mat-card-header>
         
         <mat-card-content>

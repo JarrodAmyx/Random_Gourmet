@@ -54,6 +54,17 @@
 .sidebar-button.selected {
   background-color: lightgreen; /* Change color when selected */
 }
+
+.small-image {
+  width: 25%; /* Reduce the width to 50% */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px;
+}
+
+.mat-card-title {
+  flex-grow: 1; /* Allow the category name to expand and fill available space */
+}
+
 /* Media query for larger screens, adjust the font size as needed */
 @media screen and (min-width: 768px) {
   .button-label {
