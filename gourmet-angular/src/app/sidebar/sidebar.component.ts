@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  styleUrls: ['./sidebar.component.css']
 })
+
 export class SidebarComponent {
   isOpen = true; // Set to true to open the sidebar
 
@@ -62,6 +66,19 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   "Nutmeg", "Cinnamon", "Cloves", "Allspice", "Cardamom", "Bay Leaves", "Fennel", "Tarragon", "Marjoram", "Lavender", 
   "Vanilla", "Saffron", "Mustard Seeds", "Caraway Seeds", "Poppy Seeds", "Other Herbs and Spices"];
 
+  categoryImages: { [key: string]: string } = {
+    Meats: 'assets/category-images/meats.png',
+    Seafood: 'assets/category-images/seafood.png',
+    Vegetables: 'assets/category-images/vegetables.png',
+    Fruits: 'assets/category-images/fruits.png',
+    Berries: 'assets/category-images/berries.png',
+    Baking: 'assets/category-images/baking.png',
+    'Grains and Cereals': 'assets/category-images/grains.png',
+    Juices: 'assets/category-images/juices.png',
+    Condiments: 'assets/category-images/condiments.png',
+    'Herbs and Spices': 'assets/category-images/herbs.png',
+  };
+
   //establish relationship bw category and its subcategories so ingredient belong to the right card
   categorySubcategoryMap: { [key: string]: string[] } = {
     Meats: this.subcatMeats,
@@ -107,4 +124,33 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
+//dropdown menu
+
+  
+  /*
+  //http request to add/delete ingredients to pantry 
+  constructor(private http: HttpClient) {}
+
+  addIngredientToPantry() {
+    // Implement the HTTP request to add an ingredient to the pantry
+    this.http.post('apiEndpoint/addToPantry', { ingredientId: 'ingredientId' })
+      .subscribe(response => {
+        // Handle success
+      }, error => {
+        // Handle error
+      });
+  }
+
+  deleteIngredientFromPantry() {
+    // Implement the HTTP request to delete an ingredient from the pantry
+    this.http.delete('apiEndpoint/deleteFromPantry/ingredientId')
+      .subscribe(response => {
+        // Handle success
+      }, error => {
+        // Handle error
+      });
 }
+*/
+
+}
+
