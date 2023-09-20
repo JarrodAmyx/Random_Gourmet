@@ -1,0 +1,24 @@
+Week 4
+
+---
+
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+Monday 9/19/23
+
+---
+
+Tuesday 9/20/23
+
+Chelsea:
+1. Yesterday I pushed a lot of code for the sidebar ingredients frontend. I established relationships between major 
+food categories and its subcategories. 
+2. Today I'm focusing on refining how it looks + making it match up w the figma. 
+3. There are a couple things I need to consider such as creating an option that adds new ingredients that are pulled
+from a recipe but not in the pantry. The sizing of the buttons is being fickle too and I'm working on fixing the style
+of the buttons to our original version. 
+
+---
