@@ -4,20 +4,22 @@
     <ng-container *ngFor="let category of categories">
       <mat-card class="sidebar-card">
         <mat-card-header>
-          <div class="image-and-title">
+          <div class="image">
             <!-- Display the category image using the categoryImages object -->
             <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
+          </div>
+          <div class="title">
             <mat-card-title>{{ category }}</mat-card-title>
           </div>
         </mat-card-header>
-        
         <mat-card-content>
           <!-- Flex container for the subcategory buttons -->
           <div class="subcategory-container">
             <!-- Loop through the subcategories of the current category -->
             <button
               *ngFor="let subcategory of categorySubcategoryMap[category]"
-              class="sidebar-button">
+              [ngClass]="{'active': subcategoryStates[subcategory]}"
+              (click)="toggleSubcategory(subcategory)">
               <span class="button-label">{{ subcategory }}</span>
             </button>
           </div>

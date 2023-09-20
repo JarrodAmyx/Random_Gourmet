@@ -6,12 +6,19 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  
 })
 
 export class SidebarComponent {
   isOpen = true; // Set to true to open the sidebar
 
+  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
+
+  //state of on or off of button
+  toggleSubcategory(subcategory: string): void {
+    this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
+  }
   buttons: { label: string, color: string, selected: boolean }[] = [
     { label: 'Button 1', color: 'blue', selected: false },
     { label: 'Button 2', color: 'green', selected: false },
@@ -21,10 +28,11 @@ export class SidebarComponent {
     { label: 'more...', color: 'red', selected: false },
   ];
 
-  
+//major categories of food groups
 categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "Baking", "Grains and Cereals", "Juices", 
   "Condiments", "Herbs and Spices"];
 
+  //subcategories of each food group
   subcatMeats: string[] = ["Ribeye", "T-bone", "Sirloin", "Tenderloin", "Skirt Steak", "Filet", "Breast", "Ground Beef"];
 
   subcatSeafood: string[] = ["Shrimp", "Crab", "Lobster", "Clams", "Squid", "Octopus", "Fish Fillet", "Salmon",
@@ -66,6 +74,7 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   "Nutmeg", "Cinnamon", "Cloves", "Allspice", "Cardamom", "Bay Leaves", "Fennel", "Tarragon", "Marjoram", "Lavender", 
   "Vanilla", "Saffron", "Mustard Seeds", "Caraway Seeds", "Poppy Seeds", "Other Herbs and Spices"];
 
+  //each major categories' icons for sidebar header
   categoryImages: { [key: string]: string } = {
     Meats: 'assets/category-images/meats.png',
     Seafood: 'assets/category-images/seafood.png',
@@ -93,6 +102,8 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
     'Herbs and Spices': this.subcatHerbsSpices,
   };
 
+  //this will be for db server actions
+  //still need to decide on how to adjust quantities in pantry logic wise
   ingredientsData = {
     "_id": "your_id",
     "user_id": "your_user_id",
@@ -126,7 +137,7 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   }
 //dropdown menu
 
-  
+  // http for adding/deleting ingredients to users 
   /*
   //http request to add/delete ingredients to pantry 
   constructor(private http: HttpClient) {}
