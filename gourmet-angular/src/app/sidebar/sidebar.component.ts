@@ -19,6 +19,18 @@ export class SidebarComponent {
   toggleSubcategory(subcategory: string): void {
     this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
   }
+
+  //need to update to output the amount of blank ingredient we actually have in that category >> next sprint
+  getIngredientCount(category: string): string {
+    const subcategories = this.categorySubcategoryMap[category];
+    if (subcategories) {
+      const totalIngredients = subcategories.length;
+      const selectedIngredients = subcategories.filter(subcategory => this.subcategoryStates[subcategory]).length;
+      return `${selectedIngredients} out of ${totalIngredients} Ingredients`;
+    }
+    return '0 Ingredients'; // Default to 0 if there are no subcategories or category not found
+  }
+
   buttons: { label: string, color: string, selected: boolean }[] = [
     { label: 'Button 1', color: 'blue', selected: false },
     { label: 'Button 2', color: 'green', selected: false },
@@ -164,4 +176,3 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
 */
 
 }
-
