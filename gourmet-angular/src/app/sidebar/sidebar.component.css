@@ -1,7 +1,7 @@
 /* Style the sidebar */
 .sidebar {
-  width: 340px; /* Set the width of the sidebar */
-  max-width: 340px;
+  width: 375px; /* Set the width of the sidebar */
+  max-width: 375px;
   background-color: #EBA937; /* Sidebar background color */
   color: #000000; /* Text color */
   padding-top: 100px;
@@ -13,57 +13,188 @@
 }
 
 .sidebar-card {
-  width: 95%; /* Adjust card's width to be 100% of the sidebar's width */
-  margin: auto; /* Center horizontally */
+  position: relative; /* Make the pseudo-elements relative to this card */
+  width: 92%;
+  margin: 15px auto;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: auto; /* Allow the height to be determined by the content */
+  justify-content: center;
+  align-items: center;
+  height: auto;
   background-color: #fafafa;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Updated box shadow for 3D effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for transform and box-shadow */
 }
+
+/* Add a subtle 3D border effect */
+.sidebar-card::before,
+.sidebar-card::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Border color for 3D effect */
+  transition: opacity 0.3s ease; /* Transition for opacity */
+}
+
+/* Top border */
+.sidebar-card::before {
+  top: 0;
+  left: 0;
+  opacity: 0; /* Initially hidden */
+}
+
+/* Bottom border */
+.sidebar-card::after {
+  bottom: 0;
+  right: 0;
+  opacity: 0; /* Initially hidden */
+}
+
+/* Hover effect */
+.sidebar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect for the borders */
+.sidebar-card:hover::before,
+.sidebar-card:hover::after {
+  opacity: 1; /* Show the borders on hover */
+}
+
+.mat-card-content {
+  /* Your custom styles for mat-card-content */
+  padding: 10px; /* Add padding as needed */
+  background-color: #f0f0f0; /* Set a background color */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin-top: 10px; /* Add margin to separate it from other elements */
+}
+
 .subcategory-container {
-  /* Enable Flexbox layout with three items per row */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Adjust the gap between buttons as needed */
+  list-style-type: none; /* Remove list item bullets */
+  padding: 9.5px; /* Add padding to list items */
+  font-size: 12px; /* Decrease the font size */
+}
+
+/* Style individual list items */
+.subcategory-container li {
+  margin-bottom: 6px; /* Add space between list items */
 }
 
 .sidebar-button {
-  flex: 1; /* Distribute available space evenly among buttons */
-  text-align: center;
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: black;
-  background-color: var(--button-color, offwhite); /* Use the color property */
-  cursor: pointer;
-  border-radius: 5px; /* Round the edges */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Give a slightly raised appearance */
+  display: flex; /* Use flex for the button container */
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 36px; /* Increased border-radius for more rounded buttons */
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a 3D shadow effect */
+  flex-grow: 1; /* Allow buttons to grow and fill available space */
 }
+
 .button-label {
-  /* Dynamic font size based on text length */
-  font-size: 14px; /* Set a default font size */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Show ellipsis for long text */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: grab;
+  margin: 4px;
+  font-size: 5px; /* Adjust font size as needed */
+  padding: 4px 0; /* Remove fixed padding */
+}
+
+/* Style for hover and focus states */
+.sidebar-button:hover,
+.sidebar-button:focus {
+  background-color: #EBA937; /* Change background color on hover/focus */
+  color: #FFFFFF; /* Change text color on hover/focus */
+}
+
+/* Style for the active state (when clicked) */
+.sidebar-button:active {
+  background-color: #D98C05; /* Change background color when active (clicked) */
+  color: #FFFFFF; /* Change text color when active (clicked) */
+  box-shadow: none; /* Remove box shadow when active (clicked) */
 }
 
 .sidebar-button.selected {
   background-color: lightgreen; /* Change color when selected */
 }
 
-.small-image {
-  width: 25%; /* Reduce the width to 50% */
-  height: auto; /* Maintain aspect ratio */
+.image-container {
+  width: 60px;
+  height: 60px;
   margin-right: 10px;
-  image-orientation: left;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column; /* Change to column layout to add space below */
+  align-items: center;
+  padding: 5px; /* Add padding to the header */
+}
+
+.small-image {
+  width: 100%; /* Make the image fill the container */
+  height: auto;
+  image-orientation: center;
+}
+
+/* Add a colored square background */
+.small-image::before {
+  content: ''; /* Create a pseudo-element */
+  position: left;
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire width of the .small-image */
+  height: 100%; /* Cover the entire height of the .small-image */
+  background-color: #ccc; /* Off-grey color */
+  opacity: 0.6; /* Adjust opacity as needed */
+  z-index: -1; /* Place it behind the image icon */
+}
+
+.mat-card-header {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  padding: 10px;
 }
 
 .mat-card-title {
-  flex-grow: 1; /* Allow the category name to expand and fill available space */
+  flex-grow: 0; /* Disable flex-grow to prevent expanding */
+  white-space: nowrap; /* Prevent text from wrapping */
+  font-size: 14px; /* Set your desired font size */
+  margin-left: 10px; /* Adjust the margin to separate the title from the image */
+  display: flex;
+  justify-content: space-between; /* Pushes .title to the left and .image-container to the right */
+  align-items: center;
+}
+
+.title {
+  flex-grow: 1; /* Allow the title to expand and fill the available space to the left */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show ellipsis for long text */
+  font-size: 14px; /* Set your desired font size */
+  margin-right: 10px; /* Optional margin for spacing */
+}
+
+/* Style the sidebar card description */
+.description {
+  font-size: 12px; /* Adjust the font size as needed */
+  color: #888; /* Color for the description text */
+}
+
+/* Add some margin to the description for spacing */
+.description {
+  margin-top: 5px;
 }
 
 /* Media query for larger screens, adjust the font size as needed */
