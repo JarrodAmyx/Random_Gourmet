@@ -1,5 +1,3 @@
-
-// UserRepository.java - MongoDB Repository
 package com.randomgourmet.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;

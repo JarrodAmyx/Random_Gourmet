@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,18 +13,21 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule, Routes } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
+import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginDialogComponent,
+    LoginComponent,
     SidebarComponent,
     RegistrationComponent,
     ToolbarComponent
@@ -41,9 +44,11 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatFormFieldModule,
     MatSidenavModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [RegistrationService],
+  providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

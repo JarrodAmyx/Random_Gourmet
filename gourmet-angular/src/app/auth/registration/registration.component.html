@@ -1,26 +1,54 @@
 <div class="dialog-content">
   <h2>Register</h2>
+  
   <div class="input-container">
+    
+    <form [formGroup] = "registerForm">
+
+      <mat-form-field class="mat-form-field-underline">
+        <input matInput placeholder="Username" formControlName="username" name="username" required>
+      </mat-form-field>
+
+      <mat-form-field class="mat-form-field-underline">
+        <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
+        <mat-error *ngIf="email?.invalid">Invalid email address.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="mat-form-field-underline">
+        <input matInput type="password" placeholder="Password" formControlName="password1" name="password1" required>
+        <!-- <mat-hint></mat-hint> -->
+        <mat-error *ngIf="password1?.invalid">Must have one letter, and one number and must be at least 8 characters long.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="mat-form-field-underline">
+        <input matInput type="password" placeholder="Confirm Password" formControlName="password2" name="password2" required>
+        <mat-error *ngIf="password2?.invalid">Passwords do not match.</mat-error>
+      </mat-form-field>
+
+    </form> 
+  </div>
+  <!-- <div class="input-container">
     <mat-form-field class="mat-form-field-underline">
       <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
     </mat-form-field>
-  </div>
-  <div class="input-container">
-    <mat-form-field class="mat-form-field-underline">
+  </div> -->
+  <!-- <mat-form-field class="mat-form-field-underline">
       <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
-    </mat-form-field>
-  </div>
-  <div class="input-container">
+    </mat-form-field> -->
+  <!-- <div *ngIf="password !== confirmPassword" class="alert alert-danger">
+    Passwords do not match
+  </div> -->
+  <!-- <div class="input-container">
     <mat-form-field class="mat-form-field-underline">
       <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
-      <div *ngIf="password !== confirmPassword" class="error-message">Passwords do not match</div>
+      <mat-error *ngIf="password !== confirmPassword">Passwords do not match</mat-error>
     </mat-form-field>
-  </div>
-  <div class="input-container">
+  </div> -->
+  <!-- <div class="input-container">
     <mat-form-field class="mat-form-field-underline">
       <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
     </mat-form-field>
-  </div>
+  </div> -->
   <button class="register-button" color="primary" (click)="onSubmit()">Register</button>
-  <button class="bottom-text-button" (click)="openLoginDialog()">Already have an account? Login</button>
+  <button class="bottom-text-button" (click)="openLogin()">Already have an account? Login</button>
 </div>
