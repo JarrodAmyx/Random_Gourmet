@@ -2,7 +2,7 @@
 .sidebar {
   width: 375px; /* Set the width of the sidebar */
   max-width: 375px;
-  background-color: #EBA937; /* Sidebar background color */
+  background: linear-gradient(to bottom, #f8e578, #f1ab31); /* Gradient background */
   color: #000000; /* Text color */
   padding-top: 100px;
   position: fixed;
