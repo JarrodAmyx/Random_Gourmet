@@ -157,6 +157,18 @@
   z-index: -1; /* Place it behind the image icon */
 }
 
+.second-image-icon {
+  width: 24px; /* Adjust the width as needed */
+  height: 24px; /* Adjust the height as needed */
+  margin-left: 10px; /* Adjust the margin to separate it from the description */
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease; /* Add a smooth transition */
+}
+
 .mat-card-header {
   width: 100%;
   height: auto;

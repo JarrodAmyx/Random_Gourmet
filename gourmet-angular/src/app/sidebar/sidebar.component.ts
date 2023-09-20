@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component,HostBinding } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
@@ -7,7 +7,14 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
-  
+  animations: [
+    trigger('expandCollapse', [
+      state('collapsed', style({ height: '0', overflow: 'hidden', opacity: 0 })),
+      state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
+      transition('collapsed => expanded', animate('300ms ease-in')),
+      transition('expanded => collapsed', animate('300ms ease-out'))
+    ])
+  ]
 })
 
 export class SidebarComponent implements AfterViewInit{
@@ -37,6 +44,19 @@ export class SidebarComponent implements AfterViewInit{
       return `${selectedIngredients} out of ${totalIngredients} Ingredients`; //placeholder for if we want to specify which ingredient
     }
     return '0 Ingredients'; // Default to 0 if there are no subcategories or category not found
+  }
+
+  //dropdown menu logic
+  isCategoryClicked: { [key: string]: boolean } = {};
+  isCategoryExpanded: { [key: string]: boolean } = {};
+
+  toggleCategoryExpansion(category: string): void {
+    this.isCategoryExpanded[category] = !this.isCategoryExpanded[category];
+  }
+
+  yourClickHandlerFunction(category: string): void {
+    // expand when clicked
+  this.isCategoryExpanded[category] = !this.isCategoryExpanded[category];
   }
 
   buttons: { label: string, color: string, selected: boolean }[] = [
