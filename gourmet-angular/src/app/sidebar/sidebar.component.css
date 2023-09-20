@@ -1,7 +1,7 @@
 /* Style the sidebar */
 .sidebar {
-  width: 350px; /* Set the width of the sidebar */
-  max-width: 350px;
+  width: 375px; /* Set the width of the sidebar */
+  max-width: 375px;
   background-color: #EBA937; /* Sidebar background color */
   color: #000000; /* Text color */
   padding-top: 100px;
@@ -64,33 +64,63 @@
   opacity: 1; /* Show the borders on hover */
 }
 
+.mat-card-content {
+  /* Your custom styles for mat-card-content */
+  padding: 10px; /* Add padding as needed */
+  background-color: #f0f0f0; /* Set a background color */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin-top: 10px; /* Add margin to separate it from other elements */
+}
+
 .subcategory-container {
-  /* Enable Flexbox layout with three items per row */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Adjust the gap between buttons as needed */
-  padding: 12px; /* Add padding to the header */
+  list-style-type: none; /* Remove list item bullets */
+  padding: 9.5px; /* Add padding to list items */
+  font-size: 12px; /* Decrease the font size */
+}
+
+/* Style individual list items */
+.subcategory-container li {
+  margin-bottom: 6px; /* Add space between list items */
 }
 
 .sidebar-button {
-  flex: 1; /* Distribute available space evenly among buttons */
-  text-align: center;
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: black;
-  background-color: var(--button-color, offwhite); /* Use the color property */
-  cursor: pointer;
-  border-radius: 5px; /* Round the edges */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Give a slightly raised appearance */
+  display: flex; /* Use flex for the button container */
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 36px; /* Increased border-radius for more rounded buttons */
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a 3D shadow effect */
+  flex-grow: 1; /* Allow buttons to grow and fill available space */
 }
+
 .button-label {
-  /* Dynamic font size based on text length */
-  font-size: 14px; /* Set a default font size */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Show ellipsis for long text */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: grab;
+  margin: 4px;
+  font-size: 5px; /* Adjust font size as needed */
+  padding: 4px 0; /* Remove fixed padding */
+}
+
+/* Style for hover and focus states */
+.sidebar-button:hover,
+.sidebar-button:focus {
+  background-color: #EBA937; /* Change background color on hover/focus */
+  color: #FFFFFF; /* Change text color on hover/focus */
+}
+
+/* Style for the active state (when clicked) */
+.sidebar-button:active {
+  background-color: #D98C05; /* Change background color when active (clicked) */
+  color: #FFFFFF; /* Change text color when active (clicked) */
+  box-shadow: none; /* Remove box shadow when active (clicked) */
 }
 
 .sidebar-button.selected {
@@ -128,12 +158,13 @@
 }
 
 .mat-card-header {
-  width: 100%; /* Set the width to 100% to fit the card */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
   margin-right: 10px;
-  border: none; /* Remove any existing borders */
-  border-bottom: 2px solid black; /* Add a black bottom border */
-  padding: 10px; /* Add padding to the header */
+  border: none;
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  padding: 10px;
 }
 
 .mat-card-title {
