@@ -7,11 +7,17 @@ Week 4
 3. What is blocking your progress?
 
 ---
-Monday 9/19/23
+Monday 9/18/23
+
+
+Joakim:
+1. Didn't work yesterday.
+2. Mostly worked on fixing bugs and errors.
+3. Still haven't solved all the errors yet, in contact with Prof.
 
 ---
 
-Tuesday 9/20/23
+Tuesday 9/19/23
 
 Chelsea:
 1. Yesterday I pushed a lot of code for the sidebar ingredients frontend. I established relationships between major 
