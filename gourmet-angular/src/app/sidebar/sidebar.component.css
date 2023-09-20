@@ -69,6 +69,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px; /* Adjust the gap between buttons as needed */
+  padding: 12px; /* Add padding to the header */
 }
 
 .sidebar-button {
@@ -104,6 +105,7 @@
   display: flex;
   flex-direction: column; /* Change to column layout to add space below */
   align-items: center;
+  padding: 5px; /* Add padding to the header */
 }
 
 .small-image {
@@ -131,6 +133,7 @@
   margin-right: 10px;
   border: none; /* Remove any existing borders */
   border-bottom: 2px solid black; /* Add a black bottom border */
+  padding: 10px; /* Add padding to the header */
 }
 
 .mat-card-title {

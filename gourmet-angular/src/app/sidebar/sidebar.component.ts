@@ -26,7 +26,7 @@ export class SidebarComponent {
     if (subcategories) {
       const totalIngredients = subcategories.length;
       const selectedIngredients = subcategories.filter(subcategory => this.subcategoryStates[subcategory]).length;
-      return `${selectedIngredients} out of ${totalIngredients} Ingredients`;
+      return `${selectedIngredients} out of ${totalIngredients} Ingredients`; //placeholder for if we want to specify which ingredient
     }
     return '0 Ingredients'; // Default to 0 if there are no subcategories or category not found
   }
