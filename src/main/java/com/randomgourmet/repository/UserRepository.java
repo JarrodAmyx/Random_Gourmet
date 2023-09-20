@@ -1,5 +1,4 @@
 
-/* 
 // UserRepository.java - MongoDB Repository
 package com.randomgourmet.repository;
 
@@ -28,4 +27,3 @@ public interface UserRepository extends MongoRepository<User, String> {
     @Query("{ '_id' : ?0 }")
     void updateUserPassword(String userId, String newPassword);
 }
-*/
