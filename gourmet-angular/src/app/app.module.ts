@@ -22,12 +22,14 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
     SidebarComponent,
     RegistrationComponent,
     ToolbarComponent
@@ -46,7 +48,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    //RouterModule.forRoot(routes)
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
