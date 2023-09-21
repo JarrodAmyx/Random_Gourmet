@@ -23,6 +23,7 @@ import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     //RouterModule.forRoot(routes)
   ],
   providers: [AuthService, RegistrationService],
