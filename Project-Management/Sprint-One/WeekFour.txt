@@ -31,3 +31,7 @@ of the buttons to our original version.
 
 Wednesday 9/20/23
 
+Brin:
+1. Yesterday I had focused my efforts on a seperate project for another class.
+2. Today I focused on checking all files related to the User and services to prepare for connecting front and backends.
+3. There's a lot of files to parse through as well as potential overlap between each person's progress in already implementing the connection.
