@@ -2,13 +2,19 @@ package com.randomgourmet.config;
 
 import com.randomgourmet.model.User;
 import com.randomgourmet.repository.UserRepository;
+import com.randomgourmet.security.CustomUserDetails;
+import com.randomgourmet.security.SecurityConstants;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Optional;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,12 +22,16 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import io.jsonwebtoken.Jwts;
 
 public class AuthorizationFilter extends BasicAuthenticationFilter {
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final SecurityConstants securityConstants;
 
+    @Autowired
     public AuthorizationFilter(AuthenticationManager authManager,
-                               UserRepository userRepository) {
+                               UserRepository userRepository,
+                               SecurityConstants securityConstants) {
         super(authManager);
         this.userRepository = userRepository;
+        this.securityConstants = securityConstants;
     }
 
     @Override
@@ -43,16 +53,19 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         if (token != null) {
             token = token.replace(SecurityConstants.TOKEN_PREFIX, "");
             String user = Jwts.parserBuilder()
-                    .setSigningKey(SecurityConstants.getTokenSecret())
-                    .parseClaimsJws(token)
+                    .setSigningKey(securityConstants.getTokenSecret().getBytes()) // Use the correct constant
+                    .build().parseClaimsJws(token)
                     .getBody()
                     .getSubject();
             if (user != null) {
-                User userEntity = userRepository.findByEmail(user);
-                return new UsernamePasswordAuthenticationToken(user, null, new UserPrincipal(userEntity).getAuthorities());
+                Optional<User> userEntityOptional = userRepository.findByEmail(user);
+                if (userEntityOptional.isPresent()) {
+                    User userEntity = userEntityOptional.get();
+                    CustomUserDetails userDetails = new CustomUserDetails(userEntity.getUsername(), userEntity.getPassword(), Collections.emptyList()); // You can adapt authorities as needed
+                    return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                }
             }
-            return null;
         }
         return null;
-    }
+    }    
 }
