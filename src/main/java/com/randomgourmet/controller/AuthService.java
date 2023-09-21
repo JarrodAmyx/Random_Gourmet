@@ -1,6 +1,8 @@
 package com.randomgourmet.controller;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 @Service
