@@ -1,4 +1,3 @@
-// User.java - MongoDB Entity
 package com.randomgourmet.model;
 
 import jakarta.persistence.Entity;
@@ -17,7 +16,9 @@ public class User {
     private String password; // In a real application, store password hashes, not plain text
 
     // Constructors
+
     public User() {
+        // Default constructor
     }
 
     public User(String username, String email, String password) {
@@ -27,6 +28,7 @@ public class User {
     }
 
     // Getters and setters
+
     public Long getId() {
         return id;
     }
