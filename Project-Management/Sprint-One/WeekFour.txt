@@ -15,6 +15,11 @@ Joakim:
 2. Mostly worked on fixing bugs and errors.
 3. Still haven't solved all the errors yet, in contact with Prof.
 
+Jarrod:
+1. I did not work yesterday.
+2. I worked on fixing server issues when connecting to the API.
+3. A lack of information given by our server.
+
 ---
 
 Tuesday 9/19/23
@@ -51,3 +56,8 @@ Joakim:
 1. Didn't work yesterday.
 2. Improved the security of your Spring Boot application by implementing JSON Web Token (JWT) authentication, centralizing security constants, and refining user authentication and authorization components.
 3. Problems solved, nothing specific at the moment.
+
+Jarrod:
+1. Yesterday, I worked on fixing server issues involving our API.
+2. Today I am finishing the API by creating multiple methods. I am also looking into the next tasks needed for spring two. I assited setting up the user table in our mongoDB.
+3. No blockers.
