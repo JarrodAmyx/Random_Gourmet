@@ -22,6 +22,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     AppComponent,
     LoginComponent,
     SidebarComponent,
+    HomeComponent,
     RegistrationComponent,
     ToolbarComponent
   ],
@@ -45,8 +47,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatSidenavModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    ReactiveFormsModule
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
