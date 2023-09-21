@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
+    HomeComponent,
     RegistrationComponent,
     ToolbarComponent
   ],
