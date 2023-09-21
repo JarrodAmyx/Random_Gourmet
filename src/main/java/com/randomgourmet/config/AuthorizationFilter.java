@@ -1,4 +1,3 @@
-/* 
 package com.randomgourmet.config;
 
 import com.randomgourmet.model.User;
@@ -43,7 +42,7 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         String token = request.getHeader(SecurityConstants.HEADER_STRING);
         if (token != null) {
             token = token.replace(SecurityConstants.TOKEN_PREFIX, "");
-            String user = Jwts.parser()
+            String user = Jwts.parserBuilder()
                     .setSigningKey(SecurityConstants.getTokenSecret())
                     .parseClaimsJws(token)
                     .getBody()
@@ -57,5 +56,3 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         return null;
     }
 }
-
-*/

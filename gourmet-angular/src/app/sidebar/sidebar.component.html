@@ -16,6 +16,15 @@
             <div class="description">{{ getIngredientCount(category) }} Ingredients</div>
 
           </div>
+          <!-- A chevron for dropdown menu -->
+          <img
+          class="second-image-icon"
+          src="./assets/category-images/chevron.png"
+          alt="Second Image Icon"
+          [class.rotate-180]="isCategoryClicked[category]"
+          (click)="yourClickHandlerFunction(category)"
+        />
+
         </mat-card-header>
 
         <mat-card-content>

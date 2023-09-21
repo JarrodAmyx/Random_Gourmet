@@ -23,12 +23,14 @@ import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
     SidebarComponent,
     HomeComponent,
     RegistrationComponent,
@@ -47,7 +49,9 @@ import { HomeComponent } from './home/home.component';
     MatSidenavModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    //RouterModule.forRoot(routes)
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
