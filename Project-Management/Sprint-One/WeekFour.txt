@@ -46,3 +46,8 @@ Chelsea:
 2. Today I pushed additional image assets for the rest of our UI and new code for the updated sidebar component UI. I also uploaded json to make
 the user db in AWS mongo so we have that going now. 
 3. No blockers. 
+
+Joakim:
+1. Didn't work yesterday.
+2. Improved the security of your Spring Boot application by implementing JSON Web Token (JWT) authentication, centralizing security constants, and refining user authentication and authorization components.
+3. Problems solved, nothing specific at the moment.
