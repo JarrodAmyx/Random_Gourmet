@@ -40,3 +40,9 @@ Ryan
 1. Yesterday I wrote code for the user profile. It contains user information and a favorite ingredients list that will eventually be accessed from the database.
 2. Today, I'm working on a search bar to filter saved recipes.
 3. Todo: search bar, deleting items from list
+
+Chelsea:
+1. Yesterday I finished up the front end for the ingredients sidebar. I'd like to do mmore refinement and focus on UX for it later. 
+2. Today I pushed additional image assets for the rest of our UI and new code for the updated sidebar component UI. I also uploaded json to make
+the user db in AWS mongo so we have that going now. 
+3. No blockers. 
