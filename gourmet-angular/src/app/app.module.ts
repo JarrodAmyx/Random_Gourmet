@@ -23,6 +23,7 @@ import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     SidebarComponent,
     RegistrationComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

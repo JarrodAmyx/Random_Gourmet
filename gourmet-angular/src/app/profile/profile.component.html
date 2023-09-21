@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+
+            <div>
+              <div class="card" style="width: 24rem;">
+                <div class="card-body">
+                  <h4 class="d-flex align-items-center mb-3">Your Profile</h4>
+
+                  <div class="row">
+                    <div>
+                      <h6 class="mb-0">Username</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{username}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div>
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-warning">Edit Profie</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <br>
+
+              <div>
+                <div>
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h4 class="d-flex align-items-center mb-3">Your recipes</h4>
+                      <span *ngFor="let recipe of recipes">
+                        <div class="card cursor">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img class="card-img-top embed-responsive-item" src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
+                             </div>
+                            <h4 class="card-body">{{recipe}}</h4>
+                            <a class="stretched-link" (click)="clickRecipe('test')"></a>
+                        </div>
+                        <br>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+    </div>
