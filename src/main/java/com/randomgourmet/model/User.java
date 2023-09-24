@@ -1,16 +1,20 @@
 package com.randomgourmet.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.UUID;
 
 @Entity
+@Document(collection = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID userId;
     private String username;
     private String email;
     private String password; // In a real application, store password hashes, not plain text
@@ -29,12 +33,12 @@ public class User {
 
     // Getters and setters
 
-    public Long getId() {
-        return id;
+    public UUID getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -59,5 +63,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    // Method to generate a unique ID for the user
+    public void generateUniqueId() {
+        this.userId = UUID.randomUUID();
     }
 }

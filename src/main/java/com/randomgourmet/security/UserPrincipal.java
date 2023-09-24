@@ -4,9 +4,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.UUID;
 
 public class UserPrincipal implements UserDetails {
-    private Long id;
+    private UUID userId;
     private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
