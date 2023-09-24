@@ -43,4 +43,11 @@ export class ProfileComponent {
 
     console.log(this.searchResults);
   }
+
+  deleteRecipe(other: string): void{
+    console.log(other);
+    
+    // placeholder for backend call
+    this.recipes = this.recipes.filter(item => item !== other);
+  }
 }

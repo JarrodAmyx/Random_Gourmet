@@ -1,3 +1,12 @@
+.flex-container {
+    display: flex;
+  }
+
+.flex-body{
+    margin: auto;
+  padding: 20px;
+}
+
 .card-img-top {
     width: 100%;
     height: 20vh;
