@@ -1,7 +1,7 @@
 import { AfterViewInit, Component,HostBinding } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-
+import { PantryService } from '../pantry/pantry.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,6 +18,10 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 
 export class SidebarComponent implements AfterViewInit{
+
+  //initialize pnatry services http requests for user db
+  constructor(private pantryService: PantryService) {}
+
   ngAfterViewInit() {
     this.adjustElementsInRows();
   }
@@ -45,6 +49,35 @@ export class SidebarComponent implements AfterViewInit{
     }
     return '0 Ingredients'; // Default to 0 if there are no subcategories or category not found
   }
+  //add/delete ingredients to user db
+  // Example POST request to add an ingredient to the pantry
+addIngredientToPantry(ingredient: any): void {
+  this.pantryService.createIngredient(ingredient).subscribe(
+    (response) => {
+      console.log('Ingredient added to pantry:', response);
+      // Handle success, update your UI, etc.
+    },
+    (error) => {
+      console.error('Error adding ingredient to pantry:', error);
+      // Handle errors
+    }
+  );
+}
+
+// Example DELETE request to remove an ingredient from the pantry
+removeIngredientFromPantry(ingredientId: string): void {
+  this.pantryService.deleteIngredient(ingredientId).subscribe(
+    () => {
+      console.log('Ingredient removed from pantry');
+      // Handle success, update your UI, etc.
+    },
+    (error) => {
+      console.error('Error removing ingredient from pantry:', error);
+      // Handle errors
+    }
+  );
+}
+
 
   //dropdown menu logic
   isCategoryClicked: { [key: string]: boolean } = {};
