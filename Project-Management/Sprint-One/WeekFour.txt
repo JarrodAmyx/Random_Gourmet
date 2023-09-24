@@ -61,3 +61,14 @@ Jarrod:
 1. Yesterday, I worked on fixing server issues involving our API.
 2. Today I am finishing the API by creating multiple methods. I am also looking into the next tasks needed for spring two. I assited setting up the user table in our mongoDB.
 3. No blockers.
+
+---
+
+Sunday 9/24/23
+
+Chelsea:
+1. On Wednesday I finished up the UI for the ingredients sidebar. There is logic for clicking the ingredient and I
+was figuring out how I could have the drop down menu expand/minimize. 
+2. Today I'm adding in the backend spring logic for clicking buttons and post/delete them to the user pantry db. 
+3. I want to configure the actual db calls the next sprint so I can get everything linked since we need to have users able to
+register and I could then assign ingredients to them. 
