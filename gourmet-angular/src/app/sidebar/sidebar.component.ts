@@ -1,7 +1,9 @@
 import { AfterViewInit, Component,HostBinding } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger  } from '@angular/animations';
 import { PantryService } from '../pantry/pantry.service';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { DropDownAnimation } from './sideAnimations';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,8 +15,8 @@ import { PantryService } from '../pantry/pantry.service';
       state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
       transition('collapsed => expanded', animate('300ms ease-in')),
       transition('expanded => collapsed', animate('300ms ease-out'))
-    ])
-  ]
+    ]),
+    DropDownAnimation],
 })
 
 export class SidebarComponent implements AfterViewInit{
@@ -30,7 +32,9 @@ export class SidebarComponent implements AfterViewInit{
     // adjust-elements.ts code here
   }
 
+
   isOpen = true; // Set to true to open the sidebar
+  isSubOpen = false;
 
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
@@ -102,7 +106,7 @@ removeIngredientFromPantry(ingredientId: string): void {
   ];
 
 //major categories of food groups
-categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "Baking", "Grains and Cereals", "Juices", 
+categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "Baking", "Grains and Cereals", "Juices",
   "Condiments", "Herbs and Spices"];
 
   // Subcategories of each food group
@@ -112,39 +116,39 @@ subcatSeafood: string[] = ["Shrimp", "Crab", "Lobster", "Clam", "Squid", "Octopu
   "Tuna", "Halibut", "Snapper", "Trout", "Mahi-Mahi", "Tilapia", "Sardine", "Catfish", "Other Seafood Option"];
 
 subcatVegetables: string[] = ["Carrot", "Broccoli", "Spinach", "Tomato", "Pepper", "Onion", "Cucumber",
-  "Zucchini", "Potato", "Sweet Potato", "Mushroom", "Cabbage", "Cauliflower", "Green Bean", "Asparagus", 
-  "Eggplant", "Pea", "Lettuce", "Kale", "Radish", "Artichoke", "Beet", "Squash", "Okra", "Corn", "Celery", 
+  "Zucchini", "Potato", "Sweet Potato", "Mushroom", "Cabbage", "Cauliflower", "Green Bean", "Asparagus",
+  "Eggplant", "Pea", "Lettuce", "Kale", "Radish", "Artichoke", "Beet", "Squash", "Okra", "Corn", "Celery",
   "Leek", "Turnip", "Other Vegetable"];
 
-subcatFruits: string[] = ["Apple", "Banana", "Orange", "Grape", "Strawberry", "Blueberry", 
-  "Raspberry", "Blackberry", "Peach", "Plum", "Cherry", "Mango", "Pineapple", "Kiwi", "Pear", 
-  "Lemon", "Lime", "Cantaloupe", "Watermelon", "Honeydew", "Grapefruit", "Coconut", "Pomegranate", "Avocado", 
+subcatFruits: string[] = ["Apple", "Banana", "Orange", "Grape", "Strawberry", "Blueberry",
+  "Raspberry", "Blackberry", "Peach", "Plum", "Cherry", "Mango", "Pineapple", "Kiwi", "Pear",
+  "Lemon", "Lime", "Cantaloupe", "Watermelon", "Honeydew", "Grapefruit", "Coconut", "Pomegranate", "Avocado",
   "Papaya", "Guava", "Passion Fruit", "Apricot", "Nectarine", "Cranberry", "Fig", "Date", "Other Fruit"];
 
-subcatBerries: string[] = ["Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cranberry", 
+subcatBerries: string[] = ["Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cranberry",
   "Gooseberry", "Currant", "Boysenberry", "Mulberry", "Elderberry", "Huckleberry","other berry"];
 
-subcatBaking: string[] = ["Flour", "Sugar", "Baking Powder", "Baking Soda", "Yeast", "Vanilla Extract", 
-  "Cocoa Powder", "Chocolate Chips", "Nut", "Spice", "Food Coloring", "Sprinkle", "Shortening", "Cornstarch", 
-  "Breadcrumb", "Cornmeal", "Honey", "Maple Syrup", "Molasses", "Agave Nectar", "Cream of Tartar", "Gelatin", 
+subcatBaking: string[] = ["Flour", "Sugar", "Baking Powder", "Baking Soda", "Yeast", "Vanilla Extract",
+  "Cocoa Powder", "Chocolate Chips", "Nut", "Spice", "Food Coloring", "Sprinkle", "Shortening", "Cornstarch",
+  "Breadcrumb", "Cornmeal", "Honey", "Maple Syrup", "Molasses", "Agave Nectar", "Cream of Tartar", "Gelatin",
   "Candied Fruit", "Pie Filling", "Marshmallow", "Other Baking Ingredient"];
 
-subcatGrainsCereals: string[] = ["Rice", "Pasta", "Quinoa", "Oat", "Barley", "Couscous", "Millet", "Buckwheat", "Amaranth", "Bread", "Cereal", "Granola", "Cereal Bar", "Rice Cake", "Popcorn", 
+subcatGrainsCereals: string[] = ["Rice", "Pasta", "Quinoa", "Oat", "Barley", "Couscous", "Millet", "Buckwheat", "Amaranth", "Bread", "Cereal", "Granola", "Cereal Bar", "Rice Cake", "Popcorn",
   "Flour", "Cornmeal", "Grit", "Other Grain and Cereal"];
 
-subcatJuices: string[] = ["Lemon Juice", "Lime Juice", "Orange Juice", "Apple Juice", "Grape Juice", "Pineapple Juice", 
-  "Cranberry Juice", "Tomato Juice", "Vegetable Juice", "Pomegranate Juice", "Lemonade Concentrate", "Limeade Concentrate", 
+subcatJuices: string[] = ["Lemon Juice", "Lime Juice", "Orange Juice", "Apple Juice", "Grape Juice", "Pineapple Juice",
+  "Cranberry Juice", "Tomato Juice", "Vegetable Juice", "Pomegranate Juice", "Lemonade Concentrate", "Limeade Concentrate",
   "Other Cooking Juice"];
 
-subcatCondiments: string[] = ["Ketchup", "Mustard", "Mayonnaise", "Soy Sauce", "Hot Sauce", "Barbecue Sauce", 
-  "Worcestershire Sauce", "Vinegar", "Salad Dressing", "Relish", "Pickle", "Salsa", "Sriracha", "Hoisin Sauce", 
-  "Teriyaki Sauce", "Fish Sauce", "Tahini", "Hummus", "Jam", "Jelly", "Peanut Butter", "Nutella", "Gravy", 
-  "Marinara Sauce", "Pizza Sauce", "Tartar Sauce", "Cocktail Sauce", "Horseradish", "Sour Cream", "Cream Cheese", 
+subcatCondiments: string[] = ["Ketchup", "Mustard", "Mayonnaise", "Soy Sauce", "Hot Sauce", "Barbecue Sauce",
+  "Worcestershire Sauce", "Vinegar", "Salad Dressing", "Relish", "Pickle", "Salsa", "Sriracha", "Hoisin Sauce",
+  "Teriyaki Sauce", "Fish Sauce", "Tahini", "Hummus", "Jam", "Jelly", "Peanut Butter", "Nutella", "Gravy",
+  "Marinara Sauce", "Pizza Sauce", "Tartar Sauce", "Cocktail Sauce", "Horseradish", "Sour Cream", "Cream Cheese",
   "Other Condiment"];
 
-subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "Oregano", "Cilantro", "Parsley", "Sage", 
-  "Dill", "Mint", "Chive", "Coriander", "Cumin", "Paprika", "Chili Powder", "Cayenne Pepper", "Turmeric", "Ginger", 
-  "Nutmeg", "Cinnamon", "Clove", "Allspice", "Cardamom", "Bay Leaf", "Fennel", "Tarragon", "Marjoram", "Lavender", 
+subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "Oregano", "Cilantro", "Parsley", "Sage",
+  "Dill", "Mint", "Chive", "Coriander", "Cumin", "Paprika", "Chili Powder", "Cayenne Pepper", "Turmeric", "Ginger",
+  "Nutmeg", "Cinnamon", "Clove", "Allspice", "Cardamom", "Bay Leaf", "Fennel", "Tarragon", "Marjoram", "Lavender",
   "Vanilla", "Saffron", "Mustard Seed", "Caraway Seed", "Poppy Seed", "Other Herb and Spice"];
 
   //each major categories' icons for sidebar header
@@ -173,6 +177,20 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
     Juices: this.subcatJuices,
     Condiments: this.subcatCondiments,
     'Herbs and Spices': this.subcatHerbsSpices,
+  };
+
+  // keep track of each category's dropdown tabs condition of being open(T) and closed(F)
+  categoryIsOpen: { [key: string]: boolean } = {
+    Meats: false,
+    Seafood: false,
+    Vegetables: false,
+    Fruits: false,
+    Berries: false,
+    Baking: false,
+    'Grains and Cereals': false,
+    Juices: false,
+    Condiments: false,
+    'Herbs and Spices': false,
   };
 
   //this will be for db server actions
@@ -210,9 +228,9 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
   }
 //dropdown menu
 
-  // http for adding/deleting ingredients to users 
+  // http for adding/deleting ingredients to users
   /*
-  //http request to add/delete ingredients to pantry 
+  //http request to add/delete ingredients to pantry
   constructor(private http: HttpClient) {}
 
   addIngredientToPantry() {

@@ -36,7 +36,7 @@ of the buttons to our original version.
 
 Wednesday 9/20/23
 
-Brin:
+Brian:
 1. Yesterday I had focused my efforts on a seperate project for another class.
 2. Today I focused on checking all files related to the User and services to prepare for connecting front and backends.
 3. There's a lot of files to parse through as well as potential overlap between each person's progress in already implementing the connection.
@@ -72,3 +72,8 @@ was figuring out how I could have the drop down menu expand/minimize.
 2. Today I'm adding in the backend spring logic for clicking buttons and post/delete them to the user pantry db. 
 3. I want to configure the actual db calls the next sprint so I can get everything linked since we need to have users able to
 register and I could then assign ingredients to them. 
+
+Brian:
+1. Yesterday, I was focused on personal matters
+2. Today I focused on making the buttons for the ingredient categories clickable as well as attempt to create a dropdown effect for them
+3. I currently need to create some kind of array that keeps track of every category available to make each category open and close individually
