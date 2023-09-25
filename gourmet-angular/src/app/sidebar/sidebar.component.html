@@ -2,6 +2,7 @@
   <mat-sidenav class="sidebar" [mode]="'side'" opened>
     <!-- Loop through the categories -->
     <ng-container *ngFor="let category of categories">
+
       <mat-card class="sidebar-card">
 
         <mat-card-header>
@@ -16,34 +17,34 @@
             <div class="description">{{ getIngredientCount(category) }} Ingredients</div>
 
           </div>
-          <!-- A chevron for dropdown menu -->
-          <img
-          class="second-image-icon"
-          src="./assets/category-images/chevron.png"
-          alt="Second Image Icon"
-          [class.rotate-180]="isCategoryClicked[category]"
-          (click)="yourClickHandlerFunction(category)"
-        />
 
+          <!-- matIcon button for a arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
+          <button mat-button [matMenuTriggerFor]="sub">
+            <mat-icon
+              style="width: 42px; height: 42px; font-size: 42px"
+              fontIcon="arrow_circle_down"
+            > </mat-icon>
+          </button>
         </mat-card-header>
 
         <mat-card-content>
+
           <!-- Flex container for the subcategory buttons -->
           <div class="subcategory-container">
             <!-- Loop through the subcategories of the current category -->
-
-                <mat-button-toggle
-                *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
-                [ngClass]="{'active': subcategoryStates[subcategory]}"
-                (click)="toggleSubcategory(subcategory)" style="width: 50%;">
-                  <span class="button-label">{{ subcategory }}</span>
-                </mat-button-toggle>
-
+            <mat-menu #sub="matMenu">
+            <mat-button-toggle
+            *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
+            [ngClass]="{'active': subcategoryStates[subcategory]}"
+            (click)="toggleSubcategory(subcategory)" style="width: 50%;">
+              <span class="button-label">{{ subcategory }}</span>
+            </mat-button-toggle>
+            </mat-menu>
           </div>
-
         </mat-card-content>
 
       </mat-card>
+
     </ng-container>
   </mat-sidenav>
 </mat-sidenav-container>
