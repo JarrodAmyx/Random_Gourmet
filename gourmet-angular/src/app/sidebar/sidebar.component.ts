@@ -33,7 +33,8 @@ export class SidebarComponent implements AfterViewInit{
   }
 
 
-  isOpen = true; // Set to true to open the sidebar.. currently being used for dropdown Menus
+  isOpen = true; // Set to true to open the sidebar
+  isSubOpen = false;
 
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
