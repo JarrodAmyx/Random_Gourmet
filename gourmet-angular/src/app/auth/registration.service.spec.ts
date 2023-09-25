@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistrationService {
-  private baseUrl = 'http://your-backend-api-url'; // Replace with your backend API URL
+  private baseUrl = 'ec2-54-177-182-166.us-west-1.compute.amazonaws.com:4200';
 
   constructor(private http: HttpClient) {}
 
