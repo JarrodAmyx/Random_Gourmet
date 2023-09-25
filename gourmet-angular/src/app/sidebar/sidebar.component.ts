@@ -179,6 +179,20 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
     'Herbs and Spices': this.subcatHerbsSpices,
   };
 
+  // keep track of each category's dropdown tabs condition of being open(T) and closed(F)
+  categoryIsOpen: { [key: string]: boolean } = {
+    Meats: false,
+    Seafood: false,
+    Vegetables: false,
+    Fruits: false,
+    Berries: false,
+    Baking: false,
+    'Grains and Cereals': false,
+    Juices: false,
+    Condiments: false,
+    'Herbs and Spices': false,
+  };
+
   //this will be for db server actions
   //still need to decide on how to adjust quantities in pantry logic wise
   ingredientsData = {
