@@ -19,9 +19,9 @@
           </div>
 
           <!-- matIcon button for a arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
-          <button mat-button [matMenuTriggerFor]="sub">
+          <button mat-button >
             <mat-icon
-              style="width: 42px; height: 42px; font-size: 42px"
+              style="width: 35px; height: 35px; font-size: 35px"
               fontIcon="arrow_circle_down"
             > </mat-icon>
           </button>
@@ -30,16 +30,14 @@
         <mat-card-content>
 
           <!-- Flex container for the subcategory buttons -->
-          <div class="subcategory-container">
+          <div class="subcategory-container" >
             <!-- Loop through the subcategories of the current category -->
-            <mat-menu #sub="matMenu">
             <mat-button-toggle
             *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
             [ngClass]="{'active': subcategoryStates[subcategory]}"
             (click)="toggleSubcategory(subcategory)" style="width: 50%;">
               <span class="button-label">{{ subcategory }}</span>
             </mat-button-toggle>
-            </mat-menu>
           </div>
         </mat-card-content>
 

@@ -1,8 +1,9 @@
 import { AfterViewInit, Component,HostBinding } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger  } from '@angular/animations';
 import { PantryService } from '../pantry/pantry.service';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { DropDownAnimation } from './sideAnimations';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,8 +15,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
       state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
       transition('collapsed => expanded', animate('300ms ease-in')),
       transition('expanded => collapsed', animate('300ms ease-out'))
-    ])
-  ],
+    ]),
+    DropDownAnimation],
 })
 
 export class SidebarComponent implements AfterViewInit{
@@ -31,7 +32,8 @@ export class SidebarComponent implements AfterViewInit{
     // adjust-elements.ts code here
   }
 
-  isOpen = true; // Set to true to open the sidebar
+
+  isOpen = true; // Set to true to open the sidebar.. currently being used for dropdown Menus
 
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
