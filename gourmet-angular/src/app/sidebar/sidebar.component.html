@@ -31,14 +31,17 @@
           <!-- Flex container for the subcategory buttons -->
           <div class="subcategory-container">
             <!-- Loop through the subcategories of the current category -->
-            <button
+            <mat-button-toggle-group name="subcategory-buttons" style="width: 40vw;" multiple>
+            <mat-button-toggle
               *ngFor="let subcategory of categorySubcategoryMap[category]"
               [ngClass]="{'active': subcategoryStates[subcategory]}"
               (click)="toggleSubcategory(subcategory)">
               <span class="button-label">{{ subcategory }}</span>
-            </button>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
           </div>
         </mat-card-content>
+
       </mat-card>
     </ng-container>
   </mat-sidenav>
