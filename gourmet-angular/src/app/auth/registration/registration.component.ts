@@ -49,7 +49,7 @@ export class RegistrationComponent {
       password: this.registerForm.get('password1')?.value,
     };
 
-    const apiUrl = 'http://ec2-54-177-182-166.us-west-1.compute.amazonaws.com:8080/api/register';
+    const apiUrl = 'http://localhost:8080';
   
     // Create an observer object with appropriate handlers
     const observer = {
