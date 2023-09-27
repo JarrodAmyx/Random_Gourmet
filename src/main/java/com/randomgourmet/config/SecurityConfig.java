@@ -1,3 +1,23 @@
+package com.randomgourmet.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.beans.factory.annotation.Value;
+
+@Configuration
+public class SecurityConfig {
+
+    @Value("${spring.security.password-encoder.class}")
+    private String passwordEncoderClass;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+
 // package com.randomgourmet.config;
 
 // import com.randomgourmet.repository.UserRepository;

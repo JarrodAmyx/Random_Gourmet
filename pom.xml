@@ -24,6 +24,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,8 +49,13 @@
 				<artifactId>jjwt-impl</artifactId>
 				<version>0.11.5</version>
 		</dependency>
-		<!-- MongoDB Java Driver -->
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<!-- MongoDB Java Driver -->
+		<!-- <dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongodb-driver-core</artifactId>
 			<version>4.10.2</version>
@@ -59,7 +65,7 @@
 					<artifactId>mongodb-driver-sync</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -67,6 +73,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.0.1</version>
 			</plugin>
 		</plugins>
 	</build>
