@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistrationService {
-  private baseUrl = 'ec2-54-177-182-166.us-west-1.compute.amazonaws.com:8080';
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
