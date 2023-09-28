@@ -1,4 +1,4 @@
-package com.randomgourmet.randomgourmet.models;
+package com.randomgourmet.model;
 
 import java.io.IOException;
 import java.net.URI;
