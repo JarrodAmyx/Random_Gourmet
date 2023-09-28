@@ -15,13 +15,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserServiceImpl(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public void registerUser(UserRegistrationRequest registrationRequest) {
         // Validate registration request (e.g., check for duplicate usernames or emails)
-        
+        validateUser(registrationRequest);
+
         // Create a new user entity and populate its fields
         User newUser = new User();
         newUser.setUsername(registrationRequest.getUsername());
@@ -89,11 +94,11 @@ public class UserServiceImpl implements UserService {
     }
 
     // Validate user data before creation
-    private void validateUser(User user) {
-      if (isUsernameTaken(user.getUsername())) {
-        throw new IllegalArgumentException("Username is already taken.");
+    private void validateUser(UserRegistrationRequest registrationRequest) {
+        if (isUsernameTaken(registrationRequest.getUsername())) {
+            throw new IllegalArgumentException("Username is already taken.");
         }
-        if (isEmailTaken(user.getEmail())) {
+        if (isEmailTaken(registrationRequest.getEmail())) {
             throw new IllegalArgumentException("Email is already registered.");
         }
     }

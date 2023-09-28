@@ -24,6 +24,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,11 +39,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-		<!-- Jakarta.persistence -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
@@ -53,17 +49,23 @@
 				<artifactId>jjwt-impl</artifactId>
 				<version>0.11.5</version>
 		</dependency>
-		<!-- Spring Boot Starter Data MongoDB -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 		<!-- MongoDB Java Driver -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver-sync</artifactId>
+			<artifactId>mongodb-driver-core</artifactId>
 			<version>4.10.2</version>
-		</dependency>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mongodb</groupId>
+					<artifactId>mongodb-driver-sync</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -71,6 +73,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.0.1</version>
 			</plugin>
 		</plugins>
 	</build>
