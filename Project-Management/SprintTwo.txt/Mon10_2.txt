@@ -1,0 +1,11 @@
+---
+
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+Chelsea:
+1. Yesterday I didnt work on any tasks.
+2. Today I will be picking my tasks for this sprint.
+3. No blockers
