@@ -9,3 +9,8 @@ Chelsea:
 1. Yesterday I didnt work on my tasks.
 2. I uploaded the sprint 2 prjt mgmt file and we are deciding on the point scale for our Jira tasks.
 3. no blockers except my AI class back to back assignments LOL
+
+Jarrod:
+1. Didn't work on tasks yesterday
+2. I am working on fixing our server and looking into connecting Spring Boot to our MongoDB.
+3. The main blocker is our server being broken. 
