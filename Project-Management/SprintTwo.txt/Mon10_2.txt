@@ -9,3 +9,8 @@ Chelsea:
 1. Yesterday I didnt work on any tasks.
 2. Today I will be picking my tasks for this sprint.
 3. No blockers
+
+Jarrod:
+1. Yesterday I didn't work on tasks
+2. Today I worked on picking tasks for the sprint.
+3. No blockers
