@@ -25,7 +25,7 @@ export class RegistrationComponent {
             )
   {
     this.registerForm = new FormGroup({
-      username: new FormControl<string>(''),
+      username: new FormControl<string>('', Validators.pattern('')),
       email: new FormControl<string>('', [Validators.required, Validators.email]),
       password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
       password2: new FormControl<string>('', [Validators.required, this.passwordDuplicateValid()]),
