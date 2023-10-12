@@ -25,7 +25,7 @@ export class RegistrationComponent {
             )
   {
     this.registerForm = new FormGroup({
-      username: new FormControl<string>('', Validators.pattern('')),
+      username: new FormControl<string>('', this.whiteSpace()),
       email: new FormControl<string>('', [Validators.required, Validators.email]),
       password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
       password2: new FormControl<string>('', [Validators.required, this.passwordDuplicateValid()]),
@@ -58,7 +58,16 @@ export class RegistrationComponent {
   }
 
 
+  whiteSpace() {
+    return (control: AbstractControl) => {
+      const value = control.value;
 
+        if (!value) {
+            return null;
+        }
+        return String(value).indexOf(' ') >= 0 ? {whitespace:true}: null;
+    };
+  }
   passwordDuplicateValid() {
     return (control: AbstractControl) => {
       const value = control.value;
@@ -70,6 +79,8 @@ export class RegistrationComponent {
         return value != this.registerForm.get('password1')?.value ? {duplicate:true}: null;
     };
   }
+
+  
 
   get email(){
     return this.registerForm.get('email');

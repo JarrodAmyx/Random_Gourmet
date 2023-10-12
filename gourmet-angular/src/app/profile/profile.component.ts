@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -28,12 +28,20 @@ export class ProfileComponent {
   constructor()
   {
     this.updateForm = new FormGroup({
-      /* 
-      working on validator pattern that declines white spaces
-      */
-      username: new FormControl<string>('', Validators.pattern(/[\S]/g)),
+      username: new FormControl<string>('', this.whiteSpace()),
       email: new FormControl<string>('', Validators.email),
     });  
+  }
+
+  whiteSpace() {
+    return (control: AbstractControl) => {
+      const value = control.value;
+
+        if (!value) {
+            return null;
+        }
+        return String(value).indexOf(' ') >= 0 ? {whitespace:true}: null;
+    };
   }
 
 
