@@ -97,6 +97,9 @@ export class RegistrationComponent {
   }
 
   
+  get user(){
+    return this.registerForm.get('username');
+  }
 
   get email(){
     return this.registerForm.get('email');

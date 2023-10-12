@@ -7,6 +7,7 @@
 
       <mat-form-field class="mat-form-field-underline">
         <input matInput placeholder="Username" formControlName="username" name="username" required>
+        <mat-error *ngIf="user?.invalid">Username must not contain any spaces.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-form-field-underline">
