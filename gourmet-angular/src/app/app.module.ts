@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
@@ -24,6 +25,7 @@ import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
+    HomeComponent,
     RegistrationComponent,
     ToolbarComponent,
     ProfileComponent
@@ -50,6 +53,8 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MatButtonToggleModule,
     //RouterModule.forRoot(routes)
   ],
   providers: [AuthService, RegistrationService],

@@ -5,20 +5,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.randomgourmet.dto.UserRegistrationRequest;
-import com.randomgourmet.service.UserService;
+import com.randomgourmet.service.RegistrationService;
 
 @RestController
 @RequestMapping("/api")
 public class RegistrationController {
 
+    private final RegistrationService registrationService;
+
     @Autowired
-    private UserService userService; // You'll need to implement UserService
+    public RegistrationController(RegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UserRegistrationRequest registrationRequest) {
         try {
             // Validate registrationRequest and perform user registration logic
-            userService.registerUser(registrationRequest);
+            registrationService.registerUser(registrationRequest);
             
             // Return a success response with HTTP status 200 OK
             return ResponseEntity.ok("Registration successful");

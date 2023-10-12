@@ -15,6 +15,11 @@ Joakim:
 2. Mostly worked on fixing bugs and errors.
 3. Still haven't solved all the errors yet, in contact with Prof.
 
+Jarrod:
+1. I did not work yesterday.
+2. I worked on fixing server issues when connecting to the API.
+3. A lack of information given by our server.
+
 ---
 
 Tuesday 9/19/23
@@ -28,3 +33,47 @@ from a recipe but not in the pantry. The sizing of the buttons is being fickle t
 of the buttons to our original version. 
 
 ---
+
+Wednesday 9/20/23
+
+Brian:
+1. Yesterday I had focused my efforts on a seperate project for another class.
+2. Today I focused on checking all files related to the User and services to prepare for connecting front and backends.
+3. There's a lot of files to parse through as well as potential overlap between each person's progress in already implementing the connection.
+
+Ryan
+1. Yesterday I wrote code for the user profile. It contains user information and a favorite ingredients list that will eventually be accessed from the database.
+2. Today, I'm working on a search bar to filter saved recipes.
+3. Todo: search bar, deleting items from list
+
+Chelsea:
+1. Yesterday I finished up the front end for the ingredients sidebar. I'd like to do mmore refinement and focus on UX for it later. 
+2. Today I pushed additional image assets for the rest of our UI and new code for the updated sidebar component UI. I also uploaded json to make
+the user db in AWS mongo so we have that going now. 
+3. No blockers. 
+
+Joakim:
+1. Didn't work yesterday.
+2. Improved the security of your Spring Boot application by implementing JSON Web Token (JWT) authentication, centralizing security constants, and refining user authentication and authorization components.
+3. Problems solved, nothing specific at the moment.
+
+Jarrod:
+1. Yesterday, I worked on fixing server issues involving our API.
+2. Today I am finishing the API by creating multiple methods. I am also looking into the next tasks needed for spring two. I assited setting up the user table in our mongoDB.
+3. No blockers.
+
+---
+
+Sunday 9/24/23
+
+Chelsea:
+1. On Wednesday I finished up the UI for the ingredients sidebar. There is logic for clicking the ingredient and I
+was figuring out how I could have the drop down menu expand/minimize. 
+2. Today I'm adding in the backend spring logic for clicking buttons and post/delete them to the user pantry db. 
+3. I want to configure the actual db calls the next sprint so I can get everything linked since we need to have users able to
+register and I could then assign ingredients to them. 
+
+Brian:
+1. Yesterday, I was focused on personal matters
+2. Today I focused on making the buttons for the ingredient categories clickable as well as attempt to create a dropdown effect for them
+3. I currently need to create some kind of array that keeps track of every category available to make each category open and close individually

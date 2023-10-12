@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistrationService {
-  private baseUrl = 'http://your-backend-api-url'; // Replace with your backend API URL
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 

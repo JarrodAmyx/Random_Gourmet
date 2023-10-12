@@ -2,7 +2,7 @@
 .sidebar {
   width: 375px; /* Set the width of the sidebar */
   max-width: 375px;
-  background-color: #EBA937; /* Sidebar background color */
+  background: linear-gradient(to bottom, #f8e578, #f1ab31); /* Gradient background */
   color: #000000; /* Text color */
   padding-top: 100px;
   position: fixed;
@@ -155,6 +155,18 @@
   background-color: #ccc; /* Off-grey color */
   opacity: 0.6; /* Adjust opacity as needed */
   z-index: -1; /* Place it behind the image icon */
+}
+
+.second-image-icon {
+  width: 24px; /* Adjust the width as needed */
+  height: 24px; /* Adjust the height as needed */
+  margin-left: 10px; /* Adjust the margin to separate it from the description */
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease; /* Add a smooth transition */
 }
 
 .mat-card-header {

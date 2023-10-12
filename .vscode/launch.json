@@ -2,11 +2,18 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-RandomGourmetWebAppApplication<Random-GourmetWebApp>",
+            "name": "RandomgourmetApplication",
+            "request": "launch",
+            "mainClass": "com.randomgourmet.RandomgourmetApplication",
+            "projectName": "randomgourmet"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RandomgourmetApplication<RandomgourmetApplication>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.example.Random.GourmetWebApp.RandomGourmetWebAppApplication",
-            "projectName": "Random-GourmetWebApp",
+            "mainClass": "com.randomgourmet.RandomgourmetApplication",
+            "projectName": "RandomgourmetApplication",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

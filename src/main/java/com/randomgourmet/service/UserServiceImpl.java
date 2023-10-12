@@ -15,12 +15,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserServiceImpl(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public void registerUser(UserRegistrationRequest registrationRequest) {
         // Validate registration request (e.g., check for duplicate usernames or emails)
+        validateUser(registrationRequest);
 
         // Create a new user entity and populate its fields
         User newUser = new User();
@@ -78,24 +83,24 @@ public class UserServiceImpl implements UserService {
 
     // Check if a username is already taken
     private boolean isUsernameTaken(String username) {
-      Optional<User> existingUser = userRepository.findByUsername(username);
-      return existingUser.isPresent();
-  }
+        Optional<User> existingUser = userRepository.findByUsername(username);
+        return existingUser.isPresent();
+    }
 
-  // Check if an email is already registered
-  private boolean isEmailTaken(String email) {
-      Optional<User> existingUser = userRepository.findByEmail(email);
-      return existingUser.isPresent();
-  }
+    // Check if an email is already registered
+    private boolean isEmailTaken(String email) {
+        Optional<User> existingUser = userRepository.findByEmail(email);
+        return existingUser.isPresent();
+    }
 
     // Validate user data before creation
-    private void validateUser(User user) {
-      if (isUsernameTaken(user.getUsername())) {
-        throw new IllegalArgumentException("Username is already taken.");
-    }
-    if (isEmailTaken(user.getEmail())) {
-        throw new IllegalArgumentException("Email is already registered.");
-    }
+    private void validateUser(UserRegistrationRequest registrationRequest) {
+        if (isUsernameTaken(registrationRequest.getUsername())) {
+            throw new IllegalArgumentException("Username is already taken.");
+        }
+        if (isEmailTaken(registrationRequest.getEmail())) {
+            throw new IllegalArgumentException("Email is already registered.");
+        }
     }
 
     // Hash user password using BCrypt
@@ -104,6 +109,4 @@ public class UserServiceImpl implements UserService {
     }
 
     // Implement other methods as needed for user management, authentication, and authorization.
-
-    // ...
 }

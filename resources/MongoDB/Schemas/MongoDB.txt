@@ -1,0 +1,41 @@
+sample link:
+
+https://us-west-1.console.aws.amazon.com/ec2-instance-connect/ssh?region=us-west-1&connType=standard&instanceId=i-0b099ba4358dbb9c9&osUser=ubuntu&sshPort=22#/
+
+db name:    FoodOvers
+
+collections:
+users
+
+-----------------------------
+Here are a few commands to use MongoDB CLI on AWS below:
+
+How to run MongoDB:
+1. go to server run
+    mongosh
+
+2. type in 
+    use FoodOvers
+
+3. Create table
+    - run the .sh file
+
+4. see the collection is live and worked
+    show collections
+
+5. use db to insert data 
+    EX:
+        db.users.insertOne({
+...   username: "john_doe",
+...   email: "john@example.com",
+...   password: "hashed_password",
+...   full_name: "John Doe",
+...   skill_level: "Intermediate",
+...   gender: "Male",
+...   profile_picture: "profile.jpg",
+...   created_at: new Date(),
+...   updated_at: new Date()
+... })
+
+6. find row in table
+    db.users.find().limit(1)
