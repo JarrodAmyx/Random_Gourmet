@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,7 +9,7 @@ import { SharedService } from '../shared/shared.service';
 })
 export class ToolbarComponent {
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, private router: Router) {}
 
   openRegistration(): void {
     this.sharedService.openRegistration();
@@ -16,5 +17,9 @@ export class ToolbarComponent {
 
   openLogin(): void {
     this.sharedService.openLogin();
+  }
+
+  navigate(other: string): void{
+    this.router.navigate(['/profile']);
   }
 }
