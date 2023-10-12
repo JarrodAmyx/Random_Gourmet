@@ -24,6 +24,7 @@ import { AuthService } from './auth/auth.service';
 import { RegistrationService } from './auth/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -35,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     HomeComponent,
     RegistrationComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
