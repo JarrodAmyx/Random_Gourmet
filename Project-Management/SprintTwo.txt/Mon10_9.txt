@@ -9,4 +9,13 @@
 Chelsea:
 1. I did not work on my tasks
 2. Today we discussed the backend and any frontend features we are missing. 
-3. The spring framework is acting up and not wroking + server errors Jarrod has been debugging
+3. The spring framework is acting up and not working + server errors Jarrod has been debugging
+
+---
+
+Joakim:
+1. Didn't work on tasks yesterday.
+2. Trying to figure out our errors with running our backend.
+3. Figuring out the errors.
+
+---
