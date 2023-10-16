@@ -19,3 +19,10 @@ Joakim:
 3. Figuring out the errors.
 
 ---
+
+Brian:
+1. I did not work on the project yesterday.
+2. Today was focused on further narrowing down the scope of the front-end.
+3. Being sick was detramental to information processing.
+
+---
