@@ -11,10 +11,14 @@ Chelsea:
 2. Today we decided to switch from Java to PHP for our backend and while we do the conversion I'll focus on the sidebar frontend aspect.
 3. no blockers currently
 
+---
+
 Joakim:
 1. Didn't work on tasks yesterday.
 2. Decided to switch to PHP, discussed our next steps, and made necessary updates to Jira.
 3. No blockers
+
+---
 
 Brian:
 1. Didn't work on tasks yesterday was focused on getting over a cold.
