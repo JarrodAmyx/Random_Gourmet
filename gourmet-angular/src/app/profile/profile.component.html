@@ -87,8 +87,16 @@
                         src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
                     </div>
                     <div class="card-body">
-                      <h4 class="card-title">{{recipe}}</h4>
-                      <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe)">Delete</button>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="flex-body"> <h4 class="card-title">{{recipe}}</h4> </div>
+                        <!-- <div class="flex-body"> <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe)">Delete</button> </div> -->
+                        <div class="flex-body"><mat-icon fontIcon="delete" class="cursor" (click)="deleteRecipe(recipe)"></mat-icon> </div>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="flex-body">Protein:</div>
+                        <div class="flex-body">Fat:</div>
+                        <div class="flex-body">Carbohydate:</div>
+                      </div>
                     </div>
                   </div>
                   <br>
