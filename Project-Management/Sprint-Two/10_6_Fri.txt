@@ -8,3 +8,10 @@ Joakim:
 1. Didn't work on tasks yesterday.
 2. I was getting ready for midterms so I didn't work on the project.
 3. No blockers
+
+---
+
+Brian:
+1. Did not work on tasks yesterday.
+2. Got sick and decided to rest in order to recover faster.
+3. Got a cold.
