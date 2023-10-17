@@ -1,3 +1,4 @@
+import { SharedService } from './../shared/shared.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
@@ -24,13 +25,19 @@ export class ProfileComponent {
   recipes: string[] = ['burger', 'thing', 'thing2'];
 
   updateForm : FormGroup;
-  //form control
-  constructor()
+  //form control 
+    constructor(
+      private sharedService: SharedService
+    )
   {
     this.updateForm = new FormGroup({
       username: new FormControl<string>('', this.whiteSpace()),
       email: new FormControl<string>('', Validators.email),
     });  
+  }
+
+  temporaryAction(): void {
+    this.sharedService.openPantry();
   }
 
   whiteSpace() {
