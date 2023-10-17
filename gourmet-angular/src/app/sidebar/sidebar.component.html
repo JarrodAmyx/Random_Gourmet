@@ -1,5 +1,15 @@
 <mat-sidenav-container>
+
+
   <mat-sidenav class="sidebar" [mode]="'side'" opened>
+
+    <div class="search-bar">
+      <div class="search-icon">
+        <mat-icon>search</mat-icon>
+      </div>
+      <input type="text" placeholder="Search..." (input)="onSearchInputChange($event)">
+    </div>
+    
     <!-- Loop through the categories -->
     <ng-container *ngFor="let category of categories">
 

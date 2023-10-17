@@ -1,4 +1,30 @@
 /* Style the sidebar */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+  width: 100%;
+}
+
+.search-icon {
+  margin-right: 10px; /* Adjust the margin to control the space between the icon and input */
+}
+
+.search-icon mat-icon {
+  font-size: 24px; /* Adjust the font size of the icon */
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  outline: none;
+}
+
 .sidebar {
   width: 375px; /* Set the width of the sidebar */
   max-width: 375px;
