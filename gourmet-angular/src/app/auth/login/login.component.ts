@@ -10,7 +10,7 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username: string = '';
+  Email: string = '';
   password: string = '';
   errorMessage: string = '';
 
@@ -27,7 +27,7 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    this.authService.login(this.username, this.password).subscribe(
+    this.authService.login(this.Email, this.password).subscribe(
       (response) => {
         // Successful login
         // Store the token, navigate to another page, or perform other actions

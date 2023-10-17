@@ -1,0 +1,12 @@
+<div class="pantry-container">
+  <h1>Pantry</h1>
+
+  <input type="text" placeholder="Search" (input)="onSearch($event)" />
+
+  <div class="pantry-list">
+    <div *ngFor="let item of pantryItems; let even = even" class="pantry-item" [ngClass]="{'even-row': even, 'odd-row': !even}">
+      <span>{{ item.name }}</span>
+      <input type="checkbox" (change)="addToSeparateDatabase(item)" />
+    </div>
+  </div>
+</div>
