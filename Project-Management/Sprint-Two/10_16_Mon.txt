@@ -8,3 +8,8 @@ Jarrod
 1. I worked on getting Laravel setup on a local host level.
 2. I am working on an API server we can call our backend from.
 3. No blockers.
+
+Joakim:
+1. Didn't work on tasks yesterday.
+2. added the pantry component and started working on parent-child routing.
+3. No blockers
