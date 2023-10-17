@@ -26,6 +26,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PantryComponent } from './pantry/pantry.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     RegistrationComponent,
     ToolbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    PantryComponent
   ],
   imports: [
     BrowserModule,

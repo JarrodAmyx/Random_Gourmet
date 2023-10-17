@@ -1,0 +1,25 @@
+.pantry-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.pantry-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.pantry-item {
+  background-color: #EBA937;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.even-row {
+  background-color: rgba(235, 169, 55, 0.15);
+}
+
+.odd-row {
+  background-color: rgba(235, 169, 55, 0.05);
+}

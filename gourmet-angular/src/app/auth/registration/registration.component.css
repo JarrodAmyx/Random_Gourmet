@@ -1,34 +1,19 @@
-
-
-/* Styles for the dialog content */
+/* Global styling */
 .dialog-content {
   padding-top: 50px;
   height: 40vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center the content horizontally */
+  text-align: center;
   background-image: linear-gradient(#EBA937, #FFE2AF);
-  border-radius: 15px; /* Adjust border-radius to control roundness */
 }
 
-/* Styles for the input container */
 .input-container {
   margin: 10px 0;
   width: 100%;
   max-width: 300px;
-} 
-
-/* Style the buttons */
-.register-button {
-  background-color: #EBA937; /* Change button background color */
-  color: #000000; /* Change button text color */
-  font-weight: bold;
-  padding: 15px 50px; /* Adjust padding */
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background: transparent;
 }
 
 .bottom-text-button {
@@ -43,9 +28,40 @@
   /* Add other styling properties for the button */
 }
 
-/* Style the input field with a black underline */
-.mat-form-field-underline .mat-input-element {
-  border: none; /* Remove default border */
-  border-bottom: 1px solid black; /* Add black underline */
-  background-color: transparent; /* Optional: Make the background transparent */
+/* Use ::ng-deep to target Angular Material components */
+::ng-deep .mat-form-field {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .mat-form-field-underline .mat-input-element {
+  border: none !important;
+  border-bottom: 1px solid black !important;
+  background-color: transparent !important;
+  color: black !important;
+}
+
+::ng-deep .mat-form-field-underline .mat-form-field-label {
+  color: black !important;
+}
+
+::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+  display: none !important;
+}
+
+::ng-deep .mat-form-field-underline.mat-focused .mat-input-element {
+  border-bottom: 2px solid black !important;
+}
+
+/* Style the buttons */
+.register-button {
+  background-color: #EBA937; /* Change button background color */
+  color: #000000; /* Change button text color */
+  font-weight: bold;
+  padding: 15px 50px; /* Adjust padding */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
