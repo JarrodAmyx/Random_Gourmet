@@ -37,5 +37,17 @@ How to run MongoDB:
 ...   updated_at: new Date()
 ... })
 
+db.users.insertOne({
+username: "john_doe",
+email: "john@example.com",
+password: "hashed_password",
+full_name: "John Doe",
+skill_level: "Intermediate",
+gender: "Male",
+profile_picture: "profile.jpg",
+created_at: new Date(),
+updated_at: new Date()
+ })
+
 6. find row in table
     db.users.find().limit(1)
