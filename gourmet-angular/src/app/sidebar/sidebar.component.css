@@ -1,11 +1,25 @@
 /* Style the sidebar */
+.search-container {
+  text-align: center; /* Center the content horizontally */
+}
+.centered-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* To push the left and right icons to the edges */
+  padding: 10px;
+}
+
+.icon-left, .icon-right {
+  margin: 0 10px; /* Adjust margin for spacing */
+}
 
 .search-bar {
   display: flex;
   align-items: center;
   border-bottom: 2px solid #ccc;
   padding: 10px;
-  width: 100%;
+  width: 65%;
+  margin: 0 auto; /* Center the search bar horizontally */
 }
 
 .search-icon {

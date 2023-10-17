@@ -18,4 +18,6 @@ export class AppComponent {
   openLogin(): void {
     this.sharedService.openLogin();
   }
+
+
 }

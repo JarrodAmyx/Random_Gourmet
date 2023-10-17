@@ -1,14 +1,25 @@
 <mat-sidenav-container>
 
-
   <mat-sidenav class="sidebar" [mode]="'side'" opened>
 
-    <div class="search-bar">
-      <div class="search-icon">
-        <mat-icon>search</mat-icon>
+    <div class="centered-header">
+      <div class="icon-left">
+        <mat-icon>gourmet-angular\src\assets\category-images\menu.png</mat-icon>
       </div>
-      <input type="text" placeholder="Search..." (input)="onSearchInputChange($event)">
+      <h2>Pantry</h2>
+      <div class="icon-right">
+        <mat-icon>gourmet-angular\src\assets\category-images\trash.png</mat-icon>
+      </div>
     </div>
+    <div class="search-container">
+      <div class="search-bar">
+        <div class="search-icon">
+          <mat-icon>search</mat-icon>
+        </div>
+        <input type="text" placeholder="Search..." (input)="onSearchInputChange($event)">
+      </div>
+    </div>
+
     
     <!-- Loop through the categories -->
     <ng-container *ngFor="let category of categories">
