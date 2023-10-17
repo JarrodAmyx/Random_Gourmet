@@ -20,3 +20,7 @@
   font-size: 14px; /* Set your desired font size */
   margin-right: 10px; /* Optional margin for spacing */
 }
+
+.deleted {
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value (0.8) for the desired level of transparency */
+}

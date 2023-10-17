@@ -71,7 +71,7 @@
       <div>
         <div class="card h-100">
           <div class="card-body">
-            <h4 class="d-flex align-items-center mb-3">Your recipes</h4>
+            <h4 class="d-flex align-items-center">Your recipes</h4>
             <div class="input-container">
               <div class="input-group">
                 <input type="search" class="form-control rounded" placeholder="Search Recipes" [(ngModel)]="searchTerm">
@@ -81,19 +81,19 @@
               <!-- Default list -->
               <div *ngIf="!searchBool">
                 <mat-grid-list cols="2">
-                <span *ngFor="let recipe of recipes">
-                    <mat-grid-tile>
-                    <mat-card class="card" style="width: 100%;">
+                <span *ngFor="let item of items">
+                    <!-- <mat-grid-tile> -->
+                    <mat-card class="card" style="width: 100%;" [ngClass]="{'deleted': item.deleted, 'nada': !item.deleted}">
                       <div class="embed-responsive embed-responsive-16by9 cursor">
-                        <img class="card-img-top embed-responsive-item" (click)="clickRecipe(recipe)"
+                        <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)"
                           src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
                       </div>
                       <mat-card-content>
                         <div class="d-flex justify-content-between align-items-center">
                           <div class="title"> 
-                            <mat-card-title>{{recipe}}</mat-card-title>
+                            <mat-card-title>{{item.name}}</mat-card-title>
                           </div>
-                          <button mat-button (click)="deleteRecipe(recipe)">
+                          <button mat-button (click)="deleteRecipe(item)">
                             <mat-icon
                               style="width: 20px; height: 20px; font-size: 20px"
                               fontIcon="delete"
@@ -109,20 +109,20 @@
                     </mat-card>
                   
                   <br>
-                  </mat-grid-tile>
+                  <!-- </mat-grid-tile>  -->
                 </span>
               </mat-grid-list>
               </div>
               <!-- Search results -->
-              <span *ngFor="let recipe of searchResults">
+              <span *ngFor="let item of searchResults">
                 <div class="card">
                   <div class="embed-responsive embed-responsive-16by9 cursor">
-                    <img class="card-img-top embed-responsive-item" (click)="clickRecipe(recipe)"
+                    <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)"
                       src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">{{recipe}}</h4>
-                    <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe)">Delete</button>
+                    <h4 class="card-title">{{item.name}}</h4>
+                    <button type="button" class="btn btn-danger" (click)="deleteRecipe(item)">Delete</button>
                   </div>
                 </div>
                 <br>

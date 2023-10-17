@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
+export class Items{
+  constructor(public ID: number, public name: string, public deleted: boolean){}
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent {
 
   username: string = 'TestUser124';
@@ -17,11 +22,10 @@ export class ProfileComponent {
   isEditing: boolean = false;
 
   searchTerm: string = '';
-  searchResults: string[] = [];
+  searchResults:Items[] = [];
   searchBool: boolean = false;
 
-  // random stuff for testing, needs to be called from backend later
-  recipes: string[] = ['burger', 'thing', 'thing2'];
+  items: Items[] = [];
 
   updateForm : FormGroup;
   //form control
@@ -31,6 +35,14 @@ export class ProfileComponent {
       username: new FormControl<string>('', this.whiteSpace()),
       email: new FormControl<string>('', Validators.email),
     });  
+
+      // random population for now
+      this.items.push(new Items(1, 'Burger', false));
+      this.items.push(new Items(2, 'Steak', false));
+      this.items.push(new Items(3, 'Ham Burger', false));
+      this.items.push(new Items(4, 'Fish', false));
+      this.items.push(new Items(5, 'Fishburger', false));
+
   }
 
   whiteSpace() {
@@ -46,9 +58,9 @@ export class ProfileComponent {
 
 
   // function to 
-  clickRecipe(other: string): void{
+  clickRecipe(other: Items): void{
     // placeholder for API/database call
-    console.log(other); 
+    console.log(other.name); 
   }
 
   searchRecipe(): void{
@@ -62,20 +74,23 @@ export class ProfileComponent {
     this.searchResults = [];
     this.searchBool = true;
 
-    this.recipes.forEach(recipe => {
-      if(recipe.includes(this.searchTerm)){
-        this.searchResults.push(recipe);
+    this.items.forEach(item => {
+      if(item.name.includes(this.searchTerm)){
+        this.searchResults.push(item);
       }
     });
-
-    console.log(this.searchResults);
   }
 
-  deleteRecipe(other: string): void{
-    console.log(other);
+  deleteRecipe(other: Items): void{
+    // console.log(other);
     
-    // placeholder for backend call
-    this.recipes = this.recipes.filter(item => item !== other);
+    // // placeholder for backend call
+    // this.recipes = this.recipes.filter(item => item !== other);
+
+    other.deleted = true;
+    console.log(other.name +' is ' +  other.deleted)
+
+    
   }
 
   editProfile(): void{
