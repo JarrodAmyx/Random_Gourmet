@@ -16,3 +16,15 @@
 .cursor{
     cursor: pointer;
 }
+
+
+/* CSS in your component's CSS file */
+.top-right-button-container {
+  position: absolute;
+  top: 10px; /* Adjust top position as needed */
+  right: 10px; /* Adjust right position as needed */
+}
+
+.top-right-button-container button {
+  /* Add styles for the button as needed */
+}

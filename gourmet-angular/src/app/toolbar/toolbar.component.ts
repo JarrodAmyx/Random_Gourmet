@@ -27,7 +27,7 @@ export class ToolbarComponent {
     this.sharedService.openLogin();
   }
 
-  navigate(other: string): void{
-    this.router.navigate(['/profile']);
+  openProfile(): void{
+    this.sharedService.openProfile();
   }
 }
