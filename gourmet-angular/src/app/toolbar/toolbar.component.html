@@ -3,7 +3,7 @@
     {{data.message}}
     <div class="spacer"></div>
     <button class="text-button">About us</button>
-    <a routerLink="/profile"><button class="text-button">Profile</button></a>
+    <button class="text-button" (click)="openProfile()">Profile</button>
     <button class="text-button" (click)="openRegistration()">Register</button>
     <button class="text-button" (click)="openLogin()">Login</button>
 </div>
