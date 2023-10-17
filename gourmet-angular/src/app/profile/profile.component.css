@@ -11,3 +11,12 @@
 .cursor{
     cursor: pointer;
 }
+
+.title {
+  flex-grow: 1; /* Allow the title to expand and fill the available space to the left */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show ellipsis for long text */
+  font-size: 14px; /* Set your desired font size */
+  margin-right: 10px; /* Optional margin for spacing */
+}

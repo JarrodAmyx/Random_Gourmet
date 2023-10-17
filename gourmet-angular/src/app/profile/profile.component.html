@@ -80,27 +80,38 @@
               <br>
               <!-- Default list -->
               <div *ngIf="!searchBool">
+                <mat-grid-list cols="2">
                 <span *ngFor="let recipe of recipes">
-                  <div class="card">
-                    <div class="embed-responsive embed-responsive-16by9 cursor">
-                      <img class="card-img-top embed-responsive-item" (click)="clickRecipe(recipe)"
-                        src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
-                    </div>
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="flex-body"> <h4 class="card-title">{{recipe}}</h4> </div>
-                        <!-- <div class="flex-body"> <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe)">Delete</button> </div> -->
-                        <div class="flex-body"><mat-icon fontIcon="delete" class="cursor" (click)="deleteRecipe(recipe)"></mat-icon> </div>
+                    <mat-grid-tile>
+                    <mat-card class="card" style="width: 100%;">
+                      <div class="embed-responsive embed-responsive-16by9 cursor">
+                        <img class="card-img-top embed-responsive-item" (click)="clickRecipe(recipe)"
+                          src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
                       </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="flex-body">Protein:</div>
-                        <div class="flex-body">Fat:</div>
-                        <div class="flex-body">Carbohydate:</div>
-                      </div>
-                    </div>
-                  </div>
+                      <mat-card-content>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="title"> 
+                            <mat-card-title>{{recipe}}</mat-card-title>
+                          </div>
+                          <button mat-button (click)="deleteRecipe(recipe)">
+                            <mat-icon
+                              style="width: 20px; height: 20px; font-size: 20px"
+                              fontIcon="delete"
+                            > </mat-icon>
+                          </button>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="flex-body">Protein: 0g</div>
+                          <div class="flex-body">Fat: 0g</div>
+                          <div class="flex-body">Carbohydate: 0g</div>
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+                  
                   <br>
+                  </mat-grid-tile>
                 </span>
+              </mat-grid-list>
               </div>
               <!-- Search results -->
               <span *ngFor="let recipe of searchResults">
