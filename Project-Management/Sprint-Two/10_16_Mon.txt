@@ -13,3 +13,8 @@ Joakim:
 1. Didn't work on tasks yesterday.
 2. added the pantry component and started working on parent-child routing.
 3. No blockers
+
+Brian:
+1. Did not work on tasks yesterday.
+2. Today, focused on building up a plan for how the recipe should be done on paper.
+3. No blockers to think of at the moment.
