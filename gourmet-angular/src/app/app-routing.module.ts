@@ -1,25 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Import your components that you want to navigate to
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegistrationComponent } from './auth/registration/registration.component';
-import { ProfileComponent } from './profile/profile.component';
-import { PantryComponent } from './pantry/pantry.component';
+import { PublicComponent } from './public/public.component';
+import { SecureComponent } from './secure/secure.component';
+import { SECURE_ROUTES } from './routes/secure.routes';
+import { PUBLIC_ROUTES } from './routes/public.routes';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'pantry', component: PantryComponent }
-  // Define additional routes as needed
+const appRoutes: Routes = [
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: '', component: PublicComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
+{ path: '', component: SecureComponent, canActivate: [/*SecureGuardService*/], data: { title: 'Secure Views' }, children: SECURE_ROUTES }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

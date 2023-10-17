@@ -27,6 +27,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PantryComponent } from './pantry/pantry.component';
+import { SecureComponent } from './secure/secure.component';
+import { PublicComponent } from './public/public.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { PantryComponent } from './pantry/pantry.component';
     RegistrationComponent,
     ToolbarComponent,
     ProfileComponent,
-    PantryComponent
+    PantryComponent,
+    SecureComponent,
+    PublicComponent
   ],
   imports: [
     BrowserModule,
