@@ -18,3 +18,8 @@ Brian:
 1. Did not work on tasks yesterday.
 2. Today, focused on building up a plan for how the recipe should be done on paper.
 3. No blockers to think of at the moment.
+
+Ryan:
+1. Worked on food cards. Changed the card style to match Figma vision. Currently having trouble with formatting columns. Changed data types to match API calls.
+2. Try to finish formatting card columns and add an undo feature to the delete function.
+3. Struggling with front end formatting.
