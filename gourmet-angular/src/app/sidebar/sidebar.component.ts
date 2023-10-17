@@ -1,9 +1,10 @@
-import { AfterViewInit, Component,HostBinding } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { animate, state, style, transition, trigger  } from '@angular/animations';
 import { PantryService } from '../pantry/pantry.service';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DropDownAnimation } from './sideAnimations';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,8 +22,15 @@ import { DropDownAnimation } from './sideAnimations';
 
 export class SidebarComponent implements AfterViewInit{
 
-  //initialize pnatry services http requests for user db
-  constructor(private pantryService: PantryService) {}
+  data: any;
+
+  constructor(private apiService: ApiService, private pantryService: PantryService) {}
+
+  ngOnInit() {
+    this.apiService.getData().subscribe((result) => {
+      this.data = result;
+    });
+  }
 
   ngAfterViewInit() {
     this.adjustElementsInRows();

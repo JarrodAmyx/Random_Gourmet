@@ -15,3 +15,8 @@ Brian:
 1. Did not work on tasks yesterday.
 2. Got sick and decided to rest in order to recover faster.
 3. Got a cold.
+
+Jarrod:
+1. I worked on connecting springboot to mongodb yesterday.
+2. For today, I worked on getting springboot connected to angular
+3. What's stopping us is the lack of knowledge with how springboot works

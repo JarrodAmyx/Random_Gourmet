@@ -26,3 +26,8 @@ Brian:
 3. Being sick was detramental to information processing.
 
 ---
+
+Jarrod:
+1. Yesteday I worked on connecting angular to springboot.
+2. I have started transfering our backend from Springboot to Laravel
+3. No blockers for today.

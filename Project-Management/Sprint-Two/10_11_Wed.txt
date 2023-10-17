@@ -24,3 +24,8 @@ Brian:
 1. Didn't work on tasks yesterday was focused on getting over a cold.
 2. Do some research on how we want my task to be presented(recipe cards).
 3. Recovering from being sick is messing with my focus and attention.
+
+Jarrod:
+1. Yesteday I started to work on getting Laravel working with angular
+2. Today, I am finishing up linking up Laravel to angular and getting everyone up to speed with it.
+3. Windows isn't very PHP friendly so having troubles setting up a server for laravel.
