@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
-import { SharedService } from './shared/shared.service';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from './api.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'FoodOvers';
 
-  constructor(private sharedService: SharedService) {}
+export class AppComponent implements OnInit {
+  data: any;
 
-  openRegistration(): void {
-    this.sharedService.openRegistration();
-  }
+  constructor(private apiService: ApiService) {}
 
-  openLogin(): void {
-    this.sharedService.openLogin();
+  ngOnInit() {
+    this.apiService.getData().subscribe((response) => {
+      this.data = response;
+    });
   }
 }

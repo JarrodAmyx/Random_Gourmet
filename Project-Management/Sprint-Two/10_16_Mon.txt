@@ -3,3 +3,8 @@
 3. What is blocking your progress?
 
 ---
+
+Jarrod
+1. I worked on getting Laravel setup on a local host level.
+2. I am working on an API server we can call our backend from.
+3. No blockers.

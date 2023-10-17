@@ -15,3 +15,8 @@ Brian:
 1. Did a bit of research and some narrowing down of how to do the recipe pages.
 2. Was preoccupied with studying for an incoming quiz for another class.
 3. Exact terms for how I want to make the recipe pages look is lacking.
+
+Jarrod:
+1. I finished setting up our new backend in Laravel
+2. Today I try to get it working on local host servers
+3. Laravel is complicated with setting up a server.
