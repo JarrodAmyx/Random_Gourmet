@@ -3,3 +3,8 @@
 3. What is blocking your progress?
 
 ---
+Chelsea
+1. I inserted our tables into mongodb and merged my search bar changes into main
+2. I want to move the search bar into the static box above the ingredients sidebar but I have to figure out where that is.
+3. Digging around angular
+
