@@ -8,3 +8,8 @@ Jarrod
 1. I worked on getting Laravel setup on a local host level.
 2. I am working on an API server we can call our backend from.
 3. No blockers.
+
+Chelsea
+1. I didnt work on my tasks.
+2. Today I started working on my frontend tasks and inserting tables into mongodb.
+3. Im figuring out what how to get the search bar into the box above sidebar and have to do some digging. 
