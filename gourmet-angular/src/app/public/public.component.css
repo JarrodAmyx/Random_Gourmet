@@ -13,8 +13,7 @@ header {
 }
 
 body {
-  position: absolute;
-  top: 60px; /* This value should be equal to the header's height */
+  margin-top: 60px; /* This value should be equal to the header's height */
   width: 100%;
   padding: 0px;
   margin: 0px;
