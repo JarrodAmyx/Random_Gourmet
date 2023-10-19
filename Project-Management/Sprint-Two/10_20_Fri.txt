@@ -3,3 +3,8 @@
 3. What is blocking your progress?
 
 ---
+
+Joakim:
+1. Worked on the landing page.
+2. I'll set up the SecureGuardService to separate the public and secure routes.
+3. I need an example login for testing.
