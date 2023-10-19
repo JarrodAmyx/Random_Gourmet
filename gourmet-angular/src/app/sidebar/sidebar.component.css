@@ -16,7 +16,7 @@
 .search-bar {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #000000;
   padding: 10px;
   width: 65%;
   margin: 0 auto; /* Center the search bar horizontally */
@@ -114,24 +114,30 @@ input {
 
 .subcategory-container {
   list-style-type: none; /* Remove list item bullets */
-  padding: 9.5px; /* Add padding to list items */
-  font-size: 12px; /* Decrease the font size */
+  padding: 0; /* Remove padding from the container */
+  display: flex; /* Use flex to create a row layout */
+  flex-wrap: wrap; /* Wrap items to the next row */
+  justify-content: space-between; /* Add space between items */
 }
 
 /* Style individual list items */
 .subcategory-container li {
   margin-bottom: 6px; /* Add space between list items */
+  width: calc(33.33% - 10px); /* Three items per row with some margin for spacing */
+  padding: 9.5px; /* Add padding to list items */
+  font-size: 12px; /* Decrease the font size */
 }
 
 .sidebar-button {
   display: flex; /* Use flex for the button container */
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 9px 24px; /* Adjust the top and bottom padding to make the buttons shorter */
   border-radius: 36px; /* Increased border-radius for more rounded buttons */
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a 3D shadow effect */
+  flex-basis: calc(33.33% - 10px); /* Divide the available space into 3 equal parts with some margin for spacing */
   flex-grow: 1; /* Allow buttons to grow and fill available space */
 }
 
