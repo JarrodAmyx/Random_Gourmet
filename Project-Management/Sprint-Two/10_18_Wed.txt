@@ -3,3 +3,7 @@
 3. What is blocking your progress?
 
 ---
+Jarrod:
+1. I worked on setting up our Laravel backend on a server.
+2. Today I setup the connection between our database and our backend.
+3. No blockers.
