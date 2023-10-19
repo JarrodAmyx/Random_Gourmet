@@ -16,5 +16,6 @@ body {
   position: absolute;
   top: 60px; /* This value should be equal to the header's height */
   width: 100%;
-  padding: 20px;
+  padding: 0px;
+  margin: 0px;
 }

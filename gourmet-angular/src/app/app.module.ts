@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PantryComponent } from './pantry/pantry.component';
 import { SecureComponent } from './secure/secure.component';
 import { PublicComponent } from './public/public.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PublicComponent } from './public/public.component';
     ProfileComponent,
     PantryComponent,
     SecureComponent,
-    PublicComponent
+    PublicComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
