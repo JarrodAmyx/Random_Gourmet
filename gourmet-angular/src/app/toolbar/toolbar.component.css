@@ -1,10 +1,9 @@
 .toolbar {
-  position: fixed;
-  z-index: 2;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
+  width: 100% !important;
   display: flex;
   align-items: center;
   background-color: #EBA937;
