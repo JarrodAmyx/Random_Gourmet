@@ -8,3 +8,12 @@ Chelsea
 2. I want to move the search bar into the static box above the ingredients sidebar but I have to figure out where that is.
 3. Digging around angular
 
+Jarrod:
+1. I worked on setting up our Laravel backend on a server.
+2. Today I setup the connection between our database and our backend.
+3. No blockers.
+
+Joakim:
+1. Didn't work on tasks yesterday.
+2. Worked more on parent-child routing, seems to be working fine now.
+3. No blockers

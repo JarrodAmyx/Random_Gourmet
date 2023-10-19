@@ -44,7 +44,7 @@ input {
   max-width: 375px;
   background: linear-gradient(to bottom, #f8e578, #f1ab31); /* Gradient background */
   color: #000000; /* Text color */
-  padding-top: 100px;
+  padding-top: 5px;
   position: fixed;
   top: 60px;
   bottom: 0;
@@ -61,7 +61,6 @@ input {
   justify-content: center;
   align-items: center;
   height: auto;
-  background-color: #fafafa;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Updated box shadow for 3D effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for transform and box-shadow */
 }
@@ -171,7 +170,7 @@ input {
   width: 60px;
   height: 60px;
   margin-right: 10px;
-  background-color: #ccc;
+  background-color: #cccccc00;
   display: flex;
   flex-direction: column; /* Change to column layout to add space below */
   align-items: center;
