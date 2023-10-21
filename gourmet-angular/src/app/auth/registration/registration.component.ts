@@ -13,9 +13,10 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 })
 
 export class RegistrationComponent {
-  username: string = '';
+  Email: string = '';
   password: string = '';
   confirmPassword: string = '';
+  errorMessage: string = '';
 
   registerForm : FormGroup;
 
@@ -25,8 +26,7 @@ export class RegistrationComponent {
     public dialogRef: MatDialogRef<RegistrationComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.registerForm = new FormGroup({
-        username: new FormControl<string>(''),
-        email: new FormControl<string>('', [Validators.required, this.whiteSpace()]),
+        Email: new FormControl<string>('', [Validators.required, this.whiteSpace()]),
         password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
         password2: new FormControl<string>('', [Validators.required, this.passwordDuplicateValid()]),
       });  
@@ -44,8 +44,7 @@ export class RegistrationComponent {
   
     // Create an object with the registration data
     const registrationData = {
-      username: this.registerForm.get('username')?.value,
-      email: this.registerForm.get('email')?.value,
+      Email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password1')?.value,
     };
 
@@ -96,8 +95,6 @@ export class RegistrationComponent {
     };
   }
 
-  
-
   get email(){
     return this.registerForm.get('email');
   }
@@ -109,6 +106,4 @@ export class RegistrationComponent {
   get password2(){
     return this.registerForm.get('password2');
   }
-
-
 }

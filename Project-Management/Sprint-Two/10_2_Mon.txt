@@ -1,0 +1,33 @@
+---
+
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+
+Chelsea:
+1. Yesterday I didn't work on any tasks.
+2. Today I will be picking my tasks for this sprint.
+3. No blockers
+
+---
+
+Jarrod:
+1. Yesterday I didn't work on tasks
+2. Today I worked on picking tasks for the sprint.
+3. No blockers
+
+---
+
+Joakim:
+1. Didn't work on tasks yesterday.
+2. Decided on tasks that need to be finished this sprint and picked a number I can get done.
+3. No blockers
+
+---
+
+Brian:
+1. Did not work on any tasks yesterday.
+2. Focused on creating tasks and organizing them for this sprint.
+3. No blockers currently.

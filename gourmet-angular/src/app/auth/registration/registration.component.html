@@ -6,10 +6,6 @@
     <form [formGroup] = "registerForm">
 
       <mat-form-field class="mat-form-field-underline">
-        <input matInput placeholder="Username" formControlName="username" name="username" required>
-      </mat-form-field>
-
-      <mat-form-field class="mat-form-field-underline">
         <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
         <mat-error *ngIf="email?.invalid">Invalid email address.</mat-error>
       </mat-form-field>
@@ -27,28 +23,6 @@
 
     </form> 
   </div>
-  <!-- <div class="input-container">
-    <mat-form-field class="mat-form-field-underline">
-      <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-    </mat-form-field>
-  </div> -->
-  <!-- <mat-form-field class="mat-form-field-underline">
-      <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
-    </mat-form-field> -->
-  <!-- <div *ngIf="password !== confirmPassword" class="alert alert-danger">
-    Passwords do not match
-  </div> -->
-  <!-- <div class="input-container">
-    <mat-form-field class="mat-form-field-underline">
-      <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
-      <mat-error *ngIf="password !== confirmPassword">Passwords do not match</mat-error>
-    </mat-form-field>
-  </div> -->
-  <!-- <div class="input-container">
-    <mat-form-field class="mat-form-field-underline">
-      <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
-    </mat-form-field>
-  </div> -->
   <button class="register-button" color="primary" (click)="onSubmit()">Register</button>
   <button class="bottom-text-button" (click)="openLogin()">Already have an account? Login</button>
 </div>

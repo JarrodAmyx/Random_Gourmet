@@ -28,7 +28,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeComponent } from './recipe/recipe.component';
-
+import { PantryComponent } from './pantry/pantry.component';
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     RegistrationComponent,
     ToolbarComponent,
     ProfileComponent,
-    RecipeComponent
+    RecipeComponent,
+    PantryComponent
   ],
   imports: [
     BrowserModule,

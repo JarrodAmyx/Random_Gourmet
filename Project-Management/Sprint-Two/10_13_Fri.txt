@@ -1,0 +1,22 @@
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+
+Joakim:
+1. Didn't work on tasks yesterday.
+2. I was busy catching up on a different class and wasn't able to get any more work done this week.
+3. No blockers
+
+---
+
+Brian:
+1. Did a bit of research and some narrowing down of how to do the recipe pages.
+2. Was preoccupied with studying for an incoming quiz for another class.
+3. Exact terms for how I want to make the recipe pages look is lacking.
+
+Jarrod:
+1. I finished setting up our new backend in Laravel
+2. Today I try to get it working on local host servers
+3. Laravel is complicated with setting up a server.

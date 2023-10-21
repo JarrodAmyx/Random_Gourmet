@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
+import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,13 +10,24 @@ import { SharedService } from '../shared/shared.service';
 })
 export class ToolbarComponent {
 
-  constructor(private sharedService: SharedService) {}
+  data: any;
+  constructor(private apiService: ApiService, private sharedService: SharedService, private router: Router) {}
 
   openRegistration(): void {
     this.sharedService.openRegistration();
   }
 
+  ngOnInit() {
+    this.apiService.getData().subscribe((result) => {
+      this.data = result;
+    });
+  }
+
   openLogin(): void {
     this.sharedService.openLogin();
+  }
+
+  openProfile(): void{
+    this.sharedService.openProfile();
   }
 }
