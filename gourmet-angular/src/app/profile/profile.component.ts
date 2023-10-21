@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
-export class Items{
-  constructor(public ID: number, public name: string, public deleted: boolean){}
-}
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -21,12 +17,6 @@ export class ProfileComponent {
 
   isEditing: boolean = false;
 
-  searchTerm: string = '';
-  searchResults:Items[] = [];
-  searchBool: boolean = false;
-
-  items: Items[] = [];
-
   updateForm : FormGroup;
   //form control
   constructor()
@@ -35,14 +25,6 @@ export class ProfileComponent {
       username: new FormControl<string>('', this.whiteSpace()),
       email: new FormControl<string>('', Validators.email),
     });  
-
-      // random population for now
-      this.items.push(new Items(1, 'Burger', false));
-      this.items.push(new Items(2, 'Steak', false));
-      this.items.push(new Items(3, 'Ham Burger', false));
-      this.items.push(new Items(4, 'Fish', false));
-      this.items.push(new Items(5, 'Fishburger', false));
-
   }
 
   whiteSpace() {
@@ -57,41 +39,7 @@ export class ProfileComponent {
   }
 
 
-  // function to 
-  clickRecipe(other: Items): void{
-    // placeholder for API/database call
-    console.log(other.name); 
-  }
 
-  searchRecipe(): void{
-    // skips search process if search term is empty
-    if(this.searchTerm.length === 0){
-      this.searchBool = false;
-      return;
-    }
-
-    // empties the list
-    this.searchResults = [];
-    this.searchBool = true;
-
-    this.items.forEach(item => {
-      if(item.name.includes(this.searchTerm)){
-        this.searchResults.push(item);
-      }
-    });
-  }
-
-  deleteRecipe(other: Items): void{
-    // console.log(other);
-    
-    // // placeholder for backend call
-    // this.recipes = this.recipes.filter(item => item !== other);
-
-    other.deleted = true;
-    console.log(other.name +' is ' +  other.deleted)
-
-    
-  }
 
   editProfile(): void{
     if(this.isEditing == true)
@@ -118,4 +66,10 @@ export class ProfileComponent {
     return this.updateForm.get('email');
   }
   
+
+
+
+
+
+
 }

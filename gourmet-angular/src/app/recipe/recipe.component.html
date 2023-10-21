@@ -1,0 +1,65 @@
+<!-- Recipe cards -->
+<div class="recipe-container">
+  <div>
+    <h4 class = "recipe-title" > <b>Your recipes</b></h4>
+    <!-- <div class="input-container"> -->
+      <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search Recipes" [(ngModel)]="searchTerm">
+        <button type="button" class="btn btn-outline-warning" (click)="searchRecipe()">search</button>
+      </div>
+      <br>
+      <!-- Default list -->
+      <div *ngIf="!searchBool">
+        <mat-grid-list cols="2" rowHeight="20rem" class="recipe-grid">
+
+          <mat-grid-tile *ngFor="let item of items">
+            <mat-card style="width: 30rem;" [ngClass]="{'deleted': item.deleted}">
+              <div class="embed-responsive embed-responsive-16by9 cursor">
+                <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)" src="" />
+              </div>
+              <mat-card-content>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="title">
+                    <mat-card-title>{{item.name}}</mat-card-title>
+                  </div>
+                  <button mat-button *ngIf="!item.deleted" (click)="deleteRecipe(item)">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="delete"> </mat-icon>
+                  </button>
+                  <button mat-button *ngIf="item.deleted" (click)="undoDelete(item)">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="undo"> </mat-icon>
+                  </button>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>Protein: 0g</div>
+                  <div>Fat: 0g</div>
+                  <div>Carbohydate: 0g</div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+      </div>
+      <!-- Search results -->
+      <span *ngFor="let item of searchResults">
+        <div class="card">
+          <div class="embed-responsive embed-responsive-16by9 cursor">
+            <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)"
+              src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{item.name}}</h4>
+            <button type="button" class="btn btn-danger" (click)="deleteRecipe(item)">Delete</button>
+          </div>
+        </div>
+        <br>
+      </span>
+      <!-- Message if nothing pops up in search bar -->
+      <div *ngIf="searchBool && searchResults.length === 0">
+        Whoops! Looks like there are no matches to your search :&lpar;
+      </div>
+
+    <!-- </div> -->
+  </div>
+
+</div>

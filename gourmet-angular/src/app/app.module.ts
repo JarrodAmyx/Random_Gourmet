@@ -27,6 +27,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     RegistrationComponent,
     ToolbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,

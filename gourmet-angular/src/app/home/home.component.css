@@ -1,0 +1,13 @@
+.content{
+    /* padding for header */
+    padding-top: 5rem; 
+    /* padding for sidebar */
+    margin-left: 24rem;
+
+    /* centers element */
+    display: grid;
+    place-items: center;
+    
+
+    /* border: 3px green solid; */
+}

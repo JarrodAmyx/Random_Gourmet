@@ -1,26 +1,3 @@
 .flex-container {
-    display: flex;
+    width: 50rem; 
   }
-
-.card-img-top {
-    width: 100%;
-    height: 20vh;
-    object-fit: cover;
-    }
-
-.cursor{
-    cursor: pointer;
-}
-
-.title {
-  flex-grow: 1; /* Allow the title to expand and fill the available space to the left */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Show ellipsis for long text */
-  font-size: 14px; /* Set your desired font size */
-  margin-right: 10px; /* Optional margin for spacing */
-}
-
-.deleted {
-  background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value (0.8) for the desired level of transparency */
-}
