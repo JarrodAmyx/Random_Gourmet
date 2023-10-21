@@ -12,3 +12,8 @@ Joakim:
 1. Didn't work on tasks yesterday.
 2. Worked more on parent-child routing, seems to be working fine now.
 3. No blockers
+
+Brian:
+1. Focused on studying for a quiz and catching up on another class's material yesterday.
+2. Researched more on concepts that I will be working with for the recipe.
+3. Got a bit of a rough stomachache, so had to take a break before major progress was made.
