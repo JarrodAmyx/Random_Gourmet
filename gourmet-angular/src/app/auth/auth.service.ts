@@ -7,7 +7,7 @@ import { Observable, BehaviorSubject, catchError, tap, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://your-backend-api-url'; // Replace with your backend API URL
+  private baseUrl = 'http://localhost:8080'; // Replace with your backend API URL
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}

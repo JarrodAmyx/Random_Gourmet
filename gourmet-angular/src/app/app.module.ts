@@ -20,7 +20,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { AuthService } from './auth/auth.service';
-import { RegistrationService } from './auth/registration.service';
+import { RegistrationService } from './auth/registration/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
