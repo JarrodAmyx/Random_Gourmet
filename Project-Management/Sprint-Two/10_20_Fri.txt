@@ -28,3 +28,10 @@ Ryan:
 1. Studied for midterms.
 2. Researched Laravel. Worked more on styling home screen.
 3. No blockers.
+
+Chelsea:
+1. Worked on refining sidebar w ingredients and functionality on the ingredients search Brian
+2. Continue working on the logic for searching for ingredients. I created new tables for mongodb after the server reset and tested 
+data insertion for the users. Worked on establishing relationships bw ingredients and recipes table to query between. 
+3. Figuring out how we should have searched ingredients display + db functionality on saving recipes to unique users and having the recipe\
+table pull ingredient ids from ingredients tables
