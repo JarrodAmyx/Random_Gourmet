@@ -44,11 +44,33 @@ export class SidebarComponent implements AfterViewInit{
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;
 
+  //the pantry menu and trash buttons
+  handleMenuButtonClick() {
+    // Add the logic you want to execute when the left button is clicked
+  }
+
+  handleTrashButtonClick() {
+    // Add the logic you want to execute when the right button is clicked
+  }
+
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
   //state of on or off of button
   toggleSubcategory(subcategory: string): void {
     this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
+  }
+
+  searchQuery: string = '';
+
+  /* search bar*/
+  // Method to filter categories based on the search input
+  onSearchInputChange(event: Event): void {
+    this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
+  }
+
+  // Method to filter categories based on the search input
+  filterCategories(category: string): boolean {
+    return category.toLowerCase().includes(this.searchQuery);
   }
 
   //need to update to output the amount of blank ingredient we actually have in that category >> next sprint

@@ -37,5 +37,52 @@ How to run MongoDB:
 ...   updated_at: new Date()
 ... })
 
+
+db.users.insertOne({
+...   email: "john@example.com",
+...   password: "hashed_password",
+... })
+
+
 6. find row in table
     db.users.find().limit(1)
+
+
+-----
+additional cmds:
+
+delete collection:
+db.users.drop();
+
+
+db.users.insertOne({
+email: "john@example.com",
+password: "hashed_password",
+ })
+
+ ---
+ update table w email and password only. Mongodb auto generate unique object id when ommitted:
+ 
+db.users.drop();
+db.createCollection("users", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["email", "password"],
+      properties: {
+        "_id": {
+          bsonType: "objectId"
+        },
+        "email": {
+          bsonType: "string",
+          description: "Must be a valid email address."
+        },
+        "password": {
+          bsonType: "string",
+          description: "Password in hashed form."
+        }
+      }
+    }
+  }
+})
+
