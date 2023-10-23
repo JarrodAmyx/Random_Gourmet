@@ -17,9 +17,22 @@ export class RecipecardsComponent {
   constructor(
     private sharedService: SharedService,
     public dialogRef: MatDialogRef<RecipecardsComponent>,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ){}
 
+  openRecipeCard():void{
+    const dialogRef = this.dialog.open(RecipecardsComponent, {
+      width: '50vw', // Adjust the width as needed
+      height: '50vw',
+      panelClass: 'dialog-content', // Apply a custom CSS class
+      data: {} // You can pass data to the dialog if needed
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Card has closed');
+    });
+
+  }
 }
 
