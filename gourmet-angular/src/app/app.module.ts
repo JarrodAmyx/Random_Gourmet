@@ -29,6 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeComponent } from './recipe/recipe.component';
 import { PantryComponent } from './pantry/pantry.component';
+import { RecipecardComponent } from './recipecard/recipecard.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PantryComponent } from './pantry/pantry.component';
     ToolbarComponent,
     ProfileComponent,
     RecipeComponent,
-    PantryComponent
+    PantryComponent,
+    RecipecardComponent
   ],
   imports: [
     BrowserModule,
