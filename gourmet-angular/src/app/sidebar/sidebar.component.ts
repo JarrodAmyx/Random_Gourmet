@@ -47,6 +47,16 @@ export class SidebarComponent implements AfterViewInit{
   handleLeftButtonClick() {
     // Add the logic you want to execute when the left button is clicked
   }
+  
+  handleMenuButtonClick() {
+    // Add the logic you want to execute when the left button is clicked
+  }
+
+  handleTrashButtonClick() {
+    // Add the logic you want to execute when the right button is clicked
+  }
+
+  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
   handleRightButtonClick() {
     // Add the logic you want to execute when the right button is clicked
