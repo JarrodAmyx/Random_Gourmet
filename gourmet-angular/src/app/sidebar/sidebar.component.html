@@ -34,9 +34,9 @@
               <div class="subcategory-container" >
                 <!-- Loop through the subcategories of the current category -->
                 <mat-button-toggle
-                *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
-                [ngClass]="{'active': subcategoryStates[subcategory]}"
-                (click)="toggleSubcategory(subcategory)" style="width: 50%;">
+                  *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
+                  [ngClass]="{'active': subcategoryStates[subcategory], 'selected': subcategoryStates[subcategory]}"
+                  (click)="toggleSubcategory(subcategory)">
                   <span class="button-label">{{ subcategory }}</span>
                 </mat-button-toggle>
               </div>
