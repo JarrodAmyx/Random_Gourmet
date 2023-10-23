@@ -1,19 +1,49 @@
-<body>
-  <div class="flex-container">
-    <div>
-      <div class="top-right-button-container">
-        <button (click)="temporaryAction()">Temporary Button</button>
+<div class="flex-container">
+  <div>
+    <div class="top-right-button-container">
+      <button (click)="temporaryAction()">Temporary Button</button>
+    </div>
+    <!-- User profile card -->
+    <div class="card" style="width: 24rem;" *ngIf="!isEditing">
+      <div class="card-body">
+        <h4 class="d-flex align-items-center mb-3">Your Profile</h4>
+        <div class="row">
+          <div>
+            <h6 class="mb-0">Username</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{username}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div>
+            <h6 class="mb-0">Email</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{email}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <a class="btn btn-warning" (click)="editProfile()">Edit Profile</a>
+          </div>
+        </div>
       </div>
-      <!-- User profile card -->
-      <div class="card" style="width: 24rem;" *ngIf="!isEditing">
-        <div class="card-body">
-          <h4 class="d-flex align-items-center mb-3">Your Profile</h4>
+    </div>
+    <!-- User profile card editor -->
+    <div class="card" style="width: 24rem;" *ngIf="isEditing">
+      <div class="card-body">
+        <h4 class="d-flex align-items-center mb-3">Editing Profile</h4>
+        <form [formGroup]="updateForm">
           <div class="row">
             <div>
               <h6 class="mb-0">Username</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{username}}
+              <input class="form-control rounded" placeholder="New Username" [(ngModel)]="input_username" formControlName="username">
+              <mat-error *ngIf="getUsername?.invalid">Invalid username.</mat-error>
             </div>
           </div>
           <hr>
@@ -22,54 +52,22 @@
               <h6 class="mb-0">Email</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{email}}
+              <input class="form-control rounded" placeholder="New email" [(ngModel)]="input_email" formControlName="email">
+              <mat-error *ngIf="getEmail?.invalid">Invalid email address.</mat-error>
             </div>
           </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-12">
-              <a class="btn btn-warning" (click)="editProfile()">Edit Profile</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- User profile card editor -->
-      <div class="card" style="width: 24rem;" *ngIf="isEditing">
-        <div class="card-body">
-          <h4 class="d-flex align-items-center mb-3">Editing Profile</h4>
-          <form [formGroup]="updateForm">
-            <div class="row">
-              <div>
-                <h6 class="mb-0">Username</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <input class="form-control rounded" placeholder="New Username" [(ngModel)]="input_username" formControlName="username">
-                <mat-error *ngIf="getUsername?.invalid">Invalid username.</mat-error>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div>
-                <h6 class="mb-0">Email</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <input class="form-control rounded" placeholder="New email" [(ngModel)]="input_email" formControlName="email">
-                <mat-error *ngIf="getEmail?.invalid">Invalid email address.</mat-error>
-              </div>
-            </div>
-          </form>
-          <hr>
-          <div class="row">
-            <div class="col-sm-12 d-flex justify-content-between">
-              <a class="btn btn-danger" (click)="editProfile()">Cancel</a>
-              <a class="btn btn-warning" (click)="confirmEdit()">Confirm Edit</a>
-            </div>
+        </form>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12 d-flex justify-content-between">
+            <a class="btn btn-danger" (click)="editProfile()">Cancel</a>
+            <a class="btn btn-warning" (click)="confirmEdit()">Confirm Edit</a>
           </div>
         </div>
       </div>
-  
-      <br>
-      <!-- Recipe cards -->
-      <app-recipe></app-recipe>
-  </div>
-</body>
+    </div>
+
+    <br>
+    <!-- Recipe cards -->
+    <app-recipe></app-recipe>
+</div>
