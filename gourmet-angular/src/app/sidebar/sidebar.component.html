@@ -3,21 +3,29 @@
   <mat-sidenav class="sidebar" [mode]="'side'" opened>
 
     <div class="centered-header">
-      <div class="icon-left">
+
+          <!-- Button on the left -->
+      <button mat-icon-button (click)="handleLeftButtonClick()">
         <mat-icon>gourmet-angular\src\assets\category-images\menu.png</mat-icon>
-      </div>
+      </button>
+
+      <!-- "Pantry" header -->
       <h2>Pantry</h2>
-      <div class="icon-right">
+
+      <!-- Button on the right -->
+      <button mat-icon-button (click)="handleRightButtonClick()">
         <mat-icon>gourmet-angular\src\assets\category-images\trash.png</mat-icon>
-      </div>
+      </button>
+
     </div>
     <div class="search-container">
       <div class="search-bar">
         <div class="search-icon">
           <mat-icon>search</mat-icon>
         </div>
-        <input type="text" placeholder="Search Ingredients..." (input)="onSearchInputChange($event)">
+        <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
       </div>
+
     </div>
 
     

@@ -13,6 +13,14 @@
   margin: 0 10px; /* Adjust margin for spacing */
 }
 
+.pantry-header {
+  font-family: 'Your Desired Font', sans-serif; /* Replace 'Your Desired Font' with the actual font you want to use */
+  font-size: 50px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  color: #333; /* Adjust the color as needed */
+  /* Add any other font-related styles you want */
+}
+
 .search-bar {
   display: flex;
   align-items: center;

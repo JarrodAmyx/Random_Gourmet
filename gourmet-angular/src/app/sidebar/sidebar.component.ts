@@ -43,6 +43,15 @@ export class SidebarComponent implements AfterViewInit{
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;
 
+  //the pantry menu and trash buttons
+  handleLeftButtonClick() {
+    // Add the logic you want to execute when the left button is clicked
+  }
+
+  handleRightButtonClick() {
+    // Add the logic you want to execute when the right button is clicked
+  }
+
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
   //state of on or off of button
   toggleSubcategory(subcategory: string): void {
