@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { SharedService } from './../shared/shared.service';
-import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
 
 @Component({
@@ -18,11 +18,10 @@ export class RecipecardsComponent {
     private sharedService: SharedService,
     public dialogRef: MatDialogRef<RecipecardsComponent>,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: any
   ){}
 
   openRecipeCard():void{
-    const dialogRef = this.dialog.open(RecipecardsComponent, {
+    const dialogRef = this.dialog.open(RecipeCardsDialog, {
       width: '50vw', // Adjust the width as needed
       height: '50vw',
       panelClass: 'dialog-content', // Apply a custom CSS class
@@ -34,5 +33,18 @@ export class RecipecardsComponent {
     });
 
   }
+}
+
+@Component({
+  selector: 'app-recipecards-dialog',
+  templateUrl: './recipecards.component.dialog.html',
+  standalone: true,
+  imports: [MatDialogModule],
+})
+export class RecipeCardsDialog {
+  constructor(
+
+  ) {}
+
 }
 
