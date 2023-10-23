@@ -49,7 +49,7 @@ input {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 25%;
+  width: 20%;
   max-width: 25%;
   background: linear-gradient(to bottom, #f8e578, #f1ab31);
   color: #000000;
