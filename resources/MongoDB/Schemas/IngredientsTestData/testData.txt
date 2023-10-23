@@ -26,3 +26,26 @@ db.ingredients.updateMany({ "category": "Herbs and Spices" }, { $set: { "quantit
 
 pull just names of ingredients w quanity of 1
 db.ingredients.find({ "quantity": 1 }, { "name": 1, "_id": 0 })
+
+
+missing ingredients:
+db.ingredients.insertMany([
+  {
+    "name": "Tomato Sauce",
+    "quantity": 0,
+    "unit": "0",
+    "category": "Condiments"
+  },
+  {
+    "name": "Chicken",
+    "quantity": 0,
+    "unit": "0",
+    "category": "Meats"
+  },
+  {
+    "name": "Spaghetti",
+    "quantity": 0,
+    "unit": "0",
+    "category": "GrainsCereals"
+  }
+]);

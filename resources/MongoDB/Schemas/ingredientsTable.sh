@@ -25,3 +25,6 @@ db.createCollection("ingredients", {
     }
   }
 });
+
+//added user id to not share ingredients across users
+db.ingredients.updateMany({}, { $set: { user_id: ObjectId("your_user_id_here") } });
