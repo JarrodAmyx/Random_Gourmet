@@ -1,3 +1,4 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { SharedService } from './../shared/shared.service';
 import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -10,9 +11,15 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class RecipecardsComponent {
 
+  recipeName: String ='';
+
+  // Will be used later to make it easier to build all the reciepes
   constructor(
-    private SharedService: SharedService,
-    public dialogRef:MatDialogRef<String>,
+    private sharedService: SharedService,
+    public dialogRef: MatDialogRef<RecipecardsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ){}
+
+
 }
+

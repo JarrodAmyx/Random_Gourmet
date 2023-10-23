@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { LoginComponent } from '../auth/login/login.component';
 import { RegistrationComponent } from '../auth/registration/registration.component';
+import { RecipecardsComponent } from '../recipecards/recipecards.component';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,20 @@ export class SharedService {
       console.log('Registration dialog closed');
       // You can handle any post-dialog-closed logic here
     });
+  }
+
+  openRecipeCard():void{
+    const dialogRef = this.dialog.open(RecipecardsComponent, {
+      width: '50vw', // Adjust the width as needed
+      height: '50vw',
+      panelClass: 'custom-dialog-container', // Apply a custom CSS class
+      data: {} // You can pass data to the dialog if needed
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Card has closed');
+    });
+
   }
 
   openProfile(): void {
