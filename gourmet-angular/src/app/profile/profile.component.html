@@ -8,7 +8,6 @@
       <div class="card" style="width: 24rem;" *ngIf="!isEditing">
         <div class="card-body">
           <h4 class="d-flex align-items-center mb-3">Your Profile</h4>
-  
           <div class="row">
             <div>
               <h6 class="mb-0">Username</h6>
@@ -71,58 +70,6 @@
   
       <br>
       <!-- Recipe cards -->
-      <div>
-        <div>
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="d-flex align-items-center mb-3">Your recipes</h4>
-              <div class="input-container">
-                <div class="input-group">
-                  <input type="search" class="form-control rounded" placeholder="Search Recipes" [(ngModel)]="searchTerm">
-                  <button type="button" class="btn btn-outline-warning" (click)="searchRecipe()">search</button>
-                </div>
-                <br>
-                <!-- Default list -->
-                <div *ngIf="!searchBool">
-                  <span *ngFor="let recipe of recipes">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9 cursor">
-                        <img class="card-img-top embed-responsive-item" (click)="clickRecipe(recipe)"
-                          src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title">{{recipe}}</h4>
-                        <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe)">Delete</button>
-                      </div>
-                    </div>
-                    <br>
-                  </span>
-                </div>
-                <!-- Search results -->
-                <span *ngFor="let recipe of searchResults">
-                  <div class="card">
-                    <div class="embed-responsive embed-responsive-16by9 cursor">
-                      <img class="card-img-top embed-responsive-item" (click)="clickRecipe(recipe)"
-                        src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" />
-                    </div>
-                    <div class="card-body">
-                      <h4 class="card-title">{{recipe}}</h4>
-                      <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe)">Delete</button>
-                    </div>
-                  </div>
-                  <br>
-                </span>
-                <!-- Message if nothing pops up in search bar -->
-                <div *ngIf="searchBool && searchResults.length === 0">
-                  Whoops! Looks like there are no matches to your search :&lpar;
-                </div>
-  
-              </div>
-            </div>
-          </div>
-        </div>
-  
-      </div>
-    </div>
+      <app-recipe></app-recipe>
   </div>
 </body>

@@ -14,6 +14,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { RouterModule, Routes } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
@@ -25,6 +27,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RecipeComponent } from './recipe/recipe.component';
 import { PantryComponent } from './pantry/pantry.component';
 import { SecureComponent } from './secure/secure.component';
 import { PublicComponent } from './public/public.component';
@@ -44,7 +47,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PantryComponent,
     SecureComponent,
     PublicComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    RecipeComponent,
+    PantryComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     MatCardModule,
     MatFormFieldModule,
     MatSidenavModule,
+    MatGridListModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

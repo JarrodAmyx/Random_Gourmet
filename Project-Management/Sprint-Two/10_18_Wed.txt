@@ -3,3 +3,22 @@
 3. What is blocking your progress?
 
 ---
+Jarrod:
+1. I worked on setting up our Laravel backend on a server.
+2. Today I setup the connection between our database and our backend.
+3. No blockers.
+
+Joakim:
+1. Didn't work on tasks yesterday.
+2. Worked more on parent-child routing, seems to be working fine now.
+3. No blockers
+
+Brian:
+1. Focused on studying for a quiz and catching up on another class's material yesterday.
+2. Researched more on concepts that I will be working with for the recipe.
+3. Got a bit of a rough stomachache, so had to take a break before major progress was made.
+
+Ryan:
+1. Worked more on recipe list styling.
+2. Research Laravel. Continue to work on styling.
+3. Issues with CSS styling.
