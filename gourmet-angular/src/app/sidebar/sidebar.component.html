@@ -2,6 +2,32 @@
   <body>
     <mat-sidenav-container>
       <mat-sidenav class="sidebar" [mode]="'side'" opened>
+        
+        <div class="centered-header">
+
+          <!-- Button on the left -->
+          <button mat-icon-button (click)="handleLeftButtonClick()">
+            <mat-icon>gourmet-angular\src\assets\category-images\menu.png</mat-icon>
+          </button>
+
+          <!-- "Pantry" header -->
+          <h2>Pantry</h2>
+
+          <!-- Button on the right -->
+          <button mat-icon-button (click)="handleRightButtonClick()">
+            <mat-icon>gourmet-angular\src\assets\category-images\trash.png</mat-icon>
+          </button>
+
+        </div>
+        <div class="search-container">
+          <div class="search-bar">
+            <div class="search-icon">
+              <mat-icon>search</mat-icon>
+            </div>
+            <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
+          </div>
+
+        </div>
         <!-- Loop through the categories -->
         <ng-container *ngFor="let category of categories">
     

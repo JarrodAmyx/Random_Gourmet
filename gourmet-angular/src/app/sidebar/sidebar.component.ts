@@ -40,11 +40,14 @@ export class SidebarComponent implements AfterViewInit{
     // adjust-elements.ts code here
   }
 
-
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;
 
   //the pantry menu and trash buttons
+  handleLeftButtonClick() {
+    // Add the logic you want to execute when the left button is clicked
+  }
+  
   handleMenuButtonClick() {
     // Add the logic you want to execute when the left button is clicked
   }
@@ -55,6 +58,11 @@ export class SidebarComponent implements AfterViewInit{
 
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
+  handleRightButtonClick() {
+    // Add the logic you want to execute when the right button is clicked
+  }
+
+  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
   //state of on or off of button
   toggleSubcategory(subcategory: string): void {
     this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
@@ -111,7 +119,6 @@ removeIngredientFromPantry(ingredientId: string): void {
     }
   );
 }
-
 
   //dropdown menu logic
   isCategoryClicked: { [key: string]: boolean } = {};

@@ -18,4 +18,6 @@ export class AppComponent implements OnInit {
       this.data = response;
     });
   }
+
+
 }
