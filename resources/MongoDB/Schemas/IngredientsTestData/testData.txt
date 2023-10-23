@@ -1,0 +1,5 @@
+Test data w queries:
+
+
+pull ingredients NAMES belonging to meats category only:
+db.ingredients.find({ category: "Meats" }, { _id: 0, name: 1 })
