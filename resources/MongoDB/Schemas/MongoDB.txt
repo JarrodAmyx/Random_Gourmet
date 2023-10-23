@@ -43,6 +43,7 @@ db.users.insertOne({
 ...   password: "hashed_password",
 ... })
 
+
 6. find row in table
     db.users.find().limit(1)
 
