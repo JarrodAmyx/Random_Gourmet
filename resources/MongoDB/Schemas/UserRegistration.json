@@ -1,33 +1,19 @@
 {
+  "bsonType": "object",
+  "required": ["email", "password"],
+  "properties": {
     "_id": {
-      "type": "ObjectId"
-    },
-    "username": {
-      "type": "string"
+      "bsonType": "objectId"
     },
     "email": {
-      "type": "string"
+      "bsonType": "string",
+      "description": "Must be a valid email address."
     },
     "password": {
-      "type": "string"
-    },
-    "full_name": {
-      "type": "string"
-    },
-    "skill_level": {
-      "type": "string"
-    },
-    "gender": {
-      "type": "string"
-    },
-    "profile_picture": {
-      "type": "string"
-    },
-    "created_at": {
-      "type": "Date"
-    },
-    "updated_at": {
-      "type": "Date"
+      "bsonType": "string",
+      "description": "Password in hashed form."
     }
   }
+}
+
   

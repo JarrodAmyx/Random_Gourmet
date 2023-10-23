@@ -1,76 +1,70 @@
-<mat-sidenav-container>
-
-  <mat-sidenav class="sidebar" [mode]="'side'" opened>
-
-    <div class="centered-header">
+<HTML>
+  <body>
+    <mat-sidenav-container>
+      <mat-sidenav class="sidebar" [mode]="'side'" opened>
+        <div class="centered-header">
 
           <!-- Button on the left -->
-      <button mat-icon-button (click)="handleLeftButtonClick()">
-        <mat-icon>gourmet-angular\src\assets\category-images\menu.png</mat-icon>
-      </button>
-
-      <!-- "Pantry" header -->
-      <h2>Pantry</h2>
-
-      <!-- Button on the right -->
-      <button mat-icon-button (click)="handleRightButtonClick()">
-        <mat-icon>gourmet-angular\src\assets\category-images\trash.png</mat-icon>
-      </button>
-
-    </div>
-    <div class="search-container">
-      <div class="search-bar">
-        <div class="search-icon">
-          <mat-icon>search</mat-icon>
-        </div>
-        <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
-      </div>
-
-    </div>
-
-    
-    <!-- Loop through the categories -->
-    <ng-container *ngFor="let category of categories">
-
-      <mat-card class="sidebar-card">
-
-        <mat-card-header>
-          <div class="image-container">
-          <div class="image">
-            <!-- Display the category image using the categoryImages object -->
-            <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
-          </div>
-        </div>
-          <div class="title">
-            <mat-card-title>{{ category }}</mat-card-title>
-            <div class="description">{{ getIngredientCount(category) }}</div>
-          </div>
-
-          <!-- matIcon button for a arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
-          <button mat-button class="subDropdown" (click)="categoryIsOpen[category] =!categoryIsOpen[category]">
-            <mat-icon
-              style="width: 35px; height: 35px; font-size: 35px"
-              fontIcon="arrow_circle_down"
-            > </mat-icon>
+          <button mat-icon-button (click)="handleLeftButtonClick()">
+            <mat-icon>gourmet-angular\src\assets\category-images\menu.png</mat-icon>
           </button>
-        </mat-card-header>
 
-        <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
+          <!-- "Pantry" header -->
+          <h2>Pantry</h2>
 
-          <!-- Flex container for the subcategory buttons -->
-          <div class="subcategory-container" >
-            <!-- Loop through the subcategories of the current category -->
-            <mat-button-toggle
-            *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
-            [ngClass]="{'active': subcategoryStates[subcategory]}"
-            (click)="toggleSubcategory(subcategory)" style="width: 50%;">
-              <span class="button-label">{{ subcategory }}</span>
-            </mat-button-toggle>
+          <!-- Button on the right -->
+          <button mat-icon-button (click)="handleRightButtonClick()">
+            <mat-icon>gourmet-angular\src\assets\category-images\trash.png</mat-icon>
+          </button>
+
+        </div>
+        <div class="search-container">
+          <div class="search-bar">
+            <div class="search-icon">
+              <mat-icon>search</mat-icon>
+            </div>
+            <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
           </div>
-        </mat-card-content>
 
-      </mat-card>
-
-    </ng-container>
-  </mat-sidenav>
-</mat-sidenav-container>
+        </div>
+        <!-- Loop through the categories -->
+        <ng-container *ngFor="let category of categories">
+    
+          <mat-card class="sidebar-card">
+    
+            <mat-card-header class="card-header">
+              <div class="image-container">
+                <!-- Display the category image using the categoryImages object -->
+                <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
+              </div>
+              <div class="title">
+                <mat-card-title>{{ category }}</mat-card-title>
+                <div class="description">{{ getIngredientCount(category) }}</div>
+              </div>
+              <div class="button-container">
+                <!-- matIcon button for an arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
+                <button mat-button class="subDropdown" (click)="categoryIsOpen[category] =!categoryIsOpen[category]">
+                  <mat-icon class="arrow-icon">arrow_circle_down</mat-icon>
+                </button>
+              </div>
+            </mat-card-header>
+    
+            <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
+    
+              <!-- Flex container for the subcategory buttons -->
+              <div class="subcategory-container" >
+                <!-- Loop through the subcategories of the current category -->
+                <mat-button-toggle
+                  *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
+                  [ngClass]="{'active': subcategoryStates[subcategory], 'selected': subcategoryStates[subcategory]}"
+                  (click)="toggleSubcategory(subcategory)">
+                  <span class="button-label">{{ subcategory }}</span>
+                </mat-button-toggle>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </body>
+</HTML>

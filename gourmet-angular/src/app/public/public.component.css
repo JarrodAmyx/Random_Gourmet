@@ -1,0 +1,20 @@
+.public > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header {
+  z-index: 100;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+}
+
+body {
+  margin-top: 60px; /* This value should be equal to the header's height */
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}

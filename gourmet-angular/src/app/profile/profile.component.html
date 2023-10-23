@@ -4,10 +4,9 @@
       <button (click)="temporaryAction()">Temporary Button</button>
     </div>
     <!-- User profile card -->
-    <div class="card" *ngIf="!isEditing">
+    <div class="card" style="width: 24rem;" *ngIf="!isEditing">
       <div class="card-body">
         <h4 class="d-flex align-items-center mb-3">Your Profile</h4>
-
         <div class="row">
           <div>
             <h6 class="mb-0">Username</h6>
@@ -34,7 +33,7 @@
       </div>
     </div>
     <!-- User profile card editor -->
-    <div class="card" *ngIf="isEditing">
+    <div class="card" style="width: 24rem;" *ngIf="isEditing">
       <div class="card-body">
         <h4 class="d-flex align-items-center mb-3">Editing Profile</h4>
         <form [formGroup]="updateForm">
@@ -69,7 +68,6 @@
     </div>
 
     <br>
+    <!-- Recipe cards -->
     <app-recipe></app-recipe>
-  </div>
-
 </div>
