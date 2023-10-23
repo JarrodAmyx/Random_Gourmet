@@ -12,7 +12,10 @@ export class RecipecardComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    const dialogRef = this.dialog.open(DialogContentExampleDialog,{
+      width: '50vw',
+      height: '40vw'
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Recipe Card Opened`);
