@@ -7,25 +7,21 @@
     
           <mat-card class="sidebar-card">
     
-            <mat-card-header>
+            <mat-card-header class="card-header">
               <div class="image-container">
-              <div class="image">
                 <!-- Display the category image using the categoryImages object -->
                 <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
               </div>
-            </div>
               <div class="title">
                 <mat-card-title>{{ category }}</mat-card-title>
                 <div class="description">{{ getIngredientCount(category) }}</div>
               </div>
-    
-              <!-- matIcon button for a arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
-              <button mat-button class="subDropdown" (click)="categoryIsOpen[category] =!categoryIsOpen[category]">
-                <mat-icon
-                  style="width: 35px; height: 35px; font-size: 35px"
-                  fontIcon="arrow_circle_down"
-                > </mat-icon>
-              </button>
+              <div class="button-container">
+                <!-- matIcon button for an arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
+                <button mat-button class="subDropdown" (click)="categoryIsOpen[category] =!categoryIsOpen[category]">
+                  <mat-icon class="arrow-icon">arrow_circle_down</mat-icon>
+                </button>
+              </div>
             </mat-card-header>
     
             <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
@@ -41,9 +37,7 @@
                 </mat-button-toggle>
               </div>
             </mat-card-content>
-    
           </mat-card>
-    
         </ng-container>
       </mat-sidenav>
     </mat-sidenav-container>

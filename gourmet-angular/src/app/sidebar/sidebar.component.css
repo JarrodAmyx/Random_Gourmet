@@ -4,7 +4,7 @@
   max-width: 25%;
   background: linear-gradient(to bottom, #f8e578, #f1ab31);
   color: #000000;
-  padding-top: 100px;
+  padding-top: 10px;
   position: fixed;
   top: 60px;
   bottom: 0;
@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   height: auto;
   background-color: #fafafa;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -118,21 +117,26 @@
   background-color: lightgreen;
 }
 
+.arrow-icon {
+  width: 35px;
+  height: 35px;
+  font-size: 35px;
+}
+
 /* Image Container Styles */
 .image-container {
-  width: 60px;
-  height: 60px;
   margin-right: 10px;
   background-color: #cccccc00;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5px;
+  flex: 1;
 }
 
 /* Small Image Styles */
 .small-image {
-  width: 100%;
+  width: 70%;
   height: auto;
   image-orientation: center;
 }
@@ -150,14 +154,6 @@
   z-index: -1;
 }
 
-/* Second Image Icon Styles */
-.second-image-icon {
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
 /* Rotate 180 Styles */
 .rotate-180 {
   transform: rotate(180deg);
@@ -166,13 +162,21 @@
 
 /* Mat Card Header Styles */
 .mat-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   margin-right: 10px;
   border: none;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+}
+
+.mat-mdc-card-header {
+  display: flex;
+  padding: 15px;
 }
 
 /* Mat Card Title Styles */
@@ -183,12 +187,11 @@
   margin-left: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 /* Title Styles */
 .title {
-  flex-grow: 1;
+  flex: 2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -201,6 +204,40 @@
   font-size: 1em;
   color: #888;
   margin-top: 5px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.subDropdown {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+}
+
+.subDropdown:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.subDropdown:focus {
+  outline: none;
+  /* Add styles for button focus state if needed */
+}
+
+.mat-mdc-button>.mat-icon {
+  margin-left: 0;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  font-size: 2rem;
+  height: 2rem;
+  width: 2rem;
+  color: #000000;
 }
 
 /* Media Query for Small Screens */
