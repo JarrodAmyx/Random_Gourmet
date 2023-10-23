@@ -3,3 +3,26 @@ Test data w queries:
 
 pull ingredients NAMES belonging to meats category only:
 db.ingredients.find({ category: "Meats" }, { _id: 0, name: 1 })
+
+
+pull names of ingredients from baking category:
+db.ingredients.find({ "category": "Baking" }, { "name": 1, "_id": 0 })
+
+update quantity of strawberry to 1
+db.ingredients.updateOne({ "name": "Strawberry" }, { $set: { "quantity": 1 } })
+
+pull ingredients that have exactly 1 quantity
+db.ingredients.find({ "quantity": 1 })
+
+add 2 quantity to marshmallow
+db.ingredients.updateOne({ "name": "Marshmallow" }, { $set: { "quantity": 2 } })
+
+find marshmallow info
+db.ingredients.findOne({ "name": "Marshmallow" })
+
+
+add default 1 quanitty to all spice ingredients 
+db.ingredients.updateMany({ "category": "Herbs and Spices" }, { $set: { "quantity": 1 } })
+
+pull just names of ingredients w quanity of 1
+db.ingredients.find({ "quantity": 1 }, { "name": 1, "_id": 0 })
