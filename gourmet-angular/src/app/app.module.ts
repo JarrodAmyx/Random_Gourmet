@@ -22,13 +22,16 @@ import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { AuthService } from './auth/auth.service';
-import { RegistrationService } from './auth/registration.service';
+import { RegistrationService } from './auth/registration/registration.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeComponent } from './recipe/recipe.component';
 import { PantryComponent } from './pantry/pantry.component';
+import { SecureComponent } from './secure/secure.component';
+import { PublicComponent } from './public/public.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
@@ -41,6 +44,10 @@ import { PantryComponent } from './pantry/pantry.component';
     RegistrationComponent,
     ToolbarComponent,
     ProfileComponent,
+    PantryComponent,
+    SecureComponent,
+    PublicComponent,
+    LandingPageComponent,
     RecipeComponent,
     PantryComponent
   ],
@@ -60,8 +67,7 @@ import { PantryComponent } from './pantry/pantry.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonToggleModule,
-    //RouterModule.forRoot(routes)
+    MatButtonToggleModule
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
