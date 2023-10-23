@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  font-size: 12px;
+}
 
 @font-face {
   font-family: "Hercules";
@@ -43,4 +47,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 body {
   background-color: #FEFFEC;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 6px; /* Set the width of the scrollbar */
+  background-color: #EBA937; /* Set the background of the scrollbar  */
+  border-top-left-radius: 12px; /* Round the top-left corner */
+  border-top-right-radius: 12px; /* Round the top-right corner */
+  border-bottom-left-radius: 12px; /* Round the bottom-left corner */
+  border-bottom-right-radius: 12px; /* Round the bottom-right corner */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #707070; /* Set the Discord gray color */
+  border-radius: 12px; /* Round the edges of the thumb */
 }

@@ -1,0 +1,78 @@
+.landing-page {
+  background: linear-gradient(to bottom, #EBA937, #f8e578);
+  color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-column {
+  text-align: left;
+}
+
+.logo-LP {
+  background: none;
+  border: none;
+  font-family: Hercules;
+  padding: 50px 100px 100px 50px;
+  margin: 0px;
+  font-size: 90px;
+  cursor: pointer;
+  color: black;
+  transform: rotate(-5deg);
+}
+
+.images-container {
+  display: flex;
+  margin: 250px 40px;
+}
+
+.image-wrapper {
+  width: 400px; /* Square image size */
+  height: auto; /* Square image size */
+  margin: 0 -40px; /* Slightly stagger the images */
+  overflow: hidden; /* Ensure images don't overflow the container */
+}
+
+.landing-image {
+  width: 100%; /* Ensure the image covers the container */
+  height: auto; /* Ensure the image covers the container */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-1 {
+  transform: translateY(-150px);
+}
+
+.image-2 {
+  transform: translateY(100px);
+}
+
+.cta-paragraph {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #EBA937;
+  color: black;
+  margin: 50px 300px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #f8e578;
+}
