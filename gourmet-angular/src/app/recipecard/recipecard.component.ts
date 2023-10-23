@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-recipecard',
@@ -23,7 +24,7 @@ export class RecipecardComponent {
   selector: 'recipecard-dialog',
   templateUrl: 'recipecard.dialog.html',
   standalone: true,
-  imports: [MatDialogModule, MatCardModule],
+  imports: [MatDialogModule, MatCardModule,MatListModule],
 })
 export class DialogContentExampleDialog {}
 
