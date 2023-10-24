@@ -67,16 +67,20 @@ export class SidebarComponent implements AfterViewInit{
     this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
   }
 
+  /* search bar*/
   searchQuery: string = '';
 
-  /* search bar*/
   // Method to filter categories based on the search input
   onSearchInputChange(event: Event): void {
     this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
   }
 
   // Method to filter categories based on the search input
+  // Method to filter categories based on the search input
   filterCategories(category: string): boolean {
+    if (!this.searchQuery || this.searchQuery === '') {
+      return true; // Show all categories by default
+    }
     return category.toLowerCase().includes(this.searchQuery);
   }
 

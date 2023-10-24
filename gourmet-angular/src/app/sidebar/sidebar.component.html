@@ -2,6 +2,7 @@
   <body>
     <mat-sidenav-container>
       <mat-sidenav class="sidebar" [mode]="'side'" opened>
+
         <div class="centered-header">
 
           <!-- Button on the left -->
@@ -26,15 +27,15 @@
             <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
           </div>
 
+          <!-- end of sidebar -->
         </div>
+
         <!-- Loop through the categories -->
         <ng-container *ngFor="let category of categories">
-    
-          <mat-card class="sidebar-card">
-    
+          <mat-card class="sidebar-card" *ngIf="filterCategories(category)">
+        
             <mat-card-header class="card-header">
               <div class="image-container">
-                <!-- Display the category image using the categoryImages object -->
                 <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
               </div>
               <div class="title">
@@ -42,18 +43,15 @@
                 <div class="description">{{ getIngredientCount(category) }}</div>
               </div>
               <div class="button-container">
-                <!-- matIcon button for an arrow down to trigger a mat menu (temp fix for a largescale dropdown menu) -->
-                <button mat-button class="subDropdown" (click)="categoryIsOpen[category] =!categoryIsOpen[category]">
+                <button mat-button class="subDropdown" (click)="categoryIsOpen[category] = !categoryIsOpen[category]">
                   <mat-icon class="arrow-icon">arrow_circle_down</mat-icon>
                 </button>
               </div>
             </mat-card-header>
-    
+        
             <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
-    
-              <!-- Flex container for the subcategory buttons -->
-              <div class="subcategory-container" >
-                <!-- Loop through the subcategories of the current category -->
+        
+              <div class="subcategory-container">
                 <mat-button-toggle
                   *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
                   [ngClass]="{'active': subcategoryStates[subcategory], 'selected': subcategoryStates[subcategory]}"
@@ -64,6 +62,9 @@
             </mat-card-content>
           </mat-card>
         </ng-container>
+        
+        
+
       </mat-sidenav>
     </mat-sidenav-container>
   </body>
