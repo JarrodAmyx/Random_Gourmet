@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 export class Items{
   constructor(public ID: number, public name: string, public deleted: boolean){}
@@ -22,6 +22,16 @@ export class RecipeComponent {
     this.items.push(new Items(3, 'Ham Burger', false));
     this.items.push(new Items(4, 'Fish', false));
     this.items.push(new Items(5, 'Fishburger', false));
+    this.items.push(new Items(6, 'Burger', false));
+    this.items.push(new Items(7, 'Steak', false));
+    this.items.push(new Items(8, 'Ham Burger', false));
+    this.items.push(new Items(9, 'Fish', false));
+    this.items.push(new Items(10, 'Fishburger', false));
+    this.items.push(new Items(11, 'Burger', false));
+    this.items.push(new Items(12, 'Steak', false));
+    this.items.push(new Items(13, 'Ham Burger', false));
+    this.items.push(new Items(14, 'Fish', false));
+    this.items.push(new Items(15, 'Fishburger', false));
   }
 
   clickRecipe(other: Items): void{
@@ -59,5 +69,9 @@ export class RecipeComponent {
 
   undoDelete(other: Items): void{
     other.deleted = false;
+  }
+
+  loadMoreData(): void {
+    console.log('Scrolled to the bottom. Loading more data...');
   }
 }
