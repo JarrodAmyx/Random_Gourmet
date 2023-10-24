@@ -67,18 +67,37 @@ export class SidebarComponent implements AfterViewInit{
     this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
   }
 
-  searchQuery: string = '';
 
-  /* search bar*/
-  // Method to filter categories based on the search input
-  onSearchInputChange(event: Event): void {
-    this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
-  }
 
-  // Method to filter categories based on the search input
-  filterCategories(category: string): boolean {
-    return category.toLowerCase().includes(this.searchQuery);
-  }
+        /* search bar*/
+            // Define a variable to store the search query
+        searchQuery: string = '';
+
+        // Update the filterCategories function to hide categories/subcategories
+        filterCategories(category: string): boolean {
+          if (this.searchQuery === '') {
+            return true; // Show all categories by default
+          }
+
+          // Check if the category or any of its subcategories match the search query
+          if (
+            category.toLowerCase().includes(this.searchQuery) ||
+            (this.categorySubcategoryMap[category] &&
+              this.categorySubcategoryMap[category].some((subcategory) =>
+                subcategory.toLowerCase().includes(this.searchQuery)
+              ))
+          ) {
+            return true;
+          }
+
+          return false;
+        }
+
+        // Method to update the search query
+        onSearchInputChange(event: Event): void {
+          this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
+        }
+
 
   //need to update to output the amount of blank ingredient we actually have in that category >> next sprint
   getIngredientCount(category: string): string {

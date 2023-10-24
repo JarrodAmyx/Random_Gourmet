@@ -10,7 +10,6 @@ db.recipes.insertMany([
       "totalCookTime": 30,
       "requiredIngredients": [
         ObjectId("6536cfe2778dec66de81f151"), // ObjectID of "Ground Beef"
-        ObjectId("insert_actual_ObjectID_of_Tomato_Sauce"), // ObjectID of "Tomato Sauce"
         ObjectId("6536d125778dec66de81f168"), // ObjectID of "Onion"
         ObjectId("insert_actual_ObjectID_of_Spaghetti") // ObjectID of "Spaghetti"
       ]
@@ -25,7 +24,6 @@ db.recipes.insertMany([
       },
       "totalCookTime": 20,
       "requiredIngredients": [
-        ObjectId("insert_actual_ObjectID_of_Chicken"), // ObjectID of "Chicken"
         ObjectId("6536d125778dec66de81f164"), // ObjectID of "Broccoli"
         ObjectId("6536d125778dec66de81f163"), // ObjectID of "Carrot"
         ObjectId("6536d393778dec66de81f1e7") // ObjectID of "Soy Sauce"
