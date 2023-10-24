@@ -29,5 +29,6 @@ export class RecipecardComponent {
   standalone: true,
   imports: [MatDialogModule, MatCardModule,MatListModule],
 })
-export class DialogContentExampleDialog {}
+export class DialogContentExampleDialog {
+}
 
