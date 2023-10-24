@@ -1,10 +1,59 @@
 /* Style the sidebar */
+.search-container {
+  text-align: center; /* Center the content horizontally */
+}
+.centered-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* To push the left and right icons to the edges */
+  padding: 10px;
+}
+
+.icon-left, .icon-right {
+  margin: 0 10px; /* Adjust margin for spacing */
+}
+
+.pantry-header {
+  font-family: 'Your Desired Font', sans-serif; /* Replace 'Your Desired Font' with the actual font you want to use */
+  font-size: 50px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  color: #333; /* Adjust the color as needed */
+  /* Add any other font-related styles you want */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+  padding: 10px;
+  width: 65%;
+  margin: 0 auto; /* Center the search bar horizontally */
+}
+
+.search-icon {
+  margin-right: 10px; /* Adjust the margin to control the space between the icon and input */
+}
+
+.search-icon mat-icon {
+  font-size: 24px; /* Adjust the font size of the icon */
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  outline: none;
+}
+
+/* Sidebar Styles */
 .sidebar {
-  width: 375px; /* Set the width of the sidebar */
-  max-width: 375px;
-  background: linear-gradient(to bottom, #f8e578, #f1ab31); /* Gradient background */
-  color: #000000; /* Text color */
-  padding-top: 100px;
+  width: 25%; /*adjust for editing*/
+  max-width: 25%;
+  background: linear-gradient(to bottom, #f8e578, #f1ab31);
+  color: #000000;
+  padding-top: 10px;
   position: fixed;
   top: 60px;
   bottom: 0;
@@ -12,21 +61,21 @@
   z-index: 1;
 }
 
+/* Sidebar Card Styles */
 .sidebar-card {
-  position: relative; /* Make the pseudo-elements relative to this card */
+  position: relative;
   width: 92%;
   margin: 15px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   height: auto;
   background-color: #fafafa;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Updated box shadow for 3D effect */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for transform and box-shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Add a subtle 3D border effect */
+/* 3D Border Effect for Sidebar Card */
 .sidebar-card::before,
 .sidebar-card::after {
   content: '';
@@ -34,184 +83,296 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Border color for 3D effect */
-  transition: opacity 0.3s ease; /* Transition for opacity */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
 }
 
-/* Top border */
+/* Top Border Effect */
 .sidebar-card::before {
   top: 0;
   left: 0;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
 }
 
-/* Bottom border */
+/* Bottom Border Effect */
 .sidebar-card::after {
   bottom: 0;
   right: 0;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
 }
 
-/* Hover effect */
+/* Hover Effect for Sidebar Card */
 .sidebar-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Hover effect for the borders */
+/* Hover Effect for 3D Borders */
 .sidebar-card:hover::before,
 .sidebar-card:hover::after {
-  opacity: 1; /* Show the borders on hover */
+  opacity: 1;
 }
 
+/* Sidebar Card Content Styles */
 .mat-card-content {
-  /* Your custom styles for mat-card-content */
-  padding: 10px; /* Add padding as needed */
-  background-color: #f0f0f0; /* Set a background color */
-  border-radius: 5px; /* Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  margin-top: 10px; /* Add margin to separate it from other elements */
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
+/* Subcategory Container Styles */
 .subcategory-container {
   list-style-type: none; /* Remove list item bullets */
+  display: flex; /* Use flex to create a row layout */
+  flex-wrap: wrap; /* Wrap items to the next row */
+  justify-content: space-between; /* Add space between items */
+  padding: 9.5px;
+  font-size: 1em;
+}
+
+/* Individual List Item Styles */
+.subcategory-container li {
+  margin-bottom: 6px; /* Add space between list items */
+  width: calc(33.33% - 10px); /* Three items per row with some margin for spacing */
   padding: 9.5px; /* Add padding to list items */
   font-size: 12px; /* Decrease the font size */
 }
 
-/* Style individual list items */
-.subcategory-container li {
-  margin-bottom: 6px; /* Add space between list items */
-}
-
-.sidebar-button {
-  display: flex; /* Use flex for the button container */
+/* Sidebar Button Styles */
+.mat-button-toggle {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 9px 24px; /* Adjust the top and bottom padding to make the buttons shorter */
   border-radius: 36px; /* Increased border-radius for more rounded buttons */
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a 3D shadow effect */
+  flex-basis: calc(33.33% - 10px); /* Divide the available space into 3 equal parts with some margin for spacing */
   flex-grow: 1; /* Allow buttons to grow and fill available space */
 }
 
-.button-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  background-color: #ffffff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: grab;
-  margin: 4px;
-  font-size: 5px; /* Adjust font size as needed */
-  padding: 4px 0; /* Remove fixed padding */
+/* Hover and Focus State Styles for Sidebar Button */
+.mat-button-toggle:hover,
+.mat-button-toggle:focus {
+  background-color: #EBA937;
+  color: #FFFFFF;
 }
 
-/* Style for hover and focus states */
-.sidebar-button:hover,
-.sidebar-button:focus {
-  background-color: #EBA937; /* Change background color on hover/focus */
-  color: #FFFFFF; /* Change text color on hover/focus */
+/* Active State Styles for Sidebar Button */
+.mat-button-toggle:active {
+  background-color: #D98C05;
+  color: #FFFFFF;
+  box-shadow: none;
 }
 
-/* Style for the active state (when clicked) */
-.sidebar-button:active {
-  background-color: #D98C05; /* Change background color when active (clicked) */
-  color: #FFFFFF; /* Change text color when active (clicked) */
-  box-shadow: none; /* Remove box shadow when active (clicked) */
+/* Selected State Styles for Sidebar Button */
+.mat-button-toggle.selected {
+  background-color: lightgreen;
 }
 
-.sidebar-button.selected {
-  background-color: lightgreen; /* Change color when selected */
+.arrow-icon {
+  width: 35px;
+  height: 35px;
+  font-size: 35px;
 }
 
+/* Image Container Styles */
 .image-container {
-  width: 60px;
-  height: 60px;
   margin-right: 10px;
-  background-color: #ccc;
+  background-color: #cccccc00;
   display: flex;
-  flex-direction: column; /* Change to column layout to add space below */
+  flex-direction: column;
   align-items: center;
-  padding: 5px; /* Add padding to the header */
+  padding: 5px;
+  flex: 1;
 }
 
+/* Small Image Styles */
 .small-image {
-  width: 100%; /* Make the image fill the container */
+  width: 70%;
   height: auto;
   image-orientation: center;
 }
 
-/* Add a colored square background */
+/* Colored Square Background for Image */
 .small-image::before {
-  content: ''; /* Create a pseudo-element */
+  content: '';
   position: left;
   top: 0;
   left: 0;
-  width: 100%; /* Cover the entire width of the .small-image */
-  height: 100%; /* Cover the entire height of the .small-image */
-  background-color: #ccc; /* Off-grey color */
-  opacity: 0.6; /* Adjust opacity as needed */
-  z-index: -1; /* Place it behind the image icon */
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  opacity: 0.6;
+  z-index: -1;
 }
 
-.second-image-icon {
-  width: 24px; /* Adjust the width as needed */
-  height: 24px; /* Adjust the height as needed */
-  margin-left: 10px; /* Adjust the margin to separate it from the description */
-  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
-}
-
+/* Rotate 180 Styles */
 .rotate-180 {
   transform: rotate(180deg);
-  transition: transform 0.3s ease; /* Add a smooth transition */
+  transition: transform 0.3s ease;
 }
 
+/* Mat Card Header Styles */
 .mat-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   margin-right: 10px;
   border: none;
-  border-radius: 5px; /* Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
-  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.mat-card-title {
-  flex-grow: 0; /* Disable flex-grow to prevent expanding */
-  white-space: nowrap; /* Prevent text from wrapping */
-  font-size: 14px; /* Set your desired font size */
-  margin-left: 10px; /* Adjust the margin to separate the title from the image */
+.mat-mdc-card-header {
   display: flex;
-  justify-content: space-between; /* Pushes .title to the left and .image-container to the right */
-  align-items: center;
+  padding: 15px;
 }
 
+/* Mat Card Title Styles */
+.mat-card-title {
+  flex-grow: 0;
+  white-space: nowrap;
+  font-size: 1.1em;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Title Styles */
 .title {
-  flex-grow: 1; /* Allow the title to expand and fill the available space to the left */
-  white-space: nowrap; /* Prevent text from wrapping */
+  flex: 2;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Show ellipsis for long text */
-  font-size: 14px; /* Set your desired font size */
-  margin-right: 10px; /* Optional margin for spacing */
+  text-overflow: ellipsis;
+  font-size: 1.1em;
+  margin-right: 10px;
 }
 
-/* Style the sidebar card description */
+/* Sidebar Card Description Styles */
 .description {
-  font-size: 12px; /* Adjust the font size as needed */
-  color: #888; /* Color for the description text */
-}
-
-/* Add some margin to the description for spacing */
-.description {
+  font-size: 1em;
+  color: #888;
   margin-top: 5px;
 }
 
-/* Media query for larger screens, adjust the font size as needed */
-@media screen and (min-width: 768px) {
-  .button-label {
-    font-size: 16px;
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.subDropdown {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+}
+
+.subDropdown:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.subDropdown:focus {
+  outline: none;
+  /* Add styles for button focus state if needed */
+}
+
+.mat-mdc-button>.mat-icon {
+  margin-left: 0;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  font-size: 2rem;
+  height: 2rem;
+  width: 2rem;
+  color: #000000;
+}
+
+.icon-left, .icon-right {
+  margin: 0 10px; /* Adjust margin for spacing */
+}
+
+.search-container {
+  text-align: center; /* Center the content horizontally */
+}
+
+.centered-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* To push the left and right icons to the edges */
+  padding: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+  padding: 10px;
+  width: 65%;
+  margin: 0 auto; /* Center the search bar horizontally */
+}
+
+.search-icon {
+  margin-right: 10px; /* Adjust the margin to control the space between the icon and input */
+}
+
+.search-icon mat-icon {
+  font-size: 24px; /* Adjust the font size of the icon */
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  outline: none;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 576px) {
+  .sidebar {
+    display: none;
+  }
+
+  .open-sidebar-button {
+    display: block;
+  }
+
+  .sidebar.open {
+    display: block;
+    transition: transform 0.3s;
+    transform: translateX(0);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .open-sidebar-button {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(235, 169, 55, 0.7);
+    color: #000;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.2em;
   }
 }

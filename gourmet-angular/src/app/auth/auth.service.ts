@@ -7,7 +7,7 @@ import { Observable, BehaviorSubject, catchError, tap, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://your-backend-api-url'; // Replace with your backend API URL
+  private baseUrl = 'http://54.183.139.183'; // Replace with your backend API URL
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
@@ -16,7 +16,7 @@ export class AuthService {
 login(username: string, password: string): Observable<any> {
   const loginData = { username, password };
 
-  return this.http.post(`${this.baseUrl}/api/auth/login`, loginData).pipe(
+  return this.http.post(`${this.baseUrl}/api/login`, loginData).pipe(
     tap((response: any) => {
       // If login is successful, store the JWT token in local storage or a cookie
       const token = response.token; // Adjust the property name as needed

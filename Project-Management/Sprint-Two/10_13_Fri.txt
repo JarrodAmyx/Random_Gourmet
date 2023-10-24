@@ -20,3 +20,8 @@ Jarrod:
 1. I finished setting up our new backend in Laravel
 2. Today I try to get it working on local host servers
 3. Laravel is complicated with setting up a server.
+
+Chelsea:
+1. I didnt work on my tasks.
+2. I focused on midterms for my other classes.
+3. No blockers but im going to work on frontend first while we do our conversion w our backend. 

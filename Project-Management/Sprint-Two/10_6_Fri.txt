@@ -20,3 +20,8 @@ Jarrod:
 1. I worked on connecting springboot to mongodb yesterday.
 2. For today, I worked on getting springboot connected to angular
 3. What's stopping us is the lack of knowledge with how springboot works
+
+Chelsea:
+1. I didnt work on tasks.
+2. I was studying for an ML midterm.
+3. no blockers
