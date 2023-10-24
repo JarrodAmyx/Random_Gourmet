@@ -10,8 +10,7 @@
       <br>
       <!-- Default list -->
       <div *ngIf="!searchBool">
-        <mat-grid-list cols="2" rowHeight="20rem" class="recipe-grid">
-
+        <mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="20rem" class="recipe-grid">
           <mat-grid-tile *ngFor="let item of items">
             <mat-card style="width: 30rem;" [ngClass]="{'deleted': item.deleted}">
               <div class="embed-responsive embed-responsive-16by9 cursor">

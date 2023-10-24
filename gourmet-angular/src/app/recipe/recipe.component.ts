@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export class Items{
   constructor(public ID: number, public name: string, public deleted: boolean){}
@@ -10,13 +11,14 @@ export class Items{
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent {
+  isMobile: boolean = false;
 
   searchTerm: string = '';
   searchResults:Items[] = [];
   searchBool: boolean = false;
   items: Items[] = [];
 
-  constructor(){
+  constructor(private breakpointObserver: BreakpointObserver){
     this.items.push(new Items(1, 'Burger', false));
     this.items.push(new Items(2, 'Steak', false));
     this.items.push(new Items(3, 'Ham Burger', false));
@@ -32,6 +34,15 @@ export class RecipeComponent {
     this.items.push(new Items(13, 'Ham Burger', false));
     this.items.push(new Items(14, 'Fish', false));
     this.items.push(new Items(15, 'Fishburger', false));
+  }
+
+  ngOnInit() {
+    this.breakpointObserver.observe([
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
   }
 
   clickRecipe(other: Items): void{
