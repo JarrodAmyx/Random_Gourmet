@@ -50,18 +50,21 @@
             </mat-card-header>
         
             <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
-        
               <div class="subcategory-container">
-                <mat-button-toggle
-                  *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index"
-                  [ngClass]="{'active': subcategoryStates[subcategory], 'selected': subcategoryStates[subcategory]}"
-                  (click)="toggleSubcategory(subcategory)">
-                  <span class="button-label">{{ subcategory }}</span>
-                </mat-button-toggle>
+                <ng-container *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index">
+                  <mat-button-toggle
+                    *ngIf="filterCategories(subcategory)"
+                    [ngClass]="{'active': subcategoryStates[subcategory], 'selected': subcategoryStates[subcategory]}"
+                    (click)="toggleSubcategory(subcategory)">
+                    <span class="button-label">{{ subcategory }}</span>
+                  </mat-button-toggle>
+                </ng-container>
               </div>
             </mat-card-content>
+
           </mat-card>
         </ng-container>
+        
         
         
 
