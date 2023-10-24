@@ -1,8 +1,11 @@
-<mat-card class="minRecipe" (click)="openDialog()">
-  <img mat-card-xl-image class='image' src="assets/category-images/randomFood.jpg" alt="randomFood.jpg" >
+
+<mat-grid-list cols="2" rowHeight="2:2"  *ngFor="let rec of recipeTest" >
+<mat-card class="minRecipe" >
+  <img mat-card-xl-image src="assets/category-images/randomFood.jpg" alt="randomFood.jpg" (click)="openDialog()">
   <mat-card-header>
-    <mat-card-title>Recipe Name example</mat-card-title>
+    <mat-card-title>{{rec.name}}</mat-card-title>
     <mat-card-subtitle>Match: 0%</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content> Protein: 0g      Fat: 0g       Carbs: 0g </mat-card-content>
 </mat-card>
+</mat-grid-list>
