@@ -29,9 +29,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeComponent } from './recipe/recipe.component';
 import { PantryComponent } from './pantry/pantry.component';
+import { RecipecardComponent } from './recipecard/recipecard.component';
 import { SecureComponent } from './secure/secure.component';
 import { PublicComponent } from './public/public.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PublicComponent,
     LandingPageComponent,
     RecipeComponent,
-    PantryComponent
+    PantryComponent,
+    RecipecardComponent
   ],
   imports: [
     BrowserModule,
