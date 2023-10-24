@@ -49,8 +49,8 @@ input {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 30%; /*adjust for editing*/
-  max-width: 50%;
+  width: 20%; /*adjust for editing*/
+  max-width: 25%;
   background: linear-gradient(to bottom, #f8e578, #f1ab31);
   color: #000000;
   padding-top: 10px;
