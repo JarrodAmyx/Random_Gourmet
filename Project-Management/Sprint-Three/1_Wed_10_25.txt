@@ -10,9 +10,10 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. Listing what is left to do, add new tasks to Jira & adjust points
+2. Add more tasks if necessary and make sure all tasks are distributed so we're on the same page.
+   If I have time I'll also get to work on the secure/public toolbar differences.
+3. Need login to be fully functional to finish the project UI flow and experiment with secure/public routes.
 
 Chelsea:
 1. 
