@@ -46,6 +46,10 @@ input {
   width: 100%;
   outline: none;
 }
+.sidebar,
+.mat-sidenav-container, .mat-sidenav-content{
+  height: 100%;
+}
 
 /* Sidebar Styles */
 .sidebar {

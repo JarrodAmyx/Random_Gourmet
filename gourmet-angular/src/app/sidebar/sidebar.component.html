@@ -33,7 +33,7 @@
         <!-- Loop through the categories -->
         <ng-container *ngFor="let category of categories">
           <mat-card class="sidebar-card" *ngIf="filterCategories(category)">
-        
+
             <mat-card-header class="card-header">
               <div class="image-container">
                 <img [src]="categoryImages[category]" alt="{{ category }} Image" class="small-image">
@@ -48,7 +48,7 @@
                 </button>
               </div>
             </mat-card-header>
-        
+
             <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
               <div class="subcategory-container">
                 <ng-container *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index">
@@ -64,11 +64,16 @@
 
           </mat-card>
         </ng-container>
-        
-        
-        
+
+        <mat-sidenav-content>
+          <h2>Testing</h2>
+          <button>test button</button>
+          <app-recipecard></app-recipecard>
+        </mat-sidenav-content>
+
 
       </mat-sidenav>
+
     </mat-sidenav-container>
   </body>
 </HTML>
