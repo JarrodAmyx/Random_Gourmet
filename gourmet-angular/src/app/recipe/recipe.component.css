@@ -34,7 +34,7 @@ mat-grid-tile {
   margin-right: 10px; /* Optional margin for spacing */
 }
 
-.deleted {
+/* .deleted {
   filter: grayscale(100%);
   color:gray;
-}
+} */

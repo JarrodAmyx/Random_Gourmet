@@ -1,7 +1,9 @@
 <!-- Recipe cards -->
 <div class="recipe-container">
   <div>
-    <h4 class = "recipe-title" > <b>Matching Recipes</b></h4>
+    <h4 class = "recipe-title" >
+      <b>Matching Recipes</b>
+    </h4>
     <!-- <div class="input-container"> -->
       <div class="input-group">
         <input type="search" class="form-control rounded" placeholder="Search Recipes" [(ngModel)]="searchTerm">
@@ -21,11 +23,13 @@
                   <div class="title">
                     <mat-card-title>{{item.name}}</mat-card-title>
                   </div>
-                  <button mat-button *ngIf="!item.deleted" (click)="deleteRecipe(item)">
-                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="delete"> </mat-icon>
+                  <button mat-button *ngIf="!item.deleted" (click)="deleteRecipe(item)"
+                  matTooltip="Save this recipe">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="bookmark_add"> </mat-icon>
                   </button>
-                  <button mat-button *ngIf="item.deleted" (click)="undoDelete(item)">
-                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="undo"> </mat-icon>
+                  <button mat-button *ngIf="item.deleted" (click)="undoDelete(item)"
+                  matTooltip="Remove from your saved list">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px;" [ngStyle]="{'color': '#f1ab31'}" fontIcon="bookmark_added"> </mat-icon>
                   </button>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
