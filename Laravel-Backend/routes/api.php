@@ -14,9 +14,14 @@ use App\Http\Controllers\ApiController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/login', [ApiController::class, 'login']);
+Route::post('/login', [ApiController::class, 'login']);
+Route::get('/registration', [ApiController::class, 'register']);
+Route::post('/registration', [ApiController::class, 'register']);
 Route::get('/data', [ApiController::class, 'getData']);
+Route::get('/ingredients', [ApiController::class, 'getAllIngredients']);
+Route::get('/allUsers', [ApiController::class, 'getAllUsers']);
