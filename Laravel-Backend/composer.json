@@ -9,6 +9,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "jenssegers/mongodb": "^4.0",
         "laravel/framework": "^10.10",
+        "laravel/passport": "^11.9",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "mongodb/laravel-mongodb": "^4.0",
