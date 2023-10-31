@@ -6,7 +6,7 @@
   <div class="pantry-list">
     <div *ngFor="let item of pantryItems; let even = even" class="pantry-item" [ngClass]="{'even-row': even, 'odd-row': !even}">
       <span>{{ item.name }}</span>
-      <input type="checkbox" (change)="addToSeparateDatabase(item)" />
+      <input type="checkbox" (change)="addToIngredients(item)" />
     </div>
   </div>
 </div>

@@ -9,14 +9,14 @@ import { SharedService } from '../shared/shared.service';
 
 export class HomeComponent {
   isSidebarOpen = true; // Initially open
-  isSmallScreen = false;
+  isMobile = false;
 
   constructor(private sharedService: SharedService) {}
 
   // Listen for window resize events to determine screen size
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    this.isSmallScreen = window.innerWidth <= 576; // Adjust the breakpoint as needed
+    this.isMobile = window.innerWidth <= 576; // Adjust the breakpoint as needed
   }
 
   toggleSidebar() {

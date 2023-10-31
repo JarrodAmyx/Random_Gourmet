@@ -13,7 +13,7 @@ export class PantryComponent implements OnInit {
 
   ngOnInit() {
     // Make an HTTP GET request to fetch data from your MongoDB database
-    this.http.get<any[]>('your_api_endpoint_here').subscribe(data => {
+    this.http.get<any[]>('http://54.183.139.183/api/ingredients').subscribe(data => {
       this.pantryItems = data;
     });
   }
@@ -22,7 +22,7 @@ export class PantryComponent implements OnInit {
     // Implement search functionality
   }
 
-  addToSeparateDatabase(item: any) {
+  addToIngredients(item: any) {
     // Implement adding the selected item to a separate database or list
   }
 }
