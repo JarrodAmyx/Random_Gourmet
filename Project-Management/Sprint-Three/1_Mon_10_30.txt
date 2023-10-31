@@ -10,9 +10,11 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. List what is left to do, add new tasks to Jira & adjust points, and get rid of obsolete functions related to routing.
+2. Add more tasks if necessary and make sure all tasks are distributed so we're on the same page.
+   Finish UI flow diagram.
+   If I have time I'll also get to work on the secure/public toolbar differences.
+3. Need login to be fully functional to finish the project UI flow and experiment with secure/public routes.
 
 Chelsea:
 1. 
