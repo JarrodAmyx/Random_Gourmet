@@ -54,8 +54,4 @@ export class SharedService {
       // You can handle any post-dialog-closed logic here
     });
   }
-
-  openPantry(): void {
-    this.router.navigate(['/pantry']);
-  }
 }

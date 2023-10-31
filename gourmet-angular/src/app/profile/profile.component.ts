@@ -30,10 +30,6 @@ export class ProfileComponent {
     });  
   }
 
-  temporaryAction(): void {
-    this.sharedService.openPantry();
-  }
-
   whiteSpace() {
     return (control: AbstractControl) => {
       const value = control.value;
