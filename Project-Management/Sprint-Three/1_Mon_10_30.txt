@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. I created a diagram to present how the backend API works.
+2. I will create the CRUD for all the tables and some of the requests
+3. No blockers
 
 Joakim:
 1. List what is left to do, add new tasks to Jira & adjust points, and get rid of obsolete functions related to routing.
