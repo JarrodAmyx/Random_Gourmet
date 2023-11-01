@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
@@ -20,12 +20,14 @@ var RECIPETEST:recipe[] =[
   templateUrl: './recipecard.component.html',
   styleUrls: ['./recipecard.component.css']
 })
-export class RecipecardComponent {
+export class RecipecardComponent implements OnInit{
+  @Input() public data: any;
+
   constructor(public dialog: MatDialog) {}
   recipeTest = RECIPETEST;
   openDialog() {
     const dialogRef = this.dialog.open(RecipecardDialog,{
-      data: RECIPETEST,
+      data: this.data,
       width: '50vw',
       height: '40vw'
     });
@@ -34,6 +36,7 @@ export class RecipecardComponent {
       console.log(`Recipe Card Opened`);
     });
   }
+  public  ngOnInit(): void { }
 }
 
 @Component({

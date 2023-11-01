@@ -2,13 +2,13 @@
 <img mat-card-xl-image class="images" style="width:50%" src="assets/category-images/randomFood.jpg" alt="randomFood.jpg" center>
 <mat-dialog-content>
   <h2>Ingredients</h2>
-  <mat-selection-list>
-    <mat-list-option role="listitem">Item 1</mat-list-option>
-    <mat-list-option role="listitem">Item 2</mat-list-option>
-    <mat-list-option role="listitem">Item 3</mat-list-option>
+  <mat-selection-list *ngFor="let item of data.ingredientIDs">
+    <mat-list-option role="listitem">{{item}}</mat-list-option>
   </mat-selection-list>
   <h2>Instructions</h2>
-  test
+  <ng-container class="instruction-description">
+    {{data.description}}
+  </ng-container>
 </mat-dialog-content>
 
 <mat-dialog-actions>
