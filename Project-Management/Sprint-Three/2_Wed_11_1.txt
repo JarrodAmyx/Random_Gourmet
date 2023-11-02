@@ -19,10 +19,10 @@ Chelsea:
 2. 
 3. 
 
-Bryan:
-1. 
-2. 
-3. 
+Brian:
+1. Focused on debugging an issue with my testing environment.
+2. Fixed testing environment and confirmed that the card creation works, now need to build another component to build lists of them to be visually appealing.
+3. Conflicting documentation about errors do not help with debugging or building my goals
 
 Ryan:
 1. 

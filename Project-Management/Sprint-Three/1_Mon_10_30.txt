@@ -21,10 +21,10 @@ Chelsea:
 2. 
 3. 
 
-Bryan:
-1. 
-2. 
-3. 
+Brian:
+1. Built a general diagram of how the recipe cards should function as they should be reused in many areas of the project.
+2. Focused on helping Joakim create and manage Jira tasks as well as starting a side app to test some theories.
+3. A lot of conflicting documentation about what I want to do is often confusing me into doing the wrong thing.
 
 Ryan:
 1. 
