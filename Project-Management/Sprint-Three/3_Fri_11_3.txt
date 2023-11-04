@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. I began to create the backend CRUD methods last time
+2. I finished creating all the CRUD methods and created the chart/list of how to use it.
+3. No Blockers
 
 Joakim:
 1. 
