@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Last time I was working on the diagram and list of CRUD methods.
+2. Today I start working on creating all of the CRUD methods for our database.
+3. The only blocker is the time that this will take.
 
 Joakim:
 1. 
