@@ -1,8 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export class Items{
   constructor(public ID: number, public name: string, public deleted: boolean){}
+}
+
+export class Result{
+  constructor(public ID: number, public title: string, public image: string){}
 }
 
 @Component({
@@ -13,11 +17,14 @@ export class Items{
 export class RecipeComponent {
   isMobile: boolean = false;
 
-  searchTerm: string = '';
-  searchResults:Items[] = [];
-  searchBool: boolean = false;
-  items: Items[] = [];
+  @Output() invokeParent = new EventEmitter<string>();
 
+  searchTerm: string = '';
+  searchBool: boolean = false;
+
+  searchResults:Items[] = [];  
+
+  items: Items[] = [];
   constructor(private breakpointObserver: BreakpointObserver){
     this.items.push(new Items(1, 'Burger', false));
     this.items.push(new Items(2, 'Steak', false));
@@ -52,20 +59,22 @@ export class RecipeComponent {
 
   searchRecipe(): void{
     // skips search process if search term is empty
-    if(this.searchTerm.length === 0){
-      this.searchBool = false;
-      return;
-    }
+    // if(this.searchTerm.length === 0){
+    //   this.searchBool = false;
+    //   return;
+    // }
 
-    // empties the list
-    this.searchResults = [];
-    this.searchBool = true;
+    // // empties the list
+    // this.searchResults = [];
+    // this.searchBool = true;
 
-    this.items.forEach(item => {
-      if(item.name.includes(this.searchTerm)){
-        this.searchResults.push(item);
-      }
-    });
+    // this.items.forEach(item => {
+    //   if(item.name.includes(this.searchTerm)){
+    //     this.searchResults.push(item);
+    //   }
+    // });
+    // console.log('child responds');
+    this.invokeParent.emit(this.searchTerm);
   }
 
   deleteRecipe(other: Items): void{
@@ -82,7 +91,4 @@ export class RecipeComponent {
     other.deleted = false;
   }
 
-  loadMoreData(): void {
-    console.log('Scrolled to the bottom. Loading more data...');
-  }
 }
