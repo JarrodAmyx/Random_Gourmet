@@ -13,7 +13,7 @@
       <!-- Default list -->
       <div *ngIf="!searchBool">
         <mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="20rem" class="recipe-grid">
-          <mat-grid-tile *ngFor="let item of items">
+          <mat-grid-tile *ngFor="let item of displayItems">
             <mat-card style="width: 30rem;" [ngClass]="{'deleted': item.deleted}">
               <div class="embed-responsive embed-responsive-16by9 cursor">
                 <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)" src="" />
@@ -23,11 +23,15 @@
                   <div class="title">
                     <mat-card-title>{{item.name}}</mat-card-title>
                   </div>
-                  <button mat-button *ngIf="!item.deleted" (click)="deleteRecipe(item)"
+                  <button mat-button *ngIf="!loggedIn"
+                  matTooltip="Log in to save your recipe">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" [ngStyle]="{'color': '#6b6b6b'}" fontIcon="bookmark_add"> </mat-icon>
+                  </button>
+                  <button mat-button *ngIf="!item.deleted && loggedIn" (click)="deleteRecipe(item)"
                   matTooltip="Save this recipe">
                     <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="bookmark_add"> </mat-icon>
                   </button>
-                  <button mat-button *ngIf="item.deleted" (click)="undoDelete(item)"
+                  <button mat-button *ngIf="item.deleted && loggedIn" (click)="undoDelete(item)"
                   matTooltip="Remove from your saved list">
                     <mat-icon style="width: 20px; height: 20px; font-size: 20px;" [ngStyle]="{'color': '#f1ab31'}" fontIcon="bookmark_added"> </mat-icon>
                   </button>
@@ -62,6 +66,19 @@
         Whoops! Looks like there are no matches to your search :&lpar;
       </div>
 
-    <!-- </div> -->
+    <div class="footer">
+      <button mat-button *ngIf="currentPage!=1" (click)="prevPage()"
+      matTooltip="Previous page">
+        <mat-icon style="width: 40px; height: 40px; font-size: 40px" [ngStyle]="{'color': '#f1ab31'}" fontIcon="chevron_left"> </mat-icon>
+      </button>
+      <div *ngIf="currentPage==1"></div>
+
+      <div></div>
+
+      <button mat-button *ngIf="currentPage!=resultSize" (click)="nextPage()"
+      matTooltip="Next page">
+        <mat-icon style="width: 40px; height: 40px; font-size: 40px" [ngStyle]="{'color': '#f1ab31'}" fontIcon="chevron_right"> </mat-icon>
+      </button>
+    </div>
   </div>
 </div>

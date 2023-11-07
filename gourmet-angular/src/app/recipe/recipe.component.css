@@ -34,6 +34,11 @@ mat-grid-tile {
   margin-right: 10px; /* Optional margin for spacing */
 }
 
+.footer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 /* .deleted {
   filter: grayscale(100%);
   color:gray;
