@@ -3,15 +3,16 @@
 <html>
   <div class="content" role="main">
     <!-- Button to open/close the sidebar on small screens -->
-    <button class="open-sidebar-button" (click)="toggleSidebar()" *ngIf="isSmallScreen">
+    <button class="open-sidebar-button" (click)="toggleSidebar()" *ngIf="isMobile">
       <i class="fas fa-bars"></i>
     </button>
-  
+
     <!-- Include the SidebarComponent within your content -->
     <app-sidebar></app-sidebar>
-  
+
     <!-- All main content goes here -->
-    <app-recipe></app-recipe>
-    <app-recipecard></app-recipecard>
+    <app-recipe (invokeParent)="toggleSearch($event)"></app-recipe>
+    <!-- testing for the recipe cards
+    <app-recipecard></app-recipecard>-->
   </div>
 </html>

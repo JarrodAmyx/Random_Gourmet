@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { LoginComponent } from '../auth/login/login.component';
 import { RegistrationComponent } from '../auth/registration/registration.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Injectable({
   providedIn: 'root'
@@ -41,10 +42,16 @@ export class SharedService {
   }
 
   openProfile(): void {
-    this.router.navigate(['/profile']);
-  }
+    const dialogRef = this.dialog.open(ProfileComponent, {
+      width: '40vw', // Adjust the width as needed
+      height: '30vw',
+      panelClass: 'custom-dialog-container', // Apply a custom CSS class
+      data: {} // You can pass data to the dialog if needed
+    });
 
-  openPantry(): void {
-    this.router.navigate(['/pantry']);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Registration dialog closed');
+      // You can handle any post-dialog-closed logic here
+    });
   }
 }

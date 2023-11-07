@@ -1,7 +1,9 @@
 <!-- Recipe cards -->
 <div class="recipe-container">
   <div>
-    <h4 class = "recipe-title" > <b>Your recipes</b></h4>
+    <h4 class = "recipe-title" >
+      <b>Matching Recipes</b>
+    </h4>
     <!-- <div class="input-container"> -->
       <div class="input-group">
         <input type="search" class="form-control rounded" placeholder="Search Recipes" [(ngModel)]="searchTerm">
@@ -10,9 +12,8 @@
       <br>
       <!-- Default list -->
       <div *ngIf="!searchBool">
-        <mat-grid-list cols="2" rowHeight="20rem" class="recipe-grid">
-
-          <mat-grid-tile *ngFor="let item of items">
+        <mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="20rem" class="recipe-grid">
+          <mat-grid-tile *ngFor="let item of displayItems">
             <mat-card style="width: 30rem;" [ngClass]="{'deleted': item.deleted}">
               <div class="embed-responsive embed-responsive-16by9 cursor">
                 <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)" src="" />
@@ -22,11 +23,17 @@
                   <div class="title">
                     <mat-card-title>{{item.name}}</mat-card-title>
                   </div>
-                  <button mat-button *ngIf="!item.deleted" (click)="deleteRecipe(item)">
-                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="delete"> </mat-icon>
+                  <button mat-button *ngIf="!loggedIn"
+                  matTooltip="Log in to save your recipe">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" [ngStyle]="{'color': '#6b6b6b'}" fontIcon="bookmark_add"> </mat-icon>
                   </button>
-                  <button mat-button *ngIf="item.deleted" (click)="undoDelete(item)">
-                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="undo"> </mat-icon>
+                  <button mat-button *ngIf="!item.deleted && loggedIn" (click)="deleteRecipe(item)"
+                  matTooltip="Save this recipe">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="bookmark_add"> </mat-icon>
+                  </button>
+                  <button mat-button *ngIf="item.deleted && loggedIn" (click)="undoDelete(item)"
+                  matTooltip="Remove from your saved list">
+                    <mat-icon style="width: 20px; height: 20px; font-size: 20px;" [ngStyle]="{'color': '#f1ab31'}" fontIcon="bookmark_added"> </mat-icon>
                   </button>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
@@ -59,12 +66,19 @@
         Whoops! Looks like there are no matches to your search :&lpar;
       </div>
 
-    <!-- </div> -->
-  </div>
+    <div class="footer">
+      <button mat-button *ngIf="currentPage!=1" (click)="prevPage()"
+      matTooltip="Previous page">
+        <mat-icon style="width: 40px; height: 40px; font-size: 40px" [ngStyle]="{'color': '#f1ab31'}" fontIcon="chevron_left"> </mat-icon>
+      </button>
+      <div *ngIf="currentPage==1"></div>
 
-  <div style="text-align: center;">
-    <button mat-button (click)="loadMoreData()">
-      <p>Click to load more</p>
-    </button>
+      <div></div>
+
+      <button mat-button *ngIf="currentPage!=resultSize" (click)="nextPage()"
+      matTooltip="Next page">
+        <mat-icon style="width: 40px; height: 40px; font-size: 40px" [ngStyle]="{'color': '#f1ab31'}" fontIcon="chevron_right"> </mat-icon>
+      </button>
+    </div>
   </div>
 </div>

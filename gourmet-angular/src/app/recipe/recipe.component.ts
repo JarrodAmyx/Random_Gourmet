@@ -1,7 +1,12 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export class Items{
   constructor(public ID: number, public name: string, public deleted: boolean){}
+}
+
+export class Result{
+  constructor(public ID: number, public title: string, public image: string, public fav: boolean){}
 }
 
 @Component({
@@ -10,28 +15,46 @@ export class Items{
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent {
+  isMobile: boolean = false;
+
+  @Output() invokeParent = new EventEmitter<string>();
 
   searchTerm: string = '';
-  searchResults:Items[] = [];
   searchBool: boolean = false;
-  items: Items[] = [];
+  loggedIn: boolean = false;
 
-  constructor(){
-    this.items.push(new Items(1, 'Burger', false));
-    this.items.push(new Items(2, 'Steak', false));
-    this.items.push(new Items(3, 'Ham Burger', false));
-    this.items.push(new Items(4, 'Fish', false));
-    this.items.push(new Items(5, 'Fishburger', false));
-    this.items.push(new Items(6, 'Burger', false));
-    this.items.push(new Items(7, 'Steak', false));
-    this.items.push(new Items(8, 'Ham Burger', false));
-    this.items.push(new Items(9, 'Fish', false));
-    this.items.push(new Items(10, 'Fishburger', false));
-    this.items.push(new Items(11, 'Burger', false));
-    this.items.push(new Items(12, 'Steak', false));
-    this.items.push(new Items(13, 'Ham Burger', false));
-    this.items.push(new Items(14, 'Fish', false));
-    this.items.push(new Items(15, 'Fishburger', false));
+  searchResults:Items[] = [];
+  displaySize: number = 5;
+  // resultSize = [search query size]/[displaySize] rounded up
+  resultSize: number = 3;
+  currentPage: number = 1;
+
+  items: Items[] = [];
+  constructor(private breakpointObserver: BreakpointObserver){
+    this.items.push(new Items(1, 'One', false));
+    this.items.push(new Items(2, 'Two', false));
+    this.items.push(new Items(3, 'Three', false));
+    this.items.push(new Items(4, 'Four', false));
+    this.items.push(new Items(5, 'Five', false));
+    this.items.push(new Items(6, 'Six', false));
+    this.items.push(new Items(7, 'Seven', false));
+    this.items.push(new Items(8, 'Eight', false));
+    this.items.push(new Items(9, 'Nine', false));
+    this.items.push(new Items(10, 'Ten', false));
+    this.items.push(new Items(11, 'Eleven', false));
+    this.items.push(new Items(12, 'Twelve', false));
+    this.items.push(new Items(13, 'Thirteen', false));
+    this.items.push(new Items(14, 'Fourteen', false));
+    this.items.push(new Items(15, 'Fifteen', false));
+  }
+
+  ngOnInit() {
+    this.breakpointObserver.observe([
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
   }
 
   clickRecipe(other: Items): void{
@@ -41,20 +64,22 @@ export class RecipeComponent {
 
   searchRecipe(): void{
     // skips search process if search term is empty
-    if(this.searchTerm.length === 0){
-      this.searchBool = false;
-      return;
-    }
+    // if(this.searchTerm.length === 0){
+    //   this.searchBool = false;
+    //   return;
+    // }
 
-    // empties the list
-    this.searchResults = [];
-    this.searchBool = true;
+    // // empties the list
+    // this.searchResults = [];
+    // this.searchBool = true;
 
-    this.items.forEach(item => {
-      if(item.name.includes(this.searchTerm)){
-        this.searchResults.push(item);
-      }
-    });
+    // this.items.forEach(item => {
+    //   if(item.name.includes(this.searchTerm)){
+    //     this.searchResults.push(item);
+    //   }
+    // });
+    // console.log('child responds');
+    this.invokeParent.emit(this.searchTerm);
   }
 
   deleteRecipe(other: Items): void{
@@ -71,7 +96,19 @@ export class RecipeComponent {
     other.deleted = false;
   }
 
-  loadMoreData(): void {
-    console.log('Scrolled to the bottom. Loading more data...');
+  get displayItems(): Items[]{
+    const startIndex = (this.currentPage - 1) * this.displaySize;
+    return this.items.slice(startIndex, startIndex + this.displaySize);
   }
+
+  nextPage(){
+    this.currentPage++;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  prevPage(){
+    this.currentPage--;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 }

@@ -13,7 +13,6 @@ use App\Http\Controllers\ApiController;
 |
 */
 Route::get('/stuff', function () {
-    die('hello');
     return view('angular.index');
 })->where('any', '.*');
 
@@ -22,4 +21,5 @@ Route::get('/', function () {
 })->where('any', '.*');
 
 Route::get('/data', [ApiController::class, 'getData']);
+Route::get('/ingredients', [ApiController::class, 'getAllIngredients']);
 

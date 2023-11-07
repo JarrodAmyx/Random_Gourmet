@@ -1,0 +1,30 @@
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+
+Jarrod:
+1. I began to create the backend CRUD methods last time
+2. I finished creating all the CRUD methods and created the chart/list of how to use it.
+3. No Blockers
+
+Joakim:
+1. 
+2. 
+3. 
+
+Chelsea:
+1. 
+2. 
+3. 
+
+Bryan:
+1. 
+2. 
+3. 
+
+Ryan:
+1. 
+2. 
+3. 

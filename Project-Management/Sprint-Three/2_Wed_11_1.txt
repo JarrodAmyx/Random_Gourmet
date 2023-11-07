@@ -1,0 +1,30 @@
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+
+Jarrod:
+1. Last time I was working on the diagram and list of CRUD methods.
+2. Today I start working on creating all of the CRUD methods for our database.
+3. The only blocker is the time that this will take.
+
+Joakim:
+1. 
+2. 
+3. 
+
+Chelsea:
+1. 
+2. 
+3. 
+
+Brian:
+1. Focused on debugging an issue with my testing environment.
+2. Fixed testing environment and confirmed that the card creation works, now need to build another component to build lists of them to be visually appealing.
+3. Conflicting documentation about errors do not help with debugging or building my goals
+
+Ryan:
+1. 
+2. 
+3. 
