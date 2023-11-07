@@ -19,6 +19,7 @@ export class RegistrationComponent {
   errorMessage: string = '';
 
   registerForm : FormGroup;
+  baseUrl = 'http://54.183.139.183';
 
   constructor(
     private sharedService: SharedService, 
@@ -26,10 +27,10 @@ export class RegistrationComponent {
     public dialogRef: MatDialogRef<RegistrationComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.registerForm = new FormGroup({
-        Email: new FormControl<string>('', [Validators.required, this.whiteSpace()]),
-        password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
-        password2: new FormControl<string>('', [Validators.required, this.passwordDuplicateValid()]),
-      });  
+        email: new FormControl('', [Validators.required, this.whiteSpace()]),
+        password1: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
+        password2: new FormControl('', [Validators.required, this.passwordDuplicateValid()]),
+      }); 
   }
 
   @Output() registrationSubmit: EventEmitter<any> = new EventEmitter();
@@ -40,15 +41,14 @@ export class RegistrationComponent {
   }
 
   onSubmit(): void {
+    console.log("registration submitted")
     console.log(this.registerForm.get('password2'));
   
     // Create an object with the registration data
     const registrationData = {
-      Email: this.registerForm.get('email')?.value,
+      email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password1')?.value,
     };
-
-    const apiUrl = 'http://localhost:8080';
   
     // Create an observer object with appropriate handlers
     const observer = {
@@ -68,8 +68,8 @@ export class RegistrationComponent {
     };
 
     // Subscribe to the observable with the observer
-    const subscription: Subscription = this.http.post(apiUrl, registrationData).subscribe(observer);
-
+    const subscription: Subscription = this.http.post(`${this.baseUrl}/api/user-create`, registrationData).subscribe(observer);
+    console.log(subscription)
   }
 
 
