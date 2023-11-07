@@ -1,11 +1,5 @@
-
-<div class="CardList" *ngFor="let item of _dataset">
-  <app-recipecard [data]="item"></app-recipecard>
-</div>
-
-
-<mat-grid-list cols="2" rowHeight="100px" >
-    <mat-grid-tile *ngFor="let item of _dataset">
+<mat-grid-list cols="2" rowHeight="20rem" >
+    <mat-grid-tile *ngFor="let item of dataset">
       <app-recipecard [data]="item"></app-recipecard>
     </mat-grid-tile>
 </mat-grid-list>
