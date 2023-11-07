@@ -2,3 +2,12 @@
 <div class="CardList" *ngFor="let item of _dataset">
   <app-recipecard [data]="item"></app-recipecard>
 </div>
+
+
+<mat-grid-list [cols]="2" rowHeight="20rem">
+  <ng-container *ngFor="let item of _dataset">
+  <mat-grid-tile >
+    <app-recipecard [data]="item"></app-recipecard>
+  </mat-grid-tile>
+</ng-container>
+</mat-grid-list>
