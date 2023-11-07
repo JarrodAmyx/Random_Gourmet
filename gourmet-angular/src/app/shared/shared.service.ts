@@ -40,18 +40,4 @@ export class SharedService {
       // You can handle any post-dialog-closed logic here
     });
   }
-
-  openProfile(): void {
-    const dialogRef = this.dialog.open(ProfileComponent, {
-      width: '40vw', // Adjust the width as needed
-      height: '30vw',
-      panelClass: 'custom-dialog-container', // Apply a custom CSS class
-      data: {} // You can pass data to the dialog if needed
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Registration dialog closed');
-      // You can handle any post-dialog-closed logic here
-    });
-  }
 }

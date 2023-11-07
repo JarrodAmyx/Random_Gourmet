@@ -26,8 +26,4 @@ export class ToolbarComponent {
   openLogin(): void {
     this.sharedService.openLogin();
   }
-
-  openProfile(): void{
-    this.sharedService.openProfile();
-  }
 }
