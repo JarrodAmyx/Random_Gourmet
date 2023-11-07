@@ -17,6 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterModule, Routes } from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
@@ -72,7 +73,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CommonModule
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]
