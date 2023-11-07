@@ -10,9 +10,9 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. Some work on registration and made login functioning, the registration and login process now works.
+2. Work on the secure/public toolbar differences.
+3. Nothing.
 
 Chelsea:
 1. 
