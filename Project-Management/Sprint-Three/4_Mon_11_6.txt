@@ -15,9 +15,9 @@ Joakim:
 3. 
 
 Chelsea:
-1. 
-2. 
-3. 
+1. Yesterday I didnt work on my tasks
+2. Today I reworked ou db uml for our mongodb tables.
+3. Blockers is my car died and I have an exam tomorrow. 
 
 Bryan:
 1. 
