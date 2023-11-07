@@ -10,9 +10,9 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. worked on the UI Flow diagram since I didn't finish it last week.
+2. Get the registration to a functioning state.
+3. Nothing.
 
 Chelsea:
 1. 
