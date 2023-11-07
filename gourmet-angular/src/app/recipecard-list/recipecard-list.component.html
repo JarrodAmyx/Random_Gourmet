@@ -1,1 +1,4 @@
-<p>recipecard-list works!</p>
+
+<div class="CardList" *ngFor="let item of _dataset">
+  <app-recipecard [data]="item"></app-recipecard>
+</div>

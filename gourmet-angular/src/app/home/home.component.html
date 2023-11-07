@@ -11,7 +11,7 @@
     <app-sidebar></app-sidebar>
 
     <!-- All main content goes here -->
-    <app-recipe (invokeParent)="toggleSearch($event)"></app-recipe>
+    <app-recipecard-list [_dataset]="recipeTest"></app-recipecard-list>
     <!-- testing for the recipe cards
     <app-recipecard></app-recipecard>-->
   </div>
