@@ -18,12 +18,10 @@ export class AuthService {
 
   // Method to perform user login
   login(username: string, password: string): Observable<any> {
-    console.log('Logging in...')
     const loginData = { username, password };
 
     return this.http.post(`${this.baseUrl}/api/login`, loginData).pipe(
       tap((response: any) => {
-        console.log('Login Successful, routing to home...')
         // If login is successful, store the JWT token in local storage or a cookie
         const token = response.token; // Adjust the property name as needed
         localStorage.setItem('token', token);
@@ -66,6 +64,7 @@ export class AuthService {
     // Clear the JWT token from local storage
     localStorage.removeItem('token');
     this.loggedIn.next(false);
+    this.router.navigate(['/landing']);
   }
 
   // Handle HTTP errors
