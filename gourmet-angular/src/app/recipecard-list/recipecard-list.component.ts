@@ -12,6 +12,14 @@ export interface recipe {
   templateUrl: './recipecard-list.component.html',
   styleUrls: ['./recipecard-list.component.css']
 })
-export class RecipecardListComponent{
+export class RecipecardListComponent implements OnInit{
   @Input() dataset: Array<recipe> = []
+
+  constructor(){
+    console.log("constructed list made")
+  }
+  ngOnInit(): void {
+    console.log("OnintIT list made")
+
+  }
 }

@@ -1,5 +1,13 @@
-<mat-grid-list cols="2" rowHeight="fit" gutterSize="1px">
-    <mat-grid-tile *ngFor="let item of dataset" >
+<ng-container *ngFor="let item of dataset" >
+  <mat-grid-list cols="4"  rowHeight="2:1" >
+    <mat-grid-tile class="Cardheld" colspan="1">
       <app-recipecard [data]="item"></app-recipecard>
     </mat-grid-tile>
-</mat-grid-list>
+  </mat-grid-list>
+</ng-container>
+<!--
+
+<ng-container class="nonGrid" *ngFor="let item of dataset">
+  <app-recipecard [data]="item"></app-recipecard>
+</ng-container>
+-->

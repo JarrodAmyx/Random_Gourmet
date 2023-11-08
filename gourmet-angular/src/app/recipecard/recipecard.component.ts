@@ -20,7 +20,11 @@ export interface recipe {
 export class RecipecardComponent implements OnInit{
   @Input() public data: any;
 
-  constructor(public dialog: MatDialog) {}
+  log(){
+    console.log("card %d", this.data.recipeID);
+  }
+
+  constructor(public dialog: MatDialog) {console.log("card generated")}
   openDialog() {
     const dialogRef = this.dialog.open(RecipecardDialog,{
       data: this.data,
