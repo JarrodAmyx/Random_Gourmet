@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Worked on our api backend and the documentation for it.
+2. Assisted in testing the functionality of our backend and started work on creating a token for the backend.
+3. No road blocks
 
 Joakim:
 1. worked on the UI Flow diagram since I didn't finish it last week.
