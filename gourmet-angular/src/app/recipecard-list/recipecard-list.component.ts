@@ -13,7 +13,7 @@ export interface recipe {
   styleUrls: ['./recipecard-list.component.css']
 })
 export class RecipecardListComponent implements OnInit{
-  @Input() dataset: Array<recipe> = []
+  @Input() dataset: any[] =[];
 
   constructor(){
     console.log("constructed list made")

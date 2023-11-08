@@ -1,10 +1,10 @@
-<ng-container *ngFor="let item of dataset" >
-  <mat-grid-list cols="4"  rowHeight="2:1" >
+
+  <mat-grid-list cols="2"  rowHeight="2:1" *ngFor="let item of dataset" >
     <mat-grid-tile class="Cardheld" colspan="1">
       <app-recipecard [data]="item"></app-recipecard>
     </mat-grid-tile>
   </mat-grid-list>
-</ng-container>
+
 <!--
 
 <ng-container class="nonGrid" *ngFor="let item of dataset">
