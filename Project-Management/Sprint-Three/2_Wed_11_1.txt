@@ -25,6 +25,6 @@ Brian:
 3. Conflicting documentation about errors do not help with debugging or building my goals
 
 Ryan:
-1. 
-2. 
-3. 
+1. worked on having recipe component and sidebar component communicate with each other, this will be for backend call
+2. worked on recipe to sidebar communication
+3. having issue getting the components to communicate with each other
