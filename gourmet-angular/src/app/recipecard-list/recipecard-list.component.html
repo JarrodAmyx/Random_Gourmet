@@ -1,9 +1,11 @@
 
-  <mat-grid-list cols="2"  rowHeight="2:1" *ngFor="let item of dataset" >
-    <mat-grid-tile class="Cardheld" colspan="1">
-      <app-recipecard [data]="item"></app-recipecard>
-    </mat-grid-tile>
-  </mat-grid-list>
+
+<mat-grid-list class="Grid" cols="2"  rowHeight="2:1" >
+  <mat-grid-tile class="Cardheld" *ngFor="let item of dataset"  >
+    <app-recipecard [data]="item"></app-recipecard>
+  </mat-grid-tile>
+</mat-grid-list>
+
 
 <!--
 

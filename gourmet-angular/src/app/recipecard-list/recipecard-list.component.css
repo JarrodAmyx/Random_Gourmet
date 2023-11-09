@@ -1,0 +1,15 @@
+.Grid{
+  width: 900px;
+  height: auto;
+  align-self: auto;
+  padding: auto;
+}
+
+.nonGrid{
+align-items: center;
+}
+
+.Cardheld{
+  height: 500px;
+  padding: auto;
+}
