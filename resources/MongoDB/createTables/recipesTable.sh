@@ -1,21 +1,14 @@
+db.recipes.drop(); // Drop the collection if it already exists
 db.createCollection("recipes", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "percentMatch", "nutrition", "totalCookTime", "requiredIngredients"],
+      required: ["recipeId", "userId", "title", "description", "requiredIngredients"],
       properties: {
-        name: { bsonType: "string" },
-        percentMatch: { bsonType: "double" },
-        nutrition: {
-          bsonType: "object",
-          required: ["fat", "protein", "calories"],
-          properties: {
-            fat: { bsonType: "double" },
-            protein: { bsonType: "double" },
-            calories: { bsonType: "double" },
-          },
-        },
-        totalCookTime: { bsonType: "int" }, // Represents time in minutes
+        recipeId: { bsonType: "string" },
+        userId: { bsonType: "string" },
+        title: { bsonType: "string" },
+        description: { bsonType: "string" },
         requiredIngredients: {
           bsonType: "array",
           items: {
