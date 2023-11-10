@@ -1,20 +1,103 @@
 .pantry-container {
   text-align: center;
-  margin-left: 100px;
-  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+  padding: 10px;
+  width: 400px;
+  margin: 0 auto; /* Center the search bar horizontally */
+}
+
+.search-icon {
+  margin-right: 10px; /* Adjust the margin to control the space between the icon and input */
+}
+
+.search-icon mat-icon {
+  font-size: 24px; /* Adjust the font size of the icon */
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  outline: none;
 }
 
 .pantry-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
   margin-top: 20px;
+  width: 800px;
+}
+
+.category {
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+  text-align: left;
+}
+
+.category-header {
+  padding-left: 30px;
+  margin: 0;
+}
+
+.category-divider {
+  border: none;
+  border-top: 2px solid #000;
+  margin: 5px 0;
+}
+
+.category-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
 }
 
 .pantry-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 24px; /* Adjust the top and bottom padding to make the buttons shorter */
+  border-radius: 10px; /* Increased border-radius for more rounded buttons */
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a 3D shadow effect */
+  flex-basis: calc(33.33% - 10px); /* Divide the available space into 3 equal parts with some margin for spacing */
+  flex-grow: 1; /* Allow buttons to grow and fill available space */
+  margin: 5px; /* Add margin for spacing between buttons */
+  font-size: 15px;
+}
+
+/* Hover and Focus State Styles for Button */
+.pantry-item:hover,
+.pantry-item:focus {
   background-color: #EBA937;
-  padding: 10px;
-  border: 1px solid #000;
+  color: #FFFFFF;
+}
+
+/* Active State Styles for Button */
+.pantry-item:active {
+  background-color: #D98C05;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+/* Selected State Styles for Button */
+.pantry-item.selected {
+  background-color: lightgreen;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
 }
 
 .even-row {

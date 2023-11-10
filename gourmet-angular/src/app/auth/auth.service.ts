@@ -64,7 +64,7 @@ export class AuthService {
     // Clear the JWT token from local storage
     localStorage.removeItem('token');
     this.loggedIn.next(false);
-    this.router.navigate(['/landing']);
+    this.router.navigate(['/landing-page']);
   }
 
   // Handle HTTP errors
