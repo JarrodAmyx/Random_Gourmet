@@ -1,12 +1,28 @@
 <div class="pantry-container">
   <h1>Pantry</h1>
 
-  <input type="text" placeholder="Search" (input)="onSearch($event)" />
+  <div class="search-container">
+    <div class="search-bar">
+      <div class="search-icon">
+        <mat-icon>search</mat-icon>
+      </div>
+      <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
+    </div>
+
+    <!-- end of sidebar -->
+  </div>
 
   <div class="pantry-list">
-    <div *ngFor="let item of pantryItems; let even = even" class="pantry-item" [ngClass]="{'even-row': even, 'odd-row': !even}">
-      <span>{{ item.name }}</span>
-      <input type="checkbox" (change)="addToIngredients(item)" />
-    </div>
+    <ng-container *ngFor="let categoryGroup of categorizedPantryItems; let i = index">
+      <div class="category">
+        <h2 class="category-header">{{ categoryGroup.category }}</h2>
+        <hr class="category-divider" />
+      </div>
+      <div class="category-items">
+        <button *ngFor="let item of categoryGroup.items" class="pantry-item" [ngClass]="{'selected': item.selected}" (click)="toggleItemSelection(item)">
+          <span>{{ item.name }}</span>
+        </button>
+      </div>
+    </ng-container>
   </div>
 </div>
