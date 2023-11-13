@@ -15,9 +15,9 @@ Joakim:
 3. Other classes.
 
 Chelsea:
-1. 
-2. 
-3. 
+1. Primarily focused on db and testing data insertion
+2. Today ill be focusing on ingredient endpoints adding in user data thorugh the frontend
+3. no blockers
 
 Brian:
 1. 
