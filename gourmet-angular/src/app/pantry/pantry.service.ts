@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PantryService {
-  private apiUrl = 'http://54.183.139.183/api/pantry'; // Replace with your backend API URL
+  private apiUrl = 'http://54.183.139.183/api/allIngredients'; // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 

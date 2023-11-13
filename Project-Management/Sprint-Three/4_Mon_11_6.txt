@@ -19,10 +19,10 @@ Chelsea:
 2. 
 3. 
 
-Bryan:
-1. 
-2. 
-3. 
+Brian:
+1. Worked on finishing up the recipe card component after I finished some external testing.
+2. Finished and push the recipe card compoent to main and worked on getting a grid display functioning for said component.
+3. Currently the grid(recipecardList) is not displaying during testing.
 
 Ryan:
 1. nothing

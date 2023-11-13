@@ -19,10 +19,10 @@ Chelsea:
 2. 
 3. 
 
-Bryan:
-1. 
-2. 
-3. 
+Brian:
+1. Was busy studying and catching up to another class.
+2. With the help of the professor, discovered the reason why the list component wouldn't display even after being generated.
+3. Personally not very experienced with CSS code, so managing the list display could be an issue.
 
 Ryan:
 1. nothing
