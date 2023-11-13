@@ -1,5 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
+import { AuthService } from '../auth/auth.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RecipeComponent } from '../recipe/recipe.component';
 
@@ -12,11 +13,19 @@ import { RecipeComponent } from '../recipe/recipe.component';
 export class HomeComponent {
   isSidebarOpen = true; // Initially open
   isMobile = false;
+  loggedIn: boolean = false;
 
   @ViewChild(SidebarComponent) sidebar: any;
   @ViewChild(RecipeComponent) recipe: any;
   
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private authService: AuthService
+    ) {
+      this.authService.isLoggedIn().subscribe((status) => {
+        this.loggedIn = status;
+      });
+    }
 
   // Listen for window resize events to determine screen size
   @HostListener('window:resize', ['$event'])

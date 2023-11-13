@@ -14,7 +14,7 @@
       <div *ngIf="!searchBool">
         <mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="20rem" class="recipe-grid">
           <mat-grid-tile *ngFor="let item of displayItems">
-            <mat-card style="width: 30rem;" [ngClass]="{'deleted': item.deleted}">
+            <mat-card style="width: 30rem;">
               <div class="embed-responsive embed-responsive-16by9 cursor">
                 <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)" src="" />
               </div>
@@ -27,11 +27,11 @@
                   matTooltip="Log in to save your recipe">
                     <mat-icon style="width: 20px; height: 20px; font-size: 20px" [ngStyle]="{'color': '#6b6b6b'}" fontIcon="bookmark_add"> </mat-icon>
                   </button>
-                  <button mat-button *ngIf="!item.deleted && loggedIn" (click)="deleteRecipe(item)"
+                  <button mat-button *ngIf="!item.fav && loggedIn" (click)="favRecipe(item)"
                   matTooltip="Save this recipe">
                     <mat-icon style="width: 20px; height: 20px; font-size: 20px" fontIcon="bookmark_add"> </mat-icon>
                   </button>
-                  <button mat-button *ngIf="item.deleted && loggedIn" (click)="undoDelete(item)"
+                  <button mat-button *ngIf="item.fav && loggedIn" (click)="unfavRecipe(item)"
                   matTooltip="Remove from your saved list">
                     <mat-icon style="width: 20px; height: 20px; font-size: 20px;" [ngStyle]="{'color': '#f1ab31'}" fontIcon="bookmark_added"> </mat-icon>
                   </button>
@@ -56,7 +56,7 @@
           </div>
           <div class="card-body">
             <h4 class="card-title">{{item.name}}</h4>
-            <button type="button" class="btn btn-danger" (click)="deleteRecipe(item)">Delete</button>
+            <button type="button" class="btn btn-danger">Delete</button>
           </div>
         </div>
         <br>

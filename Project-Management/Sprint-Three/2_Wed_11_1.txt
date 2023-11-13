@@ -10,9 +10,9 @@ Jarrod:
 3. The only blocker is the time that this will take.
 
 Joakim:
-1. 
-2. 
-3. 
+1. Worked on getting tasks assigned looked over what we needed to get done and worked on the UI flow chart.
+2. Looked into how to separate what is shown within a component between the public and secure routes.
+3. Finishing login and registration.
 
 Chelsea:
 1. I didnt work on my tasks. 
@@ -25,6 +25,6 @@ Brian:
 3. Conflicting documentation about errors do not help with debugging or building my goals
 
 Ryan:
-1. 
-2. 
-3. 
+1. worked on having recipe component and sidebar component communicate with each other, this will be for backend call
+2. worked on recipe to sidebar communication
+3. having issue getting the components to communicate with each other

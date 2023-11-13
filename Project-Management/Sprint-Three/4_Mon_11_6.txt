@@ -5,26 +5,26 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Worked on our api backend and the documentation for it.
+2. Assisted in testing the functionality of our backend and started work on creating a token for the backend.
+3. No road blocks
 
 Joakim:
-1. 
-2. 
-3. 
+1. worked on the UI Flow diagram since I didn't finish it last week.
+2. Get the registration to a functioning state.
+3. Nothing.
 
 Chelsea:
 1. Yesterday I didnt work on my tasks
 2. Today I reworked ou db uml for our mongodb tables.
 3. Blockers is my car died and I have an exam tomorrow. 
 
-Bryan:
-1. 
-2. 
-3. 
+Brian:
+1. Worked on finishing up the recipe card component after I finished some external testing.
+2. Finished and push the recipe card compoent to main and worked on getting a grid display functioning for said component.
+3. Currently the grid(recipecardList) is not displaying during testing.
 
 Ryan:
-1. 
-2. 
-3. 
+1. nothing
+2. added navigation system to recipe card component
+3. nothing

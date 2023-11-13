@@ -3,25 +3,23 @@
   
   <div class="input-container">
     
-    <form [formGroup] = "registerForm">
-
+    <form [formGroup]="registerForm">
       <mat-form-field class="mat-form-field-underline">
-        <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
+        <input matInput type="email" placeholder="Email" formControlName="email" required>
         <mat-error *ngIf="email?.invalid">Invalid email address.</mat-error>
       </mat-form-field>
-
+    
       <mat-form-field class="mat-form-field-underline">
-        <input matInput type="password" placeholder="Password" formControlName="password1" name="password1" required>
-        <!-- <mat-hint></mat-hint> -->
-        <mat-error *ngIf="password1?.invalid">Must have one letter, and one number and must be at least 8 characters long.</mat-error>
+        <input matInput type="password" placeholder="Password" formControlName="password1" required>
+        <mat-error *ngIf="password1?.invalid">Must have one letter, one number, and be at least 8 characters long.</mat-error>
       </mat-form-field>
-
+    
       <mat-form-field class="mat-form-field-underline">
-        <input matInput type="password" placeholder="Confirm Password" formControlName="password2" name="password2" required>
+        <input matInput type="password" placeholder="Confirm Password" formControlName="password2" required>
         <mat-error *ngIf="password2?.invalid">Passwords do not match.</mat-error>
       </mat-form-field>
-
-    </form> 
+    </form>
+     
   </div>
   <button class="register-button" color="primary" (click)="onSubmit()">Register</button>
   <button class="bottom-text-button" (click)="openLogin()">Already have an account? Login</button>

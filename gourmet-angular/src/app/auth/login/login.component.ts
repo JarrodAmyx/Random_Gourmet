@@ -37,5 +37,6 @@ export class LoginComponent {
         this.errorMessage = 'Invalid credentials';
       }
     );
+    this.dialogRef.close();
   }
 }

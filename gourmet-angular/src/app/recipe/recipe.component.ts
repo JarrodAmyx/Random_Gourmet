@@ -1,8 +1,9 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export class Items{
-  constructor(public ID: number, public name: string, public deleted: boolean){}
+  constructor(public ID: number, public name: string, public fav: boolean){}
 }
 
 export class Result{
@@ -30,7 +31,10 @@ export class RecipeComponent {
   currentPage: number = 1;
 
   items: Items[] = [];
-  constructor(private breakpointObserver: BreakpointObserver){
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService
+    ){
     this.items.push(new Items(1, 'One', false));
     this.items.push(new Items(2, 'Two', false));
     this.items.push(new Items(3, 'Three', false));
@@ -46,6 +50,10 @@ export class RecipeComponent {
     this.items.push(new Items(13, 'Thirteen', false));
     this.items.push(new Items(14, 'Fourteen', false));
     this.items.push(new Items(15, 'Fifteen', false));
+
+    this.authService.isLoggedIn().subscribe((status) => {
+      this.loggedIn = status;
+    });
   }
 
   ngOnInit() {
@@ -82,18 +90,18 @@ export class RecipeComponent {
     this.invokeParent.emit(this.searchTerm);
   }
 
-  deleteRecipe(other: Items): void{
+  favRecipe(other: Items): void{
     // console.log(other);
     
     // // placeholder for backend call
     // this.recipes = this.recipes.filter(item => item !== other);
 
-    other.deleted = true;
-    console.log(other.name +' is ' +  other.deleted)
+    other.fav = true;
+    console.log(other.name +' is ' +  other.fav)
   }
 
-  undoDelete(other: Items): void{
-    other.deleted = false;
+  unfavRecipe(other: Items): void{
+    other.fav = false;
   }
 
   get displayItems(): Items[]{

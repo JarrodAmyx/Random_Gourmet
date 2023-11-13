@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
+import { AuthService } from '../auth.service';
 import { SharedService } from '../../shared/shared.service';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
@@ -19,17 +20,19 @@ export class RegistrationComponent {
   errorMessage: string = '';
 
   registerForm : FormGroup;
+  baseUrl = 'http://54.183.139.183';
 
   constructor(
+    private authService: AuthService,
     private sharedService: SharedService, 
     private http: HttpClient, 
     public dialogRef: MatDialogRef<RegistrationComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.registerForm = new FormGroup({
-        Email: new FormControl<string>('', [Validators.required, this.whiteSpace()]),
-        password1: new FormControl<string>('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
-        password2: new FormControl<string>('', [Validators.required, this.passwordDuplicateValid()]),
-      });  
+        email: new FormControl('', [Validators.required, this.whiteSpace()]),
+        password1: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(8)]),
+        password2: new FormControl('', [Validators.required, this.passwordDuplicateValid()]),
+      }); 
   }
 
   @Output() registrationSubmit: EventEmitter<any> = new EventEmitter();
@@ -40,36 +43,27 @@ export class RegistrationComponent {
   }
 
   onSubmit(): void {
-    console.log(this.registerForm.get('password2'));
-  
-    // Create an object with the registration data
-    const registrationData = {
-      Email: this.registerForm.get('email')?.value,
-      password: this.registerForm.get('password1')?.value,
-    };
-
-    const apiUrl = 'http://localhost:8080';
-  
-    // Create an observer object with appropriate handlers
-    const observer = {
-      next: (response: any) => {
-        // Handle success response from the backend
-        console.log('Registration successful', response);
-
-        // Optionally, you can close the dialog or perform other actions
+    this.authService.register(this.Email, this.password).subscribe(
+      (response) => {
+        // Successful registration
+        // You can choose to navigate to another page or display a success message.
+        // Automatically log in the user after successful registration
+        this.authService.login(this.Email, this.password).subscribe(
+          (loginResponse) => {
+            // Successful login
+            // Store the token, navigate to another page, or perform other actions
+          },
+          (loginError) => {
+            // Handle login error if necessary
+          }
+        );
         this.dialogRef.close();
       },
-      error: (error: any) => {
-        // Handle error response from the backend
-        console.error('Registration failed', error);
-
-        // Optionally, you can display an error message to the user
+      (error) => {
+        // Handle registration error
+        this.errorMessage = 'Registration failed';
       }
-    };
-
-    // Subscribe to the observable with the observer
-    const subscription: Subscription = this.http.post(apiUrl, registrationData).subscribe(observer);
-
+    );
   }
 
 
