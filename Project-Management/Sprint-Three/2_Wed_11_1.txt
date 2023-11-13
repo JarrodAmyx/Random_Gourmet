@@ -15,9 +15,9 @@ Joakim:
 3. Finishing login and registration.
 
 Chelsea:
-1. 
-2. 
-3. 
+1. I didnt work on my tasks. 
+2. Today I bought a new car.
+3. I was at the car dealership all day. 
 
 Brian:
 1. Focused on debugging an issue with my testing environment.

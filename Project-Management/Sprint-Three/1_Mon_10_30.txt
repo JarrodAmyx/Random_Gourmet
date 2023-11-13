@@ -17,9 +17,9 @@ Joakim:
 3. Need login to be fully functional to finish the project UI flow and experiment with secure/public routes.
 
 Chelsea:
-1. 
-2. 
-3. 
+1. I didnt work on my tasks. 
+2. My car died today. 
+3. My car died and I spent the day figuring out my next move. 
 
 Brian:
 1. Built a general diagram of how the recipe cards should function as they should be reused in many areas of the project.
