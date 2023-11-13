@@ -3,6 +3,7 @@
   height: auto;
   align-self: auto;
   padding: auto;
+  justify-content: space-around;
 }
 
 .nonGrid{
