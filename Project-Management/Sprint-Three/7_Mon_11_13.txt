@@ -10,9 +10,9 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. I spent most of my time yesterday applying for jobs.
+2. I'll try to figure out why our login authentication always returns true
+3. Other classes.
 
 Chelsea:
 1. 
