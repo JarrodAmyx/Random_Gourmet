@@ -162,7 +162,7 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   "Condiments", "Herbs and Spices"];
 
   // Subcategories of each food group
-subcatMeats: string[] = ["Ribeye", "T-bone", "Sirloin", "Tenderloin", "Skirt Steak", "Filet", "Breast", "Ground Beef"];
+subcatMeats: string[] = ["Chicken", "Chicken Breast", "Ribeye", "T-bone", "Sirloin", "Tenderloin", "Skirt Steak", "Filet", "Turkey", "Ground Beef"];
 
 subcatSeafood: string[] = ["Shrimp", "Crab", "Lobster", "Clam", "Squid", "Octopus", "Fish Fillet", "Salmon",
   "Tuna", "Halibut", "Snapper", "Trout", "Mahi-Mahi", "Tilapia", "Sardine", "Catfish", "Other Seafood Option"];
@@ -180,7 +180,7 @@ subcatFruits: string[] = ["Apple", "Banana", "Orange", "Grape", "Strawberry", "B
 subcatBerries: string[] = ["Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cranberry",
   "Gooseberry", "Currant", "Boysenberry", "Mulberry", "Elderberry", "Huckleberry","other berry"];
 
-subcatBaking: string[] = ["Flour", "Sugar", "Baking Powder", "Baking Soda", "Yeast", "Vanilla Extract",
+subcatBaking: string[] = ["Flour", "Sugar", "Baking Powder","Milk", "Butter", "Baking Soda", "Yeast", "Vanilla Extract",
   "Cocoa Powder", "Chocolate Chips", "Nut", "Spice", "Food Coloring", "Sprinkle", "Shortening", "Cornstarch",
   "Breadcrumb", "Cornmeal", "Honey", "Maple Syrup", "Molasses", "Agave Nectar", "Cream of Tartar", "Gelatin",
   "Candied Fruit", "Pie Filling", "Marshmallow", "Other Baking Ingredient"];
