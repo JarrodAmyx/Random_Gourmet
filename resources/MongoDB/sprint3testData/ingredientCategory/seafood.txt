@@ -1,0 +1,122 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "11",
+    name: "Shrimp",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "12",
+    name: "Crab",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "13",
+    name: "Lobster",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "14",
+    name: "Clam",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "15",
+    name: "Squid",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "16",
+    name: "Octopus",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "17",
+    name: "Fish Fillet",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "18",
+    name: "Salmon",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "19",
+    name: "Tuna",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "20",
+    name: "Halibut",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "21",
+    name: "Snapper",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "22",
+    name: "Trout",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "23",
+    name: "Mahi-Mahi",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "24",
+    name: "Tilapia",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "25",
+    name: "Sardine",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "26",
+    name: "Catfish",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  },
+  {
+    ingredientId: "27",
+    name: "Other Seafood Option",
+    quantity: 1,
+    unit: "lbs",
+    category: "Seafood"
+  }
+]);

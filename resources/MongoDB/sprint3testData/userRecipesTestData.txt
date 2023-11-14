@@ -1,0 +1,16 @@
+to reference recipe ids from recipe table for userRecipes table do this:
+
+db.userRecipes.insertMany([
+  {
+    userId: "user1",
+    recipeId: db.recipes.findOne({ title: "Cheeseburger" })._id
+  },
+  {
+    userId: "user2",
+    recipeId: db.recipes.findOne({ title: "Fish Tacos" })._id
+  },
+  {
+    userId: "user3",
+    recipeId: db.recipes.findOne({ title: "Breakfast Burrito" })._id
+  }
+]);

@@ -1,12 +1,12 @@
 db.recipes.drop(); // Drop the collection if it already exists
+
 db.createCollection("recipes", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["recipeId", "userId", "title", "description", "requiredIngredients"],
+      required: ["recipeId", "title", "description", "requiredIngredients"],
       properties: {
         recipeId: { bsonType: "string" },
-        userId: { bsonType: "string" },
         title: { bsonType: "string" },
         description: { bsonType: "string" },
         requiredIngredients: {

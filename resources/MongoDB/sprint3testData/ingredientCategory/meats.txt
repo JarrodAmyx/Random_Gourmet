@@ -1,0 +1,74 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "1",
+    name: "Chicken",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "2",
+    name: "Chicken Breast",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "3",
+    name: "Ribeye",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "4",
+    name: "T-bone",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "5",
+    name: "Sirloin",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "6",
+    name: "Tenderloin",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "7",
+    name: "Skirt Steak",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "8",
+    name: "Filet",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "9",
+    name: "Turkey",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  },
+  {
+    ingredientId: "10",
+    name: "Ground Beef",
+    quantity: 1,
+    unit: "lbs",
+    category: "Meats"
+  }
+]);

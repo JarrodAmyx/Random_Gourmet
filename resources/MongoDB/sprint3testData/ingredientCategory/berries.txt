@@ -1,0 +1,87 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "90",
+    name: "Strawberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "91",
+    name: "Blueberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "92",
+    name: "Raspberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "93",
+    name: "Blackberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "94",
+    name: "Cranberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "95",
+    name: "Gooseberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "96",
+    name: "Currant",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "97",
+    name: "Boysenberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "98",
+    name: "Mulberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "99",
+    name: "Elderberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "100",
+    name: "Huckleberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  },
+  {
+    ingredientId: "101",
+    name: "Other Berry",
+    quantity: 1,
+    unit: "cup",
+    category: "Berries"
+  }
+]);

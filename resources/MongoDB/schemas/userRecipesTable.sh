@@ -1,4 +1,5 @@
 db.userRecipes.drop();
+
 db.createCollection("userRecipes", {
   validator: {
     $jsonSchema: {
