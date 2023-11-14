@@ -1,0 +1,206 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "28",
+    name: "Carrot",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "29",
+    name: "Broccoli",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "30",
+    name: "Spinach",
+    quantity: 1,
+    unit: "bunch",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "31",
+    name: "Tomato",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "32",
+    name: "Pepper",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "33",
+    name: "Onion",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "34",
+    name: "Cucumber",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "35",
+    name: "Zucchini",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "36",
+    name: "Potato",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "37",
+    name: "Sweet Potato",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "38",
+    name: "Mushroom",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "39",
+    name: "Cabbage",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "40",
+    name: "Cauliflower",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "41",
+    name: "Green Bean",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "42",
+    name: "Asparagus",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "43",
+    name: "Eggplant",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "44",
+    name: "Pea",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "45",
+    name: "Lettuce",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "46",
+    name: "Kale",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "47",
+    name: "Radish",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "48",
+    name: "Artichoke",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "49",
+    name: "Beet",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "50",
+    name: "Squash",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "51",
+    name: "Okra",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "52",
+    name: "Corn",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "53",
+    name: "Celery",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "54",
+    name: "Leek",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "55",
+    name: "Turnip",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  },
+  {
+    ingredientId: "56",
+    name: "Other Vegetable",
+    quantity: 1,
+    unit: "pieces",
+    category: "Vegetables"
+  }
+]);

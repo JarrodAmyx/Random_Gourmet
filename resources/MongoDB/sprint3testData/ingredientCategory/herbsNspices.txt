@@ -1,0 +1,249 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "193",
+    name: "Salt",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "194",
+    name: "Pepper",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "195",
+    name: "Basil",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "196",
+    name: "Thyme",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "197",
+    name: "Rosemary",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "198",
+    name: "Oregano",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "199",
+    name: "Cilantro",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "200",
+    name: "Parsley",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "201",
+    name: "Sage",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "202",
+    name: "Dill",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "203",
+    name: "Mint",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "204",
+    name: "Chive",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "205",
+    name: "Coriander",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "206",
+    name: "Cumin",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "207",
+    name: "Paprika",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "208",
+    name: "Chili Powder",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "209",
+    name: "Cayenne Pepper",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "210",
+    name: "Turmeric",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "211",
+    name: "Ginger",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "212",
+    name: "Nutmeg",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "213",
+    name: "Cinnamon",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "214",
+    name: "Clove",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "215",
+    name: "Allspice",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "216",
+    name: "Cardamom",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "217",
+    name: "Bay Leaf",
+    quantity: 1,
+    unit: "pieces",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "218",
+    name: "Fennel",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "219",
+    name: "Tarragon",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "220",
+    name: "Marjoram",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "221",
+    name: "Lavender",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "222",
+    name: "Vanilla",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "223",
+    name: "Saffron",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "224",
+    name: "Mustard Seed",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "225",
+    name: "Caraway Seed",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "226",
+    name: "Poppy Seed",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  },
+  {
+    ingredientId: "227",
+    name: "Other Herb and Spice",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Herbs and Spices"
+  }
+]);
+``

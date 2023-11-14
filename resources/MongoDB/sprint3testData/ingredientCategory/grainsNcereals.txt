@@ -1,0 +1,136 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "130",
+    name: "Rice",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "131",
+    name: "Pasta",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "132",
+    name: "Quinoa",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "133",
+    name: "Oat",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "134",
+    name: "Barley",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "135",
+    name: "Couscous",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "136",
+    name: "Millet",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "137",
+    name: "Buckwheat",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "138",
+    name: "Amaranth",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "139",
+    name: "Bread",
+    quantity: 1,
+    unit: "loaves",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "140",
+    name: "Cereal",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "141",
+    name: "Granola",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "142",
+    name: "Cereal Bar",
+    quantity: 1,
+    unit: "bars",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "143",
+    name: "Rice Cake",
+    quantity: 1,
+    unit: "cakes",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "144",
+    name: "Popcorn",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "145",
+    name: "Flour",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "146",
+    name: "Cornmeal",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "147",
+    name: "Grit",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  },
+  {
+    ingredientId: "148",
+    name: "Other Grain and Cereal",
+    quantity: 1,
+    unit: "cups",
+    category: "Grains and Cereals"
+  }
+]);
