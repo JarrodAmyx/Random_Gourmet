@@ -170,7 +170,7 @@ subcatSeafood: string[] = ["Shrimp", "Crab", "Lobster", "Clam", "Squid", "Octopu
 subcatVegetables: string[] = ["Carrot", "Broccoli", "Spinach", "Tomato", "Pepper", "Onion", "Cucumber",
   "Zucchini", "Potato", "Sweet Potato", "Mushroom", "Cabbage", "Cauliflower", "Green Bean", "Asparagus",
   "Eggplant", "Pea", "Lettuce", "Kale", "Radish", "Artichoke", "Beet", "Squash", "Okra", "Corn", "Celery",
-  "Leek", "Turnip", "Other Vegetable"];
+  "Leek", "Turnip", "Tofu", "Other Vegetable"];
 
 subcatFruits: string[] = ["Apple", "Banana", "Orange", "Grape", "Strawberry", "Blueberry",
   "Raspberry", "Blackberry", "Peach", "Plum", "Cherry", "Mango", "Pineapple", "Kiwi", "Pear",
@@ -245,32 +245,6 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
     'Herbs and Spices': false,
   };
 
-  //this will be for db server actions
-  //still need to decide on how to adjust quantities in pantry logic wise
-  ingredientsData = {
-    "_id": "your_id",
-    "user_id": "your_user_id",
-    "ingredients": [
-      {
-        "name": "Ingredient 1",
-        "quantity": 100,
-        "unit": "grams",
-        "category": "Meats",
-        "MeatCutSubcategory": "Ribeye"
-      },
-      {
-        "name": "Ingredient 2",
-        "quantity": 200,
-        "unit": "grams",
-        "category": "Meats",
-        "MeatCutSubcategory": "T-bone"
-      },
-      // Add more ingredients here
-    ],
-    "created_at": "your_created_date",
-    "updated_at": "your_updated_date"
-  };
-
   toggleButton(button: { label: string, color: string, selected: boolean }): void {
     button.selected = !button.selected;
   }
@@ -278,10 +252,11 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
+
 //dropdown menu
 
   // http for adding/deleting ingredients to users
-  /*
+
   //http request to add/delete ingredients to pantry
   constructor(private http: HttpClient) {}
 
@@ -304,6 +279,6 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
         // Handle error
       });
 }
-*/
+
 
 }
