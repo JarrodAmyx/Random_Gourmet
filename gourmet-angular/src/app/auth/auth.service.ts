@@ -17,13 +17,15 @@ export class AuthService {
     ) {}
 
   // Method to perform user login
-  login(username: string, password: string): Observable<any> {
-    const loginData = { username, password };
+  login(email: string, password: string): Observable<any> {
+    const loginData = { email, password };
 
     return this.http.post(`${this.baseUrl}/api/login`, loginData).pipe(
       tap((response: any) => {
         // If login is successful, store the JWT token in local storage or a cookie
-        const token = response.token; // Adjust the property name as needed
+        console.log(response.message);
+        if(response.message == false) return;
+        const token = response.message.$oid;
         localStorage.setItem('token', token);
         this.loggedIn.next(true);
         this.router.navigate(['/home'])
@@ -36,14 +38,14 @@ export class AuthService {
     );
   }
 
-  register(username: string, password: string): Observable<any> {
-    const registrationData = { username, password };
+  register(email: string, password: string): Observable<any> {
+    const registrationData = { email, password };
   
     return this.http.post(`${this.baseUrl}/api/user-create`, registrationData).pipe(
       tap((response: any) => {
         // If registration is successful, store the JWT token in local storage or a cookie
-        const token = response.token; // Adjust the property name as needed
-        localStorage.setItem('token', token);
+        console.log(response.message);
+        if(response.message == false) return;
         this.loggedIn.next(true); // Set the user as logged in
       }),
       catchError((error) => {
