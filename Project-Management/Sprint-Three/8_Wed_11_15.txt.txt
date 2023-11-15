@@ -10,8 +10,8 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
+1. Studied for my Mobile App Dev midterm
+2. work on the registration/login process, I suspect the problem is with the password verification
 3. 
 
 Chelsea:
