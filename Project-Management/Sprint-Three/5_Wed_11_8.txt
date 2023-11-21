@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Last time I started working on getting a laravel token for forms sent.
+2. Worked on getting our recipe API working in our backend.
+3. No blockers.
 
 Joakim:
 1. Some work on registration and made login functioning, the registration and login process now works.

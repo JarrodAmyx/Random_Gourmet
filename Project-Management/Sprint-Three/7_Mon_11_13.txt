@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Last time I fixed some backend/database connection issues.
+2. This time I helped bug test our login and registration system.
+3. Other classes.
 
 Joakim:
 1. I spent most of my time yesterday applying for jobs.

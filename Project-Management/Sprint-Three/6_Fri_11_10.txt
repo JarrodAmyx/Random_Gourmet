@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Worked on recipe API connected to our backend.
+2. Fixed some backend/database bugs.
+3. No blockers
 
 Joakim:
 1. Worked on login/registration and pantry.

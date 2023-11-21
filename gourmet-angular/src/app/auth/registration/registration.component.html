@@ -6,17 +6,17 @@
     <form [formGroup]="registerForm">
       <mat-form-field class="mat-form-field-underline">
         <input matInput type="email" placeholder="Email" formControlName="email" required>
-        <mat-error *ngIf="email?.invalid">Invalid email address.</mat-error>
+        <mat-error *ngIf="getEmail()?.invalid">Invalid email address.</mat-error>
       </mat-form-field>
     
       <mat-form-field class="mat-form-field-underline">
         <input matInput type="password" placeholder="Password" formControlName="password1" required>
-        <mat-error *ngIf="password1?.invalid">Must have one letter, one number, and be at least 8 characters long.</mat-error>
+        <mat-error *ngIf="getPassword1()?.invalid">Must have one letter, one number, and be at least 8 characters long.</mat-error>
       </mat-form-field>
     
       <mat-form-field class="mat-form-field-underline">
         <input matInput type="password" placeholder="Confirm Password" formControlName="password2" required>
-        <mat-error *ngIf="password2?.invalid">Passwords do not match.</mat-error>
+        <mat-error *ngIf="getPassword2()?.invalid">Passwords do not match.</mat-error>
       </mat-form-field>
     </form>
      
