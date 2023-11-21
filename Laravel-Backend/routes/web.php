@@ -23,3 +23,4 @@ Route::get('/', function () {
 Route::get('/data', [ApiController::class, 'getData']);
 Route::get('/ingredients', [ApiController::class, 'getAllIngredients']);
 
+

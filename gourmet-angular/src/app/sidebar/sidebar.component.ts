@@ -5,6 +5,8 @@ import { PantryService } from '../pantry/pantry.service';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DropDownAnimation } from './sideAnimations';
 import { ApiService } from '../api.service';
+// routing import
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,7 +26,8 @@ export class SidebarComponent implements AfterViewInit{
 
   data: any;
 
-  constructor(private apiService: ApiService, private pantryService: PantryService) {}
+// Inject Router in the constructor
+constructor(private apiService: ApiService, private pantryService: PantryService, private router: Router) {}
 
   ngOnInit() {
     this.apiService.getData().subscribe((result) => {
@@ -36,14 +39,19 @@ export class SidebarComponent implements AfterViewInit{
     this.adjustElementsInRows();
   }
 
+  // Update navigation methods
+handleLeftButtonClick() {
+  this.router.navigate(['/']); // Navigate to home
+}
+
+handleRightButtonClick() {
+  this.router.navigate(['/pantry']); // Navigate to pantry
+}
+
   adjustElementsInRows() {
     // adjust-elements.ts code here
   }
   
-  //the pantry menu and trash buttons
-  handleLeftButtonClick() {
-    // Add the logic you want to execute when the left button is clicked
-  }
   
   handleMenuButtonClick() {
     // Add the logic you want to execute when the left button is clicked
@@ -53,9 +61,6 @@ export class SidebarComponent implements AfterViewInit{
     // Add the logic you want to execute when the right button is clicked
   }
 
-  handleRightButtonClick() {
-    // Add the logic you want to execute when the right button is clicked
-  }
 
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;
