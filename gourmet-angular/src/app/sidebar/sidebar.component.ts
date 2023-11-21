@@ -5,6 +5,8 @@ import { PantryService } from '../pantry/pantry.service';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DropDownAnimation } from './sideAnimations';
 import { ApiService } from '../api.service';
+// routing import
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,7 +26,8 @@ export class SidebarComponent implements AfterViewInit{
 
   data: any;
 
-  constructor(private apiService: ApiService, private pantryService: PantryService) {}
+// Inject Router in the constructor
+constructor(private apiService: ApiService, private pantryService: PantryService, private router: Router) {}
 
   ngOnInit() {
     this.apiService.getData().subscribe((result) => {
@@ -36,14 +39,19 @@ export class SidebarComponent implements AfterViewInit{
     this.adjustElementsInRows();
   }
 
+  // Update navigation methods
+handleLeftButtonClick() {
+  this.router.navigate(['/']); // Navigate to home
+}
+
+handleRightButtonClick() {
+  this.router.navigate(['/pantry']); // Navigate to pantry
+}
+
   adjustElementsInRows() {
     // adjust-elements.ts code here
   }
   
-  //the pantry menu and trash buttons
-  handleLeftButtonClick() {
-    // Add the logic you want to execute when the left button is clicked
-  }
   
   handleMenuButtonClick() {
     // Add the logic you want to execute when the left button is clicked
@@ -53,9 +61,6 @@ export class SidebarComponent implements AfterViewInit{
     // Add the logic you want to execute when the right button is clicked
   }
 
-  handleRightButtonClick() {
-    // Add the logic you want to execute when the right button is clicked
-  }
 
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;
@@ -170,7 +175,7 @@ subcatSeafood: string[] = ["Shrimp", "Crab", "Lobster", "Clam", "Squid", "Octopu
 subcatVegetables: string[] = ["Carrot", "Broccoli", "Spinach", "Tomato", "Pepper", "Onion", "Cucumber",
   "Zucchini", "Potato", "Sweet Potato", "Mushroom", "Cabbage", "Cauliflower", "Green Bean", "Asparagus",
   "Eggplant", "Pea", "Lettuce", "Kale", "Radish", "Artichoke", "Beet", "Squash", "Okra", "Corn", "Celery",
-  "Leek", "Turnip", "Tofu", "Other Vegetable"];
+  "Leek", "Turnip", "Other Vegetable"];
 
 subcatFruits: string[] = ["Apple", "Banana", "Orange", "Grape", "Strawberry", "Blueberry",
   "Raspberry", "Blackberry", "Peach", "Plum", "Cherry", "Mango", "Pineapple", "Kiwi", "Pear",
@@ -245,6 +250,32 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
     'Herbs and Spices': false,
   };
 
+  //this will be for db server actions
+  //still need to decide on how to adjust quantities in pantry logic wise
+  ingredientsData = {
+    "_id": "your_id",
+    "user_id": "your_user_id",
+    "ingredients": [
+      {
+        "name": "Ingredient 1",
+        "quantity": 100,
+        "unit": "grams",
+        "category": "Meats",
+        "MeatCutSubcategory": "Ribeye"
+      },
+      {
+        "name": "Ingredient 2",
+        "quantity": 200,
+        "unit": "grams",
+        "category": "Meats",
+        "MeatCutSubcategory": "T-bone"
+      },
+      // Add more ingredients here
+    ],
+    "created_at": "your_created_date",
+    "updated_at": "your_updated_date"
+  };
+
   toggleButton(button: { label: string, color: string, selected: boolean }): void {
     button.selected = !button.selected;
   }
@@ -252,11 +283,10 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
-
 //dropdown menu
 
   // http for adding/deleting ingredients to users
-
+  /*
   //http request to add/delete ingredients to pantry
   constructor(private http: HttpClient) {}
 
@@ -279,6 +309,6 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
         // Handle error
       });
 }
-
+*/
 
 }
