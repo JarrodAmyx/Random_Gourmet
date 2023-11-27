@@ -1,6 +1,6 @@
 
 
-<mat-grid-list class="Grid" cols="2"  rowHeight="2:1" >
+<mat-grid-list class="Grid" cols="2"  rowHeight="2:1" gutterSize="25px">
   <mat-grid-tile class="Cardheld" *ngFor="let item of dataset"  >
     <app-recipecard [data]="item"></app-recipecard>
   </mat-grid-tile>

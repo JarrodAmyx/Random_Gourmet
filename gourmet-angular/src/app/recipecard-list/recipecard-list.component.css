@@ -1,16 +1,19 @@
 .Grid{
-  width: 900px;
+  width: 1000px;
   height: auto;
-  align-self: auto;
-  padding: auto;
-  justify-content: space-around;
-}
+  padding: 10px;
+  padding-top: 20px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 
-.nonGrid{
-align-items: center;
 }
 
 .Cardheld{
-  height: 500px;
-  padding: auto;
+  position: absolute;
+  height: auto;
+  padding: 5px;
+  display: grid;
+  background-color: #fafafae5;
 }
