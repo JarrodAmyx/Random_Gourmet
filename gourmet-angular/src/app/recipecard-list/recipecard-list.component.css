@@ -17,3 +17,10 @@
   display: grid;
   background-color: #fafafae5;
 }
+
+.mat-grid-tile-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+}
