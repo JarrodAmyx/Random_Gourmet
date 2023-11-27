@@ -1,8 +1,11 @@
 .minRecipe{
-  top: 20px;
-  padding: 20px;
-  width: fit-content;
-  height: fit-content;
+  height: inherit;
+  width: inherit;
+}
+
+.minImage{
+  align-self: center;
+  top: 10px;
 }
 
 
