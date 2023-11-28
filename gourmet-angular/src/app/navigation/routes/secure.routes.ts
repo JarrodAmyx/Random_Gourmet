@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ProfileComponent } from '../../profile/profile.component';
@@ -11,18 +10,3 @@ export const SECURE_ROUTES: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'pantry', component: PantryComponent }
 ];
-
-//front end SECURE routing paths below
-const appRoutes: Routes = [
-  // ... other routes
-  { path: 'secure', children: SECURE_ROUTES },
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes),
-    // ... other modules
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
