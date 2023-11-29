@@ -8,8 +8,8 @@ import { SECURE_ROUTES } from './navigation/routes/secure.routes';
 import { PUBLIC_ROUTES } from './navigation/routes/public.routes';
 
 const appRoutes: Routes = [
-  { path: '', component: PublicComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
-  { path: '', component: SecureComponent, canActivate: [AuthGuard], data: { title: 'Secure Views' }, children: SECURE_ROUTES }
+  { path: '', component: SecureComponent, canActivate: [AuthGuard], data: { title: 'Secure Views' }, children: SECURE_ROUTES },
+  { path: '', component: PublicComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES }
 ];
 
 @NgModule({
