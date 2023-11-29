@@ -23,6 +23,7 @@ export class RecipeComponent {
   searchTerm: string = '';
   searchBool: boolean = false;
   loggedIn: boolean = false;
+  favToggle: boolean = false;
 
   searchResults:Items[] = [];
   displaySize: number = 5;
@@ -88,6 +89,10 @@ export class RecipeComponent {
     // });
     // console.log('child responds');
     this.invokeParent.emit(this.searchTerm);
+  }
+
+  toggleFav(): void{
+    this.favToggle = !this.favToggle
   }
 
   favRecipe(other: Items): void{
