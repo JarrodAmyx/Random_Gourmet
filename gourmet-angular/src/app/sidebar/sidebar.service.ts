@@ -2,36 +2,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment'; // Import your environment file
 
 @Injectable({
   providedIn: 'root',
 })
 export class SidebarService {
-  private baseUrl = 'http://54.183.139.183'; // Replace with your backend API URL
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
-/*
 
-  getSelectedMenuItem(): string {
-    // Implement logic to get the selected menu item if needed
-    return null;
+  // User Endpoints
+  createUser(user: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/user-create`, user);
   }
 
-  setSelectedMenuItem(item: string): void {
-    // Implement logic to set the selected menu item if needed
-  }
-*/
-  // Add method to make an HTTP POST request to add an ingredient
-  addIngredient(userId: string, ingredient: any): Observable<any> {
-    const url = `${this.baseUrl}/api/add-ingredient/${userId}`;
-    return this.http.post(url, ingredient);
+  readUser(userId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/user-read/${userId}`);
   }
 
-  // Add method to make an HTTP DELETE request to delete an ingredient
-  deleteIngredient(userId: string, ingredientId: string): Observable<any> {
-    const url = `${this.baseUrl}/api/delete-ingredient/${userId}/${ingredientId}`;
-    return this.http.delete(url);
+  updateUser(userId: string, user: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/user-update/${userId}`, user);
   }
 
-  // Add more methods for other HTTP requests as needed
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/user-destroy/${userId}`);
+  }
+
+  // Ingredient Endpoints
+  createIngredient(ingredient: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/ingredient-create`, ingredient);
+  }
+
+  readIngredient(ingredientId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/ingredient-read/${ingredientId}`);
+  }
+
+  // Add more methods for other endpoints as needed
 }
