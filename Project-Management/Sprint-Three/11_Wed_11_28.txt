@@ -10,9 +10,9 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. Set up the saved recipes component.
+2. Keep working on the saved recipes component, hopefully get it ready for testing.
+3. nothing
 
 Chelsea:
 1. 
