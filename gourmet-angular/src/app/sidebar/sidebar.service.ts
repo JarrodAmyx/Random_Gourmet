@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment'; // Import your environment file
+import { environment } from '@app/env/environment'; // Import your environment file
 
 @Injectable({
   providedIn: 'root',
@@ -21,14 +21,6 @@ export class SidebarService {
     return this.http.get(`${this.apiUrl}/user-read/${userId}`);
   }
 
-  updateUser(userId: string, user: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/user-update/${userId}`, user);
-  }
-
-  deleteUser(userId: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/user-destroy/${userId}`);
-  }
-
   // Ingredient Endpoints
   createIngredient(ingredient: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/ingredient-create`, ingredient);
@@ -38,5 +30,8 @@ export class SidebarService {
     return this.http.get(`${this.apiUrl}/ingredient-read/${ingredientId}`);
   }
 
+  destroyIngredient(ingredient: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/ingredient-destroy`, ingredient);
+  }
   // Add more methods for other endpoints as needed
 }
