@@ -11,6 +11,8 @@ export class SidebarService {
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
+//get token
+//        localStorage.setItem('token', token);
 
   // User Endpoints
   createUser(user: any): Observable<any> {
