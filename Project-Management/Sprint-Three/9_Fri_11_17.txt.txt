@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. I did nothing on this day
+2. I updated the backend code to grab info from the database.
+3. no blockers
 
 Joakim:
 1. I was sick and didn't do anything.
