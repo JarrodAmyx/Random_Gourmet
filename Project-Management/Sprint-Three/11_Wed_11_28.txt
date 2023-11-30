@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Help fix the login and registration system.
+2. Create json files for all the recipes
+3. no blockers
 
 Joakim:
 1. Set up the saved recipes component.
