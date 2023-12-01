@@ -89,4 +89,38 @@ class Users extends Controller
 
         return response()->json(['message' => 'User deleted']);
     }
+
+    public function updatePassword(Request $request )
+    {
+        $userId = new ObjectId($request->userId);
+        $oldPassword = $request->oldPass;
+        $newPassword = $request->newPass;
+
+        $user = DB::connection('mongodb')
+            ->collection('users')
+            ->where('_id', $userId)
+            ->first()
+        ;
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+        
+        // Check if the old password matches the current password
+        if (!Hash::check($oldPassword, $user->password)){
+            return response()->json(['message' => 'Old password is incorrect'], 422);
+        }
+
+        DB::connection('mongodb')
+        ->collection('users')
+        ->where('_id', $userId)
+        ->update(['password' => Hash::make($newPassword)]);
+
+        $updatedUser = DB::connection('mongodb')
+        ->collection('users')
+        ->where('_id', $userId)
+        ->first();
+
+        return response()->json(['message' => 'Password updated successfully', 'user' => $updatedUser]);
+    }
 }

@@ -23,6 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/token', function (Request $request)
+{
+    return response()->json(['token' => csrf_token()]);
+});
+
+Route::get('/add-recipes', [ApiController::class, 'getAPIRecipies']);
+
 Route::get('/login', [Users::class, 'login']);
 Route::post('/login', [Users::class, 'login']);
 
@@ -30,12 +37,13 @@ Route::get('/user-create', [Users::class, 'create']);
 Route::get('/user-read', [Users::class, 'read']);
 Route::get('/user-update', [Users::class, 'update']);
 Route::get('/user-destroy', [Users::class, 'destroy']);
+Route::get('/update-password', [Users::class, 'updatePassword']);
 
 Route::post('/user-create', [Users::class, 'create']);
 Route::post('/user-read', [Users::class, 'read']);
 Route::post('/user-update', [Users::class, 'update']);
 Route::post('/user-destroy', [Users::class, 'destroy']);
-
+Route::post('/update-password', [Users::class, 'updatePassword']);
 
 Route::get('/ingredient-create', [Ingredients::class, 'create']);
 Route::get('/ingredient-read', [Ingredients::class, 'read']);
@@ -85,3 +93,4 @@ Route::get('/data', [ApiController::class, 'getData']);
 Route::get('/allIngredients', [ApiController::class, 'getAllIngredients']);
 Route::get('/allUsers', [ApiController::class, 'getAllUsers']);
 Route::get('/allRecipes', [ApiController::class, 'getAllRecipes']);
+Route::get('/getAPIRecipies', [ApiController::class, 'getAPIRecipies']);
