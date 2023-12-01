@@ -25,7 +25,7 @@ export class AuthService {
         // If login is successful, store the JWT token in local storage or a cookie
         console.log(response.message);
         if(response.message == false) return;
-        const token = response.message.$oid;
+        const token = response.message;
         localStorage.setItem('token', token);
         this.loggedIn.next(true);
         this.router.navigate(['/home'])
