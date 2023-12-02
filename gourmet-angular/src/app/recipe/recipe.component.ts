@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export class Items{
@@ -23,6 +24,7 @@ export class RecipeComponent {
   searchTerm: string = '';
   searchBool: boolean = false;
   loggedIn: boolean = false;
+  favToggle: boolean = false;
 
   searchResults:Items[] = [];
   displaySize: number = 5;
@@ -33,7 +35,8 @@ export class RecipeComponent {
   items: Items[] = [];
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private authService: AuthService
+    private authService: AuthService,
+    private http: HttpClient
     ){
     this.items.push(new Items(1, 'One', false));
     this.items.push(new Items(2, 'Two', false));
@@ -88,6 +91,10 @@ export class RecipeComponent {
     // });
     // console.log('child responds');
     this.invokeParent.emit(this.searchTerm);
+  }
+
+  toggleFav(): void{
+    this.favToggle = !this.favToggle
   }
 
   favRecipe(other: Items): void{
