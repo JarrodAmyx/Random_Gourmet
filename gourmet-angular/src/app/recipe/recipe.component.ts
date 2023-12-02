@@ -19,14 +19,18 @@ export class Result{
 export class RecipeComponent {
   isMobile: boolean = false;
 
-  @Output() invokeParent = new EventEmitter<string>();
+  @Output() invokeParent = new EventEmitter<any>();
 
   searchTerm: string = '';
   searchBool: boolean = false;
   loggedIn: boolean = false;
   favToggle: boolean = false;
 
+  private baseUrl = 'http://54.183.139.183';
+  private token: string = localStorage.getItem('token')!;
+  
   searchResults:Items[] = [];
+  searchResults2: Result[] = [];
   displaySize: number = 5;
   // resultSize = [search query size]/[displaySize] rounded up
   resultSize: number = 3;
@@ -68,47 +72,70 @@ export class RecipeComponent {
     });
   }
 
-  clickRecipe(other: Items): void{
+  clickRecipe(other: Result): void{
     // placeholder for API/database call
-    console.log(other.name); 
+    console.log(other.title); 
   }
 
   searchRecipe(): void{
-    // skips search process if search term is empty
-    // if(this.searchTerm.length === 0){
-    //   this.searchBool = false;
-    //   return;
-    // }
+    const output = {
+      string: this.searchTerm,
+      Boolean: this.favToggle
+    }
 
-    // // empties the list
-    // this.searchResults = [];
-    // this.searchBool = true;
+    const result = this.invokeParent.emit(output);
+  }
 
-    // this.items.forEach(item => {
-    //   if(item.name.includes(this.searchTerm)){
-    //     this.searchResults.push(item);
-    //   }
-    // });
-    // console.log('child responds');
-    this.invokeParent.emit(this.searchTerm);
+  setResults(other: any): void{
+    // clears array
+    this.searchResults2 = []
+
+    for(let stuff of other){
+      this.searchResults2.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, false))
+    }
+
+    console.log(this.searchResults2)
+    this.searchBool = true;
   }
 
   toggleFav(): void{
     this.favToggle = !this.favToggle
   }
 
-  favRecipe(other: Items): void{
-    // console.log(other);
-    
-    // // placeholder for backend call
-    // this.recipes = this.recipes.filter(item => item !== other);
+  favRecipe(other: Result): void{
+    const params = {
+      userId : this.token,
+      recipeId: other.ID
+    }
 
-    other.fav = true;
-    console.log(other.name +' is ' +  other.fav)
+    this.http.get(`${this.baseUrl}/api/user-recipe-create`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        other.fav = true;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
   }
 
-  unfavRecipe(other: Items): void{
-    other.fav = false;
+  unfavRecipe(other: Result): void{
+    const params = {
+      userId : this.token,
+      recipeId: other.ID
+    }
+
+    this.http.get(`${this.baseUrl}/api/user-recipe-destroy`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        other.fav = false;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
   }
 
   get displayItems(): Items[]{

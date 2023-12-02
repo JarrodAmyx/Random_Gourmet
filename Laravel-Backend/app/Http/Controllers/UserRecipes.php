@@ -21,6 +21,7 @@ class UserRecipes extends Controller
                 ->first()
         ;
 
+        //if user recipe is not found
         if( !$userRecipe )
         {
             $data = [
@@ -30,10 +31,10 @@ class UserRecipes extends Controller
 
             DB::connection('mongodb')->collection('userRecipes')->insert($data);
 
-            return response()->json(['message' => 'Recipe Successfully Added To User']);
+            return response()->json(['message' => 'Recipe Successfully Added To User', 'recipe' => $recipeId]);
         }
         
-        return response()->json( [ 'message' => 'User already has this Recipe' ] );
+        return response()->json(['message' => 'User recipe already exists', 'recipe' => $recipeId]);
     }
 
     public function read( Request $request )
@@ -41,7 +42,7 @@ class UserRecipes extends Controller
         $userRecipe = DB::connection('mongodb')
             ->collection('userRecipes')
             ->where('userId', $request->userId)
-            ->first();
+            ->get();
 
         // Ensure you have retrieved the userRecipe record with the _id field.
 
@@ -75,6 +76,8 @@ class UserRecipes extends Controller
 
     public function destroy( Request $request )
     {
+        $userId = $request->userId; //'john@example.com'
+        $recipeId = $request->recipeId;
         // Delete a user from the 'users' collection based on ID
         $userRecipe =
             DB::connection('mongodb')
@@ -83,6 +86,6 @@ class UserRecipes extends Controller
                 ->where('recipeId', $recipeId)
                 ->delete();
 
-        return response()->json(['message' => 'User Recipe deleted']);
+        return response()->json(['message' => 'Recipe removed successfully', 'recipe' => $recipeId]);
     }
 }
