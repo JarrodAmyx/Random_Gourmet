@@ -41,7 +41,7 @@ class UserIngredients extends Controller
         $userIngredient = DB::connection('mongodb')
             ->collection('userIngredients')
             ->where('userId', $request->userId)
-            ->first();
+            ->get();
 
         // Ensure you have retrieved the userIngredient record with the _id field.
 
@@ -75,6 +75,9 @@ class UserIngredients extends Controller
 
     public function destroy( Request $request )
     {
+        $userId = $request->userId;
+        $ingredientId = $request->ingredientId;
+
         // Delete a user from the 'users' collection based on ID
         $userIngredient =
             DB::connection('mongodb')

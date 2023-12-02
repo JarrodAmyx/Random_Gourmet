@@ -12,6 +12,8 @@ export class PantryComponent implements OnInit {
   selectedItem: any = {};
   searchQuery: string = '';
 
+  private token: string = localStorage.getItem('token')!;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -48,22 +50,29 @@ export class PantryComponent implements OnInit {
   }
 
   addToIngredients(item: any) {
-    // Send a POST request to add the selected item
-    this.http.post('http://54.183.139.183/api/user-ingredient-create', item).subscribe(
-      (response) => {
-        // Handle success, for example, update the UI or show a success message
-        console.log('Item added successfully:', response);
+    console.log('test: ', item);
 
-        // Optionally, you can update the local list if needed
+    const params = {
+      ingredientId: item.ingredientId,
+      userId: this.token
+    }
+
+    this.http.get(`http://54.183.139.183/api/user-ingredient-create`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
         this.categorizePantryItems();
       },
       (error) => {
-        // Handle the error, for example, show an error message
         console.error('Error adding item:', error);
-      });
+        //deselects item if adding item fails
+        item.selected = false;
+      }
+    );
   }
 
   toggleItemSelection(item: any) {
+    console.log('select: ' + item.name)
+
     item.selected = !item.selected; // Toggle the selected property
     if (item.selected) {
       this.addToIngredients(item); // Add the selected item to your database/list
