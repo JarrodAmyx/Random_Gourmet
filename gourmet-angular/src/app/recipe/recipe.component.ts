@@ -3,10 +3,6 @@ import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
-export class Items{
-  constructor(public ID: number, public name: string, public fav: boolean){}
-}
-
 export class Result{
   constructor(public ID: number, public title: string, public image: string, public fav: boolean){}
 }
@@ -22,42 +18,23 @@ export class RecipeComponent {
   @Output() invokeParent = new EventEmitter<any>();
 
   searchTerm: string = '';
-  searchBool: boolean = false;
   loggedIn: boolean = false;
   favToggle: boolean = false;
 
   private baseUrl = 'http://54.183.139.183';
   private token: string = localStorage.getItem('token')!;
   
-  searchResults:Items[] = [];
-  searchResults2: Result[] = [];
-  displaySize: number = 5;
+  searchResults: Result[] = [];
+  displaySize: number = 10;
   // resultSize = [search query size]/[displaySize] rounded up
-  resultSize: number = 3;
+  resultSize: number = 0;
   currentPage: number = 1;
 
-  items: Items[] = [];
   constructor(
     private breakpointObserver: BreakpointObserver,
     private authService: AuthService,
     private http: HttpClient
     ){
-    this.items.push(new Items(1, 'One', false));
-    this.items.push(new Items(2, 'Two', false));
-    this.items.push(new Items(3, 'Three', false));
-    this.items.push(new Items(4, 'Four', false));
-    this.items.push(new Items(5, 'Five', false));
-    this.items.push(new Items(6, 'Six', false));
-    this.items.push(new Items(7, 'Seven', false));
-    this.items.push(new Items(8, 'Eight', false));
-    this.items.push(new Items(9, 'Nine', false));
-    this.items.push(new Items(10, 'Ten', false));
-    this.items.push(new Items(11, 'Eleven', false));
-    this.items.push(new Items(12, 'Twelve', false));
-    this.items.push(new Items(13, 'Thirteen', false));
-    this.items.push(new Items(14, 'Fourteen', false));
-    this.items.push(new Items(15, 'Fifteen', false));
-
     this.authService.isLoggedIn().subscribe((status) => {
       this.loggedIn = status;
     });
@@ -70,6 +47,12 @@ export class RecipeComponent {
     ]).subscribe(result => {
       this.isMobile = result.matches;
     });
+
+    // waits for sidebar to load
+    setTimeout(() => {
+      this.searchRecipe();
+    }, 1000);
+    
   }
 
   clickRecipe(other: Result): void{
@@ -83,19 +66,42 @@ export class RecipeComponent {
       Boolean: this.favToggle
     }
 
-    const result = this.invokeParent.emit(output);
+    this.invokeParent.emit(output);
   }
 
   setResults(other: any): void{
     // clears array
-    this.searchResults2 = []
-
-    for(let stuff of other){
-      this.searchResults2.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, false))
+    this.searchResults = []
+    // goes to first page
+    this.currentPage = 1
+    
+    const params = {
+      userId : this.token
     }
 
-    console.log(this.searchResults2)
-    this.searchBool = true;
+    this.http.get(`${this.baseUrl}/api/user-recipe-read`, { params }).subscribe(
+      (response: any) => {
+        console.log('fav')
+        console.log(response.message)
+        for(let stuff of other){
+          if(String(response.message).includes(String(stuff.recipeId))){
+            this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, true))
+          }
+          else{
+            this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, false))
+          }
+        }
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+
+    // resultSize = [search query size]/[displaySize] rounded up
+    this.resultSize = Math.ceil(this.searchResults.length/this.displaySize)
+
+    // console.log(this.searchResults)
   }
 
   toggleFav(): void{
@@ -138,9 +144,9 @@ export class RecipeComponent {
     );
   }
 
-  get displayItems(): Items[]{
+  get displayItems(): Result[]{
     const startIndex = (this.currentPage - 1) * this.displaySize;
-    return this.items.slice(startIndex, startIndex + this.displaySize);
+    return this.searchResults.slice(startIndex, startIndex + this.displaySize);
   }
 
   nextPage(){

@@ -82,36 +82,32 @@ class Recipes extends Controller
     public function search(Request $request )
     {
         //query from sidebar
-        // $ingredientsToSearch = $request->input('ingredients', []);
         $ingredientsToSearch = json_decode($request->ingredients, true);
+        $ingredientsToSearch = array_map('strtolower', $ingredientsToSearch);
         //query from searchbar
         $searchTerm = $request->search;
 
-        
-        // $results = DB::collection('recipes')
-        //     ->where('requiredIngredients', '$elemMatch', ['$in' => $ingredientsToSearch])
-        //     ->where(function ($query) use ($searchTerm) {
-        //         $query->orWhere('title', 'like', '%' . $searchTerm . '%')
-        //             ->orWhere('description', 'like', '%' . $searchTerm . '%')
-        //             ->orWhere('requiredIngredients', 'like', '%' . $searchTerm . '%');
-        //     })
-        //     ->get()
-        // ;
-
-        // $ingredientsToSearch = ["chicken"];
-        // $ingredientsToSearch = $request->ingredients;
-        $ingredientsToSearch = array_map('strtolower', $ingredientsToSearch);
-        
-
-        $results = DB::collection('recipes')
-            ->where('requiredIngredients', '$elemMatch', ['$in' => $ingredientsToSearch])
-            ->where(function ($query) use ($searchTerm) {
-                $query->orWhere('title', 'like', '%' . $searchTerm . '%')
-                ->orWhere('description', 'like', '%' . $searchTerm . '%')
-                ->orWhere('requiredIngredients', 'like', '%' . $searchTerm . '%');
-            })
-            ->get()
-        ;
+        if(count($ingredientsToSearch)==0){
+            $results = DB::collection('recipes')
+                ->where(function ($query) use ($searchTerm) {
+                    $query->orWhere('title', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('requiredIngredients', 'like', '%' . $searchTerm . '%');
+                })
+                ->get()
+            ;
+        }
+        else{
+            $results = DB::collection('recipes')
+                ->where('requiredIngredients', '$elemMatch', ['$in' => $ingredientsToSearch])
+                ->where(function ($query) use ($searchTerm) {
+                    $query->orWhere('title', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('requiredIngredients', 'like', '%' . $searchTerm . '%');
+                })
+                ->get()
+            ;
+        }
 
         return response()->json(['message' => $results]);
     }

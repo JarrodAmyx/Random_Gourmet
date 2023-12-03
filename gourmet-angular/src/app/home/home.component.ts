@@ -52,7 +52,16 @@ export class HomeComponent {
     }
     //if fav is true (toggled), search user's recipe list
     if($event.Boolean){
-
+      this.http.get(`${this.baseUrl}/api/user-recipe-search`, { params }).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.recipe.setResults(response.message);
+        },
+        (error) => {
+          console.error('Request failed:', error);
+          return -1;
+        }
+      );
     }
     //if fav is false, search all of the database
     else{
