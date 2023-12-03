@@ -55,17 +55,17 @@ Route::post('/ingredient-read', [Ingredients::class, 'read']);
 Route::post('/ingredient-update', [Ingredients::class, 'update']);
 Route::post('/ingredient-destroy', [Users::class, 'destroy']);
 
-
 Route::get('/recipe-create', [Recipes::class, 'create']);
 Route::get('/recipe-read', [Recipes::class, 'read']);
 Route::get('/recipe-update', [Recipes::class, 'update']);
 Route::get('/recipe-destroy', [Recipes::class, 'destroy']);
+Route::get('/recipe-search', [Recipes::class, 'search']);
 
 Route::post('/recipe-create', [Recipes::class, 'create']);
 Route::post('/recipe-read', [Recipes::class, 'read']);
 Route::post('/recipe-update', [Recipes::class, 'update']);
 Route::post('/recipe-destroy', [Recipes::class, 'destroy']);
-
+Route::post('/recipe-search', [Recipes::class, 'search']);
 
 Route::get('/user-recipe-create', [UserRecipes::class, 'create']);
 Route::get('/user-recipe-read', [UserRecipes::class, 'read']);
