@@ -71,13 +71,13 @@ constructor(
     this.adjustElementsInRows();
   }
 
-  // Placeholder method for handling click on a recipe
+  // Placeholder method for handling click on a ingredients
   clickIngredient(other: Result): void {
     console.log(other.name); // Placeholder for API/database call
     //calls name of ingredient from constructor line 15
   }
 
-   // Method to trigger a search for recipes based on the search term and toggle
+   // Method to trigger a search for ingredients based on the search term and toggle
    searchIngredient(): void {
     const output = {
       string: this.searchTerm,
@@ -88,7 +88,7 @@ constructor(
     this.invokeParent.emit(output);
   }
 
-   // Method to set the search results based on API response and user's saved recipes
+   // Method to set the search results based on API response and user's saved ingredients
    setResults(other: any): void {
     // Clear array and set to first page
     this.searchResults = [];
@@ -98,16 +98,16 @@ constructor(
       userId: this.token
     }
 
-    // Make API request to get user's saved recipes
-    this.http.get(`${this.baseUrl}/api/user-recipe-read`, { params }).subscribe(
+    // Make API request to get user's saved ingredients
+    this.http.get(`${this.baseUrl}/api/user-ingredient-read`, { params }).subscribe(
       (response: any) => {
         console.log('fav');
         console.log(response.message);
         for (let stuff of other) {
           if (String(response.message).includes(String(stuff.ingredientId))) {
-            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, '', '', true));
+            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, stuff.category, stuff.fav, true));
           } else {
-            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, '', '', false));
+            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, stuff.category, stuff.fav, false));
           }
         }
       },
