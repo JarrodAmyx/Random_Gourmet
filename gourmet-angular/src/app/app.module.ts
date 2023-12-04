@@ -61,7 +61,7 @@ import { SavedComponent } from './saved/saved.component';
     PantryComponent,
     RecipecardComponent,
     RecipecardListComponent,
-    SavedComponent
+    SavedComponent,
   ],
   imports: [
     BrowserModule,
