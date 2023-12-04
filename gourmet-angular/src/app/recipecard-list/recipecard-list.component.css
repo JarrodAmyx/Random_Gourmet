@@ -1,0 +1,57 @@
+/*
+.Grid{
+  min-width: 1000px;
+  padding: 10px;
+  padding-top: 20px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.Cardheld{
+  position: absolute;
+  width: auto;
+  height: fit-content;
+  padding: 5px;
+  display: grid;
+  background-color: #fafafae5;
+  display: flex;
+  align-items: initial;
+  justify-content: initial;
+  flex-direction: column;
+}
+
+.mat-grid-tile {
+  display: flex;
+  align-items: initial;
+  justify-content: initial;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.mat-grid-tile-content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+}*/
+
+.container {
+  padding: 24px;
+}
+
+.responsive-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
