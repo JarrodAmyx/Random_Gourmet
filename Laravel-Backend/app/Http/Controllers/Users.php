@@ -107,7 +107,7 @@ class Users extends Controller
         }
         
         // Check if the old password matches the current password
-        if (!Hash::check($oldPassword, $user->password)){
+        if (!Hash::check($oldPassword, $user['password'])){
             return response()->json(['message' => 'Old password is incorrect'], 422);
         }
 
