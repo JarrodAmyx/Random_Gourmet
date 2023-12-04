@@ -60,7 +60,7 @@ import { SavedComponent } from './saved/saved.component';
     RecipeComponent,
     PantryComponent,
     RecipecardComponent,
-    RecipecardListComponent
+    RecipecardListComponent,
     SavedComponent
   ],
   imports: [
