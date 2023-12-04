@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -20,11 +19,7 @@ export interface recipe {
 export class RecipecardComponent implements OnInit{
   @Input() public data: any;
 
-  log(){
-    console.log("card %d", this.data.recipeID);
-  }
-
-  constructor(public dialog: MatDialog) {console.log("card generated")}
+  constructor(public dialog: MatDialog) {}
   openDialog() {
     const dialogRef = this.dialog.open(RecipecardDialog,{
       data: this.data,
@@ -43,7 +38,7 @@ export class RecipecardComponent implements OnInit{
   selector: 'recipecard-dialog',
   templateUrl: 'recipecard.dialog.html',
   standalone: true,
-  imports: [MatDialogModule, MatCardModule,MatListModule, CommonModule],
+  imports: [MatDialogModule, MatCardModule,MatListModule],
 })
 export class RecipecardDialog {
 

@@ -20,9 +20,9 @@ Chelsea:
 3. 
 
 Brian:
-1. messing with css for Angular Material gridList
-2. Got busy with another classes new project
-3. mobile app dev project requires more attention than first thought
+1. 
+2. 
+3. 
 
 Ryan:
 1. 

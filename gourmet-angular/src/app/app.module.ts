@@ -34,8 +34,6 @@ import { RecipecardComponent } from './recipecard/recipecard.component';
 import { SecureComponent } from './navigation/secure/secure.component';
 import { PublicComponent } from './navigation/public/public.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { RecipecardListComponent } from './recipecard-list/recipecard-list.component';
-
 
 
 
@@ -55,8 +53,7 @@ import { RecipecardListComponent } from './recipecard-list/recipecard-list.compo
     LandingPageComponent,
     RecipeComponent,
     PantryComponent,
-    RecipecardComponent,
-    RecipecardListComponent
+    RecipecardComponent
   ],
   imports: [
     BrowserModule,
