@@ -1,6 +1,11 @@
+.TopDialog{
+  align-self: center;
+}
+
 .images{
 display: block;
 margin-left: 0%;
 margin-right: 0%;
 width: 50%;
+align-self: center;
 }
