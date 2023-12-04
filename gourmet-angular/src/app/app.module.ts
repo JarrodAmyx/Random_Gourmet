@@ -35,7 +35,11 @@ import { RecipecardComponent } from './recipecard/recipecard.component';
 import { SecureComponent } from './navigation/secure/secure.component';
 import { PublicComponent } from './navigation/public/public.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
+import { RecipecardListComponent } from './recipecard-list/recipecard-list.component';
+
 import { SavedComponent } from './saved/saved.component';
+
 
 
 
@@ -56,6 +60,7 @@ import { SavedComponent } from './saved/saved.component';
     RecipeComponent,
     PantryComponent,
     RecipecardComponent,
+    RecipecardListComponent
     SavedComponent
   ],
   imports: [
