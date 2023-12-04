@@ -121,6 +121,52 @@ constructor(
     this.resultSize = Math.ceil(this.searchResults.length / this.displaySize);
   }
 
+  
+  // Method to toggle the favorite filter aka saved user ingredeints
+  toggleFav(): void {
+    this.favToggle = !this.favToggle;
+  }
+
+  // Method to add a ingredeint to user's favorites
+  favIngredient(other: Result): void {
+    const params = {
+      userId: this.token,
+      ingredientId: other.ingredientId
+    }
+
+    // Make API request to add recipe to user's favorites
+    this.http.get(`${this.baseUrl}/api/user-ingredient-create`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        other.fav = true;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+  }
+
+   // Method to remove a recipe from user's favorites
+   unfavIngredient(other: Result): void {
+    const params = {
+      userId: this.token,
+      recipeId: other.ingredientId
+    }
+
+    // Make API request to remove ingredient from user's favorites
+    this.http.get(`${this.baseUrl}/api/user-ingredient-destroy`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        other.fav = false;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+  }
+
                           /*^^end of ingredient endpoint methods ^^*/ 
 
   // Update navigation methods
