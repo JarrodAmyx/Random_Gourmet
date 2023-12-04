@@ -30,7 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeComponent } from './recipe/recipe.component';
 import { PantryComponent } from './pantry/pantry.component';
-import { RecipecardComponent } from './recipecard/recipecard.component';
+import { RecipecardComponent, RecipecardDialog } from './recipecard/recipecard.component';
 import { SecureComponent } from './navigation/secure/secure.component';
 import { PublicComponent } from './navigation/public/public.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
