@@ -2,8 +2,8 @@
 
 
 
-<div class="container responsive-grid" *ngFor="let item of dataset">
-  <app-recipecard [data]="item"></app-recipecard>
+<div class="container responsive-grid" >
+  <app-recipecard *ngFor="let item of dataset" [data]="item"></app-recipecard>
 </div>
 
 <!--
