@@ -190,17 +190,26 @@ constructor(
 
   subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
-  //state of on or off of button
+  // state of on or off of button
   toggleSubcategory(subcategory: string): void {
-    // this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
-    // console.log(this.subcategoryStates)
-    if(this.subcategoryStates[subcategory]){
-      delete this.subcategoryStates[subcategory]
-    }
-    else{
-      this.subcategoryStates[subcategory] = true;
+    // Toggle the state of the subcategory
+    if (this.subcategoryStates[subcategory]) {
+        // If the subcategory is already selected, remove the selection
+        delete this.subcategoryStates[subcategory];
+
+        // Assuming 'ingredientId' is the unique identifier for the ingredient
+        const ingredientId = ''; // Replace with the actual property name
+        this.removeIngredientFromPantry(ingredientId); // Adjust data structure as needed
+    } else {
+        // If the subcategory is not selected, mark it as selected
+        this.subcategoryStates[subcategory] = true;
+
+        // Assuming 'ingredientId' is the unique identifier for the ingredient
+        const ingredientId = ''; // Replace with the actual property name
+        this.addIngredientToPantry({ name: subcategory, ingredientId }); // Adjust data structure as needed
     }
   }
+
 
   /* search bar*/
   // Define a variable to store the search query
@@ -242,6 +251,7 @@ constructor(
     return '0 Ingredients'; // Default to 0 if there are no subcategories or category not found
   }
   //add/delete ingredients to user db
+
   // Example POST request to add an ingredient to the pantry
 addIngredientToPantry(ingredient: any): void {
   this.pantryService.createIngredient(ingredient).subscribe(
