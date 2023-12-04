@@ -20,9 +20,9 @@ Chelsea:
 3. no blockers
 
 Brian:
-1. 
-2. 
-3. 
+1. Studied for CECS 453 mobile app dev midterm
+2. Looked for alternatives to the grid display and ways to work with the grid list
+3. Recent material for problem topics are not appearing
 
 Ryan:
 1. 
