@@ -1,5 +1,9 @@
-<HTML>
+<!DOCTYPE html>
+<html>
   <body>
+    <button mat-icon-button class="open-sidebar-button" (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <mat-sidenav-container>
       <mat-sidenav class="sidebar" [mode]="'side'" opened>
 
@@ -7,7 +11,7 @@
 
           <!-- Button on the left -->
           <button mat-icon-button (click)="handleLeftButtonClick()">
-            <mat-icon>gourmet-angular\src\assets\category-images\menu.png</mat-icon>
+            <mat-icon>menu</mat-icon>
           </button>
 
           <!-- "Pantry" header -->
@@ -15,7 +19,7 @@
 
           <!-- Button on the right -->
           <button mat-icon-button (click)="handleRightButtonClick()">
-            <mat-icon>gourmet-angular\src\assets\category-images\trash.png</mat-icon>
+            <mat-icon>delete</mat-icon>
           </button>
 
         </div>
@@ -26,8 +30,6 @@
             </div>
             <input type="text" placeholder=" Search Ingredients " (input)="onSearchInputChange($event)">
           </div>
-
-          <!-- end of sidebar -->
         </div>
 
         <!-- Loop through the categories -->
@@ -61,14 +63,9 @@
                 </ng-container>
               </div>
             </mat-card-content>
-
           </mat-card>
         </ng-container>
-        
-        
-        
-
       </mat-sidenav>
     </mat-sidenav-container>
   </body>
-</HTML>
+</html>

@@ -76,3 +76,63 @@
 .cta-button:hover {
   background-color: #f8e578;
 }
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .landing-page {
+    flex-direction: column; /* Stack columns on top of each other */
+    padding: 40px 20px; /* Adjust padding for smaller screens */
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+  }
+
+  .logo-LP {
+    background: none;
+    border: none;
+    font-family: Hercules;
+    margin: 0px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+    transform: rotate(-5deg);
+  }
+
+  .cta-paragraph {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    background-color: #EBA937;
+    color: black;
+    margin: 50px auto; /* Auto margin left and right */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; /* Make the button a block element */
+  }
+
+  .images-container {
+    margin: 20px 0; /* Adjust margin for smaller screens */
+  }
+
+  .image-wrapper {
+    width: 50%; /* 50% of the parent container */
+  }
+
+  .image-1 {
+    transform: translateX(4.5vh);
+  }
+  
+  .image-2 {
+    transform: translateX(14.5vh);
+  }
+
+  .cta-button {
+    margin: 20px 0; /* Adjust margin for smaller screens */
+  }
+}

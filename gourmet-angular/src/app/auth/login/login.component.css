@@ -27,6 +27,7 @@
 }
 
 .bottom-text-button {
+  justify-content: center;
   position: absolute;
   bottom: 20px;
   background: none;
@@ -43,4 +44,24 @@
   border: none; /* Remove default border */
   border-bottom: 1px solid black; /* Add black underline */
   background-color: transparent; /* Optional: Make the background transparent */
+}
+
+@media only screen and (max-width: 768px) {
+  .input-container {
+    width: 100%; /* Remove max-width to allow full width on smaller screens */
+  }
+  
+  .dialog-content {
+    height: 100%; /* Use the full height of the viewport */
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content both horizontally and vertically */
+    text-align: center; /* Center the content horizontally */
+    background-image: linear-gradient(#EBA937, #FFE2AF);
+  }
+
+  .login-form-wrapper {
+    width: 100%; /* Set full width for smaller screens */
+  }
 }
