@@ -1,3 +1,4 @@
+/*
 .Grid{
   min-width: 1000px;
   padding: 10px;
@@ -21,14 +22,14 @@
   justify-content: initial;
   flex-direction: column;
 }
-/*
+
 .mat-grid-tile {
   display: flex;
   align-items: initial;
   justify-content: initial;
   flex-direction: column;
   height: fit-content;
-}*/
+}
 
 .mat-grid-tile-content {
   top: 0;
@@ -43,4 +44,14 @@
   padding: 0;
   margin: 0;
 
+}*/
+
+.container {
+  padding: 24px;
+}
+
+.responsive-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
 }
