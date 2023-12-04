@@ -1,12 +1,19 @@
-import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { animate, state, style, transition, trigger  } from '@angular/animations';
-import { PantryService } from '../pantry/pantry.service';
+import {
+  AfterViewInit,Component,HostBinding,OnInit,HostListener,Output,EventEmitter} from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
+
+import { PantryService } from '../pantry/pantry.service';
 import { DropDownAnimation } from './sideAnimations';
 import { ApiService } from '../api.service';
-// routing import
-import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+
+export class Result { 
+  constructor(public ingredientId: number, public name: string, public quantity: number, public unit: string, public category: string, public fav: boolean) {} 
+}
 
 @Component({
   selector: 'app-sidebar',
@@ -23,11 +30,36 @@ import { Router } from '@angular/router';
 })
 
 export class SidebarComponent implements AfterViewInit{
-
+  isMobile: boolean = false;
   data: any;
 
+@Output() invokeParent = new EventEmitter<any>();
+
+  searchTerm: string = '';
+  loggedIn: boolean = false;
+  favToggle: boolean = false;
+
+  private baseUrl = 'http://54.183.139.183';
+  private token: string = localStorage.getItem('token')!;
+  
+  searchResults: Result[] = [];
+  displaySize: number = 10;
+  // resultSize = [search query size]/[displaySize] rounded up
+  resultSize: number = 0;
+  currentPage: number = 1;
+
 // Inject Router in the constructor
-constructor(private apiService: ApiService, private pantryService: PantryService, private router: Router) {}
+constructor(
+  private breakpointObserver: BreakpointObserver,
+  private authService: AuthService,
+  private http: HttpClient,
+  private apiService: ApiService, 
+  private pantryService: PantryService, 
+  private router: Router) {
+    this.authService.isLoggedIn().subscribe((status) => {
+      this.loggedIn = status;
+    });
+  }
 
   ngOnInit() {
     this.apiService.getData().subscribe((result) => {
@@ -39,28 +71,73 @@ constructor(private apiService: ApiService, private pantryService: PantryService
     this.adjustElementsInRows();
   }
 
+  // Placeholder method for handling click on a recipe
+  clickIngredient(other: Result): void {
+    console.log(other.name); // Placeholder for API/database call
+    //calls name of ingredient from constructor line 15
+  }
+
+   // Method to trigger a search for recipes based on the search term and toggle
+   searchIngredient(): void {
+    const output = {
+      string: this.searchTerm,
+      Boolean: this.favToggle
+    }
+
+    // Emit event to invoke parent component (possibly Sidebar) with search parameters
+    this.invokeParent.emit(output);
+  }
+
+   // Method to set the search results based on API response and user's saved recipes
+   setResults(other: any): void {
+    // Clear array and set to first page
+    this.searchResults = [];
+    this.currentPage = 1;
+
+    const params = {
+      userId: this.token
+    }
+
+    // Make API request to get user's saved recipes
+    this.http.get(`${this.baseUrl}/api/user-recipe-read`, { params }).subscribe(
+      (response: any) => {
+        console.log('fav');
+        console.log(response.message);
+        for (let stuff of other) {
+          if (String(response.message).includes(String(stuff.ingredientId))) {
+            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, '', '', true));
+          } else {
+            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, '', '', false));
+          }
+        }
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+
+    // Calculate result size for pagination
+    this.resultSize = Math.ceil(this.searchResults.length / this.displaySize);
+  }
+
+                          /*^^end of ingredient endpoint methods ^^*/ 
+
   // Update navigation methods
-handleLeftButtonClick() {
-  this.router.navigate(['/']); // Navigate to home
-}
+  handleLeftButtonClick() {
+    this.router.navigate(['/']); // Navigate to home
+  }
 
-handleRightButtonClick() {
-  this.router.navigate(['/pantry']); // Navigate to pantry
-}
+  handleRightButtonClick() {
+    this.router.navigate(['/pantry']); // Navigate to pantry
+  }
 
-  adjustElementsInRows() {
+  adjustElementsInRows() {}
     // adjust-elements.ts code here
-  }
-  
-  
-  handleMenuButtonClick() {
+  handleMenuButtonClick() {}
     // Add the logic you want to execute when the left button is clicked
-  }
-
-  handleTrashButtonClick() {
+  handleTrashButtonClick() {}
     // Add the logic you want to execute when the right button is clicked
-  }
-
 
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;

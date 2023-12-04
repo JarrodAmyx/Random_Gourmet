@@ -10,48 +10,51 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-
 export class HomeComponent {
   isSidebarOpen = true; // Initially open
-  isMobile = false;
-  loggedIn: boolean = false;
+  isMobile = false; // Flag to track whether the screen is considered as mobile
+  loggedIn: boolean = false; // Flag to track user login status
 
-  private baseUrl = 'http://54.183.139.183';
-  private token: string = localStorage.getItem('token')!;
+  private baseUrl = 'http://54.183.139.183'; // Base URL for API requests
+  private token: string = localStorage.getItem('token')!; // Retrieve user token from local storage
 
-  @ViewChild(SidebarComponent) sidebar: any;
-  @ViewChild(RecipeComponent) recipe: any;
-  
+  @ViewChild(SidebarComponent) sidebar: any; // Reference to the SidebarComponent
+  @ViewChild(RecipeComponent) recipe: any; // Reference to the RecipeComponent
+
   constructor(
     private sharedService: SharedService,
     private authService: AuthService,
     private http: HttpClient,
-    ) {
-      this.authService.isLoggedIn().subscribe((status) => {
-        this.loggedIn = status;
-      });
-    }
+  ) {
+    // Subscribe to the login status to update the loggedIn flag
+    this.authService.isLoggedIn().subscribe((status) => {
+      this.loggedIn = status;
+    });
+  }
 
-  // Listen for window resize events to determine screen size
+  // Listen for window resize events to determine screen size and adjust the isMobile flag
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     this.isMobile = window.innerWidth <= 576; // Adjust the breakpoint as needed
   }
 
+  // Method to handle the sidebar toggle button click
   toggleSidebar() {
     console.log('Button clicked');
   }
 
-  toggleSearch ($event:any){
+  // Method to handle search requests based on sidebar filter states and user input
+  toggleSearch($event: any) {
     console.log(Object.keys(this.sidebar.subcategoryStates));
 
     const params = {
       ingredients: JSON.stringify(Object.keys(this.sidebar.subcategoryStates)),
       search: $event.string,
-      userId: this.token
-    }
-    //if fav is true (toggled), search user's recipe list
-    if($event.Boolean){
+      userId: this.token,
+    };
+
+    // If the favorite filter is true (toggled), search the user's recipe list
+    if ($event.Boolean) {
       this.http.get(`${this.baseUrl}/api/user-recipe-search`, { params }).subscribe(
         (response: any) => {
           console.log(response);
@@ -62,9 +65,8 @@ export class HomeComponent {
           return -1;
         }
       );
-    }
-    //if fav is false, search all of the database
-    else{
+    } else {
+      // If the favorite filter is false, search all of the database
       this.http.get(`${this.baseUrl}/api/recipe-search`, { params }).subscribe(
         (response: any) => {
           console.log(response);
@@ -76,6 +78,5 @@ export class HomeComponent {
         }
       );
     }
-    
   }
 }

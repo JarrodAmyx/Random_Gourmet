@@ -3,8 +3,9 @@ import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
-export class Result{
-  constructor(public ID: number, public title: string, public image: string, public fav: boolean){}
+// Class to represent a result (recipe)
+export class Result {
+  constructor(public ID: number, public title: string, public image: string, public fav: boolean) {}
 }
 
 @Component({
@@ -23,7 +24,7 @@ export class RecipeComponent {
 
   private baseUrl = 'http://54.183.139.183';
   private token: string = localStorage.getItem('token')!;
-  
+
   searchResults: Result[] = [];
   displaySize: number = 10;
   // resultSize = [search query size]/[displaySize] rounded up
@@ -34,13 +35,15 @@ export class RecipeComponent {
     private breakpointObserver: BreakpointObserver,
     private authService: AuthService,
     private http: HttpClient
-    ){
+  ) {
+    // Subscribe to check if the user is logged in
     this.authService.isLoggedIn().subscribe((status) => {
       this.loggedIn = status;
     });
   }
 
   ngOnInit() {
+    // Observe screen size for responsiveness
     this.breakpointObserver.observe([
       Breakpoints.HandsetPortrait,
       Breakpoints.HandsetLandscape
@@ -48,46 +51,47 @@ export class RecipeComponent {
       this.isMobile = result.matches;
     });
 
-    // waits for sidebar to load
+    // Wait for sidebar to load before searching for recipes
     setTimeout(() => {
       this.searchRecipe();
     }, 1000);
-    
   }
 
-  clickRecipe(other: Result): void{
-    // placeholder for API/database call
-    console.log(other.title); 
+  // Placeholder method for handling click on a recipe
+  clickRecipe(other: Result): void {
+    console.log(other.title); // Placeholder for API/database call
   }
 
-  searchRecipe(): void{
+  // Method to trigger a search for recipes based on the search term and toggle
+  searchRecipe(): void {
     const output = {
       string: this.searchTerm,
       Boolean: this.favToggle
     }
 
+    // Emit event to invoke parent component (possibly Sidebar) with search parameters
     this.invokeParent.emit(output);
   }
 
-  setResults(other: any): void{
-    // clears array
-    this.searchResults = []
-    // goes to first page
-    this.currentPage = 1
-    
+  // Method to set the search results based on API response and user's saved recipes
+  setResults(other: any): void {
+    // Clear array and set to first page
+    this.searchResults = [];
+    this.currentPage = 1;
+
     const params = {
-      userId : this.token
+      userId: this.token
     }
 
+    // Make API request to get user's saved recipes
     this.http.get(`${this.baseUrl}/api/user-recipe-read`, { params }).subscribe(
       (response: any) => {
-        console.log('fav')
-        console.log(response.message)
-        for(let stuff of other){
-          if(String(response.message).includes(String(stuff.recipeId))){
+        console.log('fav');
+        console.log(response.message);
+        for (let stuff of other) {
+          if (String(response.message).includes(String(stuff.recipeId))) {
             this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, true))
-          }
-          else{
+          } else {
             this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, false))
           }
         }
@@ -98,22 +102,23 @@ export class RecipeComponent {
       }
     );
 
-    // resultSize = [search query size]/[displaySize] rounded up
-    this.resultSize = Math.ceil(this.searchResults.length/this.displaySize)
-
-    // console.log(this.searchResults)
+    // Calculate result size for pagination
+    this.resultSize = Math.ceil(this.searchResults.length / this.displaySize);
   }
 
-  toggleFav(): void{
-    this.favToggle = !this.favToggle
+  // Method to toggle the favorite filter
+  toggleFav(): void {
+    this.favToggle = !this.favToggle;
   }
 
-  favRecipe(other: Result): void{
+  // Method to add a recipe to user's favorites
+  favRecipe(other: Result): void {
     const params = {
-      userId : this.token,
+      userId: this.token,
       recipeId: other.ID
     }
 
+    // Make API request to add recipe to user's favorites
     this.http.get(`${this.baseUrl}/api/user-recipe-create`, { params }).subscribe(
       (response: any) => {
         console.log(response);
@@ -126,12 +131,14 @@ export class RecipeComponent {
     );
   }
 
-  unfavRecipe(other: Result): void{
+  // Method to remove a recipe from user's favorites
+  unfavRecipe(other: Result): void {
     const params = {
-      userId : this.token,
+      userId: this.token,
       recipeId: other.ID
     }
 
+    // Make API request to remove recipe from user's favorites
     this.http.get(`${this.baseUrl}/api/user-recipe-destroy`, { params }).subscribe(
       (response: any) => {
         console.log(response);
@@ -144,19 +151,15 @@ export class RecipeComponent {
     );
   }
 
-  get displayItems(): Result[]{
+  // Getter method to display a subset of search results based on current page and display size
+  get displayItems(): Result[] {
     const startIndex = (this.currentPage - 1) * this.displaySize;
     return this.searchResults.slice(startIndex, startIndex + this.displaySize);
   }
 
-  nextPage(){
-    this.currentPage++;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  prevPage(){
+  // Method to go to the previous page
+  prevPage() {
     this.currentPage--;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
 }
