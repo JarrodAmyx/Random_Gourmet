@@ -1,0 +1,22 @@
+
+
+
+
+<div class="container responsive-grid" >
+  <ng-container *ngFor="let item of dataset">
+    <app-recipecard  [data]="item"></app-recipecard>
+  </ng-container>
+
+</div>
+
+<!---- test
+<mat-grid-list class="Grid" cols="2"  rowHeight="2:1" gutterSize="25px">
+  <mat-grid-tile  *ngFor="let item of dataset" class="Cardheld"  colspan="1" rowspan="1">
+    <app-recipecard [data]="item"></app-recipecard>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-container class="nonGrid" *ngFor="let item of dataset">
+  <app-recipecard [data]="item"></app-recipecard>
+</ng-container>
+-->

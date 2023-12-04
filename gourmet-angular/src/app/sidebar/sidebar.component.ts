@@ -69,7 +69,14 @@ handleRightButtonClick() {
 
   //state of on or off of button
   toggleSubcategory(subcategory: string): void {
-    this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
+    // this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
+    // console.log(this.subcategoryStates)
+    if(this.subcategoryStates[subcategory]){
+      delete this.subcategoryStates[subcategory]
+    }
+    else{
+      this.subcategoryStates[subcategory] = true;
+    }
   }
 
   /* search bar*/

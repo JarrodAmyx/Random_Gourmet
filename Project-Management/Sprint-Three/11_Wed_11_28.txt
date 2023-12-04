@@ -21,9 +21,9 @@ that the ingredients actually assign to the correct user in mongo
 3. mongodb queries have been annoying to work w pulling all registered users in the db
 
 Brian:
-1. 
-2. 
-3. 
+1. messing with css for Angular Material gridList
+2. Got busy with another classes new project
+3. mobile app dev project requires more attention than first thought
 
 Ryan:
 1. 
