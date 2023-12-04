@@ -5,6 +5,8 @@ import { PantryService } from '../pantry/pantry.service';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DropDownAnimation } from './sideAnimations';
 import { ApiService } from '../api.service';
+// routing import
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,7 +26,8 @@ export class SidebarComponent implements AfterViewInit{
 
   data: any;
 
-  constructor(private apiService: ApiService, private pantryService: PantryService) {}
+// Inject Router in the constructor
+constructor(private apiService: ApiService, private pantryService: PantryService, private router: Router) {}
 
   ngOnInit() {
     this.apiService.getData().subscribe((result) => {
@@ -36,14 +39,19 @@ export class SidebarComponent implements AfterViewInit{
     this.adjustElementsInRows();
   }
 
+  // Update navigation methods
+handleLeftButtonClick() {
+  this.router.navigate(['/']); // Navigate to home
+}
+
+handleRightButtonClick() {
+  this.router.navigate(['/pantry']); // Navigate to pantry
+}
+
   adjustElementsInRows() {
     // adjust-elements.ts code here
   }
   
-  //the pantry menu and trash buttons
-  handleLeftButtonClick() {
-    // Add the logic you want to execute when the left button is clicked
-  }
   
   handleMenuButtonClick() {
     // Add the logic you want to execute when the left button is clicked
@@ -53,9 +61,6 @@ export class SidebarComponent implements AfterViewInit{
     // Add the logic you want to execute when the right button is clicked
   }
 
-  handleRightButtonClick() {
-    // Add the logic you want to execute when the right button is clicked
-  }
 
   isOpen = true; // Set to true to open the sidebar
   isSubOpen = false;
@@ -64,7 +69,14 @@ export class SidebarComponent implements AfterViewInit{
 
   //state of on or off of button
   toggleSubcategory(subcategory: string): void {
-    this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
+    // this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
+    // console.log(this.subcategoryStates)
+    if(this.subcategoryStates[subcategory]){
+      delete this.subcategoryStates[subcategory]
+    }
+    else{
+      this.subcategoryStates[subcategory] = true;
+    }
   }
 
   /* search bar*/
@@ -162,7 +174,7 @@ categories: string[] = ["Meats", "Seafood", "Vegetables", "Fruits", "Berries", "
   "Condiments", "Herbs and Spices"];
 
   // Subcategories of each food group
-subcatMeats: string[] = ["Ribeye", "T-bone", "Sirloin", "Tenderloin", "Skirt Steak", "Filet", "Breast", "Ground Beef"];
+subcatMeats: string[] = ["Chicken", "Chicken Breast", "Ribeye", "T-bone", "Sirloin", "Tenderloin", "Skirt Steak", "Filet", "Turkey", "Ground Beef"];
 
 subcatSeafood: string[] = ["Shrimp", "Crab", "Lobster", "Clam", "Squid", "Octopus", "Fish Fillet", "Salmon",
   "Tuna", "Halibut", "Snapper", "Trout", "Mahi-Mahi", "Tilapia", "Sardine", "Catfish", "Other Seafood Option"];
@@ -180,7 +192,7 @@ subcatFruits: string[] = ["Apple", "Banana", "Orange", "Grape", "Strawberry", "B
 subcatBerries: string[] = ["Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cranberry",
   "Gooseberry", "Currant", "Boysenberry", "Mulberry", "Elderberry", "Huckleberry","other berry"];
 
-subcatBaking: string[] = ["Flour", "Sugar", "Baking Powder", "Baking Soda", "Yeast", "Vanilla Extract",
+subcatBaking: string[] = ["Flour", "Sugar", "Baking Powder","Milk", "Butter", "Baking Soda", "Yeast", "Vanilla Extract",
   "Cocoa Powder", "Chocolate Chips", "Nut", "Spice", "Food Coloring", "Sprinkle", "Shortening", "Cornstarch",
   "Breadcrumb", "Cornmeal", "Honey", "Maple Syrup", "Molasses", "Agave Nectar", "Cream of Tartar", "Gelatin",
   "Candied Fruit", "Pie Filling", "Marshmallow", "Other Baking Ingredient"];

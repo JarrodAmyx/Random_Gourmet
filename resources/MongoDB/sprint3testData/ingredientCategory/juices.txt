@@ -1,0 +1,94 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "149",
+    name: "Lemon Juice",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Juices"
+  },
+  {
+    ingredientId: "150",
+    name: "Lime Juice",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Juices"
+  },
+  {
+    ingredientId: "151",
+    name: "Orange Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "152",
+    name: "Apple Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "153",
+    name: "Grape Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "154",
+    name: "Pineapple Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "155",
+    name: "Cranberry Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "156",
+    name: "Tomato Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "157",
+    name: "Vegetable Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "158",
+    name: "Pomegranate Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "159",
+    name: "Lemonade Concentrate",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "160",
+    name: "Limeade Concentrate",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  },
+  {
+    ingredientId: "161",
+    name: "Other Cooking Juice",
+    quantity: 1,
+    unit: "cups",
+    category: "Juices"
+  }
+]);

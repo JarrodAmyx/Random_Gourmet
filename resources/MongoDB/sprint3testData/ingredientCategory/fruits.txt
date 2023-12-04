@@ -1,0 +1,234 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "57",
+    name: "Apple",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "58",
+    name: "Banana",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "59",
+    name: "Orange",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "60",
+    name: "Grape",
+    quantity: 1,
+    unit: "bunch",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "61",
+    name: "Strawberry",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "62",
+    name: "Blueberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "63",
+    name: "Raspberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "64",
+    name: "Blackberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "65",
+    name: "Peach",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "66",
+    name: "Plum",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "67",
+    name: "Cherry",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "68",
+    name: "Mango",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "69",
+    name: "Pineapple",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "70",
+    name: "Kiwi",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "71",
+    name: "Pear",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "72",
+    name: "Lemon",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "73",
+    name: "Lime",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "74",
+    name: "Cantaloupe",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "75",
+    name: "Watermelon",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "76",
+    name: "Honeydew",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "77",
+    name: "Grapefruit",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "78",
+    name: "Coconut",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "79",
+    name: "Pomegranate",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "80",
+    name: "Avocado",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "81",
+    name: "Papaya",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "82",
+    name: "Guava",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "83",
+    name: "Passion Fruit",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "84",
+    name: "Apricot",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "85",
+    name: "Nectarine",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "86",
+    name: "Cranberry",
+    quantity: 1,
+    unit: "cup",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "87",
+    name: "Fig",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "88",
+    name: "Date",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  },
+  {
+    ingredientId: "89",
+    name: "Other Fruit",
+    quantity: 1,
+    unit: "pieces",
+    category: "Fruits"
+  }
+]);

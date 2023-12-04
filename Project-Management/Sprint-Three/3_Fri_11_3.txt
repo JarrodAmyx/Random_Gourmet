@@ -10,21 +10,21 @@ Jarrod:
 3. No Blockers
 
 Joakim:
-1. 
-2. 
-3. 
+1. I was working on a mobile app dev project.
+2. still working on the mobile app dev project that's due tonight.
+3. mostly time but will catch up over Thanksgiving break.
 
 Chelsea:
-1. 
-2. 
-3. 
+1.  I didnt work on my tasks.
+2. I worked on the new db uml diagram.
+3. no blockers
 
-Bryan:
-1. 
-2. 
-3. 
+Brian:
+1.  I was researching a project due for another class.
+2.  I was attempting to finish the project I was researching the previous day.
+3.  More or less just events outside of my control is blocking me.
 
 Ryan:
-1. 
-2. 
-3. 
+1. worked on assignments for other class
+2. finished communications between components
+3. nothing

@@ -1,9 +1,7 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
-export class Items{
-  constructor(public ID: number, public name: string, public deleted: boolean){}
-}
 
 export class Result{
   constructor(public ID: number, public title: string, public image: string, public fav: boolean){}
@@ -17,35 +15,29 @@ export class Result{
 export class RecipeComponent {
   isMobile: boolean = false;
 
-  @Output() invokeParent = new EventEmitter<string>();
+  @Output() invokeParent = new EventEmitter<any>();
 
   searchTerm: string = '';
-  searchBool: boolean = false;
   loggedIn: boolean = false;
+  favToggle: boolean = false;
 
-  searchResults:Items[] = [];
-  displaySize: number = 5;
+  private baseUrl = 'http://54.183.139.183';
+  private token: string = localStorage.getItem('token')!;
+  
+  searchResults: Result[] = [];
+  displaySize: number = 10;
   // resultSize = [search query size]/[displaySize] rounded up
-  resultSize: number = 3;
+  resultSize: number = 0;
   currentPage: number = 1;
 
-  items: Items[] = [];
-  constructor(private breakpointObserver: BreakpointObserver){
-    this.items.push(new Items(1, 'One', false));
-    this.items.push(new Items(2, 'Two', false));
-    this.items.push(new Items(3, 'Three', false));
-    this.items.push(new Items(4, 'Four', false));
-    this.items.push(new Items(5, 'Five', false));
-    this.items.push(new Items(6, 'Six', false));
-    this.items.push(new Items(7, 'Seven', false));
-    this.items.push(new Items(8, 'Eight', false));
-    this.items.push(new Items(9, 'Nine', false));
-    this.items.push(new Items(10, 'Ten', false));
-    this.items.push(new Items(11, 'Eleven', false));
-    this.items.push(new Items(12, 'Twelve', false));
-    this.items.push(new Items(13, 'Thirteen', false));
-    this.items.push(new Items(14, 'Fourteen', false));
-    this.items.push(new Items(15, 'Fifteen', false));
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService,
+    private http: HttpClient
+    ){
+    this.authService.isLoggedIn().subscribe((status) => {
+      this.loggedIn = status;
+    });
   }
 
   ngOnInit() {
@@ -55,50 +47,106 @@ export class RecipeComponent {
     ]).subscribe(result => {
       this.isMobile = result.matches;
     });
+
+    // waits for sidebar to load
+    setTimeout(() => {
+      this.searchRecipe();
+    }, 1000);
+    
   }
 
-  clickRecipe(other: Items): void{
+  clickRecipe(other: Result): void{
     // placeholder for API/database call
-    console.log(other.name); 
+    console.log(other.title); 
   }
 
   searchRecipe(): void{
-    // skips search process if search term is empty
-    // if(this.searchTerm.length === 0){
-    //   this.searchBool = false;
-    //   return;
-    // }
+    const output = {
+      string: this.searchTerm,
+      Boolean: this.favToggle
+    }
 
-    // // empties the list
-    // this.searchResults = [];
-    // this.searchBool = true;
-
-    // this.items.forEach(item => {
-    //   if(item.name.includes(this.searchTerm)){
-    //     this.searchResults.push(item);
-    //   }
-    // });
-    // console.log('child responds');
-    this.invokeParent.emit(this.searchTerm);
+    this.invokeParent.emit(output);
   }
 
-  deleteRecipe(other: Items): void{
-    // console.log(other);
+  setResults(other: any): void{
+    // clears array
+    this.searchResults = []
+    // goes to first page
+    this.currentPage = 1
     
-    // // placeholder for backend call
-    // this.recipes = this.recipes.filter(item => item !== other);
+    const params = {
+      userId : this.token
+    }
 
-    other.deleted = true;
-    console.log(other.name +' is ' +  other.deleted)
+    this.http.get(`${this.baseUrl}/api/user-recipe-read`, { params }).subscribe(
+      (response: any) => {
+        console.log('fav')
+        console.log(response.message)
+        for(let stuff of other){
+          if(String(response.message).includes(String(stuff.recipeId))){
+            this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, true))
+          }
+          else{
+            this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, false))
+          }
+        }
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+
+    // resultSize = [search query size]/[displaySize] rounded up
+    this.resultSize = Math.ceil(this.searchResults.length/this.displaySize)
+
+    // console.log(this.searchResults)
   }
 
-  undoDelete(other: Items): void{
-    other.deleted = false;
+  toggleFav(): void{
+    this.favToggle = !this.favToggle
   }
 
-  get displayItems(): Items[]{
+  favRecipe(other: Result): void{
+    const params = {
+      userId : this.token,
+      recipeId: other.ID
+    }
+
+    this.http.get(`${this.baseUrl}/api/user-recipe-create`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        other.fav = true;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+  }
+
+  unfavRecipe(other: Result): void{
+    const params = {
+      userId : this.token,
+      recipeId: other.ID
+    }
+
+    this.http.get(`${this.baseUrl}/api/user-recipe-destroy`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        other.fav = false;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+  }
+
+  get displayItems(): Result[]{
     const startIndex = (this.currentPage - 1) * this.displaySize;
-    return this.items.slice(startIndex, startIndex + this.displaySize);
+    return this.searchResults.slice(startIndex, startIndex + this.displaySize);
   }
 
   nextPage(){

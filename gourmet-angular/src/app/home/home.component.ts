@@ -1,7 +1,9 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
+import { AuthService } from '../auth/auth.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RecipeComponent } from '../recipe/recipe.component';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 var RECIPETEST =[
   {recipeID: 1, title: "test", ingredientIDs: [5, 3, 7], description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum aliquam erat, interdum posuere massa tristique a. Morbi in lobortis erat. Duis et efficitur risus. In scelerisque purus at massa laoreet finibus. Morbi dictum sit amet nunc nec placerat. Etiam faucibus justo nec viverra venenatis. Etiam nulla metus, malesuada nec efficitur vitae, convallis at nibh. Aliquam at erat semper libero elementum dapibus. Nullam bibendum pellentesque urna, at aliquam leo fringilla et. Suspendisse non mattis lectus, sit amet vehicula metus. Curabitur et nunc quis nulla pulvinar iaculis id et ipsum.'},
@@ -28,11 +30,27 @@ var RECIPETEST =[
 export class HomeComponent {
   isSidebarOpen = true; // Initially open
   isMobile = false;
+
   recipeTest = RECIPETEST;
+
+  loggedIn: boolean = false;
+
+  private baseUrl = 'http://54.183.139.183';
+  private token: string = localStorage.getItem('token')!;
+
   @ViewChild(SidebarComponent) sidebar: any;
   @ViewChild(RecipeComponent) recipe: any;
+  
+  constructor(
+    private sharedService: SharedService,
+    private authService: AuthService,
+    private http: HttpClient,
+    ) {
+      this.authService.isLoggedIn().subscribe((status) => {
+        this.loggedIn = status;
+      });
+    }
 
-  constructor(private sharedService: SharedService) {}
 
   // Listen for window resize events to determine screen size
   @HostListener('window:resize', ['$event'])
@@ -44,12 +62,40 @@ export class HomeComponent {
     console.log('Button clicked');
   }
 
-  toggleSearch($event:any){
-
-    // string from recipe card searchbar
-    console.log($event);
-    // string array
-    // takes only key (ingredients)
+  toggleSearch ($event:any){
     console.log(Object.keys(this.sidebar.subcategoryStates));
+
+    const params = {
+      ingredients: JSON.stringify(Object.keys(this.sidebar.subcategoryStates)),
+      search: $event.string,
+      userId: this.token
+    }
+    //if fav is true (toggled), search user's recipe list
+    if($event.Boolean){
+      this.http.get(`${this.baseUrl}/api/user-recipe-search`, { params }).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.recipe.setResults(response.message);
+        },
+        (error) => {
+          console.error('Request failed:', error);
+          return -1;
+        }
+      );
+    }
+    //if fav is false, search all of the database
+    else{
+      this.http.get(`${this.baseUrl}/api/recipe-search`, { params }).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.recipe.setResults(response.message);
+        },
+        (error) => {
+          console.error('Request failed:', error);
+          return -1;
+        }
+      );
+    }
+    
   }
 }

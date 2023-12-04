@@ -1,0 +1,36 @@
+<div class="saved-container">
+  <h1>Saved Recipes</h1>
+
+  <!-- Recipe cards -->
+  <div class="recipe-container">
+    <div>
+      <mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="20rem" class="recipe-grid">
+        <mat-grid-tile *ngFor="let item of displayItems">
+          <mat-card class="mat-card">
+            <div class="embed-responsive">
+              <img class="card-img-top embed-responsive-item" (click)="clickRecipe(item)" src="" />
+            </div>
+            <mat-card-content>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="title">
+                  <mat-card-title>{{item.name}}</mat-card-title>
+                </div>
+                <button mat-button *ngIf="!loggedIn" matTooltip="Log in to save your recipe">
+                  <mat-icon class="icon" [ngStyle]="{'color': '#6b6b6b'}" fontIcon="bookmark_add"></mat-icon>
+                </button>
+                <button mat-button *ngIf="item.fav && loggedIn" (click)="unfavRecipe(item)" matTooltip="Remove from your saved list">
+                  <mat-icon class="icon" [ngStyle]="{'color': '#f1ab31'}" fontIcon="bookmark_added"></mat-icon>
+                </button>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>Protein: 0g</div>
+                <div>Fat: 0g</div>
+                <div>Carbohydrate: 0g</div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

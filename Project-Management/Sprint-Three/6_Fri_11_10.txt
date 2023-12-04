@@ -1,0 +1,30 @@
+1. What did you do yesterday?
+2. What will you do today?
+3. What is blocking your progress?
+
+---
+
+Jarrod:
+1. Worked on recipe API connected to our backend.
+2. Fixed some backend/database bugs.
+3. No blockers
+
+Joakim:
+1. Worked on login/registration and pantry.
+2. I'm sick and won't be doing work today.
+3. getting better and my Android Development exam coming up Wed 11/15.
+
+Chelsea:
+1. I finished the mongodb tables and merged. 
+2. insert test data + clean up db
+3. no blockers
+
+Brian:
+1. Busy with personal duties.
+2. Fiddled with the CSS for the List display but not confident in the current look.
+3. Exam for another class is coming up soon, so will be needing to take time to study.
+
+Ryan:
+1. 
+2. 
+3. 

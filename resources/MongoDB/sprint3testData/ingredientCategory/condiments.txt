@@ -1,0 +1,220 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "162",
+    name: "Ketchup",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "163",
+    name: "Mustard",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "164",
+    name: "Mayonnaise",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "165",
+    name: "Soy Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "166",
+    name: "Hot Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "167",
+    name: "Barbecue Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "168",
+    name: "Worcestershire Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "169",
+    name: "Vinegar",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "170",
+    name: "Salad Dressing",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "171",
+    name: "Relish",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "172",
+    name: "Pickle",
+    quantity: 1,
+    unit: "pieces",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "173",
+    name: "Salsa",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "174",
+    name: "Sriracha",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "175",
+    name: "Hoisin Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "176",
+    name: "Teriyaki Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "177",
+    name: "Fish Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "178",
+    name: "Tahini",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "179",
+    name: "Hummus",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "180",
+    name: "Jam",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "181",
+    name: "Jelly",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "182",
+    name: "Peanut Butter",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "183",
+    name: "Nutella",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "184",
+    name: "Gravy",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "185",
+    name: "Marinara Sauce",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "186",
+    name: "Pizza Sauce",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "187",
+    name: "Tartar Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "188",
+    name: "Cocktail Sauce",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "189",
+    name: "Horseradish",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "190",
+    name: "Sour Cream",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "191",
+    name: "Cream Cheese",
+    quantity: 1,
+    unit: "cups",
+    category: "Condiments"
+  },
+  {
+    ingredientId: "192",
+    name: "Other Condiment",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Condiments"
+  }
+]);

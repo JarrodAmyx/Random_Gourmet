@@ -17,6 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterModule, Routes } from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
@@ -31,10 +32,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeComponent } from './recipe/recipe.component';
 import { PantryComponent } from './pantry/pantry.component';
 import { RecipecardComponent } from './recipecard/recipecard.component';
-import { SecureComponent } from './secure/secure.component';
-import { PublicComponent } from './public/public.component';
+import { SecureComponent } from './navigation/secure/secure.component';
+import { PublicComponent } from './navigation/public/public.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
 import { RecipecardListComponent } from './recipecard-list/recipecard-list.component';
+
+import { SavedComponent } from './saved/saved.component';
+
 
 
 
@@ -56,6 +61,7 @@ import { RecipecardListComponent } from './recipecard-list/recipecard-list.compo
     PantryComponent,
     RecipecardComponent,
     RecipecardListComponent
+    SavedComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,8 @@ import { RecipecardListComponent } from './recipecard-list/recipecard-list.compo
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CommonModule
   ],
   providers: [AuthService, RegistrationService],
   bootstrap: [AppComponent]

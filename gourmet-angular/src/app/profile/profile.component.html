@@ -1,8 +1,5 @@
 <div class="flex-container">
   <div>
-    <div class="top-right-button-container">
-      <button routerLink="/pantry">Temporary Button</button>
-    </div>
     <!-- User profile card -->
     <div class="card" *ngIf="!isEditing">
       <div class="card-body">
@@ -27,7 +24,7 @@
         <hr>
         <div class="row">
           <div class="col-sm-12">
-            <a class="btn btn-warning" (click)="editProfile()">Edit Profile</a>
+            <a class="btn btn-warning" (click)="changePassword()">Change Password</a>
           </div>
         </div>
       </div>
@@ -39,29 +36,36 @@
         <form [formGroup]="updateForm">
           <div class="row">
             <div>
-              <h6 class="mb-0">Username</h6>
+              <h6 class="mb-0">Old Password</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              <input class="form-control rounded" placeholder="New Username" [(ngModel)]="input_username" formControlName="username">
-              <mat-error *ngIf="getUsername?.invalid">Invalid username.</mat-error>
+              <input class="form-control rounded" type="password" placeholder="Old Password" [(ngModel)]="oldPass" formControlName="oldPass">
             </div>
           </div>
           <hr>
           <div class="row">
             <div>
-              <h6 class="mb-0">Email</h6>
+              <h6 class="mb-0">New Password</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              <input class="form-control rounded" placeholder="New email" [(ngModel)]="input_email" formControlName="email">
-              <mat-error *ngIf="getEmail?.invalid">Invalid email address.</mat-error>
+              <input class="form-control rounded" type="password" placeholder="New Password" [(ngModel)]="newPass1" formControlName="newPass1">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div>
+              <h6 class="mb-0">Confirm Password</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <input class="form-control rounded" type="password" placeholder="Confirm Password" [(ngModel)]="newPass2" formControlName="newPass2">
             </div>
           </div>
         </form>
         <hr>
         <div class="row">
           <div class="col-sm-12 d-flex justify-content-between">
-            <a class="btn btn-danger" (click)="editProfile()">Cancel</a>
-            <a class="btn btn-warning" (click)="confirmEdit()">Confirm Edit</a>
+            <a class="btn btn-danger" (click)="changePassword()">Cancel</a>
+            <a class="btn btn-warning" (click)="confirmPassword()">Confirm Password</a>
           </div>
         </div>
       </div>

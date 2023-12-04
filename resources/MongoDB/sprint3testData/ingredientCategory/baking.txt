@@ -1,0 +1,199 @@
+// Insert test data into the "ingredients" collection with default quantity 1
+db.ingredients.insertMany([
+  {
+    ingredientId: "102",
+    name: "Flour",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "103",
+    name: "Sugar",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "104",
+    name: "Baking Powder",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "105",
+    name: "Milk",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "106",
+    name: "Butter",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "107",
+    name: "Baking Soda",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "108",
+    name: "Yeast",
+    quantity: 1,
+    unit: "packets",
+    category: "Baking"
+  },
+  {
+    ingredientId: "109",
+    name: "Vanilla Extract",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "110",
+    name: "Cocoa Powder",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "111",
+    name: "Chocolate Chips",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "112",
+    name: "Nut",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "113",
+    name: "Spice",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "114",
+    name: "Food Coloring",
+    quantity: 1,
+    unit: "drops",
+    category: "Baking"
+  },
+  {
+    ingredientId: "115",
+    name: "Sprinkle",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "116",
+    name: "Shortening",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "117",
+    name: "Cornstarch",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "118",
+    name: "Breadcrumb",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "119",
+    name: "Cornmeal",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "120",
+    name: "Honey",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "121",
+    name: "Maple Syrup",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "122",
+    name: "Molasses",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "123",
+    name: "Agave Nectar",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "124",
+    name: "Cream of Tartar",
+    quantity: 1,
+    unit: "teaspoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "125",
+    name: "Gelatin",
+    quantity: 1,
+    unit: "tablespoons",
+    category: "Baking"
+  },
+  {
+    ingredientId: "126",
+    name: "Candied Fruit",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "127",
+    name: "Pie Filling",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "128",
+    name: "Marshmallow",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  },
+  {
+    ingredientId: "129",
+    name: "Other Baking Ingredient",
+    quantity: 1,
+    unit: "cups",
+    category: "Baking"
+  }
+]);
