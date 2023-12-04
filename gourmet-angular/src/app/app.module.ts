@@ -15,7 +15,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { RouterModule, Routes } from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 
@@ -35,7 +34,6 @@ import { RecipecardComponent } from './recipecard/recipecard.component';
 import { SecureComponent } from './navigation/secure/secure.component';
 import { PublicComponent } from './navigation/public/public.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SavedComponent } from './saved/saved.component';
 
 
 
@@ -55,8 +53,7 @@ import { SavedComponent } from './saved/saved.component';
     LandingPageComponent,
     RecipeComponent,
     PantryComponent,
-    RecipecardComponent,
-    SavedComponent
+    RecipecardComponent
   ],
   imports: [
     BrowserModule,
