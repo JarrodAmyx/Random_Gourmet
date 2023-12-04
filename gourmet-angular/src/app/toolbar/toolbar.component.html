@@ -2,6 +2,7 @@
   <button class="logo" routerLink="/">FoodOvers</button>
   <div class="spacer"></div>
   <button class="text-button" *ngIf="loggedIn" routerLink="/profile">Profile</button>
+  <button class="text-button" *ngIf="loggedIn" routerLink="/saved">Favorites</button>
   <button class="text-button" *ngIf="loggedIn" routerLink="/pantry">Pantry</button>
   <button class="text-button" *ngIf="!loggedIn" (click)="openRegistration()">Register</button>
   <button class="text-button" *ngIf="!loggedIn" (click)="openLogin()">Login</button>
