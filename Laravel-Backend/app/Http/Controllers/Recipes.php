@@ -41,7 +41,8 @@ class Recipes extends Controller
         $recipe =
             DB::connection('mongodb')
             ->collection('recipes')
-            ->where('recipeId', $request->id)
+            ->where('recipeId', $request->recipeId)
+            ->first()
         ;
 
         if (!$recipe) {
