@@ -25,6 +25,6 @@ Brian:
 3. A lot of outdated material and other classes
 
 Ryan:
-1. 
-2. 
+1. Worked on other classes projects and assignments.
+2. Looking more into backend implementation
 3. 
