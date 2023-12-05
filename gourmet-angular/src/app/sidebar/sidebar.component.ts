@@ -25,6 +25,10 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements AfterViewInit{
 
   data: any;
+  isOpen = true; // Set to true to open the sidebar
+  isSubOpen = false;
+
+  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
 // Inject Router in the constructor
 constructor(private apiService: ApiService, private pantryService: PantryService, private router: Router) {}
@@ -60,12 +64,6 @@ handleRightButtonClick() {
   handleTrashButtonClick() {
     // Add the logic you want to execute when the right button is clicked
   }
-
-
-  isOpen = true; // Set to true to open the sidebar
-  isSubOpen = false;
-
-  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
 
   //state of on or off of button
   toggleSubcategory(subcategory: string): void {
@@ -288,6 +286,7 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
   }
 
   toggleSidebar() {
+    console.log("toggle sidebar")
     this.isOpen = !this.isOpen;
   }
 //dropdown menu

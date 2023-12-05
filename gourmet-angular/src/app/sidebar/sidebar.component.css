@@ -369,5 +369,6 @@ input {
     border: none;
     font-size: 1.2em;
     display: block;
+    z-index: 999;
   }
 }
