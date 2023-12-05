@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Last Time I started Created JSON files for all Recipes
+2. I finished working on automated recpie insertion from Recipe API.
+3. No blockers
 
 Joakim:
 1. Worked on saved recipes component
