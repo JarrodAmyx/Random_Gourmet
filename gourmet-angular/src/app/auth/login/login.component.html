@@ -1,21 +1,19 @@
 <div class="dialog-content">
-  <div class="login-form-wrapper">
-    <h2>Sign In</h2>
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      Invalid email or password.
-    </div>
-    <div class="input-container">
-      <mat-form-field class="mat-form-field-underline">
-        <input matInput placeholder="Email" [(ngModel)]="Email" name="Email" required>
-      </mat-form-field>
-    </div>
-    <div class="input-container">
-      <mat-form-field class="mat-form-field-underline">
-        <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
-      </mat-form-field>
-      <button class="text-button">Forgot Password?</button>
-    </div>
-    <button class="login-button" color="primary" (click)="onSubmit()">Login</button>
-    <button class="bottom-text-button" (click)="openRegistration()">No Account? Register Now!</button>
+  <h2>Sign In</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Invalid email or password.
   </div>
+  <div class="input-container">
+    <mat-form-field class="mat-form-field-underline">
+      <input matInput placeholder="Email" [(ngModel)]="Email" name="Email" required>
+    </mat-form-field>
+  </div>
+  <div class="input-container">
+    <mat-form-field class="mat-form-field-underline">
+      <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+    </mat-form-field>
+  <button class="text-button">Forgot Password?</button>
+  </div>
+  <button class="login-button" color="primary" (click)="onSubmit()">Login</button>
+  <button class="bottom-text-button" (click)="openRegistration()">No Account? Register Now!</button>
 </div>
