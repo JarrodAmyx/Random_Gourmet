@@ -41,7 +41,7 @@ class Recipes extends Controller
         $recipe =
             DB::connection('mongodb')
             ->collection('recipes')
-            ->where('recipeId', $request->id)
+            ->where('recipeId', $request->recipeId)
             ->first()
         ;
 
@@ -57,7 +57,7 @@ class Recipes extends Controller
         $recipe = $request->all();
 
         // Update the user in the 'users' collection based on ID
-        DB::connection('mongodb')->collection('recipes')->where('recipeId', $request->id)->update($data);
+        DB::connection('mongodb')->collection('recipes')->where('recipeId', $request->id)->update($recipe);
 
         return response()->json(['message' => 'Recipe updated']);
     }

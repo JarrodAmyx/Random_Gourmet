@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { SharedService } from '../shared/shared.service';
 
 export class Result{
   constructor(public ID: number, public title: string, public image: string, public fav: boolean){}
@@ -33,7 +34,8 @@ export class RecipeComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private authService: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private sharedService: SharedService
     ){
     this.authService.isLoggedIn().subscribe((status) => {
       this.loggedIn = status;
@@ -56,8 +58,7 @@ export class RecipeComponent {
   }
 
   clickRecipe(other: Result): void{
-    // placeholder for API/database call
-    console.log(other.title); 
+    this.sharedService.openRecipe(other.ID);
   }
 
   searchRecipe(): void{
