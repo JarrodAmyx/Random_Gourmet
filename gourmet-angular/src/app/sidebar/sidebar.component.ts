@@ -65,6 +65,9 @@ constructor(
     this.apiService.getData().subscribe((result) => {
       this.data = result;
     });
+    setTimeout(() => {
+      this.setResults();
+    }, 1000);
   }
 
   ngAfterViewInit() {
@@ -73,7 +76,7 @@ constructor(
 
   // Placeholder method for handling click on a ingredients
   clickIngredient(other: Result): void {
-    console.log(other.name); // Placeholder for API/database call
+    // console.log(other.name);
     //calls name of ingredient from constructor line 15
   }
 
@@ -89,11 +92,7 @@ constructor(
   }
 
    // Method to set the search results based on API response and user's saved ingredients
-   setResults(other: any): void {
-    // Clear array and set to first page
-    this.searchResults = [];
-    this.currentPage = 1;
-
+   setResults(): void {
     const params = {
       userId: this.token
     }
@@ -101,15 +100,14 @@ constructor(
     // Make API request to get user's saved ingredients
     this.http.get(`${this.baseUrl}/api/user-ingredient-read`, { params }).subscribe(
       (response: any) => {
-        console.log('fav');
-        console.log(response.message);
-        for (let stuff of other) {
-          if (String(response.message).includes(String(stuff.ingredientId))) {
-            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, stuff.category, stuff.fav, true));
-          } else {
-            this.searchResults.push(new Result(stuff.ingredientId, stuff.name, stuff.quantity, stuff.category, stuff.fav, false));
-          }
+        // console.log('fav ingredients: ' + response)
+        // this.toggleSubcategory(response)
+        let stringArray: string[] = String(response).split(',');
+        for(let stuff in stringArray)
+        {
+          this.subcategoryStates[stringArray[stuff]] = true;
         }
+        // console.log(stringArray)
       },
       (error) => {
         console.error('Request failed:', error);
@@ -137,7 +135,7 @@ constructor(
     // Make API request to add recipe to user's favorites
     this.http.get(`${this.baseUrl}/api/user-ingredient-create`, { params }).subscribe(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         other.fav = true;
       },
       (error) => {
@@ -157,7 +155,7 @@ constructor(
     // Make API request to remove ingredient from user's favorites
     this.http.get(`${this.baseUrl}/api/user-ingredient-destroy`, { params }).subscribe(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         other.fav = false;
       },
       (error) => {
@@ -197,16 +195,11 @@ constructor(
         // If the subcategory is already selected, remove the selection
         delete this.subcategoryStates[subcategory];
 
-        // Assuming 'ingredientId' is the unique identifier for the ingredient
-        const ingredientId = ''; // Replace with the actual property name
-        this.removeIngredientFromPantry(ingredientId); // Adjust data structure as needed
+        this.removeIngredientFromPantry(subcategory); // Adjust data structure as needed
     } else {
         // If the subcategory is not selected, mark it as selected
         this.subcategoryStates[subcategory] = true;
-
-        // Assuming 'ingredientId' is the unique identifier for the ingredient
-        const ingredientId = ''; // Replace with the actual property name
-        this.addIngredientToPantry({ name: subcategory, ingredientId }); // Adjust data structure as needed
+        this.addIngredientToPantry(subcategory); // Adjust data structure as needed
     }
   }
 
@@ -269,8 +262,8 @@ addIngredientToPantry(ingredient: any): void {
 // Example DELETE request to remove an ingredient from the pantry
 removeIngredientFromPantry(ingredientId: string): void {
   this.pantryService.deleteIngredient(ingredientId).subscribe(
-    () => {
-      console.log('Ingredient removed from pantry');
+    (response) => {
+      console.log('Ingredient removed from pantry', response);
       // Handle success, update your UI, etc.
     },
     (error) => {

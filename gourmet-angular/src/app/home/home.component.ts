@@ -45,7 +45,7 @@ export class HomeComponent {
 
   // Method to handle search requests based on sidebar filter states and user input
   toggleSearch($event: any) {
-    console.log(Object.keys(this.sidebar.subcategoryStates));
+    // console.log(Object.keys(this.sidebar.subcategoryStates));
 
     const params = {
       ingredients: JSON.stringify(Object.keys(this.sidebar.subcategoryStates)),
@@ -57,7 +57,7 @@ export class HomeComponent {
     if ($event.Boolean) {
       this.http.get(`${this.baseUrl}/api/user-recipe-search`, { params }).subscribe(
         (response: any) => {
-          console.log(response);
+          // console.log(response);
           this.recipe.setResults(response.message);
         },
         (error) => {
@@ -69,7 +69,7 @@ export class HomeComponent {
       // If the favorite filter is false, search all of the database
       this.http.get(`${this.baseUrl}/api/recipe-search`, { params }).subscribe(
         (response: any) => {
-          console.log(response);
+          // console.log(response);
           this.recipe.setResults(response.message);
         },
         (error) => {
