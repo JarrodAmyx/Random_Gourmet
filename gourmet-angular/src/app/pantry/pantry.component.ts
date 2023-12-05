@@ -79,11 +79,34 @@ export class PantryComponent implements OnInit {
     );
   }
 
+  // Remove the selected item from the user's list of ingredients
+  removeFromIngredients(item: any) {
+    const params = {
+      ingredientId: item.ingredientId,
+      userId: this.token
+    };
+
+    this.http.get(`http://54.183.139.183/api/user-ingredient-destroy`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.categorizePantryItems();
+      },
+      (error) => {
+        console.error('Error removing item:', error);
+        // Deselects item if removing item fails
+        item.selected = true;
+      }
+    );
+  }
+
   // Toggle the selection state of a pantry item
   toggleItemSelection(item: any) {
     item.selected = !item.selected; // Toggle the selected property
+
     if (item.selected) {
       this.addToIngredients(item); // Add the selected item to your database/list
+    } else {
+      this.removeFromIngredients(item); // Remove the selected item from your database/list
     }
   }
 
