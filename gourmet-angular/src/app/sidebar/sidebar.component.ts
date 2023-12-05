@@ -1,12 +1,19 @@
-import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { animate, state, style, transition, trigger  } from '@angular/animations';
-import { PantryService } from '../pantry/pantry.service';
+import {
+  AfterViewInit,Component,HostBinding,OnInit,HostListener,Output,EventEmitter} from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
+
+import { PantryService } from '../pantry/pantry.service';
 import { DropDownAnimation } from './sideAnimations';
 import { ApiService } from '../api.service';
-// routing import
-import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+
+export class Result { 
+  constructor(public ingredientId: number, public name: string, public quantity: number, public unit: string, public category: string, public fav: boolean) {} 
+}
 
 @Component({
   selector: 'app-sidebar',
@@ -23,59 +30,179 @@ import { Router } from '@angular/router';
 })
 
 export class SidebarComponent implements AfterViewInit{
-
+  isMobile: boolean = false;
   data: any;
-  isOpen = true; // Set to true to open the sidebar
-  isSubOpen = false;
 
-  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
+@Output() invokeParent = new EventEmitter<any>();
+
+  searchTerm: string = '';
+  loggedIn: boolean = false;
+  favToggle: boolean = false;
+
+  private baseUrl = 'http://54.183.139.183';
+  private token: string = localStorage.getItem('token')!;
+  
+  searchResults: Result[] = [];
+  displaySize: number = 10;
+  // resultSize = [search query size]/[displaySize] rounded up
+  resultSize: number = 0;
+  currentPage: number = 1;
 
 // Inject Router in the constructor
-constructor(private apiService: ApiService, private pantryService: PantryService, private router: Router) {}
+constructor(
+  private breakpointObserver: BreakpointObserver,
+  private authService: AuthService,
+  private http: HttpClient,
+  private apiService: ApiService, 
+  private pantryService: PantryService, 
+  private router: Router) {
+    this.authService.isLoggedIn().subscribe((status) => {
+      this.loggedIn = status;
+    });
+  }
 
   ngOnInit() {
     this.apiService.getData().subscribe((result) => {
       this.data = result;
     });
+    setTimeout(() => {
+      this.setResults();
+    }, 1000);
   }
 
   ngAfterViewInit() {
     this.adjustElementsInRows();
   }
 
+  // Placeholder method for handling click on a ingredients
+  clickIngredient(other: Result): void {
+    // console.log(other.name);
+    //calls name of ingredient from constructor line 15
+  }
+
+   // Method to trigger a search for ingredients based on the search term and toggle
+   searchIngredient(): void {
+    const output = {
+      string: this.searchTerm,
+      Boolean: this.favToggle
+    }
+
+    // Emit event to invoke parent component (possibly Sidebar) with search parameters
+    this.invokeParent.emit(output);
+  }
+
+   // Method to set the search results based on API response and user's saved ingredients
+   setResults(): void {
+    const params = {
+      userId: this.token
+    }
+
+    // Make API request to get user's saved ingredients
+    this.http.get(`${this.baseUrl}/api/user-ingredient-read`, { params }).subscribe(
+      (response: any) => {
+        // console.log('fav ingredients: ' + response)
+        // this.toggleSubcategory(response)
+        let stringArray: string[] = String(response).split(',');
+        for(let stuff in stringArray)
+        {
+          this.subcategoryStates[stringArray[stuff]] = true;
+        }
+        // console.log(stringArray)
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+
+    // Calculate result size for pagination
+    this.resultSize = Math.ceil(this.searchResults.length / this.displaySize);
+  }
+
+  
+  // Method to toggle the favorite filter aka saved user ingredeints
+  toggleFav(): void {
+    this.favToggle = !this.favToggle;
+  }
+
+  // Method to add a ingredeint to user's favorites
+  favIngredient(other: Result): void {
+    const params = {
+      userId: this.token,
+      ingredientId: other.ingredientId
+    }
+
+    // Make API request to add recipe to user's favorites
+    this.http.get(`${this.baseUrl}/api/user-ingredient-create`, { params }).subscribe(
+      (response: any) => {
+        // console.log(response);
+        other.fav = true;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+  }
+
+   // Method to remove a recipe from user's favorites
+   unfavIngredient(other: Result): void {
+    const params = {
+      userId: this.token,
+      recipeId: other.ingredientId
+    }
+
+    // Make API request to remove ingredient from user's favorites
+    this.http.get(`${this.baseUrl}/api/user-ingredient-destroy`, { params }).subscribe(
+      (response: any) => {
+        // console.log(response);
+        other.fav = false;
+      },
+      (error) => {
+        console.error('Request failed:', error);
+        return -1;
+      }
+    );
+  }
+
+                          /*^^end of ingredient endpoint methods ^^*/ 
+
   // Update navigation methods
-handleLeftButtonClick() {
-  this.router.navigate(['/']); // Navigate to home
-}
+  handleLeftButtonClick() {
+    this.router.navigate(['/']); // Navigate to home
+  }
 
-handleRightButtonClick() {
-  this.router.navigate(['/pantry']); // Navigate to pantry
-}
+  handleRightButtonClick() {
+    this.router.navigate(['/pantry']); // Navigate to pantry
+  }
 
-  adjustElementsInRows() {
+  adjustElementsInRows() {}
     // adjust-elements.ts code here
-  }
-  
-  
-  handleMenuButtonClick() {
+  handleMenuButtonClick() {}
     // Add the logic you want to execute when the left button is clicked
-  }
-
-  handleTrashButtonClick() {
+  handleTrashButtonClick() {}
     // Add the logic you want to execute when the right button is clicked
+
+  isOpen = true; // Set to true to open the sidebar
+  isSubOpen = false;
+
+  subcategoryStates: { [key: string]: boolean } = {}; //pressing in the button or not
+
+  // state of on or off of button
+  toggleSubcategory(subcategory: string): void {
+    // Toggle the state of the subcategory
+    if (this.subcategoryStates[subcategory]) {
+        // If the subcategory is already selected, remove the selection
+        delete this.subcategoryStates[subcategory];
+
+        this.removeIngredientFromPantry(subcategory); // Adjust data structure as needed
+    } else {
+        // If the subcategory is not selected, mark it as selected
+        this.subcategoryStates[subcategory] = true;
+        this.addIngredientToPantry(subcategory); // Adjust data structure as needed
+    }
   }
 
-  //state of on or off of button
-  toggleSubcategory(subcategory: string): void {
-    // this.subcategoryStates[subcategory] = !this.subcategoryStates[subcategory];
-    // console.log(this.subcategoryStates)
-    if(this.subcategoryStates[subcategory]){
-      delete this.subcategoryStates[subcategory]
-    }
-    else{
-      this.subcategoryStates[subcategory] = true;
-    }
-  }
 
   /* search bar*/
   // Define a variable to store the search query
@@ -117,6 +244,7 @@ handleRightButtonClick() {
     return '0 Ingredients'; // Default to 0 if there are no subcategories or category not found
   }
   //add/delete ingredients to user db
+
   // Example POST request to add an ingredient to the pantry
 addIngredientToPantry(ingredient: any): void {
   this.pantryService.createIngredient(ingredient).subscribe(
@@ -134,8 +262,8 @@ addIngredientToPantry(ingredient: any): void {
 // Example DELETE request to remove an ingredient from the pantry
 removeIngredientFromPantry(ingredientId: string): void {
   this.pantryService.deleteIngredient(ingredientId).subscribe(
-    () => {
-      console.log('Ingredient removed from pantry');
+    (response) => {
+      console.log('Ingredient removed from pantry', response);
       // Handle success, update your UI, etc.
     },
     (error) => {
@@ -286,7 +414,6 @@ subcatHerbsSpices: string[] = ["Salt", "Pepper", "Basil", "Thyme", "Rosemary", "
   }
 
   toggleSidebar() {
-    console.log("toggle sidebar")
     this.isOpen = !this.isOpen;
   }
 //dropdown menu

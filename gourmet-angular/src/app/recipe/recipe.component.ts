@@ -82,8 +82,8 @@ export class RecipeComponent {
 
     this.http.get(`${this.baseUrl}/api/user-recipe-read`, { params }).subscribe(
       (response: any) => {
-        console.log('fav')
-        console.log(response.message)
+        // console.log('fav')
+        // console.log(response.message)
         for(let stuff of other){
           if(String(response.message).includes(String(stuff.recipeId))){
             this.searchResults.push(new Result(stuff.recipeId, stuff.title, stuff.recipeImage, true))
@@ -117,7 +117,7 @@ export class RecipeComponent {
 
     this.http.get(`${this.baseUrl}/api/user-recipe-create`, { params }).subscribe(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         other.fav = true;
       },
       (error) => {
@@ -135,7 +135,7 @@ export class RecipeComponent {
 
     this.http.get(`${this.baseUrl}/api/user-recipe-destroy`, { params }).subscribe(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         other.fav = false;
       },
       (error) => {

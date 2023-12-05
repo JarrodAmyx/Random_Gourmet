@@ -52,6 +52,8 @@
             </mat-card-header>
         
             <mat-card-content class="subDropdown" *ngIf="categoryIsOpen[category]" [@dropDownMenu]>
+
+              <!-- Loop through subcategories -->
               <div class="subcategory-container">
                 <ng-container *ngFor="let subcategory of categorySubcategoryMap[category]; let i = index">
                   <mat-button-toggle
@@ -62,6 +64,8 @@
                   </mat-button-toggle>
                 </ng-container>
               </div>
+
+
             </mat-card-content>
           </mat-card>
         </ng-container>

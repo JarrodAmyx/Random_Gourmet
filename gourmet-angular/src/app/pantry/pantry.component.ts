@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+
 
 @Component({
   selector: 'app-pantry',
@@ -7,10 +9,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./pantry.component.css']
 })
 export class PantryComponent implements OnInit {
+  // Array to store pantry items retrieved from the server
   pantryItems: any[] = [];
+
+  // Array to store categorized pantry items for display
   categorizedPantryItems: { category: string, items: any[] }[] = [];
+
+  // Currently selected pantry item
   selectedItem: any = {};
+
+  // Search query for filtering pantry items
   searchQuery: string = '';
+
+  // User authentication token retrieved from local storage
+  private token: string = localStorage.getItem('token')!;
 
   constructor(private http: HttpClient) {}
 
@@ -22,8 +34,8 @@ export class PantryComponent implements OnInit {
     });
   }
 
+  // Categorize pantry items based on their category
   categorizePantryItems() {
-    // Categorize the pantry items
     const categories = new Set(this.pantryItems.map(item => item.category));
     this.categorizedPantryItems = [...categories].map(category => {
       return {
@@ -33,10 +45,10 @@ export class PantryComponent implements OnInit {
     });
   }
 
+  // Handle search input changes and filter pantry items accordingly
   onSearch(event: any) {
     const searchTerm = event.target.value.toLowerCase();
 
-    // Filter the categorized pantry items based on the search term
     this.categorizedPantryItems = this.categorizedPantryItems.map(categoryGroup => {
       return {
         category: categoryGroup.category,
@@ -47,26 +59,54 @@ export class PantryComponent implements OnInit {
     });
   }
 
+  // Add the selected item to the user's list of ingredients
   addToIngredients(item: any) {
-    // Send a POST request to add the selected item
-    this.http.post('http://54.183.139.183/api/user-ingredient-create', item).subscribe(
-      (response) => {
-        // Handle success, for example, update the UI or show a success message
-        console.log('Item added successfully:', response);
+    const params = {
+      ingredientId: item.ingredientId,
+      userId: this.token
+    };
 
-        // Optionally, you can update the local list if needed
+    this.http.get(`http://54.183.139.183/api/user-ingredient-create`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
         this.categorizePantryItems();
       },
       (error) => {
-        // Handle the error, for example, show an error message
         console.error('Error adding item:', error);
-      });
+        // Deselects item if adding item fails
+        item.selected = false;
+      }
+    );
   }
 
+  // Remove the selected item from the user's list of ingredients
+  removeFromIngredients(item: any) {
+    const params = {
+      ingredientId: item.ingredientId,
+      userId: this.token
+    };
+
+    this.http.get(`http://54.183.139.183/api/user-ingredient-destroy`, { params }).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.categorizePantryItems();
+      },
+      (error) => {
+        console.error('Error removing item:', error);
+        // Deselects item if removing item fails
+        item.selected = true;
+      }
+    );
+  }
+
+  // Toggle the selection state of a pantry item
   toggleItemSelection(item: any) {
     item.selected = !item.selected; // Toggle the selected property
+
     if (item.selected) {
       this.addToIngredients(item); // Add the selected item to your database/list
+    } else {
+      this.removeFromIngredients(item); // Remove the selected item from your database/list
     }
   }
 
@@ -74,5 +114,4 @@ export class PantryComponent implements OnInit {
   onSearchInputChange(event: Event): void {
     this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
   }
-
 }

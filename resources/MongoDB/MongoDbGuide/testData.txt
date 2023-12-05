@@ -49,3 +49,7 @@ db.ingredients.insertMany([
     "category": "GrainsCereals"
   }
 ]);
+
+basic syntax for finding all docs in a table
+db.collection('yourCollectionName').find({})
+db.collection('users').find({})

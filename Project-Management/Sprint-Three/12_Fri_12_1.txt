@@ -15,9 +15,9 @@ Joakim:
 3. 
 
 Chelsea:
-1. 
-2. 
-3. 
+1. undid the routing work for adding the ingredeints because its supposed to be done inside angular
+2. created a sidebar.service.ts and working on api calls
+3. learning api calls for db
 
 Brian:
 1. Project for another class needed more attention

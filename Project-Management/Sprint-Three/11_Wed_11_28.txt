@@ -15,9 +15,10 @@ Joakim:
 3. nothing
 
 Chelsea:
-1. 
-2. 
-3. 
+1. commited code for api url http requests w CRUD ops for the user + working on testing
+that the ingredients actually assign to the correct user in mongo
+2. Continue working on that and utilize the localstorage to pull the userid
+3. mongodb queries have been annoying to work w pulling all registered users in the db
 
 Brian:
 1. messing with css for Angular Material gridList
