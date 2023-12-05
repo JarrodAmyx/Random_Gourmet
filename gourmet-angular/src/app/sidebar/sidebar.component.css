@@ -340,26 +340,20 @@ input {
 /* Media Query for Small Screens */
 @media (max-width: 576px) {
   .sidebar {
-    display: none;
-  }
-
-  .open-sidebar-button {
-    display: block;
-  }
-
-  .sidebar.open {
-    display: block;
-    transition: transform 0.3s;
-    transform: translateX(0);
-  }
-
-  .sidebar {
     position: fixed;
     top: 0;
-    left: -250px;
+    left: 0; /* Adjust this value if you want the sidebar initially hidden */
     width: 250px;
     height: 100%;
     padding: 10px;
+    transition: left 0.3s; /* Add transition property for smooth animation */
+  }
+
+  /* Use the 'open' class to control the sidebar visibility */
+  .sidebar.open {
+    left: 0;
+    width: 100%; /* Make the sidebar take up the whole screen */
+    transition: left 0.3s;
   }
 
   .open-sidebar-button {
@@ -374,5 +368,7 @@ input {
     border-radius: 50%;
     border: none;
     font-size: 1.2em;
+    display: block;
+    z-index: 999;
   }
 }

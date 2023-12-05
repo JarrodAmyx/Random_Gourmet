@@ -38,10 +38,6 @@ export class HomeComponent {
     this.isMobile = window.innerWidth <= 576; // Adjust the breakpoint as needed
   }
 
-  toggleSidebar() {
-    console.log('Button clicked');
-  }
-
   toggleSearch ($event:any){
     console.log(Object.keys(this.sidebar.subcategoryStates));
 

@@ -1,19 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="content" role="main">
+      <!-- Include the SidebarComponent within your content -->
+      <app-sidebar></app-sidebar>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-<html>
-  <div class="content" role="main">
-    <!-- Button to open/close the sidebar on small screens -->
-    <button class="open-sidebar-button" (click)="toggleSidebar()" *ngIf="isMobile">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Include the SidebarComponent within your content -->
-    <app-sidebar></app-sidebar>
-
-    <!-- All main content goes here -->
-    <app-recipe (invokeParent)="toggleSearch($event)"></app-recipe>
-    <!-- testing for the recipe cards and its list
+      <!-- All main content goes here -->
+      <app-recipe (invokeParent)="toggleSearch($event)"></app-recipe>
+      <!-- testing for the recipe cards and its list
       <app-recipecard-list [dataset]="recipeTest"></app-recipecard-list>
-    <app-recipecard></app-recipecard>-->
-  </div>
+      <app-recipecard></app-recipecard>-->
+    </div>
+  </body>
 </html>
