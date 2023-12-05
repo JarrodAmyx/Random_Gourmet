@@ -28,4 +28,4 @@ Brian:
 Ryan:
 1. Implemented and connected some backends. Mainly recipe search functions.
 2. Work more on frontend/backend connection. Fully completed search functions.
-3. 
+3. Learned that passing parameters to backend can be tricky. Otherwise no blockers

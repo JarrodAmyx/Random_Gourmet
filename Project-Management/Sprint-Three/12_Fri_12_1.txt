@@ -27,4 +27,4 @@ Brian:
 Ryan:
 1. Adding favorites functionality on backend/frontend. Implemented marking and unmarking recipes from favorites, implemented a way to search through favorited recipes.
 2. Implemented a way to mark all the favorited recipes when loading search results. Will continue to patch backened and connect them to front end over the weekend.
-3. 
+3. No blockers

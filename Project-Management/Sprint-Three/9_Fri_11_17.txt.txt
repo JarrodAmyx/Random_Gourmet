@@ -25,6 +25,6 @@ Brian:
 3. A lot of personal stuff are popping up recently so need to handle that
 
 Ryan:
-1. 
-2. 
-3. 
+1. More class assignments
+2. Played around with backend calls
+3. Struggling to get backend calls to work

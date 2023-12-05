@@ -27,4 +27,4 @@ Brian:
 Ryan:
 1. Worked on other classes projects and assignments.
 2. Looking more into backend implementation
-3. 
+3. No blockers
