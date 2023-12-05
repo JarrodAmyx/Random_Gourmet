@@ -5,9 +5,9 @@
 ---
 
 Jarrod:
-1. 
-2. 
-3. 
+1. Last time I helped bug fix login and registration
+2. This time I will add more backend connection to Database.
+3. No blockers
 
 Joakim:
 1. Studied for my Mobile App Dev midterm
