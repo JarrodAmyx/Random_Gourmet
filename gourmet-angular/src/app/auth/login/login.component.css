@@ -27,7 +27,6 @@
 }
 
 .bottom-text-button {
-  justify-content: center;
   position: absolute;
   bottom: 20px;
   background: none;
@@ -59,9 +58,5 @@
     justify-content: center; /* Center the content both horizontally and vertically */
     text-align: center; /* Center the content horizontally */
     background-image: linear-gradient(#EBA937, #FFE2AF);
-  }
-
-  .login-form-wrapper {
-    width: 100%; /* Set full width for smaller screens */
   }
 }
