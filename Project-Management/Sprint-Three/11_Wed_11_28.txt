@@ -25,6 +25,6 @@ Brian:
 3. mobile app dev project requires more attention than first thought
 
 Ryan:
-1. 
-2. 
+1. Implemented and connected some backends. Mainly recipe search functions.
+2. Work more on frontend/backend connection. Fully completed search functions.
 3. 
