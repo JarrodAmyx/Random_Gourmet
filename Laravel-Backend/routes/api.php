@@ -70,11 +70,13 @@ Route::post('/recipe-search', [Recipes::class, 'search']);
 Route::get('/user-recipe-create', [UserRecipes::class, 'create']);
 Route::get('/user-recipe-read', [UserRecipes::class, 'read']);
 Route::get('/user-recipe-update', [UserRecipes::class, 'update']);
+Route::get('/user-recipe-search', [UserRecipes::class, 'search']);
 Route::get('/user-recipe-destroy', [UserRecipes::class, 'destroy']);
 
 Route::post('/user-recipe-create', [UserRecipes::class, 'create']);
 Route::post('/user-recipe-read', [UserRecipes::class, 'read']);
 Route::post('/user-recipe-update', [UserRecipes::class, 'update']);
+Route::post('/user-recipe-search', [UserRecipes::class, 'search']);
 Route::post('/user-recipe-destroy', [UserRecipes::class, 'destroy']);
 
 
@@ -93,4 +95,7 @@ Route::get('/data', [ApiController::class, 'getData']);
 Route::get('/allIngredients', [ApiController::class, 'getAllIngredients']);
 Route::get('/allUsers', [ApiController::class, 'getAllUsers']);
 Route::get('/allRecipes', [ApiController::class, 'getAllRecipes']);
+
+Route::get('/allUserRecipes', [ApiController::class, 'getAllUserRecipes']);
+Route::get('/allUserIngredients', [ApiController::class, 'getAllUserIngredients']);
 Route::get('/getAPIRecipies', [ApiController::class, 'getAPIRecipies']);

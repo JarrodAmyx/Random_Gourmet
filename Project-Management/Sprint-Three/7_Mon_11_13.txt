@@ -20,9 +20,9 @@ Chelsea:
 3. no blockers
 
 Brian:
-1. 
-2. 
-3. 
+1. Studying for another class's material
+2. Researching ways to fix Angular Material GridList
+3. A lot of outdated material and other classes
 
 Ryan:
 1. 
