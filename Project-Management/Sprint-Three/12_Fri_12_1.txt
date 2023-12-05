@@ -10,9 +10,9 @@ Jarrod:
 3. 
 
 Joakim:
-1. 
-2. 
-3. 
+1. Worked on saved recipes component
+2. Responsiveness and minor tweaks getting ready for presentation
+3. Projects for other classes are taking up a lot of my time.
 
 Chelsea:
 1. undid the routing work for adding the ingredeints because its supposed to be done inside angular
