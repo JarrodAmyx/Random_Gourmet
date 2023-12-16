@@ -39,7 +39,7 @@ class Users extends Controller
         if( !$user and !empty( $userEmail ) and !empty( $providedPassword ) )
         {
             $data = [
-                'userId' => '1',
+                'userId' => (string)( ( DB::connection('mongodb')->collection('users')->count() ) + 1 ),
                 'email' => $userEmail,
                 'name' => $userEmail,
                 'password' => Hash::make($providedPassword),
