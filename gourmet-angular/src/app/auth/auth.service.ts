@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://54.183.139.183'; // Replace with your backend API URL
+  private baseUrl = 'http://54.219.188.165'; // Replace with your backend API URL
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(

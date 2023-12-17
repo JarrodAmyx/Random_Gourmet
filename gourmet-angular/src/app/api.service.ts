@@ -8,6 +8,6 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getData() {
-    return this.http.get('http://54.183.139.183/api/data');
+    return this.http.get('http://54.219.188.165/api/data');
   }
 }

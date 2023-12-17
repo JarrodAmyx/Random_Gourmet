@@ -28,7 +28,7 @@ export class PantryComponent implements OnInit {
 
   ngOnInit() {
     // Make an HTTP GET request to fetch data from your MongoDB database
-    this.http.get<any[]>('http://54.183.139.183/api/allIngredients').subscribe(data => {
+    this.http.get<any[]>('http://54.219.188.165/api/allIngredients').subscribe(data => {
       this.pantryItems = data;
       this.categorizePantryItems();
     });
@@ -66,7 +66,7 @@ export class PantryComponent implements OnInit {
       userId: this.token
     };
 
-    this.http.get(`http://54.183.139.183/api/user-ingredient-create`, { params }).subscribe(
+    this.http.get(`http://54.219.188.165/api/user-ingredient-create`, { params }).subscribe(
       (response: any) => {
         console.log(response);
         this.categorizePantryItems();
@@ -86,7 +86,7 @@ export class PantryComponent implements OnInit {
       userId: this.token
     };
 
-    this.http.get(`http://54.183.139.183/api/user-ingredient-destroy`, { params }).subscribe(
+    this.http.get(`http://54.219.188.165/api/user-ingredient-destroy`, { params }).subscribe(
       (response: any) => {
         console.log(response);
         this.categorizePantryItems();

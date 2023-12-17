@@ -17,7 +17,7 @@ export class RegistrationComponent {
   errorMessage: string = '';
 
   registerForm : FormGroup;
-  baseUrl = 'http://54.183.139.183';
+  baseUrl = 'http://54.219.188.165';
 
   constructor(
     private authService: AuthService,

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PantryService {
-  private apiUrl = 'http://54.183.139.183'; // Replace with your backend API URL
+  private apiUrl = 'http://54.219.188.165'; // Replace with your backend API URL
   private userId:string = localStorage.getItem('token')!;
   constructor(private http: HttpClient) {}
 
