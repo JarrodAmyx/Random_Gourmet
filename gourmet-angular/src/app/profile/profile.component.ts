@@ -13,7 +13,7 @@ import { ConstantPool } from '@angular/compiler';
 })
 
 export class ProfileComponent implements OnInit{
-  private baseUrl = 'http://54.183.139.183';
+  private baseUrl = 'http://54.219.188.165';
   username: string = 'TestUser124';
   email: string = 'test@email.com';
 

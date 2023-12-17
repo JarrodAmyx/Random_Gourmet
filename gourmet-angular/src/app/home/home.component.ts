@@ -15,7 +15,7 @@ export class HomeComponent {
   isMobile = false; // Flag to track whether the screen is considered as mobile
   loggedIn: boolean = false; // Flag to track user login status
 
-  private baseUrl = 'http://54.183.139.183'; // Base URL for API requests
+  private baseUrl = 'http://54.219.188.165'; // Base URL for API requests
   private token: string = localStorage.getItem('token')!; // Retrieve user token from local storage
 
   @ViewChild(SidebarComponent) sidebar: any; // Reference to the SidebarComponent

@@ -64,7 +64,7 @@ export class RecipecardDialog {
         recipeId: data.message
       }      
 
-      this.http.get(`http://54.183.139.183/api/recipe-read`, { params }).subscribe(
+      this.http.get(`http://54.219.188.165/api/recipe-read`, { params }).subscribe(
         (response: any) => {
           console.log(response);
           this.title = response.title;

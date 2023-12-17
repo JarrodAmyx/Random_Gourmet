@@ -39,7 +39,7 @@ export class SidebarComponent implements AfterViewInit{
   loggedIn: boolean = false;
   favToggle: boolean = false;
 
-  private baseUrl = 'http://54.183.139.183';
+  private baseUrl = 'http://54.219.188.165';
   private token: string = localStorage.getItem('token')!;
   
   searchResults: Result[] = [];
